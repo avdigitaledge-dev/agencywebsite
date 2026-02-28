@@ -1,0 +1,10 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Square Icon Version - For Favicon/Social Media -->
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="#000" rx="64"/>
+  
+  <!-- Large D Symbol -->
+  <path d="M 80 100 L 80 412 L 280 412 L 432 256 L 280 100 Z" fill="#fff" stroke="none"/>
+  <path d="M 140 180 L 140 332 L 260 332 L 372 256 L 260 180 Z" fill="#000" stroke="none"/>
+</svg>

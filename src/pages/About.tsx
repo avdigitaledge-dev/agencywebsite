@@ -1,0 +1,161 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Heart, Target, Users, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SEOMeta } from "@/components/SEOMeta";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import Layout from "@/components/Layout";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
+
+const About = () => {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Digital Edge Studio",
+    "description": "Web design and digital marketing agency for tradies and small businesses in Wollongong, Sydney & NSW",
+    "areaServed": ["Sydney", "Wollongong", "NSW"],
+    "url": "https://digitaledgestudio.com/about",
+    "foundingDate": "2020",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "enquiries@digitaledgestudio.com"
+    }
+  };
+
+  return (
+    <Layout>
+      <SEOMeta
+        title="About Digital Edge Studio | Web Design for Tradies & Small Businesses"
+        description="Meet Digital Edge Studio - your web design and digital marketing partner for tradies and small businesses in Sydney, Wollongong & NSW. Australian owned & operated."
+        keywords="web design agency wollongong, digital marketing agency sydney, small business web design"
+        ogTitle="About Digital Edge Studio"
+        ogDescription="Web design and digital marketing experts for tradies and small businesses. Australian owned and based in NSW."
+        orgSchema={aboutSchema}
+      />
+
+      <Breadcrumb items={[
+        { label: 'Home', path: '/' },
+        { label: 'About' }
+      ]} />
+      {/* Hero */}
+      <section className="gradient-hero">
+        <div className="container-tight px-4 py-16 md:py-24">
+          <motion.div className="max-w-3xl" {...fadeUp}>
+            <h1 className="heading-display text-primary-foreground mb-4">
+              About Digital Edge
+            </h1>
+            <p className="text-body-lg text-primary-foreground/75 max-w-2xl">
+              We're a small team of web designers and digital marketers passionate about helping Australian businesses grow online.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div {...fadeUp}>
+              <h2 className="heading-section text-foreground mb-6">
+                We Believe Every Local Business Deserves a Great Website
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Digital Edge was started with a simple idea: too many Australian small businesses are missing out on customers because their website doesn't work properly — or they don't have one at all.
+                </p>
+                <p>
+                  We've seen tradies, physiotherapists, plumbers, electricians, and dozens of other local businesses transform their lead generation by getting a website that actually works. Not a template. Not a DIY drag-and-drop site. A properly built, professionally designed website that ranks on Google and turns visitors into phone calls and enquiries.
+                </p>
+                <p>
+                  We're based in NSW and work with businesses across Sydney, Wollongong, and the surrounding areas. We understand the local market because we're part of it.
+                </p>
+              </div>
+            </motion.div>
+            <div className="bg-muted rounded-2xl p-8 flex items-center justify-center min-h-[350px]">
+              <div className="text-center space-y-6">
+                <Heart className="w-16 h-16 text-accent mx-auto" />
+                <p className="text-foreground font-semibold font-display text-lg">Proudly Australian Owned & Operated</p>
+                <p className="text-muted-foreground text-sm">Sydney, Wollongong & NSW</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <motion.div className="text-center mb-14" {...fadeUp}>
+            <h2 className="heading-section text-foreground mb-4">What We Stand For</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Target, title: "Results First", desc: "We measure success by the leads and customers we generate for your business, not just how a website looks." },
+              { icon: Users, title: "Honest Communication", desc: "No jargon, no upselling. We explain everything in plain English and only recommend what you actually need." },
+              { icon: Award, title: "Quality Work", desc: "We take pride in every project. Your website represents your business and we treat it with that level of care." },
+              { icon: Heart, title: "Long-Term Partnerships", desc: "We don't disappear after launch. We're here for the long haul, helping your business grow month after month." },
+            ].map((v) => (
+              <div key={v.title} className="bg-card rounded-xl p-6 border border-border shadow-card text-center">
+                <div className="w-12 h-12 rounded-lg gradient-cta flex items-center justify-center mx-auto mb-4">
+                  <v.icon className="w-6 h-6 text-accent-foreground" />
+                </div>
+                <h3 className="font-bold text-foreground font-display mb-2">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Systems */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <motion.div className="text-center mb-14" {...fadeUp}>
+            <h2 className="heading-section text-foreground mb-4">Online Booking Systems for Service Businesses</h2>
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              We build custom booking systems that let your customers book appointments online — 24/7, even when you're busy working.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Barber Shops", desc: "Let clients pick their barber, choose a service, and book a time slot — all from their phone. Reduce no-shows with automated reminders." },
+              { title: "Beauty Salons", desc: "Online booking for hair, nails, facials, and more. Clients can see availability in real-time and book instantly without calling." },
+              { title: "Massage Parlours", desc: "Allow customers to choose their therapist, massage type, and preferred time. Integrated with your calendar so you never double-book." },
+              { title: "Physiotherapists", desc: "Streamline patient bookings with online scheduling. Includes intake forms, appointment reminders, and rebooking options." },
+              { title: "Personal Trainers", desc: "Clients can book sessions, view your availability, and manage their fitness schedule online. Perfect for solo trainers and studios." },
+              { title: "Day Spas & Wellness", desc: "Multi-service booking for spa packages, treatments, and group bookings. Upsell add-on services during the booking flow." },
+            ].map((item) => (
+              <div key={item.title} className="bg-card rounded-xl p-6 border border-border shadow-card">
+                <h3 className="font-bold text-foreground font-display mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="gradient-hero">
+        <div className="container-tight px-4 py-20 text-center">
+          <h2 className="heading-section text-primary-foreground mb-4">Let's Have a Chat</h2>
+          <p className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
+            Whether you're ready to get started or just exploring your options, we'd love to hear from you.
+          </p>
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/contact">Get in Touch <ArrowRight className="w-5 h-5 ml-1" /></Link>
+          </Button>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default About;
