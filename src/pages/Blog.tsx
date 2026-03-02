@@ -124,7 +124,7 @@ const Blog = () => {
 
                       {/* Excerpt */}
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 line-clamp-2">
-                        {post.excerpt.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*\*/g, '').replace(/###/g, '').replace(/`/g, '').replace(/~/g, '')}
+                        {post.excerpt}
                       </p>
 
                       {/* Footer */}

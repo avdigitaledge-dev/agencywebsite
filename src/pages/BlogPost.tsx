@@ -109,7 +109,7 @@ const BlogPost = () => {
           </div>
 
           <p className="text-body-lg text-muted-foreground italic py-8">
-            {post.excerpt.replace(/\*\*/g, '').replace(/###/g, '')}
+            {post.excerpt}
           </p>
         </div>
       </section>
@@ -124,32 +124,20 @@ const BlogPost = () => {
             transition={{ duration: 0.6 }}
           >
             {post.content.split('\n\n').map((paragraph, index) => {
-              if (paragraph.startsWith('##')) {
-                const title = paragraph.replace(/^##\s*/, '');
+              if (!paragraph.trim()) return null;
+              
+              if (index === 0) {
+                // First paragraph is treated as a heading
                 return (
                   <h2 key={index} className="heading-section text-foreground mt-8 mb-4">
-                    {title}
+                    {paragraph}
                   </h2>
-                );
-              } else if (paragraph.startsWith('###')) {
-                const title = paragraph.replace(/^###\s*/, '');
-                return (
-                  <h3 key={index} className="heading-card text-foreground mt-6 mb-3">
-                    {title}
-                  </h3>
-                );
-              } else if (paragraph.startsWith('#### ')) {
-                const title = paragraph.replace(/^####\s*/, '');
-                return (
-                  <h4 key={index} className="font-semibold text-foreground mt-4 mb-2">
-                    {title}
-                  </h4>
                 );
               } else if (paragraph.startsWith('- ')) {
                 return (
                   <ul key={index} className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
                     {paragraph.split('\n').filter(line => line.startsWith('- ')).map((item, i) => (
-                      <li key={i}>{item.replace(/^-\s*/, '').replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*\*/g, '').replace(/###/g, '')}</li>
+                      <li key={i}>{item.replace(/^-\s*/, '')}</li>
                     ))}
                   </ul>
                 );
@@ -157,13 +145,13 @@ const BlogPost = () => {
                 return (
                   <ol key={index} className="list-decimal list-inside space-y-2 text-muted-foreground leading-relaxed">
                     {paragraph.split('\n').filter(line => line.match(/^\d+\./)).map((item, i) => (
-                      <li key={i}>{item.replace(/^\d+\.\s*/, '').replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*\*/g, '').replace(/###/g, '')}</li>
+                      <li key={i}>{item.replace(/^\d+\.\s*/, '')}</li>
                     ))}
                   </ol>
                 );
               } else {
                 return (
-                  <p key={index} className="text-muted-foreground leading-relaxed">{paragraph.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*\*/g, '').replace(/###/g, '').replace(/`/g, '').replace(/~/g, '')}</p>
+                  <p key={index} className="text-muted-foreground leading-relaxed">{paragraph}</p>
                 );
               }
             })}
