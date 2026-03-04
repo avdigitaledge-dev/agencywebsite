@@ -13,6 +13,55 @@ const fadeUp = {
 };
 
 const Pricing = () => {
+  const pricingSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design & Digital Marketing Pricing",
+    "url": "https://digitaledgestudio.com/pricing",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Starter Website",
+        "description": "Up to 5 pages, mobile responsive design, contact form, basic on-page SEO setup, Google Analytics setup, 2 rounds of revisions.",
+        "price": "800",
+        "priceCurrency": "AUD",
+        "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Business Website",
+        "description": "Up to 10 pages, conversion-focused design, on-page SEO for all pages, Google Analytics & Search Console, blog section, social media integration, 3 rounds of revisions, priority support during build.",
+        "price": "1700",
+        "priceCurrency": "AUD",
+        "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Website Maintenance",
+        "description": "Security updates & patches, daily backups, uptime monitoring, minor content updates, performance optimisation, email & phone support.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "99",
+          "priceCurrency": "AUD",
+          "unitCode": "MON"
+        },
+        "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Local SEO",
+        "description": "Google Business Profile management, local keyword targeting, on-page SEO optimisation, citation building, monthly performance reports, ongoing strategy adjustments.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "400",
+          "priceCurrency": "AUD",
+          "unitCode": "MON"
+        },
+        "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
+      }
+    ]
+  };
+
   return (
     <Layout>
       <SEOMeta
@@ -21,6 +70,7 @@ const Pricing = () => {
         keywords="web design pricing, seo pricing wollongong, digital marketing rates"
         ogTitle="Pricing | Digital Edge Studio"
         ogDescription="Honest, transparent pricing for web design and digital marketing services. See our packages and rates."
+        serviceSchema={pricingSchema}
       />
 
       <Breadcrumb items={[

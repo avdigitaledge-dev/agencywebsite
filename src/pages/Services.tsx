@@ -30,6 +30,43 @@ const Services = () => {
     "areaServed": ["Sydney", "Wollongong", "NSW"]
   };
 
+  const servicesFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the difference between your web design and other options?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We build custom websites specifically designed to convert visitors into leads and customers. Unlike templates or DIY solutions, our sites are fast, mobile-optimized, SEO-friendly, and include everything you need to succeed online. We don't just build it and disappear — we're here for ongoing support." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Typical website projects take 4-8 weeks depending on complexity and your location (Sydney, Wollongong, or NSW). We work with you throughout the process to ensure everything is perfect before launch." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer services for tradies specifically?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! We specialize in web design for tradies including plumbers, electricians, builders, cleaners, and contractors. We understand your business model and create websites that attract local customers and qualified leads." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in your web design packages?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our packages include custom design, mobile responsiveness, fast loading, SEO setup, contact forms, Google Analytics integration, and ongoing support. See our pricing page for complete details." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help with local SEO for my Wollongong business?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We specialize in local SEO for Wollongong, Sydney, and throughout NSW. We optimize your Google Business Profile, target local keywords, and help you rank higher in local search results." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you manage Google Ads campaigns?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! We manage Google Ads with transparent pricing: 15% of your ad spend with a minimum $250/month management fee. No lock-in contracts, no hidden fees. You only pay for results." }
+      }
+    ]
+  };
+
   const servicesFAQ = [
     {
       question: "What's the difference between your web design and other options?",
@@ -66,6 +103,7 @@ const Services = () => {
         ogTitle="Web Design & Digital Marketing Services for Tradies"
         ogDescription="Professional web design, local SEO, and digital marketing services tailored for tradies and small businesses in Wollongong and Sydney."
         orgSchema={serviceSchema}
+        faqSchema={servicesFaqSchema}
       />
       
       <Breadcrumb items={[

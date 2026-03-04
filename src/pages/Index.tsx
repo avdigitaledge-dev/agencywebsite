@@ -34,7 +34,34 @@ const Index = () => {
       }
     ],
     "priceRange": "$$",
-    "serviceType": ["Web Design", "Digital Marketing", "Local SEO"]
+    "serviceType": ["Web Design", "Digital Marketing", "Local SEO"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "James T." },
+        "reviewBody": "Since Digital Edge rebuilt our website, we've had a 60% increase in phone calls from Google. Best investment we've made."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Sarah M." },
+        "reviewBody": "They made the whole process easy and stress-free. Our new website looks incredible and we're getting more bookings than ever."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Mark L." },
+        "reviewBody": "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area."
+      }
+    ]
   };
 
   return (

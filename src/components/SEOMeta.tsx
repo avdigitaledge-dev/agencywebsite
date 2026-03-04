@@ -9,6 +9,7 @@ interface SEOMetaProps {
   ogImage?: string;
   orgSchema?: Record<string, any>;
   serviceSchema?: Record<string, any>;
+  faqSchema?: Record<string, any>;
 }
 
 export const SEOMeta = ({
@@ -19,7 +20,8 @@ export const SEOMeta = ({
   ogDescription,
   ogImage,
   orgSchema,
-  serviceSchema
+  serviceSchema,
+  faqSchema
 }: SEOMetaProps) => {
   useEffect(() => {
     // Update basic meta tags
@@ -93,7 +95,15 @@ export const SEOMeta = ({
       script.innerHTML = JSON.stringify(serviceSchema);
       document.head.appendChild(script);
     }
-  }, [title, description, keywords, ogTitle, ogDescription, ogImage, orgSchema, serviceSchema]);
+
+    if (faqSchema) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-schema', 'true');
+      script.innerHTML = JSON.stringify(faqSchema);
+      document.head.appendChild(script);
+    }
+  }, [title, description, keywords, ogTitle, ogDescription, ogImage, orgSchema, serviceSchema, faqSchema]);
 
   return null;
 };
