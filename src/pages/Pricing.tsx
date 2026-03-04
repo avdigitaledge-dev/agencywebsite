@@ -65,11 +65,11 @@ const Pricing = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Web Design & Digital Marketing Pricing | Digital Edge Studio"
-        description="Transparent pricing for web design, digital marketing, and SEO services for tradies and small businesses. No hidden fees or lock-in contracts."
-        keywords="web design pricing, seo pricing wollongong, digital marketing rates"
-        ogTitle="Pricing | Digital Edge Studio"
-        ogDescription="Honest, transparent pricing for web design and digital marketing services. See our packages and rates."
+        title="Affordable Web Design Pricing Wollongong | Packages & Cost"
+        description="Transparent web design pricing in Wollongong. Packages from $800 — no hidden fees, no lock-in contracts. Find out how much a website costs in Wollongong."
+        keywords="web design pricing, affordable web design wollongong, wollongong web design packages pricing, how much does a website cost in wollongong, website redesign service wollongong, seo pricing wollongong, digital marketing rates"
+        ogTitle="Affordable Web Design Pricing Wollongong | Packages & Cost"
+        ogDescription="Transparent pricing for web design and digital marketing in Wollongong. From $800 for a starter website — no hidden fees."
         serviceSchema={pricingSchema}
       />
 

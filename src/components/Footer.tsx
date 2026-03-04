@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="gradient-hero text-primary-foreground">
       <div className="container-tight px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="space-y-4">
             <img src={logoWhite} alt="Digital Edge" className="h-10 w-auto" />
@@ -23,6 +23,18 @@ const Footer = () => {
               <Link to="/services" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Local SEO</Link>
               <Link to="/services" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Website Maintenance & Hosting</Link>
               <Link to="/pricing" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Pricing</Link>
+            </nav>
+          </div>
+
+          {/* Locations */}
+          <div className="space-y-4">
+            <h4 className="font-semibold font-display">Locations</h4>
+            <nav className="flex flex-col gap-2">
+              <Link to="/web-design-wollongong" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Wollongong</Link>
+              <Link to="/web-design-sydney" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Sydney</Link>
+              <Link to="/web-design-illawarra" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Illawarra</Link>
+              <Link to="/web-design-tradies" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design for Tradies</Link>
+              <Link to="/web-design-healthcare" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Healthcare Web Design</Link>
             </nav>
           </div>
 

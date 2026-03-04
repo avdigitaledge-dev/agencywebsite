@@ -115,11 +115,11 @@ const Contact = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Contact Digital Edge Studio | Web Design & Digital Marketing Wollongong"
-        description="Get a free web design and digital marketing consultation for your tradie business in Wollongong, Sydney & NSW. Contact Digital Edge Studio today."
-        keywords="contact web designer wollongong, digital marketing consultation, free website quote"
-        ogTitle="Contact Digital Edge Studio"
-        ogDescription="Free consultation for web design and digital marketing in Wollongong, Sydney & NSW. Get your free quote today."
+        title="Contact Web Designer Wollongong | Free Quote | Digital Edge Studio"
+        description="Get a free quote from your local web designer in Wollongong. Digital Edge Studio specialises in web design and digital marketing for small businesses across Wollongong, Sydney & NSW."
+        keywords="contact web designer wollongong, web designer near me wollongong, hire a web designer in wollongong, digital marketing consultation, free website quote, web design near me wollongong"
+        ogTitle="Contact Web Designer Wollongong | Free Quote"
+        ogDescription="Get a free web design consultation in Wollongong. Contact Digital Edge Studio for a no-obligation quote."
         orgSchema={contactSchema}
         faqSchema={contactFaqSchema}
       />

@@ -60,4 +60,62 @@
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
+  <!-- Location Pages -->
+  <url>
+    <loc>https://digitaledgestudio.com/web-design-wollongong</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/web-design-illawarra</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/web-design-sydney</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- Industry Pages -->
+  <url>
+    <loc>https://digitaledgestudio.com/web-design-tradies</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/web-design-healthcare</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- New Blog Posts -->
+  <url>
+    <loc>https://digitaledgestudio.com/blog/website-cost-wollongong-2025</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/blog/local-seo-wollongong-guide</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/blog/shopify-vs-wordpress-australia</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/blog/google-business-profile-optimisation</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/blog/web-design-tradies-guide</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://digitaledgestudio.com/blog/hidden-costs-cheap-web-design</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

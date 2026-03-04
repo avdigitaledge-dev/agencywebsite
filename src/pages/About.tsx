@@ -31,11 +31,11 @@ const About = () => {
   return (
     <Layout>
       <SEOMeta
-        title="About Digital Edge Studio | Web Design for Tradies & Small Businesses"
-        description="Meet Digital Edge Studio - your web design and digital marketing partner for tradies and small businesses in Sydney, Wollongong & NSW. Australian owned & operated."
-        keywords="web design agency wollongong, digital marketing agency sydney, small business web design"
-        ogTitle="About Digital Edge Studio"
-        ogDescription="Web design and digital marketing experts for tradies and small businesses. Australian owned and based in NSW."
+        title="About | Web Design Agency Wollongong | Digital Edge Studio"
+        description="Digital Edge Studio is a web design agency in Wollongong specialising in websites and digital marketing for tradies and small businesses. Australian owned & operated."
+        keywords="web design agency wollongong, best web design agencies wollongong, digital marketing agency wollongong, website designer wollongong, small business web design"
+        ogTitle="About Digital Edge Studio | Web Design Agency Wollongong"
+        ogDescription="Wollongong web design agency specialising in tradies and small businesses. Australian owned and based in NSW."
         orgSchema={aboutSchema}
       />
 

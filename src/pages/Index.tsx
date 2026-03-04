@@ -67,11 +67,11 @@ const Index = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Web Design for Tradies | Wollongong & Sydney | Digital Edge Studio"
-        description="Expert web design and digital marketing for tradies and small businesses. Get more leads and customers with a website that works. Services in Sydney, Wollongong & NSW."
-        keywords="web design wollongong, web design for tradies, digital marketing for small businesses, web design sydney, local seo"
-        ogTitle="Web Design for Tradies | Wollongong & Sydney"
-        ogDescription="Professional web design and digital marketing for tradies and small businesses across Sydney, Wollongong & NSW."
+        title="Web Design Wollongong | Website Designer | Digital Edge Studio"
+        description="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses. Get more leads with a website that ranks on Google."
+        keywords="web design wollongong, website designer wollongong, web development wollongong, digital marketing agency wollongong, wollongong web designer near me, seo services wollongong, affordable web design wollongong, web design for tradies, web design sydney, local seo wollongong"
+        ogTitle="Web Design Wollongong | Website Designer | Digital Edge Studio"
+        ogDescription="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses across NSW."
         orgSchema={organizationSchema}
       />
       {/* Hero */}
@@ -256,6 +256,36 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">{t.biz}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas We Serve */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <motion.div className="text-center mb-10" {...fadeUp}>
+            <h2 className="heading-section text-foreground mb-4">Areas We Serve</h2>
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Based in NSW, we build websites and run digital marketing for businesses across the Illawarra region, Wollongong, Sydney, and beyond.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { label: "Web Design Wollongong", path: "/web-design-wollongong" },
+              { label: "Web Design Sydney", path: "/web-design-sydney" },
+              { label: "Web Design Illawarra", path: "/web-design-illawarra" },
+              { label: "Web Design for Tradies", path: "/web-design-tradies" },
+              { label: "Healthcare Web Design", path: "/web-design-healthcare" },
+            ].map((area) => (
+              <Link
+                key={area.path}
+                to={area.path}
+                className="flex items-center justify-center gap-2 p-4 bg-card rounded-xl border border-border text-sm font-medium text-foreground hover:border-accent hover:text-accent transition-colors text-center"
+              >
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                {area.label}
+              </Link>
             ))}
           </div>
         </div>

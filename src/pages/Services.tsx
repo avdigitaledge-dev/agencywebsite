@@ -97,11 +97,11 @@ const Services = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Web Design & Digital Marketing Services for Tradies | Wollongong & Sydney"
-        description="Custom web design, local SEO, and digital marketing for tradies and small businesses. Get more leads and customers with services from Digital Edge Studio."
-        keywords="web design for tradies, digital marketing for small businesses, local seo wollongong, web design services, google ads management"
-        ogTitle="Web Design & Digital Marketing Services for Tradies"
-        ogDescription="Professional web design, local SEO, and digital marketing services tailored for tradies and small businesses in Wollongong and Sydney."
+        title="Web Design & SEO Services Wollongong | Digital Edge Studio"
+        description="Custom web design, local SEO, Google Ads management and digital marketing for tradies and small businesses in Wollongong and Sydney. Get more leads today."
+        keywords="web design for tradies, seo services wollongong, local seo wollongong, seo agency wollongong, google ads management wollongong, digital marketing agency wollongong, website maintenance wollongong, web design services wollongong"
+        ogTitle="Web Design & SEO Services Wollongong | Digital Edge Studio"
+        ogDescription="Professional web design, local SEO, and digital marketing services for tradies and small businesses in Wollongong and Sydney."
         orgSchema={serviceSchema}
         faqSchema={servicesFaqSchema}
       />

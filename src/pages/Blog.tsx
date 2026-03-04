@@ -32,11 +32,11 @@ const Blog = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Blog | Web Design & Digital Marketing Tips for Tradies"
-        description="Read expert tips on web design, digital marketing, SEO, and lead generation strategies for tradies and small businesses in Wollongong & Sydney."
-        keywords="blog, web design tips, digital marketing, seo, tradie marketing, small business"
-        ogTitle="Digital Edge Studio Blog"
-        ogDescription="Expert advice on web design, digital marketing, and SEO for tradies and small businesses"
+        title="Web Design & SEO Blog for Wollongong Small Businesses | Digital Edge"
+        description="Expert web design, local SEO, and digital marketing tips for tradies and small businesses in Wollongong and Sydney. Read our guides to grow your business online."
+        keywords="web design tips wollongong, local seo wollongong, seo tips small business, digital marketing wollongong, how to improve website seo australia, tradie marketing"
+        ogTitle="Web Design & SEO Blog | Digital Edge Studio"
+        ogDescription="Expert tips on web design, local SEO, and digital marketing for Wollongong small businesses and tradies."
       />
 
       <Breadcrumb items={breadcrumbItems} />
