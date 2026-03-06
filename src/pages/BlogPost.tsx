@@ -19,6 +19,9 @@ const BlogPost = () => {
   const postIndex = blogPosts.findIndex(p => p.slug === slug);
   const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
   const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
+  const relatedPosts = post
+    ? blogPosts.filter(p => p.slug !== slug && p.category === post.category).slice(0, 3)
+    : [];
 
   if (!post) {
     return (
@@ -59,9 +62,12 @@ const BlogPost = () => {
         title={`${post.title} | Digital Edge Studio Blog`}
         description={post.metaDescription}
         keywords={post.keywords.join(", ")}
+        canonical={`https://digitaledgestudio.com/blog/${post.slug}`}
         ogTitle={post.title}
         ogDescription={post.excerpt}
         ogImage={post.image}
+        ogType="article"
+        articlePublishedTime={post.date}
       />
 
       <Breadcrumb items={breadcrumbItems} />
@@ -208,6 +214,39 @@ const BlogPost = () => {
           </div>
         </div>
       </section>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+          <div className="container-tight">
+            <h2 className="heading-section text-foreground mb-8">Related Articles</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {relatedPosts.map((related) => (
+                <Link key={related.slug} to={`/blog/${related.slug}`} className="group">
+                  <div className="bg-card rounded-xl border border-border overflow-hidden hover:border-accent transition-colors h-full flex flex-col">
+                    {related.image && (
+                      <img
+                        src={related.image}
+                        alt={related.title}
+                        className="w-full h-40 object-cover"
+                        loading="lazy"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    )}
+                    <div className="p-5 flex flex-col flex-1">
+                      <span className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">{related.category}</span>
+                      <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors leading-snug flex-1">
+                        {related.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-3">{related.readTime} min read</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="gradient-hero">

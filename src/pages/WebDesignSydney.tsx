@@ -85,6 +85,7 @@ const WebDesignSydney = () => {
         title="Web Design Sydney | Affordable Website Designer | Digital Edge Studio"
         description="Professional web design for Sydney businesses. Custom websites, local SEO, and Google Ads for small businesses and tradies across Sydney, Western Sydney & Sutherland Shire."
         keywords="web design sydney, website designer sydney, web design agency sydney, affordable web design sydney, small business website design sydney, website design western sydney, web design sutherland shire, local seo sydney, ecommerce website designer sydney"
+        canonical="https://digitaledgestudio.com/web-design-sydney"
         ogTitle="Web Design Sydney | Digital Edge Studio"
         ogDescription="Professional, affordable web design for Sydney businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies across Sydney NSW."
         orgSchema={localBusinessSchema}

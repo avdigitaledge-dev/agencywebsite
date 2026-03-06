@@ -4,6 +4,7 @@ import { ArrowRight, Heart, Target, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { FAQ } from "@/components/FAQ";
 import Layout from "@/components/Layout";
 
 const fadeUp = {
@@ -13,6 +14,29 @@ const fadeUp = {
 };
 
 const About = () => {
+  const aboutFAQ = [
+    {
+      question: "Where is Digital Edge Studio based?",
+      answer: "We're based in NSW, Australia, and serve businesses across Wollongong, Sydney, the Illawarra region, and beyond. We work remotely with clients across all states."
+    },
+    {
+      question: "What types of businesses do you work with?",
+      answer: "We specialise in tradies and service businesses — plumbers, electricians, builders, cleaners, landscapers — as well as healthcare providers, hospitality, retail, and any local small business that wants to grow online."
+    },
+    {
+      question: "How long have you been in business?",
+      answer: "Digital Edge Studio has been building websites and running digital marketing campaigns for Australian small businesses since 2020. We've delivered over 100 websites across a wide range of industries."
+    },
+    {
+      question: "Do you offer ongoing support after my website launches?",
+      answer: "Yes — we offer ongoing maintenance plans from $99/month covering security, backups, updates, and minor content changes. We're also available by email for any questions after launch."
+    },
+    {
+      question: "Why should I choose Digital Edge over a larger agency?",
+      answer: "With us, you deal directly with the people doing the work — no account managers or overseas handoffs. We're small enough to care deeply about every project and experienced enough to deliver real results."
+    }
+  ];
+
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -34,6 +58,7 @@ const About = () => {
         title="About | Web Design Agency Wollongong | Digital Edge Studio"
         description="Digital Edge Studio is a web design agency in Wollongong specialising in websites and digital marketing for tradies and small businesses. Australian owned & operated."
         keywords="web design agency wollongong, best web design agencies wollongong, digital marketing agency wollongong, website designer wollongong, small business web design"
+        canonical="https://digitaledgestudio.com/about"
         ogTitle="About Digital Edge Studio | Web Design Agency Wollongong"
         ogDescription="Wollongong web design agency specialising in tradies and small businesses. Australian owned and based in NSW."
         orgSchema={aboutSchema}
@@ -77,12 +102,13 @@ const About = () => {
                 </p>
               </div>
             </motion.div>
-            <div className="bg-muted rounded-2xl p-8 flex items-center justify-center min-h-[350px]">
-              <div className="text-center space-y-6">
-                <Heart className="w-16 h-16 text-accent mx-auto" />
-                <p className="text-foreground font-semibold font-display text-lg">Proudly Australian Owned & Operated</p>
-                <p className="text-muted-foreground text-sm">Sydney, Wollongong & NSW</p>
-              </div>
+            <div className="rounded-2xl overflow-hidden min-h-[350px]">
+              <img
+                src="/images/blog/about-page-pic.jpg"
+                alt="Digital Edge Studio team working on web design"
+                className="w-full h-full object-cover min-h-[350px]"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -141,6 +167,11 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <FAQ
+        faqs={aboutFAQ}
+        title="About Digital Edge Studio — Frequently Asked Questions"
+      />
 
       {/* CTA */}
       <section className="gradient-hero">

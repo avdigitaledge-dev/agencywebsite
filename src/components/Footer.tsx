@@ -49,10 +49,10 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contact / NAP */}
           <div className="space-y-4">
             <h4 className="font-semibold font-display">Get in Touch</h4>
-            <div className="flex flex-col gap-3 text-sm text-primary-foreground/70">
+            <address className="not-italic flex flex-col gap-3 text-sm text-primary-foreground/70">
               <Link to="/contact" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
                 <Calendar className="w-4 h-4 shrink-0" />
                 Book a Consultation
@@ -63,9 +63,12 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                Sydney, Wollongong & NSW
+                <span>
+                  <span className="block font-medium text-primary-foreground/80">Digital Edge Studio</span>
+                  Wollongong, NSW, Australia
+                </span>
               </div>
-            </div>
+            </address>
           </div>
         </div>
 

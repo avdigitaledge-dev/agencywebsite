@@ -84,6 +84,7 @@ const WebDesignHealthcare = () => {
         title="Healthcare Website Design Sydney | Dentist, Physio & NDIS | Digital Edge"
         description="Professional website design for healthcare providers in Sydney — dentists, physiotherapists, GPs, psychologists, and NDIS providers. Trust-building websites that attract new patients."
         keywords="healthcare website design sydney, dentist website design sydney, physiotherapist website design, ndis provider website design, medical website design sydney, allied health website design, psychology website design sydney"
+        canonical="https://digitaledgestudio.com/web-design-healthcare"
         ogTitle="Healthcare Website Design Sydney | Digital Edge Studio"
         ogDescription="Professional websites for Sydney healthcare providers — dentists, physiotherapists, GPs, psychologists, and NDIS providers. Get a free quote."
         serviceSchema={serviceSchema}

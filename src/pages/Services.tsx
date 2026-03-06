@@ -100,6 +100,7 @@ const Services = () => {
         title="Web Design & SEO Services Wollongong | Digital Edge Studio"
         description="Custom web design, local SEO, Google Ads management and digital marketing for tradies and small businesses in Wollongong and Sydney. Get more leads today."
         keywords="web design for tradies, seo services wollongong, local seo wollongong, seo agency wollongong, google ads management wollongong, digital marketing agency wollongong, website maintenance wollongong, web design services wollongong"
+        canonical="https://digitaledgestudio.com/services"
         ogTitle="Web Design & SEO Services Wollongong | Digital Edge Studio"
         ogDescription="Professional web design, local SEO, and digital marketing services for tradies and small businesses in Wollongong and Sydney."
         orgSchema={serviceSchema}

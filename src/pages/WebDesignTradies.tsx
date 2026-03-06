@@ -106,6 +106,7 @@ const WebDesignTradies = () => {
         title="Tradie Website Design Wollongong | Web Design for Tradies | Digital Edge"
         description="Professional website design for tradies in Wollongong and Sydney. We build websites for plumbers, electricians, builders, and all trades that generate real leads and phone calls."
         keywords="tradie website design wollongong, web design for tradies, plumber website design, electrician website design, builder website design, mobile friendly website design wollongong, wordpress website developer wollongong, tradie marketing wollongong"
+        canonical="https://digitaledgestudio.com/web-design-tradies"
         ogTitle="Tradie Website Design Wollongong | Digital Edge Studio"
         ogDescription="Websites built specifically for tradies in Wollongong and Sydney. Get more phone calls, more leads, and more customers online."
         serviceSchema={serviceSchema}

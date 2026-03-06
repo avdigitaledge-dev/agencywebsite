@@ -19,6 +19,12 @@ const Index = () => {
     "description": "Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW",
     "url": "https://digitaledgestudio.com",
     "email": "enquiries@digitaledgestudio.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wollongong",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
     "areaServed": [
       {
         "@type": "City",
@@ -38,7 +44,7 @@ const Index = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "reviewCount": "3",
+      "reviewCount": "5",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -60,8 +66,36 @@ const Index = () => {
         "reviewRating": { "@type": "Rating", "ratingValue": "5" },
         "author": { "@type": "Person", "name": "Mark L." },
         "reviewBody": "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "David K." },
+        "reviewBody": "Professional, fast, and very easy to work with. Our new website has dramatically improved our online presence."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Lisa P." },
+        "reviewBody": "They really understood our business and built exactly what we needed. Highly recommend Digital Edge Studio to any small business."
       }
     ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Digital Edge Studio",
+    "url": "https://digitaledgestudio.com",
+    "description": "Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://digitaledgestudio.com/blog?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   };
 
   return (
@@ -70,37 +104,56 @@ const Index = () => {
         title="Web Design Wollongong | Website Designer | Digital Edge Studio"
         description="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses. Get more leads with a website that ranks on Google."
         keywords="web design wollongong, website designer wollongong, web development wollongong, digital marketing agency wollongong, wollongong web designer near me, seo services wollongong, affordable web design wollongong, web design for tradies, web design sydney, local seo wollongong"
+        canonical="https://digitaledgestudio.com/"
         ogTitle="Web Design Wollongong | Website Designer | Digital Edge Studio"
         ogDescription="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses across NSW."
         orgSchema={organizationSchema}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       {/* Hero */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-20 md:py-32 relative z-10">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-white text-sm font-medium mb-6">
-              <MapPin className="w-3.5 h-3.5" />
-              Serving Sydney, Wollongong & NSW
-            </span>
-            <h1 className="heading-display text-primary-foreground mb-6">
-              Get More Leads & Customers With a Website That Actually Works
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 mb-8 max-w-2xl">
-              We build professional, fast-loading websites and run local SEO campaigns that help Australian small businesses get found online and turn visitors into paying customers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/contact">
-                  Get a Free Quote
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <Link to="/contact">Free Website Review</Link>
-              </Button>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div {...fadeUp}>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-white text-sm font-medium mb-6">
+                <MapPin className="w-3.5 h-3.5" />
+                Serving Sydney, Wollongong & NSW
+              </span>
+              <h1 className="heading-display text-primary-foreground mb-6">
+                Get More Leads & Customers With a Website That Actually Works
+              </h1>
+              <p className="text-body-lg text-primary-foreground/75 mb-8 max-w-2xl">
+                We build professional, fast-loading websites and run local SEO campaigns that help Australian small businesses get found online and turn visitors into paying customers.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="hero" size="lg" asChild>
+                  <Link to="/contact">
+                    Get a Free Quote
+                    <ArrowRight className="w-5 h-5 ml-1" />
+                  </Link>
+                </Button>
+                <Button variant="hero-outline" size="lg" asChild>
+                  <Link to="/free-website-review">Free Website Review</Link>
+                </Button>
+              </div>
+              <p className="text-primary-foreground/60 text-sm mt-4">
+                We take on a limited number of new clients each month — get in touch to check availability.
+              </p>
+            </motion.div>
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <img
+                src="/images/blog/electrician-google-pic.webp"
+                alt="Electrician checking Google reviews on smartphone"
+                className="rounded-2xl w-full object-cover max-h-[480px] shadow-lg"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -180,7 +233,7 @@ const Index = () => {
               {
                 title: "Local SEO",
                 desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.",
-                price: "From $400/month",
+                price: "From $550/month",
               },
               {
                 title: "Maintenance & Hosting",

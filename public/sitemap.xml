@@ -87,6 +87,12 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Tools & Landing Pages -->
+  <url>
+    <loc>https://digitaledgestudio.com/free-website-review</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- New Blog Posts -->
   <url>
     <loc>https://digitaledgestudio.com/blog/website-cost-wollongong-2025</loc>

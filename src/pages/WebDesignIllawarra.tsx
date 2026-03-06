@@ -85,6 +85,7 @@ const WebDesignIllawarra = () => {
         title="Web Design Illawarra | Wollongong, Shellharbour & Nowra | Digital Edge"
         description="Professional web design for Illawarra businesses — Wollongong, Shellharbour, Nowra, Kiama and surrounding areas. Local SEO and digital marketing. Get a free quote."
         keywords="web designer illawarra, web design shellharbour, web design nowra, digital marketing illawarra, seo wollongong nsw, web design kiama, local seo illawarra"
+        canonical="https://digitaledgestudio.com/web-design-illawarra"
         ogTitle="Web Design Illawarra | Digital Edge Studio"
         ogDescription="Professional web design and local SEO for businesses across the Illawarra region — Wollongong, Shellharbour, Nowra and beyond."
         orgSchema={localBusinessSchema}

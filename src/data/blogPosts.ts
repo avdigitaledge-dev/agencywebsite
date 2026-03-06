@@ -37,7 +37,7 @@ Local SEO Tips for Plumbers
 
 Cost vs ROI
 
-A professional plumber website typically costs $2,000-$5,000 but can generate 5-10 new customers per month = $5,000-$10,000 in revenue. That's a 2x return in the first month!
+A professional plumber website starts from $800 but can generate 5-10 new customers per month = $5,000-$10,000 in revenue. That's a massive return on investment in the first month alone!
 
 Next Steps
 

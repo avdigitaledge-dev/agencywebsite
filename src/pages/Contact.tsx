@@ -99,17 +99,36 @@ const Contact = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Sign up free at formspree.io → New Form → copy the form ID below
+  const FORMSPREE_ID = "xzdjplaq";
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: "Quote request sent!",
-        description: "We'll get back to you within 24 hours.",
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: new FormData(e.target as HTMLFormElement),
+        headers: { Accept: "application/json" },
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      if (res.ok) {
+        toast({
+          title: "Quote request sent!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error("Submit failed");
+      }
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please email us directly at enquiries@digitaledgestudio.com",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -117,6 +136,7 @@ const Contact = () => {
       <SEOMeta
         title="Contact Web Designer Wollongong | Free Quote | Digital Edge Studio"
         description="Get a free quote from your local web designer in Wollongong. Digital Edge Studio specialises in web design and digital marketing for small businesses across Wollongong, Sydney & NSW."
+        canonical="https://digitaledgestudio.com/contact"
         keywords="contact web designer wollongong, web designer near me wollongong, hire a web designer in wollongong, digital marketing consultation, free website quote, web design near me wollongong"
         ogTitle="Contact Web Designer Wollongong | Free Quote"
         ogDescription="Get a free web design consultation in Wollongong. Contact Digital Edge Studio for a no-obligation quote."
@@ -153,27 +173,28 @@ const Contact = () => {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
-                      <Input id="name" required placeholder="John Smith" />
+                      <Input id="name" name="name" required placeholder="John Smith" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input id="email" type="email" required placeholder="john@example.com.au" />
+                      <Input id="email" name="email" type="email" required placeholder="john@example.com.au" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" placeholder="04XX XXX XXX" />
+                      <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="business">Business Name</Label>
-                      <Input id="business" placeholder="Your Business Name" />
+                      <Input id="business" name="business" placeholder="Your Business Name" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">How Can We Help? *</Label>
                     <Textarea
                       id="message"
+                      name="message"
                       required
                       rows={5}
                       placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
@@ -233,18 +254,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-primary/5 rounded-2xl border border-primary/10 p-6">
-                <h3 className="font-bold text-foreground font-display mb-2">Prefer to Schedule a Meeting?</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Fill out the form and we'll send you a link to book a time that suits you best.
-                </p>
-                <Button variant="default" size="default" className="w-full" asChild>
-                  <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('name')?.focus(); }}>
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Fill Out the Form
-                  </a>
-                </Button>
-              </div>
             </div>
           </div>
         </div>

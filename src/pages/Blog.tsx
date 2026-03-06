@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, Tag, ArrowRight } from "lucide-react";
+import { Clock, Tag, ArrowRight, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SEOMeta } from "@/components/SEOMeta";
 import { blogPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -14,8 +16,32 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+const FORMSPREE_ID = "xzdjplaq";
+
 const Blog = () => {
+  const { toast } = useToast();
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [emailLoading, setEmailLoading] = useState(false);
+
+  const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setEmailLoading(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: new FormData(e.target as HTMLFormElement),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        navigate("/checklist-thank-you");
+      } else throw new Error();
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
+    } finally {
+      setEmailLoading(false);
+    }
+  };
 
 
 
@@ -35,6 +61,7 @@ const Blog = () => {
         title="Web Design & SEO Blog for Wollongong Small Businesses | Digital Edge"
         description="Expert web design, local SEO, and digital marketing tips for tradies and small businesses in Wollongong and Sydney. Read our guides to grow your business online."
         keywords="web design tips wollongong, local seo wollongong, seo tips small business, digital marketing wollongong, how to improve website seo australia, tradie marketing"
+        canonical="https://digitaledgestudio.com/blog"
         ogTitle="Web Design & SEO Blog | Digital Edge Studio"
         ogDescription="Expert tips on web design, local SEO, and digital marketing for Wollongong small businesses and tradies."
       />
@@ -150,20 +177,35 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
+      {/* Email Capture */}
       <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24 text-center">
+        <div className="container-tight px-4 py-16 md:py-20 text-center">
           <motion.div className="max-w-2xl mx-auto" {...fadeUp}>
-            <h2 className="heading-section text-primary-foreground mb-4">Get Digital Marketing Tips</h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-white text-sm font-medium mb-4">
+              <Mail className="w-3.5 h-3.5" />
+              Free Download
+            </div>
+            <h2 className="heading-section text-primary-foreground mb-3">
+              The 5-Point Website Checklist for Wollongong Tradies
+            </h2>
             <p className="text-body-lg text-primary-foreground/75 mb-8">
-              Subscribe to get new articles, strategies, and tips delivered to your inbox.
+              Find out if your website is missing the 5 things every tradie site needs to rank on Google and turn visitors into calls. We'll email it straight to you.
             </p>
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">
-                Get Started Today
-                <ArrowRight className="w-5 h-5 ml-1" />
-              </Link>
-            </Button>
+            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input type="hidden" name="_subject" value="Website Checklist Download Request" />
+              <input type="hidden" name="type" value="lead-magnet" />
+              <Input
+                name="email"
+                type="email"
+                required
+                placeholder="Your email address"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/15"
+              />
+              <Button type="submit" variant="hero" disabled={emailLoading} className="shrink-0">
+                {emailLoading ? "Sending..." : "Send Me the Checklist"}
+              </Button>
+            </form>
+            <p className="text-primary-foreground/40 text-xs mt-3">No spam. Unsubscribe anytime.</p>
           </motion.div>
         </div>
       </section>
