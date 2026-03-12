@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, Calendar, MapPin, TrendingUp } from "lucide-react";
+import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import Layout from "@/components/Layout";
@@ -102,11 +103,12 @@ const Index = () => {
     <Layout>
       <SEOMeta
         title="Web Design Wollongong | Website Designer | Digital Edge Studio"
-        description="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses. Get more leads with a website that ranks on Google."
+        description="Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads guaranteed."
         keywords="web design wollongong, website designer wollongong, web development wollongong, digital marketing agency wollongong, wollongong web designer near me, seo services wollongong, affordable web design wollongong, web design for tradies, web design sydney, local seo wollongong"
         canonical="https://digitaledgestudio.com/"
         ogTitle="Web Design Wollongong | Website Designer | Digital Edge Studio"
-        ogDescription="Leading web design agency in Wollongong and Sydney. Affordable, professional websites for tradies and small businesses across NSW."
+        ogDescription="Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads."
+        ogImage="https://digitaledgestudio.com/images/blog/hero-banner.png"
         orgSchema={organizationSchema}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
@@ -121,7 +123,7 @@ const Index = () => {
                 Serving Sydney, Wollongong & NSW
               </span>
               <h1 className="heading-display text-primary-foreground mb-6">
-                Get More Leads & Customers With a Website That Actually Works
+                Web Design Wollongong — Get More Leads With a Website That Actually Works
               </h1>
               <p className="text-body-lg text-primary-foreground/75 mb-8 max-w-2xl">
                 We build professional, fast-loading websites and run local SEO campaigns that help Australian small businesses get found online and turn visitors into paying customers.
@@ -310,6 +312,77 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies / Portfolio Highlight */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <motion.div className="text-center mb-14" {...fadeUp}>
+            <h2 className="heading-section text-foreground mb-4">Real Results for Local Businesses</h2>
+            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Don't just take our word for it — here's what we've achieved for tradies and small businesses like yours.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {portfolioProjects.filter(p => p.featured).map((project, i) => (
+              <motion.div
+                key={project.id}
+                className="bg-card rounded-xl border border-border shadow-card hover:shadow-card-hover transition-shadow overflow-hidden flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <img
+                  src={project.image}
+                  alt={`${project.clientName} case study`}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-2.5 py-0.5 rounded-full text-xs font-semibold">
+                      {project.industry}
+                    </span>
+                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      {project.location}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-foreground font-display mb-3 leading-snug text-sm">
+                    {project.clientName}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {project.results.slice(0, 2).map((result) => (
+                      <div key={result.label} className="bg-muted/50 rounded-lg p-3">
+                        <div className="flex items-center gap-1 mb-0.5">
+                          <TrendingUp className="w-3 h-3 text-accent" />
+                          <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{result.label}</span>
+                        </div>
+                        <p className="text-lg font-bold text-accent font-display">{result.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {project.testimonial && (
+                    <p className="text-xs text-muted-foreground italic leading-relaxed flex-1">
+                      "{project.testimonial.quote.slice(0, 120)}..."
+                    </p>
+                  )}
+                  <p className="text-xs text-muted-foreground mt-2">— {project.testimonial?.name}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/portfolio">
+                View All Case Studies
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

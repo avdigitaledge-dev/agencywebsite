@@ -26,6 +26,7 @@ import WebDesignTradies from "./pages/WebDesignTradies";
 import WebDesignHealthcare from "./pages/WebDesignHealthcare";
 import WebsiteReview from "./pages/WebsiteReview";
 import ChecklistThankYou from "./pages/ChecklistThankYou";
+import Portfolio from "./pages/Portfolio";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

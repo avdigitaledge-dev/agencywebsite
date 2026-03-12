@@ -65,7 +65,7 @@ const BlogPost = () => {
         canonical={`https://digitaledgestudio.com/blog/${post.slug}`}
         ogTitle={post.title}
         ogDescription={post.excerpt}
-        ogImage={post.image}
+        ogImage={post.image.startsWith('http') ? post.image : `https://digitaledgestudio.com${post.image}`}
         ogType="article"
         articlePublishedTime={post.date}
       />
@@ -131,9 +131,16 @@ const BlogPost = () => {
           >
             {post.content.split('\n\n').map((paragraph, index) => {
               if (!paragraph.trim()) return null;
-              
-              if (index === 0) {
-                // First paragraph is treated as a heading
+
+              // Detect headings: single-line, under 80 chars, no period at end, not a list
+              const isHeading = !paragraph.includes('\n')
+                && paragraph.length < 80
+                && !paragraph.endsWith('.')
+                && !paragraph.startsWith('- ')
+                && !paragraph.match(/^\d+\./)
+                && paragraph.trim().length > 0;
+
+              if (isHeading) {
                 return (
                   <h2 key={index} className="heading-section text-foreground mt-8 mb-4">
                     {paragraph}
@@ -163,8 +170,26 @@ const BlogPost = () => {
             })}
           </motion.article>
 
+          {/* Internal Links */}
+          <div className="mt-12 pt-8 border-t border-border bg-accent/5 rounded-xl p-6">
+            <h3 className="font-semibold text-foreground font-display mb-3">Related Services</h3>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/web-design-wollongong" className="text-sm text-accent hover:underline">Web Design Wollongong</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/web-design-tradies" className="text-sm text-accent hover:underline">Web Design for Tradies</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/services" className="text-sm text-accent hover:underline">Our Services</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/free-website-review" className="text-sm text-accent hover:underline">Free Website Review</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/pricing" className="text-sm text-accent hover:underline">Pricing</Link>
+              <span className="text-muted-foreground">•</span>
+              <Link to="/contact" className="text-sm text-accent hover:underline">Get a Free Quote</Link>
+            </div>
+          </div>
+
           {/* Tags */}
-          <div className="mt-12 pt-8 border-t border-border">
+          <div className="mt-8 pt-8 border-t border-border">
             <h4 className="font-semibold text-foreground mb-4">Topics covered:</h4>
             <div className="flex flex-wrap gap-2">
               {post.keywords.map(keyword => (

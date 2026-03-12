@@ -100,6 +100,15 @@ const About = () => {
                 <p>
                   We're based in NSW and work with businesses across Sydney, Wollongong, and the surrounding areas. We understand the local market because we're part of it.
                 </p>
+                <a
+                  href="https://www.linkedin.com/company/digitaledgestudio-agency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex mt-2"
+                  aria-label="Connect with us on LinkedIn"
+                >
+                  <img src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" className="w-8 h-8 opacity-80 hover:opacity-100 transition-opacity" />
+                </a>
               </div>
             </motion.div>
             <div className="rounded-2xl overflow-hidden min-h-[350px]">
@@ -134,34 +143,6 @@ const About = () => {
                 </div>
                 <h3 className="font-bold text-foreground font-display mb-2">{v.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Systems */}
-      <section className="section-padding bg-background">
-        <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">Online Booking Systems for Service Businesses</h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              We build custom booking systems that let your customers book appointments online — 24/7, even when you're busy working.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Barber Shops", desc: "Let clients pick their barber, choose a service, and book a time slot — all from their phone. Reduce no-shows with automated reminders." },
-              { title: "Beauty Salons", desc: "Online booking for hair, nails, facials, and more. Clients can see availability in real-time and book instantly without calling." },
-              { title: "Massage Parlours", desc: "Allow customers to choose their therapist, massage type, and preferred time. Integrated with your calendar so you never double-book." },
-              { title: "Physiotherapists", desc: "Streamline patient bookings with online scheduling. Includes intake forms, appointment reminders, and rebooking options." },
-              { title: "Personal Trainers", desc: "Clients can book sessions, view your availability, and manage their fitness schedule online. Perfect for solo trainers and studios." },
-              { title: "Day Spas & Wellness", desc: "Multi-service booking for spa packages, treatments, and group bookings. Upsell add-on services during the booking flow." },
-            ].map((item) => (
-              <div key={item.title} className="bg-card rounded-xl p-6 border border-border shadow-card">
-                <h3 className="font-bold text-foreground font-display mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

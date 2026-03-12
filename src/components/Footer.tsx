@@ -43,7 +43,9 @@ const Footer = () => {
             <h4 className="font-semibold font-display">Company</h4>
             <nav className="flex flex-col gap-2">
               <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">About Us</Link>
+              <Link to="/portfolio" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Our Work</Link>
               <Link to="/blog" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Blog</Link>
+              <Link to="/free-website-review" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Free Website Review</Link>
               <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Contact</Link>
               <Link to="/privacy" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Privacy Policy</Link>
             </nav>
@@ -68,6 +70,9 @@ const Footer = () => {
                   Wollongong, NSW, Australia
                 </span>
               </div>
+              <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+                <img src="/images/blog/linkedin-icon.png" alt="LinkedIn" className="w-8 h-8 opacity-70 hover:opacity-100 transition-opacity" />
+              </a>
             </address>
           </div>
         </div>

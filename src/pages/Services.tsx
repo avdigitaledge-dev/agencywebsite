@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import serviceWebdesign from "@/assets/service-webdesign.jpg";
 import serviceSeo from "@/assets/service-seo.jpg";
 import serviceMarketing from "@/assets/service-marketing.jpg";
-import serviceMaintenance from "@/assets/service-maintenance.jpg";
+const serviceMaintenance = "/images/blog/website-hosting.jpg";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { FAQ } from "@/components/FAQ";
