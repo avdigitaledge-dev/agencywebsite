@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Clock, Tag, ArrowRight, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -10,10 +10,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const FORMSPREE_ID = "xzdjplaq";
@@ -43,8 +65,6 @@ const Blog = () => {
     }
   };
 
-
-
   const breadcrumbItems = [
     { label: "Home", path: "/" },
     { label: "Blog" }
@@ -69,24 +89,37 @@ const Blog = () => {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <h1 className="heading-display text-primary-foreground mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Web Design & Marketing Blog
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               Tips, strategies, and insights for tradies and small businesses wanting to succeed online.
-            </p>
+            </motion.p>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
       {/* Category Filter */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            <button
+          <ScrollReveal className="flex flex-wrap gap-3 justify-center mb-12">
+            <motion.button
+              variants={fadeUp}
               onClick={() => setSelectedCategory(null)}
               className={`px-6 py-2 rounded-full font-medium transition-colors ${
                 selectedCategory === null
@@ -95,10 +128,11 @@ const Blog = () => {
               }`}
             >
               All Posts
-            </button>
+            </motion.button>
             {categories.map(category => (
-              <button
+              <motion.button
                 key={category}
+                variants={fadeUp}
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                   selectedCategory === category
@@ -107,21 +141,16 @@ const Blog = () => {
                 }`}
               >
                 {category}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </ScrollReveal>
 
           {/* Blog Posts Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <motion.div key={post.id} variants={fadeUp}>
                 <Link to={`/blog/${post.slug}`} className="group">
-                  <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300 h-full flex flex-col">
+                  <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300 h-full flex flex-col card-hover-lift">
                     {/* Image */}
                     <div className="h-48 bg-muted overflow-hidden">
                       <img
@@ -136,7 +165,6 @@ const Blog = () => {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-1">
-                      {/* Category & Meta */}
                       <div className="flex items-center gap-3 mb-3">
                         <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">
                           <Tag className="w-3 h-3" />
@@ -144,17 +172,14 @@ const Blog = () => {
                         </span>
                       </div>
 
-                      {/* Title */}
                       <h3 className="heading-card text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
                         {post.title}
                       </h3>
 
-                      {/* Excerpt */}
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1 line-clamp-2">
                         {post.excerpt}
                       </p>
 
-                      {/* Footer */}
                       <div className="flex items-center justify-between pt-4 border-t border-border">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Clock className="w-3.5 h-3.5" />
@@ -167,7 +192,7 @@ const Blog = () => {
                 </Link>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
@@ -178,20 +203,27 @@ const Blog = () => {
       </section>
 
       {/* Email Capture */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-20 text-center">
-          <motion.div className="max-w-2xl mx-auto" {...fadeUp}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-white text-sm font-medium mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight px-4 py-16 md:py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-white text-sm font-medium mb-4">
               <Mail className="w-3.5 h-3.5" />
               Free Download
-            </div>
-            <h2 className="heading-section text-primary-foreground mb-3">
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-3">
               The 5-Point Website Checklist for Wollongong Tradies
-            </h2>
-            <p className="text-body-lg text-primary-foreground/75 mb-8">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 mb-8 max-w-2xl mx-auto">
               Find out if your website is missing the 5 things every tradie site needs to rank on Google and turn visitors into calls. We'll email it straight to you.
-            </p>
-            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            </motion.p>
+            <motion.form variants={fadeUp} onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input type="hidden" name="_subject" value="Website Checklist Download Request" />
               <input type="hidden" name="type" value="lead-magnet" />
               <Input
@@ -204,9 +236,9 @@ const Blog = () => {
               <Button type="submit" variant="hero" disabled={emailLoading} className="shrink-0">
                 {emailLoading ? "Sending..." : "Send Me the Checklist"}
               </Button>
-            </form>
-            <p className="text-primary-foreground/40 text-xs mt-3">No spam. Unsubscribe anytime.</p>
-          </motion.div>
+            </motion.form>
+            <motion.p variants={fadeUp} className="text-primary-foreground/40 text-xs mt-3">No spam. Unsubscribe anytime.</motion.p>
+          </ScrollReveal>
         </div>
       </section>
 

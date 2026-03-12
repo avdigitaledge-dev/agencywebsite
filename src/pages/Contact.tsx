@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Mail, MapPin, Clock, Send, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,10 +11,32 @@ import { FAQ } from "@/components/FAQ";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const Contact = () => {
@@ -148,25 +170,38 @@ const Contact = () => {
         { label: 'Home', path: '/' },
         { label: 'Contact' }
       ]} />
+
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <h1 className="heading-display text-primary-foreground mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Get Your Free Quote
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               Tell us about your business and what you're looking for. We'll get back to you within 24 hours with a tailored recommendation.
-            </p>
+            </motion.p>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <div className="grid lg:grid-cols-5 gap-12">
+          <ScrollReveal className="grid lg:grid-cols-5 gap-12">
             {/* Form */}
-            <motion.div className="lg:col-span-3" {...fadeUp}>
+            <motion.div variants={fadeUp} className="lg:col-span-3">
               <div className="bg-card rounded-2xl border border-border shadow-card p-8">
                 <h2 className="heading-card text-foreground mb-6">Request a Free Quote</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -211,8 +246,8 @@ const Contact = () => {
             </motion.div>
 
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-6">
-              <div className="bg-card rounded-2xl border border-border shadow-card p-6">
+            <motion.div variants={fadeUp} className="lg:col-span-2 space-y-6">
+              <div className="bg-card rounded-2xl border border-border shadow-card p-6 card-hover-lift">
                 <h3 className="font-bold text-foreground font-display mb-4">Contact Details</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-foreground">
@@ -253,16 +288,15 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
-            </div>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ */}
-      <FAQ 
-        faqs={contactFAQ} 
-        title="Contact Us - Frequently Asked Questions" 
+      <FAQ
+        faqs={contactFAQ}
+        title="Contact Us - Frequently Asked Questions"
       />
     </Layout>
   );

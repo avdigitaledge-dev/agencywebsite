@@ -1,15 +1,38 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, MapPin, Star, Phone } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, CheckCircle2, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const WebDesignWollongong = () => {
@@ -44,7 +67,7 @@ const WebDesignWollongong = () => {
         "name": "How much does web design cost in Wollongong?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Wollongong web design packages start from $800 for a Starter Website and $1,700 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts."
+          "text": "Our Wollongong web design packages start from $995 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts."
         }
       },
       {
@@ -116,28 +139,40 @@ const WebDesignWollongong = () => {
       ]} />
 
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
               <MapPin className="w-4 h-4" />
               <span>Serving Wollongong, Illawarra & NSW</span>
-            </div>
-            <h1 className="heading-display text-primary-foreground mb-4">
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Web Design Wollongong
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
               Professional, affordable web design for Wollongong businesses. We build websites that rank on Google, generate leads, and grow your business — without the big-agency price tag.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <Link to="/pricing">View Pricing</Link>
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-muted" />
+          </svg>
         </div>
       </section>
 
@@ -158,32 +193,32 @@ const WebDesignWollongong = () => {
       {/* Services */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               Web Design Services in Wollongong
-            </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
               Everything your Wollongong business needs to get found online and turn website visitors into paying customers.
-            </p>
-          </motion.div>
+            </motion.p>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
-              <motion.div key={s.title} className="bg-card rounded-xl p-6 border border-border shadow-card" {...fadeUp}>
+              <motion.div key={s.title} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card card-hover-lift">
                 <CheckCircle2 className="w-6 h-6 text-accent mb-3" />
                 <h3 className="font-bold text-foreground font-display mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Local */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeUp}>
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div variants={fadeUp}>
               <h2 className="heading-section text-foreground mb-6">
                 Why Choose a Local Wollongong Web Designer?
               </h2>
@@ -204,14 +239,14 @@ const WebDesignWollongong = () => {
                 </Button>
               </div>
             </motion.div>
-            <div className="space-y-4">
+            <motion.div variants={fadeUp} className="space-y-4">
               {[
                 { title: "Local Market Knowledge", desc: "We understand Wollongong's business landscape and what local customers search for." },
                 { title: "Wollongong SEO Expertise", desc: "We optimise specifically for Wollongong and Illawarra search terms, not generic keywords." },
                 { title: "Face-to-Face Support", desc: "We're available for meetings and calls — not hidden behind an overseas support ticket." },
                 { title: "Long-Term Partnership", desc: "We don't disappear after launch. We're here to grow your business month after month." },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border">
+                <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-foreground text-sm">{item.title}</p>
@@ -219,22 +254,22 @@ const WebDesignWollongong = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               What Wollongong Businesses Say
-            </h2>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">
+            </motion.h2>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
-              <motion.div key={t.name} className="bg-card rounded-xl p-6 border border-border shadow-card" {...fadeUp}>
+              <motion.div key={t.name} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card card-hover-lift">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-accent text-accent" />
@@ -247,17 +282,17 @@ const WebDesignWollongong = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Pricing CTA */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div className="bg-card rounded-xl p-8 border border-border shadow-card" {...fadeUp}>
+          <ScrollReveal className="grid md:grid-cols-2 gap-8">
+            <motion.div variants={fadeUp} className="bg-card rounded-xl p-8 border border-border shadow-card card-hover-lift">
               <h3 className="font-bold text-foreground font-display text-xl mb-2">Starter Website</h3>
-              <p className="text-3xl font-bold text-foreground mb-1">From $800</p>
+              <p className="text-3xl font-bold text-foreground mb-1">From $995</p>
               <p className="text-sm text-muted-foreground mb-6">Perfect for tradies and service businesses getting started online</p>
               <ul className="space-y-2 mb-6">
                 {["Custom design", "Mobile responsive", "Contact form", "Google Analytics", "SEO setup", "Fast loading"].map((f) => (
@@ -270,9 +305,9 @@ const WebDesignWollongong = () => {
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
             </motion.div>
-            <motion.div className="bg-card rounded-xl p-8 border-2 border-accent shadow-card" {...fadeUp}>
+            <motion.div variants={fadeUp} className="bg-card rounded-xl p-8 border-2 border-accent shadow-card card-hover-lift">
               <h3 className="font-bold text-foreground font-display text-xl mb-2">Business Website</h3>
-              <p className="text-3xl font-bold text-foreground mb-1">From $1,700</p>
+              <p className="text-3xl font-bold text-foreground mb-1">From $1,850</p>
               <p className="text-sm text-muted-foreground mb-6">Full-featured site for established Wollongong businesses ready to grow</p>
               <ul className="space-y-2 mb-6">
                 {["Everything in Starter", "Up to 10 pages", "Blog setup", "Google Ads ready", "Advanced SEO", "Priority support"].map((f) => (
@@ -285,7 +320,7 @@ const WebDesignWollongong = () => {
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
             </motion.div>
-          </div>
+          </ScrollReveal>
           <p className="text-center text-sm text-muted-foreground mt-6">
             Not sure which package is right for you? <Link to="/pricing" className="text-accent underline underline-offset-4">See full pricing details →</Link>
           </p>
@@ -295,39 +330,48 @@ const WebDesignWollongong = () => {
       {/* FAQ */}
       <section className="section-padding bg-background">
         <div className="container-tight max-w-3xl mx-auto">
-          <motion.div className="text-center mb-10" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               Web Design Wollongong — Frequently Asked Questions
-            </h2>
-          </motion.div>
-          <div className="space-y-4">
+            </motion.h2>
+          </ScrollReveal>
+          <ScrollReveal className="space-y-4">
             {faqSchema.mainEntity.map((q) => (
-              <motion.div key={q.name} className="bg-card rounded-xl p-6 border border-border" {...fadeUp}>
+              <motion.div key={q.name} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border card-hover-lift">
                 <h3 className="font-semibold text-foreground mb-2">{q.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-20 text-center">
-          <h2 className="heading-section text-primary-foreground mb-4">
-            Ready to Grow Your Wollongong Business Online?
-          </h2>
-          <p className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-            Get a free, no-obligation quote for your Wollongong website. We'll discuss your goals and recommend the best solution for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">Get Your Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild>
-              <Link to="/services">View Our Services</Link>
-            </Button>
-          </div>
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight px-4 py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
+              Ready to Grow Your Wollongong Business Online?
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
+              Get a free, no-obligation quote for your Wollongong website. We'll discuss your goals and recommend the best solution for your business.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">Get Your Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/services">View Our Services</Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

@@ -38,7 +38,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Owner, Sparks Electrical Solutions",
     },
     services: ["Website Design", "Local SEO", "Google Business Profile"],
-    image: "/images/blog/electrician-google-pic.webp",
+    image: "/images/blog/electrician-project.webp",
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Director, Precision Plumbing Illawarra",
     },
     services: ["Website Design", "Local SEO", "Google Ads Optimisation"],
-    image: "/images/blog/plumber-web-design.webp",
+    image: "/images/blog/plumbing-project.png",
     featured: true,
   },
   {
@@ -88,7 +88,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Principal Physiotherapist, Coastal Physiotherapy",
     },
     services: ["Website Design", "Local SEO", "Booking Integration"],
-    image: "/images/blog/about-page-pic.jpg",
+    image: "/images/blog/phsyio-project.jpg",
     featured: true,
   },
   {
@@ -113,7 +113,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Director, Summit Constructions",
     },
     services: ["Website Design", "Content Strategy", "Local SEO"],
-    image: "/images/blog/hero-banner.png",
+    image: "/images/blog/builder-project.PNG",
     featured: false,
   },
   {
@@ -138,7 +138,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Owner, Green Thumb Landscaping",
     },
     services: ["Website Design", "Google Business Profile", "Review Strategy"],
-    image: "/images/blog/website-hosting.jpg",
+    image: "/images/blog/landscaping-project.PNG",
     featured: false,
   },
   {
@@ -163,7 +163,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Operations Manager, Bright & Clean Services",
     },
     services: ["Website Design", "Local SEO", "Google Ads Optimisation"],
-    image: "/images/blog/small-business-features.webp",
+    image: "/images/blog/cleaning-project.jpg",
     featured: false,
   },
 ];

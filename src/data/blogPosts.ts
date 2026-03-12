@@ -37,7 +37,7 @@ Local SEO Tips for Plumbers
 
 Cost vs ROI
 
-A professional plumber website starts from $800 but can generate 5-10 new customers per month = $5,000-$10,000 in revenue. That's a massive return on investment in the first month alone!
+A professional plumber website starts from $995 but can generate 5-10 new customers per month = $5,000-$10,000 in revenue. That's a massive return on investment in the first month alone!
 
 Next Steps
 
@@ -503,11 +503,11 @@ If you've been searching for web design prices in Wollongong, you've probably no
 
 The Short Answer
 
-Most professional websites for Wollongong small businesses cost between $800 and $5,000. Here's what influences that price.
+Most professional websites for Wollongong small businesses cost between $995 and $5,000. Here's what influences that price.
 
 Wollongong Website Pricing Breakdown
 
-Starter Website (From $800)
+Starter Website (From $995)
 Perfect for: Tradies, sole traders, new businesses
 What's included:
 - 3-5 custom pages (Home, About, Services, Contact)
@@ -517,7 +517,7 @@ What's included:
 - Google Analytics setup
 - 1 month of support
 
-Business Website (From $1,700)
+Business Website (From $1,850)
 Perfect for: Established small businesses, professional services
 What's included:
 - Up to 10 pages
@@ -982,7 +982,7 @@ Beyond the website itself, here's what gets you ranking in Wollongong and Sydney
 
 Tradie Website Cost in Wollongong
 
-A professional tradie website in Wollongong typically costs between $800 and $2,000. This includes custom design, mobile optimisation, SEO setup, and a contact/quote form.
+A professional tradie website in Wollongong typically costs between $995 and $2,000. This includes custom design, mobile optimisation, SEO setup, and a contact/quote form.
 
 Avoid dirt-cheap websites — they usually don't rank and often do more harm than good to your brand.
 
@@ -991,7 +991,7 @@ The ROI of a Good Tradie Website
 Let's do the maths. If your tradie website generates just 4 extra jobs per month at an average of $400 each:
 - Revenue from website: $1,600/month
 - Annual revenue: $19,200
-- Website cost: $800-$2,000 (one-time)
+- Website cost: $995-$2,000 (one-time)
 - ROI: 10x+ in the first year
 
 The numbers make a strong case.
@@ -1092,7 +1092,7 @@ Red Flags to Watch Out For
 
 The True Cost of Quality Web Design in Wollongong
 
-A quality website from a reputable Wollongong web designer costs $800-$3,000 and:
+A quality website from a reputable Wollongong web designer costs $995-$3,000 and:
 - Looks professional and builds trust
 - Ranks on Google for local keywords
 - Loads fast on mobile

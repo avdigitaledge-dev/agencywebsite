@@ -1,15 +1,38 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle2, Wrench, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const WebDesignTradies = () => {
@@ -55,7 +78,7 @@ const WebDesignTradies = () => {
         "name": "How much does a tradie website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our tradie website packages start from $800. We keep it simple and affordable so tradies can get a professional website without breaking the bank."
+          "text": "Our tradie website packages start from $995. We keep it simple and affordable so tradies can get a professional website without breaking the bank."
         }
       },
       {
@@ -119,28 +142,40 @@ const WebDesignTradies = () => {
       ]} />
 
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
               <Wrench className="w-4 h-4" />
               <span>Built Specifically for Tradies & Contractors</span>
-            </div>
-            <h1 className="heading-display text-primary-foreground mb-4">
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Tradie Website Design Wollongong
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
               We build websites that get tradies more phone calls and more jobs. Fast, mobile-friendly, and optimised to rank locally — so customers in Wollongong and Sydney find you before your competitors.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <Link to="/pricing">View Pricing</Link>
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-muted" />
+          </svg>
         </div>
       </section>
 
@@ -161,31 +196,31 @@ const WebDesignTradies = () => {
       {/* Features */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               Everything a Tradie Website Needs to Generate Leads
-            </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
               We've built websites for dozens of tradies and know exactly what works. Here's what every tradie website needs.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f) => (
-              <motion.div key={f.title} className="bg-card rounded-xl p-6 border border-border shadow-card" {...fadeUp}>
+              <motion.div key={f.title} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card card-hover-lift">
                 <CheckCircle2 className="w-5 h-5 text-accent mb-3" />
                 <h3 className="font-bold text-foreground font-display text-sm mb-2">{f.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Problem/Solution */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeUp}>
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div variants={fadeUp}>
               <h2 className="heading-section text-foreground mb-6">
                 Why Most Tradie Websites Don't Work (And How We Fix That)
               </h2>
@@ -201,7 +236,7 @@ const WebDesignTradies = () => {
                 </p>
               </div>
             </motion.div>
-            <div className="space-y-4">
+            <motion.div variants={fadeUp} className="space-y-4">
               <h3 className="font-bold text-foreground font-display text-lg mb-4">What Our Tradie Clients Get:</h3>
               {[
                 "More phone calls from local Google searches",
@@ -211,25 +246,25 @@ const WebDesignTradies = () => {
                 "A fast site that loads on any device",
                 "Ongoing support so you're never stuck",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border">
+                <div key={item} className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border card-hover-lift">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
                   <p className="text-sm text-foreground">{item}</p>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">What Tradies Say</h2>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">What Tradies Say</motion.h2>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
-              <motion.div key={t.name} className="bg-card rounded-xl p-6 border border-border shadow-card" {...fadeUp}>
+              <motion.div key={t.name} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card card-hover-lift">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-accent text-accent" />)}
                 </div>
@@ -240,44 +275,53 @@ const WebDesignTradies = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight max-w-3xl mx-auto">
-          <motion.div className="text-center mb-10" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">Tradie Website FAQs</h2>
-          </motion.div>
-          <div className="space-y-4">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Tradie Website FAQs</motion.h2>
+          </ScrollReveal>
+          <ScrollReveal className="space-y-4">
             {faqSchema.mainEntity.map((q) => (
-              <motion.div key={q.name} className="bg-card rounded-xl p-6 border border-border" {...fadeUp}>
+              <motion.div key={q.name} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border card-hover-lift">
                 <h3 className="font-semibold text-foreground mb-2">{q.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-20 text-center">
-          <h2 className="heading-section text-primary-foreground mb-4">
-            Ready to Get More Jobs from Your Website?
-          </h2>
-          <p className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-            Get a free quote for your tradie website. We'll discuss your trade, your service area, and build a site that generates real leads.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">Get Your Free Tradie Website Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild>
-              <Link to="/pricing">See Pricing</Link>
-            </Button>
-          </div>
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight px-4 py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
+              Ready to Get More Jobs from Your Website?
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
+              Get a free quote for your tradie website. We'll discuss your trade, your service area, and build a site that generates real leads.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">Get Your Free Tradie Website Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/pricing">See Pricing</Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

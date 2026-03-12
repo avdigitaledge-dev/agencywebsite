@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowRight, TrendingUp, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
@@ -7,10 +8,32 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
 import { portfolioProjects } from "@/data/portfolioProjects";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const Portfolio = () => {
@@ -31,16 +54,28 @@ const Portfolio = () => {
       ]} />
 
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <h1 className="heading-display text-primary-foreground mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Real Results for Real Businesses
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               We don't just build websites — we build lead-generation machines. Here's what we've done for tradies and small businesses across Wollongong, Sydney, and NSW.
-            </p>
+            </motion.p>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-card" />
+          </svg>
         </div>
       </section>
 
@@ -66,26 +101,20 @@ const Portfolio = () => {
         <div className="container-tight">
           <div className="space-y-20">
             {portfolioProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="grid lg:grid-cols-2 gap-10 items-start"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+              <ScrollReveal key={project.id} className="grid lg:grid-cols-2 gap-10 items-start">
                 {/* Image + Results */}
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                <motion.div variants={fadeUp} className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="rounded-2xl overflow-hidden mb-6">
                     <img
                       src={project.image}
                       alt={`${project.clientName} website project`}
-                      className="w-full h-64 md:h-80 object-cover"
+                      className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {project.results.map((result) => (
-                      <div key={result.label} className="bg-card rounded-xl p-4 border border-border">
+                      <div key={result.label} className="bg-card rounded-xl p-4 border border-border card-hover-lift">
                         <div className="flex items-center gap-2 mb-1">
                           <TrendingUp className="w-4 h-4 text-accent" />
                           <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{result.label}</span>
@@ -95,10 +124,10 @@ const Portfolio = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Content */}
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                <motion.div variants={fadeUp} className={index % 2 === 1 ? "lg:order-1" : ""}>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
                       {project.industry}
@@ -142,24 +171,25 @@ const Portfolio = () => {
                       </cite>
                     </blockquote>
                   )}
-                </div>
-              </motion.div>
+                </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-20 text-center">
-          <motion.div className="max-w-2xl mx-auto" {...fadeUp}>
-            <h2 className="heading-section text-primary-foreground mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
               Want Results Like These?
-            </h2>
-            <p className="text-body-lg text-primary-foreground/75 mb-8">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 mb-8 max-w-2xl mx-auto">
               Every project starts with a free consultation. Let's talk about how we can grow your business online.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">
                   Get a Free Quote
@@ -169,8 +199,14 @@ const Portfolio = () => {
               <Button variant="hero-outline" size="lg" asChild>
                 <Link to="/free-website-review">Free Website Review</Link>
               </Button>
-            </div>
-          </motion.div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
     </Layout>

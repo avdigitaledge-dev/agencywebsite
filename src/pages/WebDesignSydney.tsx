@@ -1,15 +1,38 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle2, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const WebDesignSydney = () => {
@@ -40,7 +63,7 @@ const WebDesignSydney = () => {
         "name": "How much does web design cost in Sydney?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Sydney web design packages start from $800 for a Starter Website and $1,700 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
+          "text": "Our Sydney web design packages start from $995 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
         }
       },
       {
@@ -98,28 +121,40 @@ const WebDesignSydney = () => {
       ]} />
 
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <div className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
               <MapPin className="w-4 h-4" />
               <span>Serving All Sydney Regions & NSW</span>
-            </div>
-            <h1 className="heading-display text-primary-foreground mb-4">
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               Web Design Sydney
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
               Affordable, professional web design for Sydney businesses. Custom websites that rank on Google, generate leads, and grow your business — without the inflated agency fees.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <Link to="/pricing">View Pricing</Link>
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-muted" />
+          </svg>
         </div>
       </section>
 
@@ -127,7 +162,7 @@ const WebDesignSydney = () => {
       <section className="bg-muted py-8">
         <div className="container-tight px-4">
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            {["Serving All Sydney Regions", "No Lock-In Contracts", "From $800", "Free Consultation", "Local SEO Included"].map((item) => (
+            {["Serving All Sydney Regions", "No Lock-In Contracts", "From $995", "Free Consultation", "Local SEO Included"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 <span>{item}</span>
@@ -140,31 +175,32 @@ const WebDesignSydney = () => {
       {/* Services */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               Web Design & Digital Marketing for Sydney Businesses
-            </h2>
-            <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
               From the CBD to Western Sydney and the Sutherland Shire — we build websites that make Sydney businesses stand out online.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </motion.p>
+          </ScrollReveal>
+
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
-              <motion.div key={s.title} className="bg-card rounded-xl p-6 border border-border shadow-card" {...fadeUp}>
+              <motion.div key={s.title} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card card-hover-lift">
                 <CheckCircle2 className="w-6 h-6 text-accent mb-3" />
                 <h3 className="font-bold text-foreground font-display mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeUp}>
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div variants={fadeUp}>
               <h2 className="heading-section text-foreground mb-6">
                 Affordable Sydney Web Design Without Compromise
               </h2>
@@ -185,14 +221,14 @@ const WebDesignSydney = () => {
                 </Button>
               </div>
             </motion.div>
-            <div className="space-y-4">
+            <motion.div variants={fadeUp} className="space-y-4">
               {[
                 { title: "Sydney Areas We Serve", desc: "Inner West, Western Sydney, Northern Beaches, Sutherland Shire, South Sydney, Eastern Suburbs, Hills District." },
-                { title: "Transparent Sydney Pricing", desc: "Websites from $800. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
+                { title: "Transparent Sydney Pricing", desc: "Websites from $995. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
                 { title: "Sydney-Specific SEO", desc: "We optimise for the suburbs and keywords your Sydney customers actually search." },
                 { title: "Fast Turnaround", desc: "Most Sydney website projects completed in 4–8 weeks, not months." },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border">
+                <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-foreground text-sm">{item.title}</p>
@@ -200,47 +236,56 @@ const WebDesignSydney = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="section-padding bg-background">
         <div className="container-tight max-w-3xl mx-auto">
-          <motion.div className="text-center mb-10" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
               Sydney Web Design — Frequently Asked Questions
-            </h2>
-          </motion.div>
-          <div className="space-y-4">
+            </motion.h2>
+          </ScrollReveal>
+          <ScrollReveal className="space-y-4">
             {faqSchema.mainEntity.map((q) => (
-              <motion.div key={q.name} className="bg-card rounded-xl p-6 border border-border" {...fadeUp}>
+              <motion.div key={q.name} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border card-hover-lift">
                 <h3 className="font-semibold text-foreground mb-2">{q.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
               </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-20 text-center">
-          <h2 className="heading-section text-primary-foreground mb-4">
-            Ready to Grow Your Sydney Business Online?
-          </h2>
-          <p className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-            Get a free, no-obligation quote for your Sydney website. We'll discuss your goals and build a solution that fits your budget.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">Get Your Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild>
-              <Link to="/services">Our Services</Link>
-            </Button>
-          </div>
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight px-4 py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
+              Ready to Grow Your Sydney Business Online?
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
+              Get a free, no-obligation quote for your Sydney website. We'll discuss your goals and build a solution that fits your budget.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">Get Your Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/services">Our Services</Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

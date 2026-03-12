@@ -1,6 +1,17 @@
+import { motion } from "framer-motion";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const Privacy = () => {
   return (
@@ -16,16 +27,36 @@ const Privacy = () => {
         { label: 'Home', path: '/' },
         { label: 'Privacy Policy' }
       ]} />
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-20">
-          <h1 className="heading-display text-primary-foreground mb-4">Privacy Policy</h1>
-          <p className="text-body-lg text-primary-foreground/75">Last updated: February 2026</p>
+
+      {/* Hero */}
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-20 relative z-10">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">Privacy Policy</motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75">Last updated: February 2026</motion.p>
+          </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
       <section className="section-padding bg-background">
         <div className="container-tight max-w-3xl">
-          <div className="prose prose-lg max-w-none space-y-8 text-foreground">
+          <motion.div
+            className="prose prose-lg max-w-none space-y-8 text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <div>
               <h2 className="heading-card text-foreground mb-3">1. Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
@@ -91,7 +122,7 @@ const Privacy = () => {
                 Email: enquiries@digitaledgestudio.com
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowRight, Heart, Target, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
@@ -7,10 +8,32 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import Layout from "@/components/Layout";
 
+/* ── Animation helpers ─────────────────────────────────── */
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+/* ── Scroll-triggered section wrapper ──────────────────── */
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 const About = () => {
@@ -68,25 +91,38 @@ const About = () => {
         { label: 'Home', path: '/' },
         { label: 'About' }
       ]} />
+
       {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-16 md:py-24">
-          <motion.div className="max-w-3xl" {...fadeUp}>
-            <h1 className="heading-display text-primary-foreground mb-4">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-16 md:py-24 relative z-10">
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
               About Digital Edge
-            </h1>
-            <p className="text-body-lg text-primary-foreground/75 max-w-2xl">
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               We're a small team of web designers and digital marketers passionate about helping Australian businesses grow online.
-            </p>
+            </motion.p>
           </motion.div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
       {/* Mission */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeUp}>
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div variants={fadeUp}>
               <h2 className="heading-section text-foreground mb-6">
                 We Believe Every Local Business Deserves a Great Website
               </h2>
@@ -111,41 +147,41 @@ const About = () => {
                 </a>
               </div>
             </motion.div>
-            <div className="rounded-2xl overflow-hidden min-h-[350px]">
+            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[350px]">
               <img
                 src="/images/blog/about-page-pic.jpg"
                 alt="Digital Edge Studio team working on web design"
-                className="w-full h-full object-cover min-h-[350px]"
+                className="w-full h-full object-cover min-h-[350px] hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-            </div>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Values */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <motion.div className="text-center mb-14" {...fadeUp}>
-            <h2 className="heading-section text-foreground mb-4">What We Stand For</h2>
-          </motion.div>
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">What We Stand For</motion.h2>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Target, title: "Results First", desc: "We measure success by the leads and customers we generate for your business, not just how a website looks." },
               { icon: Users, title: "Honest Communication", desc: "No jargon, no upselling. We explain everything in plain English and only recommend what you actually need." },
               { icon: Award, title: "Quality Work", desc: "We take pride in every project. Your website represents your business and we treat it with that level of care." },
               { icon: Heart, title: "Long-Term Partnerships", desc: "We don't disappear after launch. We're here for the long haul, helping your business grow month after month." },
             ].map((v) => (
-              <div key={v.title} className="bg-card rounded-xl p-6 border border-border shadow-card text-center">
+              <motion.div key={v.title} variants={fadeUp} className="bg-card rounded-xl p-6 border border-border shadow-card text-center card-hover-lift">
                 <div className="w-12 h-12 rounded-lg gradient-cta flex items-center justify-center mx-auto mb-4">
                   <v.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <h3 className="font-bold text-foreground font-display mb-2">{v.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -155,15 +191,26 @@ const About = () => {
       />
 
       {/* CTA */}
-      <section className="gradient-hero">
-        <div className="container-tight px-4 py-20 text-center">
-          <h2 className="heading-section text-primary-foreground mb-4">Let's Have a Chat</h2>
-          <p className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-            Whether you're ready to get started or just exploring your options, we'd love to hear from you.
-          </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">Get in Touch <ArrowRight className="w-5 h-5 ml-1" /></Link>
-          </Button>
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+        <div className="container-tight px-4 py-20 text-center relative z-10">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">Let's Have a Chat</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
+              Whether you're ready to get started or just exploring your options, we'd love to hear from you.
+            </motion.p>
+            <motion.div variants={fadeUp}>
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">Get in Touch <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
     </Layout>
