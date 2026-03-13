@@ -585,7 +585,7 @@ Contact Digital Edge Studio for a transparent, no-obligation quote. We'll recomm
     author: 'Digital Edge Studio',
     date: '2025-01-20',
     category: 'Web Design',
-    image: '/images/blog/website-cost-wollongong.jpg',
+    image: '/images/blog/web-costs-pic.jpg',
     readTime: 7,
     keywords: ['how much does a website cost wollongong', 'web design pricing wollongong', 'website cost australia', 'wollongong web design packages pricing'],
     metaDescription: 'How much does a website cost in Wollongong in 2025? Complete pricing guide for starter, business, and ecommerce websites. No hidden fees.'
@@ -691,7 +691,7 @@ Digital Edge Studio specialises in local SEO for Wollongong and Illawarra busine
     author: 'Digital Edge Studio',
     date: '2025-01-27',
     category: 'SEO',
-    image: '/images/blog/local-seo-wollongong.jpg',
+    image: '/images/blog/wollongongblog-pic.jpg',
     readTime: 10,
     keywords: ['local seo wollongong', 'seo services wollongong', 'seo consultant wollongong', 'seo wollongong nsw', 'google business profile wollongong'],
     metaDescription: 'Complete local SEO guide for Wollongong businesses. Rank higher in Google Maps and local searches. Step-by-step guide for 2025.'
@@ -793,7 +793,7 @@ Want professional advice on which platform is right for you? Contact Digital Edg
     author: 'Digital Edge Studio',
     date: '2025-02-03',
     category: 'Web Design',
-    image: '/images/blog/shopify-vs-wordpress.jpg',
+    image: '/images/blog/shopify-pic.jpg',
     readTime: 9,
     keywords: ['shopify vs wordpress australia', 'shopify website developer wollongong', 'wordpress website developer wollongong', 'best cms small business', 'wordpress vs shopify for small business australia'],
     metaDescription: 'Shopify vs WordPress for Australian small businesses — which is right for you? Compare cost, SEO, ecommerce features, and ease of use in 2025.'
@@ -914,7 +914,7 @@ Digital Edge Studio offers Google Business Profile setup and optimisation as par
     author: 'Digital Edge Studio',
     date: '2025-02-10',
     category: 'SEO',
-    image: '/images/blog/google-business-profile.jpg',
+    image: '/images/blog/google-biz-pic.jpg',
     readTime: 8,
     keywords: ['google business profile optimisation', 'google my business management wollongong', 'google maps ranking wollongong', 'local seo wollongong', 'gbp optimisation australia'],
     metaDescription: 'Step-by-step guide to optimising your Google Business Profile for local SEO in Wollongong and Sydney. Rank higher in Google Maps and get more calls.'
@@ -1010,7 +1010,7 @@ Digital Edge Studio specialises in tradie website design in Wollongong and Sydne
     author: 'Digital Edge Studio',
     date: '2025-02-17',
     category: 'Web Design',
-    image: '/images/blog/web-design-tradies.jpg',
+    image: '/images/blog/webdesign-pic.jpg',
     readTime: 8,
     keywords: ['web design for tradies', 'tradie website design wollongong', 'tradie marketing wollongong', 'plumber website design', 'electrician website wollongong'],
     metaDescription: 'Complete guide to web design for tradies in Wollongong and Sydney. What your tradie website needs to generate leads and phone calls in 2025.'
@@ -1109,9 +1109,152 @@ Get a free, detailed quote — no surprises.`,
     author: 'Digital Edge Studio',
     date: '2025-02-24',
     category: 'Web Design',
-    image: '/images/blog/cheap-web-design.jpg',
+    image: '/images/blog/webhosting-pic.jpg',
     readTime: 7,
     keywords: ['affordable web design wollongong', 'web design agency reviews wollongong', 'best web design agencies wollongong', 'web design cost wollongong', 'cheap web design wollongong'],
     metaDescription: 'The hidden costs of cheap web design for Wollongong small businesses. What to look for when hiring a web designer — and red flags to avoid.'
+  },
+  {
+    id: '12',
+    title: 'AEO & GEO: Why AI Search Is the Future of Marketing for Local Businesses',
+    slug: 'aeo-geo-future-of-marketing',
+    excerpt: 'Google and AI assistants are changing how customers find businesses. Here\'s what AEO and GEO mean for your business — and why the businesses that move first will win.',
+    content: `AEO & GEO: Why AI Search Is the Future of Marketing for Local Businesses
+
+The way people find businesses is changing — fast.
+
+For the last 20 years, getting found online meant one thing: ranking on Google's list of blue links. You'd optimise your website, build some backlinks, maybe run a few Google Ads, and wait for clicks.
+
+That model is breaking down.
+
+Today, millions of Australians are getting answers from AI — not from clicking on websites. They ask Siri a question. They type into ChatGPT. They see a Google AI Overview that answers their query before they ever scroll down to a website.
+
+If your business isn't showing up in those AI-generated answers, you're becoming invisible. And most local businesses don't even know it's happening.
+
+What Is AEO (Answer Engine Optimisation)?
+
+AEO stands for Answer Engine Optimisation. It's about making your website the source that AI assistants pull from when someone asks a question.
+
+Think about how people search now. Instead of typing "plumber Wollongong" and scrolling through results, they say:
+
+- "Hey Siri, who's the best plumber near me?"
+- "Alexa, how much does a plumber cost in Wollongong?"
+- "ChatGPT, can you recommend a good electrician in Sydney?"
+
+These AI tools don't show a list of 10 websites. They give one direct answer — and that answer comes from a specific website.
+
+AEO means structuring your content so that your business is the answer. Here's how:
+
+1. Question-Based Content
+Write content that directly answers the questions your customers actually ask. Not generic marketing copy — real, specific answers. "How much does a website cost for a tradie?" is better than "We offer affordable web design."
+
+2. FAQ Schema Markup
+This is code added to your website that tells search engines "this is a question, and this is the answer." It helps AI assistants understand and pull your content as a direct response.
+
+3. Clear, Structured Formatting
+AI tools prefer content that's well-organised with clear headings, bullet points, and concise paragraphs. If your content is a wall of text, AI skips over it.
+
+4. Local Authority Signals
+When AI tools recommend a business, they look for local relevance — Google Business Profile data, local reviews, consistent business information across the web.
+
+What Is GEO (Generative Engine Optimisation)?
+
+GEO stands for Generative Engine Optimisation. While AEO focuses on voice assistants and AI chatbots, GEO specifically targets Google's AI Overviews.
+
+If you've Googled anything recently, you've probably noticed something new: a box at the very top of the results with an AI-generated summary. Before you see any website links, Google's AI reads multiple sources and writes its own answer.
+
+That box is an AI Overview. And it's getting bigger.
+
+Google has confirmed that AI Overviews now appear for the majority of searches. For local business searches — the exact queries that drive phone calls and enquiries — they're becoming the first thing potential customers see.
+
+GEO means optimising your website so Google's AI cites your content in those summaries. Here's what's involved:
+
+1. E-E-A-T Signals
+Google's AI prioritises content from sources that demonstrate Experience, Expertise, Authoritativeness, and Trustworthiness. For a local business, this means real case studies, genuine reviews, clear credentials, and original insights — not generic content that could apply to anyone.
+
+2. Topical Depth
+AI Overviews pull from websites that comprehensively cover a topic. If your website has a thin "Services" page with three bullet points, Google's AI won't use it. If you have detailed, in-depth content about each of your services — with specifics relevant to your location — you're far more likely to be cited.
+
+3. Structured Data
+Schema markup (the same code used in AEO) also helps Google's AI understand what your content is about and how it should be categorised. The more structured your data, the easier it is for AI to cite you.
+
+4. Authoritative Content
+Google's AI gives more weight to content that takes a clear position, provides specific data, and offers genuine expertise. Generic, surface-level content gets skipped.
+
+Why This Matters Right Now — Not Later
+
+Here's the critical point most businesses miss: AEO and GEO are not future trends. They're happening now. But the window of opportunity is still wide open.
+
+Most local businesses in Wollongong, Sydney, and across Australia have never heard of AEO or GEO. Their competitors haven't optimised for it. The playing field is almost completely empty.
+
+That means the first businesses to optimise for AI search will dominate — the same way early adopters of traditional SEO captured the top of Google years ago and have been riding that wave ever since.
+
+But that window won't stay open. As more businesses catch on, the competition will increase and the cost of optimising will go up. Right now, you can get ahead cheaply. In two years, it'll be ten times harder.
+
+The Numbers Tell the Story
+
+Consider these trends:
+
+- Google AI Overviews now appear in over 80% of informational searches
+- Voice search usage has grown 35% year-on-year since 2022
+- 58% of consumers have used voice search to find a local business
+- ChatGPT has over 200 million weekly active users
+- Google's own data shows that AI Overviews increase click-through to cited sources by 30%
+
+These aren't small numbers. This is a fundamental shift in how people discover businesses.
+
+Traditional SEO vs AEO vs GEO: What's the Difference?
+
+Traditional SEO: Optimise your website to appear in Google's list of blue links. You're competing for one of 10 positions on page 1.
+
+AEO: Optimise your content so AI assistants (Siri, Alexa, Google Assistant, ChatGPT) directly recommend your business when someone asks a question. There's no list — you're either the answer or you're not.
+
+GEO: Optimise your content so Google's AI Overview cites your website in its summary box. You appear above all the blue links, above the ads, at the very top of the page.
+
+The best strategy combines all three. Traditional SEO builds your foundation. AEO captures voice and AI assistant traffic. GEO puts you at the top of Google before anyone else.
+
+What This Means for Tradies and Small Businesses
+
+If you're a plumber, electrician, builder, or any service-based business in Wollongong or Sydney, here's why you should care:
+
+1. Your competitors aren't doing this yet. The first mover advantage is real and it's available right now.
+
+2. AI search favours local businesses. When someone asks "who's the best plumber near me", AI looks for locally relevant, authoritative sources — not big national brands. This is your advantage.
+
+3. Voice search is growing faster in trades. "Hey Google, I need an emergency plumber" is becoming more common than typing on a keyboard. If you're not optimised for it, that customer goes to whoever is.
+
+4. It builds on your existing SEO. AEO and GEO aren't replacing your current SEO — they're amplifying it. The work you've already done on your website becomes more valuable, not less.
+
+5. The ROI is enormous. Getting cited in a Google AI Overview or recommended by an AI assistant is essentially free advertising at the top of search. The cost of optimising for it now is a fraction of what Google Ads costs.
+
+How We Do It at Digital Edge Studio
+
+AEO and GEO are included in every Local SEO package we offer. Here's our approach:
+
+- We audit your existing content for AI readiness
+- We identify the specific questions your customers are asking
+- We restructure your content with clear Q&A formatting and schema markup
+- We build topical authority with monthly SEO-optimised articles
+- We optimise your Google Business Profile for AI-powered local searches
+- We monitor AI Overview appearances and voice search performance
+
+This isn't a separate service or an expensive add-on. It's baked into our standard Local SEO package because we believe every business should be prepared for how search is evolving.
+
+The Bottom Line
+
+The businesses that will thrive over the next 5 years aren't just the ones with the best websites or the biggest ad budgets. They're the ones that show up where customers are actually looking — and increasingly, that's through AI.
+
+AEO and GEO aren't optional extras. They're becoming essential for any business that wants to be found online.
+
+The good news? You can get ahead of 99% of your competitors by starting now, while most businesses have never even heard these terms.
+
+Ready to future-proof your online presence? Get in touch with Digital Edge Studio for a free consultation. We'll show you exactly how AI search is affecting your industry and what you can do about it.`,
+    author: 'Digital Edge Studio',
+    date: '2026-03-13',
+    category: 'SEO',
+    image: '/images/blog/aisearch-pic.jpg',
+    readTime: 12,
+    keywords: ['aeo optimisation', 'geo optimisation', 'answer engine optimisation', 'generative engine optimisation', 'ai search optimisation', 'ai seo wollongong', 'future of seo', 'google ai overviews', 'voice search optimisation', 'local seo ai'],
+    metaDescription: 'What are AEO and GEO? Learn how Answer Engine Optimisation and Generative Engine Optimisation are changing how customers find local businesses — and why the businesses that move first will win.'
   }
 ];

@@ -2,10 +2,11 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShoppingCart, Globe, Search, Shield, BarChart3, Users, Star, Sparkles, Bot, Cpu } from "lucide-react";
-import serviceWebdesign from "@/assets/service-webdesign.jpg";
-import serviceSeo from "@/assets/service-seo.jpg";
-import serviceMarketing from "@/assets/service-marketing.jpg";
-const serviceMaintenance = "/images/blog/website-hosting.jpg";
+const serviceWebdesign = "/images/blog/webdesign-pic.jpg";
+const serviceSeo = "/images/blog/seo-pic.jpg";
+const serviceMarketing = "/images/blog/google-ads-pic.jpg";
+const serviceMaintenance = "/images/blog/webhosting-pic.jpg";
+const serviceEcommerce = "/images/blog/e-commerce-pic.png";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { FAQ } from "@/components/FAQ";
@@ -265,12 +266,8 @@ const Services = () => {
       <section className="section-padding bg-background" id="ecommerce">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group bg-gradient-to-br from-accent/5 to-accent/10 flex items-center justify-center p-12">
-              <div className="text-center">
-                <ShoppingCart className="w-20 h-20 text-accent mx-auto mb-6 opacity-80" />
-                <p className="text-2xl font-bold text-foreground font-display mb-2">Online Store</p>
-                <p className="text-muted-foreground">Fully managed eCommerce</p>
-              </div>
+            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
+              <img src={serviceEcommerce} alt="eCommerce online store website design" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider">eCommerce Website Design</span>
@@ -309,7 +306,7 @@ const Services = () => {
         <div className="container-tight px-4 py-6">
           <ScrollReveal className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-muted-foreground">
             {[
-              { icon: Users, text: "100+ Websites Delivered" },
+              { icon: Users, text: "50+ Websites Delivered" },
               { icon: Star, text: "5-Star Google Reviews" },
               { icon: Shield, text: "No Lock-In Contracts" },
             ].map((item) => (

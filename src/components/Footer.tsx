@@ -1,85 +1,109 @@
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Calendar } from "lucide-react";
+import { MapPin, Mail, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logoWhite from "@/assets/digitaledge-logo-white.svg";
 
 const Footer = () => {
   return (
-    <footer className="gradient-hero text-primary-foreground">
-      <div className="container-tight px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <footer className="gradient-hero relative overflow-hidden">
+      {/* Subtle gradient orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[hsl(217_76%_48%/0.06)] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[hsl(250_70%_50%/0.04)] rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container-tight px-4 relative z-10">
+        {/* CTA strip */}
+        <div className="py-12 border-b border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white font-display tracking-tight">
+                Ready to grow your business online?
+              </h3>
+              <p className="text-white/60 mt-1">Get a free, no-obligation quote today.</p>
+            </div>
+            <Button variant="hero" size="lg" asChild className="shrink-0">
+              <Link to="/contact">
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* Main footer grid */}
+        <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <img src={logoWhite} alt="Digital Edge" className="h-10 w-auto" />
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW. We build professional websites and run local SEO campaigns that get you more leads and customers.
+            <p className="text-white/55 text-sm leading-relaxed">
+              Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW.
             </p>
+            <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="inline-block">
+              <img src="/images/blog/linkedin-icon.png" alt="LinkedIn" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity duration-200" />
+            </a>
           </div>
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="font-semibold font-display">Services</h4>
-            <nav className="flex flex-col gap-2">
-              <Link to="/services" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Website Design & Development</Link>
-              <Link to="/services" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Local SEO</Link>
-              <Link to="/services" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Website Maintenance & Hosting</Link>
-              <Link to="/pricing" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Pricing</Link>
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Services</h4>
+            <nav className="flex flex-col gap-2.5">
+              <Link to="/services" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Website Design & Development</Link>
+              <Link to="/services#seo" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Local SEO</Link>
+              <Link to="/services#ai-search" className="text-sm text-white/55 hover:text-white transition-colors duration-200">AEO & GEO Optimisation</Link>
+              <Link to="/services#marketing" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Google Ads Management</Link>
+              <Link to="/pricing" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Pricing</Link>
             </nav>
           </div>
 
           {/* Locations */}
           <div className="space-y-4">
-            <h4 className="font-semibold font-display">Locations</h4>
-            <nav className="flex flex-col gap-2">
-              <Link to="/web-design-wollongong" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Wollongong</Link>
-              <Link to="/web-design-sydney" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Sydney</Link>
-              <Link to="/web-design-illawarra" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design Illawarra</Link>
-              <Link to="/web-design-tradies" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Web Design for Tradies</Link>
-              <Link to="/web-design-healthcare" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Healthcare Web Design</Link>
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Locations</h4>
+            <nav className="flex flex-col gap-2.5">
+              <Link to="/web-design-wollongong" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Wollongong</Link>
+              <Link to="/web-design-sydney" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Sydney</Link>
+              <Link to="/web-design-illawarra" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Illawarra</Link>
+              <Link to="/web-design-tradies" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design for Tradies</Link>
+              <Link to="/web-design-healthcare" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Healthcare Web Design</Link>
             </nav>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold font-display">Company</h4>
-            <nav className="flex flex-col gap-2">
-              <Link to="/about" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">About Us</Link>
-              <Link to="/portfolio" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Our Work</Link>
-              <Link to="/blog" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Blog</Link>
-              <Link to="/free-website-review" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Free Website Review</Link>
-              <Link to="/contact" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Contact</Link>
-              <Link to="/privacy" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">Privacy Policy</Link>
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Company</h4>
+            <nav className="flex flex-col gap-2.5">
+              <Link to="/about" className="text-sm text-white/55 hover:text-white transition-colors duration-200">About Us</Link>
+              <Link to="/portfolio" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Our Work</Link>
+              <Link to="/blog" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Blog</Link>
+              <Link to="/free-website-review" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Free Website Review</Link>
+              <Link to="/contact" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Contact</Link>
+              <Link to="/privacy" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Privacy Policy</Link>
             </nav>
           </div>
 
-          {/* Contact / NAP */}
+          {/* Contact */}
           <div className="space-y-4">
-            <h4 className="font-semibold font-display">Get in Touch</h4>
-            <address className="not-italic flex flex-col gap-3 text-sm text-primary-foreground/70">
-              <Link to="/contact" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
-                <Calendar className="w-4 h-4 shrink-0" />
-                Book a Consultation
-              </Link>
-              <a href="mailto:enquiries@digitaledgestudio.com" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Get in Touch</h4>
+            <address className="not-italic flex flex-col gap-3.5 text-sm text-white/55">
+              <a href="mailto:enquiries@digitaledgestudio.com" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200">
                 <Mail className="w-4 h-4 shrink-0" />
                 enquiries@digitaledgestudio.com
               </a>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
                 <span>
-                  <span className="block font-medium text-primary-foreground/80">Digital Edge Studio</span>
+                  <span className="block font-medium text-white/70">Digital Edge Studio</span>
                   Wollongong, NSW, Australia
                 </span>
               </div>
-              <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
-                <img src="/images/blog/linkedin-icon.png" alt="LinkedIn" className="w-8 h-8 opacity-70 hover:opacity-100 transition-opacity" />
-              </a>
             </address>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} Digital Edge. All rights reserved.</p>
-          <Link to="/privacy" className="hover:text-primary-foreground/70 transition-colors">Privacy Policy</Link>
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+          <p>&copy; {new Date().getFullYear()} Digital Edge Studio. All rights reserved.</p>
+          <Link to="/privacy" className="hover:text-white/60 transition-colors duration-200">Privacy Policy</Link>
         </div>
       </div>
     </footer>

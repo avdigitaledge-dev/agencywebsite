@@ -120,11 +120,11 @@ const WebsiteReview = () => {
                   <input type="hidden" name="_subject" value="Free Website Review Request" />
                   <div className="space-y-2">
                     <Label htmlFor="name">Your Name *</Label>
-                    <Input id="name" name="name" required placeholder="John Smith" />
+                    <Input id="name" name="name" required placeholder="Name" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
-                    <Input id="email" name="email" type="email" required placeholder="john@example.com.au" />
+                    <Input id="email" name="email" type="email" required placeholder="Email" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="website">Your Website URL *</Label>

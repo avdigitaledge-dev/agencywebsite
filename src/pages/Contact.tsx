@@ -208,11 +208,11 @@ const Contact = () => {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
-                      <Input id="name" name="name" required placeholder="John Smith" />
+                      <Input id="name" name="name" required placeholder="Name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input id="email" name="email" type="email" required placeholder="john@example.com.au" />
+                      <Input id="email" name="email" type="email" required placeholder="Email" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">

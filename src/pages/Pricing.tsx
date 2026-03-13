@@ -322,7 +322,7 @@ const Pricing = () => {
         <div className="container-tight px-4 py-6">
           <ScrollReveal className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-muted-foreground">
             {[
-              { icon: Users, text: "100+ Websites Delivered" },
+              { icon: Users, text: "50+ Websites Delivered" },
               { icon: Star, text: "5-Star Google Reviews" },
               { icon: Shield, text: "No Lock-In Contracts" },
             ].map((item) => (
