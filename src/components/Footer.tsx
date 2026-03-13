@@ -48,11 +48,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Services</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/services" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Website Design & Development</Link>
-              <Link to="/services#seo" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Local SEO</Link>
-              <Link to="/services#ai-search" className="text-sm text-white/55 hover:text-white transition-colors duration-200">AEO & GEO Optimisation</Link>
-              <Link to="/services#marketing" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Google Ads Management</Link>
-              <Link to="/pricing" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Pricing</Link>
+              <Link to="/services" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
+              <Link to="/services#seo" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
+              <Link to="/services#ai-search" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
+              <Link to="/services#marketing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
+              <Link to="/pricing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
           </div>
 
@@ -60,11 +60,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Locations</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/web-design-wollongong" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Wollongong</Link>
-              <Link to="/web-design-sydney" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Sydney</Link>
-              <Link to="/web-design-illawarra" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design Illawarra</Link>
-              <Link to="/web-design-tradies" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Web Design for Tradies</Link>
-              <Link to="/web-design-healthcare" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Healthcare Web Design</Link>
+              <Link to="/web-design-wollongong" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
+              <Link to="/web-design-sydney" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
+              <Link to="/web-design-illawarra" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
+              <Link to="/web-design-tradies" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
+              <Link to="/web-design-healthcare" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
             </nav>
           </div>
 
@@ -72,12 +72,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Company</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/about" className="text-sm text-white/55 hover:text-white transition-colors duration-200">About Us</Link>
-              <Link to="/portfolio" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Our Work</Link>
-              <Link to="/blog" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Blog</Link>
-              <Link to="/free-website-review" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Free Website Review</Link>
-              <Link to="/contact" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Contact</Link>
-              <Link to="/privacy" className="text-sm text-white/55 hover:text-white transition-colors duration-200">Privacy Policy</Link>
+              <Link to="/about" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
+              <Link to="/portfolio" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
+              <Link to="/blog" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
+              <Link to="/free-website-review" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
+              <Link to="/contact" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
+              <Link to="/privacy" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
             </nav>
           </div>
 

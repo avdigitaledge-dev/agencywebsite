@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, MapPin, Clock, Send, Calendar } from "lucide-react";
+import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -182,7 +182,7 @@ const Contact = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Get Your Free Quote
+              Get Your <span className="text-gradient">Free Quote</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               Tell us about your business and what you're looking for. We'll get back to you within 24 hours with a tailored recommendation.
@@ -192,7 +192,7 @@ const Contact = () => {
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
         </div>
       </section>
@@ -202,38 +202,54 @@ const Contact = () => {
           <ScrollReveal className="grid lg:grid-cols-5 gap-12">
             {/* Form */}
             <motion.div variants={fadeUp} className="lg:col-span-3">
-              <div className="bg-card rounded-2xl border border-border shadow-card p-8">
+              <div className="bg-card rounded-2xl border border-border shadow-card p-8 card-premium bg-accent/[0.02]">
                 <h2 className="heading-card text-foreground mb-6">Request a Free Quote</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
-                      <Input id="name" name="name" required placeholder="Name" />
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input id="name" name="name" required placeholder="Name" className="pl-10" />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input id="email" name="email" type="email" required placeholder="Email" />
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input id="email" name="email" type="email" required placeholder="Email" className="pl-10" />
+                      </div>
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" />
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" className="pl-10" />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="business">Business Name</Label>
-                      <Input id="business" name="business" placeholder="Your Business Name" />
+                      <div className="relative">
+                        <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input id="business" name="business" placeholder="Your Business Name" className="pl-10" />
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">How Can We Help? *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
-                    />
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground" />
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
+                        placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
+                        className="pl-10"
+                      />
+                    </div>
                   </div>
                   <Button type="submit" variant="cta" size="lg" className="w-full" disabled={loading}>
                     {loading ? "Sending..." : <>Request a Free Quote <Send className="w-4 h-4 ml-2" /></>}

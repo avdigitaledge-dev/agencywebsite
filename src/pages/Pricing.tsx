@@ -185,7 +185,7 @@ const Pricing = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Simple, Transparent Pricing
+              Simple, <span className="text-gradient">Transparent</span> Pricing
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               No hidden fees. No lock-in contracts. Just honest pricing for Australian businesses.
@@ -195,7 +195,7 @@ const Pricing = () => {
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
         </div>
       </section>
@@ -217,7 +217,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Perfect for tradies and small service businesses</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $3,000–$5,000</p>
-                <span className="text-4xl font-extrabold text-foreground font-display">$995</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display">$995</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -242,7 +242,7 @@ const Pricing = () => {
             </motion.div>
 
             {/* Business */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border-2 border-accent shadow-card relative p-8 flex flex-col card-hover-lift">
+            <motion.div variants={fadeUp} className="bg-gradient-to-b from-accent/[0.04] to-transparent rounded-2xl border-2 border-accent shadow-glow relative p-8 flex flex-col card-hover-lift md:scale-105 md:-my-4">
               <motion.div
                 className="absolute -top-3 left-8 px-3 py-1 gradient-cta text-accent-foreground text-xs font-semibold rounded-full shadow-cta"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -254,7 +254,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">For businesses serious about growing online</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $5,000–$10,000</p>
-                <span className="text-4xl font-extrabold text-foreground font-display">$1,850</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display">$1,850</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -286,7 +286,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Sell products online with a fully managed store</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $10,000–$20,000</p>
-                <span className="text-4xl font-extrabold text-foreground font-display">$4,500</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display">$4,500</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -404,7 +404,7 @@ const Pricing = () => {
               <h3 className="heading-card text-foreground mb-1">Website Maintenance</h3>
               <p className="text-muted-foreground text-sm mb-4">Keep your site fast, secure, and updated</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-foreground font-display">$99</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display">$99</span>
                 <span className="text-muted-foreground ml-1">/month</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -440,7 +440,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Dominate local search & Google Maps in your area</p>
               <div className="mb-6">
                 <span className="text-sm text-muted-foreground">From</span>
-                <span className="text-4xl font-extrabold text-foreground font-display ml-2">$1,000</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display ml-2">$1,000</span>
                 <span className="text-muted-foreground ml-1">/month</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -474,7 +474,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Targeted ads that bring instant leads</p>
               <div className="mb-6">
                 <span className="text-sm text-muted-foreground">From</span>
-                <span className="text-4xl font-extrabold text-foreground font-display ml-2">$800</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display ml-2">$800</span>
                 <span className="text-muted-foreground ml-1">/month</span>
                 <p className="text-xs text-muted-foreground mt-1">+ 15% of ad spend · No lock-in contracts</p>
               </div>

@@ -174,7 +174,7 @@ const Services = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Services That Bring You More Customers
+              Services That Bring You More <span className="text-gradient">Customers</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               From professional websites to local SEO and ongoing support — everything your business needs to succeed online.

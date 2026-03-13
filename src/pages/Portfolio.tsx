@@ -64,7 +64,7 @@ const Portfolio = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Real Results for Real Businesses
+              <span className="text-gradient">Real Results</span> for Real Businesses
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               We don't just build websites — we build lead-generation machines. Here's what we've done for tradies and small businesses across Wollongong, Sydney, and NSW.
@@ -205,7 +205,7 @@ const Portfolio = () => {
         {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
         </div>
       </section>

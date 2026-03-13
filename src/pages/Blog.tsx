@@ -99,7 +99,7 @@ const Blog = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Web Design & Marketing Blog
+              Web Design & Marketing <span className="text-gradient">Blog</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               Tips, strategies, and insights for tradies and small businesses wanting to succeed online.
@@ -115,8 +115,9 @@ const Blog = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="section-padding bg-background">
-        <div className="container-tight">
+      <section className="section-padding bg-background relative">
+        <div className="absolute inset-0 dot-pattern opacity-40" />
+        <div className="container-tight relative z-10">
           <ScrollReveal className="flex flex-wrap gap-3 justify-center mb-12">
             <motion.button
               variants={fadeUp}
@@ -150,23 +151,43 @@ const Blog = () => {
             {filteredPosts.map((post) => (
               <motion.div key={post.id} variants={fadeUp}>
                 <Link to={`/blog/${post.slug}`} className="group">
-                  <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300 h-full flex flex-col card-hover-lift">
+                  <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300 h-full flex flex-col card-hover-lift relative">
+                    {/* Category color top bar */}
+                    <div className={`h-1 w-full ${
+                      post.category === "SEO" ? "bg-accent" :
+                      post.category === "Web Design" ? "bg-emerald-500" :
+                      post.category === "Marketing" ? "bg-purple-500" :
+                      post.category === "E-Commerce" ? "bg-accent-warm" :
+                      "bg-accent"
+                    }`} />
                     {/* Image */}
-                    <div className="h-48 bg-muted overflow-hidden">
+                    <div className="h-48 bg-muted overflow-hidden relative">
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                         }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Read time badge on image */}
+                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium flex items-center gap-1.5">
+                        <Clock className="w-3 h-3" />
+                        {post.readTime} min
+                      </div>
                     </div>
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                          post.category === "SEO" ? "bg-accent/10 text-accent" :
+                          post.category === "Web Design" ? "bg-emerald-500/10 text-emerald-600" :
+                          post.category === "Marketing" ? "bg-purple-500/10 text-purple-600" :
+                          post.category === "E-Commerce" ? "bg-accent-warm/10 text-accent-warm" :
+                          "bg-accent/10 text-accent"
+                        }`}>
                           <Tag className="w-3 h-3" />
                           {post.category}
                         </span>
@@ -181,11 +202,8 @@ const Blog = () => {
                       </p>
 
                       <div className="flex items-center justify-between pt-4 border-t border-border">
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <Clock className="w-3.5 h-3.5" />
-                          <span>{post.readTime} min read</span>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="text-xs text-muted-foreground">{post.date}</span>
+                        <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
                       </div>
                     </div>
                   </div>

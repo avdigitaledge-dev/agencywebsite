@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
@@ -222,18 +222,12 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
-          </svg>
-        </div>
       </section>
 
       {/* ═══ Trust Bar ═══ */}
-      <section className="bg-background">
-        <div className="container-tight px-4">
-          <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-8 relative z-30">
+      <section className="gradient-hero relative -mt-1">
+        <div className="container-tight px-4 py-10">
+          <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-30">
             {[
               { val: "50+", label: "Websites Delivered" },
               { val: "5.0", label: "Google Rating" },
@@ -243,13 +237,19 @@ const Index = () => {
               <motion.div
                 key={item.label}
                 variants={fadeUp}
-                className="bg-card rounded-xl p-5 text-center shadow-card border border-border"
+                className="card-glass rounded-xl p-5 text-center"
               >
-                <p className="text-2xl font-extrabold text-accent font-display">{item.val}</p>
-                <p className="text-xs text-muted-foreground mt-1 font-medium">{item.label}</p>
+                <p className="text-2xl font-extrabold text-white font-display stat-glow">{item.val}</p>
+                <p className="text-xs text-white/60 mt-1 font-medium">{item.label}</p>
               </motion.div>
             ))}
           </ScrollReveal>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
@@ -277,7 +277,7 @@ const Index = () => {
                 variants={fadeUp}
                 className="bg-card rounded-2xl p-8 border border-border card-premium group"
               >
-                <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
                   <item.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <h3 className="heading-card text-foreground mb-3">{item.title}</h3>
@@ -304,18 +304,21 @@ const Index = () => {
 
           <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $995", link: "/services" },
-              { title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
-              { title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
-              { title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
-              { title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,500/month", link: "/pricing" },
-              { title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
+              { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $995", link: "/services" },
+              { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
+              { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
+              { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
+              { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,500/month", link: "/pricing" },
+              { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
             ].map((service) => (
-              <motion.div key={service.title} variants={fadeUp} className="bg-card rounded-2xl p-8 border border-border card-premium flex flex-col">
+              <motion.div key={service.title} variants={fadeUp} className="bg-card rounded-2xl p-8 border border-border card-premium flex flex-col group">
+                <div className="w-11 h-11 rounded-xl gradient-cta flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <service.icon className="w-5 h-5 text-white" />
+                </div>
                 <h3 className="heading-card text-foreground mb-3">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed flex-1 mb-6">{service.desc}</p>
                 <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="font-bold text-accent font-display text-lg">{service.price}</span>
+                  <span className="font-bold text-accent-warm font-display text-lg">{service.price}</span>
                   <Button variant="ghost" size="sm" asChild className="text-accent">
                     <Link to={service.link}>Learn More <ArrowRight className="w-4 h-4 ml-1" /></Link>
                   </Button>
@@ -327,15 +330,23 @@ const Index = () => {
       </section>
 
       {/* ═══ How It Works ═══ */}
-      <section className="section-padding bg-background">
-        <div className="container-tight">
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
+        <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight section-padding relative z-10">
           <ScrollReveal className="text-center mb-16">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4 backdrop-blur-md border border-white/10">
               <Zap className="w-3.5 h-3.5" />
               Simple Process
             </motion.span>
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">How It Works</motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            <motion.h2 variants={fadeUp} className="heading-section text-white mb-4">How It <span className="text-gradient">Works</span></motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-white/60 max-w-2xl mx-auto">
               Getting started is simple. No jargon, no confusion — just results.
             </motion.p>
           </ScrollReveal>
@@ -349,31 +360,36 @@ const Index = () => {
               <motion.div key={item.step} variants={fadeUp} className="relative group">
                 {/* Connector line */}
                 {i < 2 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-px border-t-2 border-dashed border-border" />
+                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-px border-t-2 border-dashed border-white/15" />
                 )}
                 <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 rounded-2xl gradient-cta flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                  <div className="w-16 h-16 rounded-2xl card-glass flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
                     <span className="text-white text-lg font-bold font-display">{item.step}</span>
                   </div>
-                  <h3 className="heading-card text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <h3 className="heading-card text-white mb-3">{item.title}</h3>
+                  <p className="text-white/55 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
           </ScrollReveal>
         </div>
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
       </section>
 
       {/* ═══ Testimonials — Carousel ═══ */}
-      <section className="section-padding relative" style={{ background: "var(--surface-gradient)" }}>
-        <div className="absolute inset-0 dot-pattern opacity-30" />
+      <section className="section-padding relative bg-background">
         <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-14">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
-              <Star className="w-3.5 h-3.5 fill-accent" />
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-warm/10 text-accent-warm text-sm font-semibold mb-4">
+              <Star className="w-3.5 h-3.5 fill-accent-warm" />
               5-Star Reviews
             </motion.span>
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">What Our Clients Say</motion.h2>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">What Our <span className="text-gradient">Clients Say</span></motion.h2>
           </ScrollReveal>
 
           <div className="max-w-3xl mx-auto relative">
@@ -384,20 +400,31 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg text-center relative"
+                className="bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg relative overflow-hidden"
               >
-                <Quote className="w-10 h-10 text-accent/15 mx-auto mb-6" />
-                <div className="flex justify-center gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
-                </div>
-                <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8 font-medium">
-                  "{testimonials[testimonialIdx].quote}"
-                </p>
-                <div>
-                  <p className="font-bold text-foreground text-lg">{testimonials[testimonialIdx].name}</p>
-                  <p className="text-muted-foreground text-sm">{testimonials[testimonialIdx].biz}</p>
+                {/* Decorative quote watermark */}
+                <Quote className="absolute top-4 left-6 w-16 h-16 text-accent/[0.06]" />
+                {/* Accent left bar */}
+                <div className="absolute left-0 top-6 bottom-6 w-1 rounded-full gradient-cta" />
+                <div className="pl-4">
+                  <div className="flex justify-center gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-accent-warm text-accent-warm" />
+                    ))}
+                  </div>
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8 font-medium text-center">
+                    "{testimonials[testimonialIdx].quote}"
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    {/* Initials avatar */}
+                    <div className="w-12 h-12 rounded-full gradient-cta flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold font-display text-lg">{testimonials[testimonialIdx].name.charAt(0)}</span>
+                    </div>
+                    <div className="text-left">
+                      <p className="font-bold text-foreground text-lg">{testimonials[testimonialIdx].name}</p>
+                      <p className="text-muted-foreground text-sm">{testimonials[testimonialIdx].biz}</p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -574,10 +601,10 @@ const Index = () => {
             </motion.div>
           </ScrollReveal>
         </div>
-        {/* Top wave */}
+        {/* Angled divider */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
-          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-[hsl(218_14%_92%)]" />
+          <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="w-full h-[50px] md:h-[80px]">
+            <path d="M0,80 L1200,0 L1200,80 Z" className="fill-background" />
           </svg>
         </div>
       </section>
