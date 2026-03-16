@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/utils";
 import logoWhite from "@/assets/digitaledge-logo-white.svg";
 
 const Footer = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
               <p className="text-white/60 mt-1">Get a free, no-obligation quote today.</p>
             </div>
             <Button variant="hero" size="lg" asChild className="shrink-0">
-              <Link to="/contact">
+              <Link to="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "footer" })}>
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
@@ -50,7 +51,7 @@ const Footer = () => {
             <nav className="flex flex-col gap-2.5">
               <Link to="/services" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
               <Link to="/services#seo" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
-              <Link to="/services#ai-search" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
+              <Link to="/services/aeo-geo" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
               <Link to="/services#marketing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
               <Link to="/pricing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
@@ -79,13 +80,19 @@ const Footer = () => {
               <Link to="/contact" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
               <Link to="/privacy" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
             </nav>
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider pt-2">Compare</h4>
+            <nav className="flex flex-col gap-2.5">
+              <Link to="/vs/wix" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
+              <Link to="/vs/squarespace" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
+              <Link to="/vs/cheap-web-designers" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
+            </nav>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Get in Touch</h4>
             <address className="not-italic flex flex-col gap-3.5 text-sm text-white/55">
-              <a href="mailto:enquiries@digitaledgestudio.com" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200">
+              <a href="mailto:enquiries@digitaledgestudio.com" onClick={() => trackEvent("email_click", { location: "footer" })} className="flex items-center gap-2.5 hover:text-white transition-colors duration-200">
                 <Mail className="w-4 h-4 shrink-0" />
                 enquiries@digitaledgestudio.com
               </a>

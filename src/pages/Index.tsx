@@ -229,10 +229,10 @@ const Index = () => {
         <div className="container-tight px-4 py-10">
           <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-30">
             {[
-              { val: "50+", label: "Websites Delivered" },
-              { val: "5.0", label: "Google Rating" },
-              { val: "40+", label: "Avg Leads/Month" },
-              { val: "12x", label: "Average ROI" },
+              { val: "50+", label: "Websites Delivered (2020–2026)" },
+              { val: "5.0", label: "Google Rating (Verified)" },
+              { val: "40+", label: "Avg Leads/Month per Client" },
+              { val: "12x", label: "Average Client ROI" },
             ].map((item) => (
               <motion.div
                 key={item.label}
@@ -552,7 +552,7 @@ const Index = () => {
               Based in NSW, we build websites and run digital marketing for businesses across the Illawarra region, Wollongong, Sydney, and beyond.
             </motion.p>
           </ScrollReveal>
-          <ScrollReveal className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <ScrollReveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { label: "Web Design Wollongong", path: "/web-design-wollongong" },
               { label: "Web Design Sydney", path: "/web-design-sydney" },
@@ -560,10 +560,10 @@ const Index = () => {
               { label: "Web Design for Tradies", path: "/web-design-tradies" },
               { label: "Healthcare Web Design", path: "/web-design-healthcare" },
             ].map((area) => (
-              <motion.div key={area.path} variants={fadeUp}>
+              <motion.div key={area.path} variants={fadeUp} className="h-full">
                 <Link
                   to={area.path}
-                  className="flex items-center justify-center gap-2 p-4 bg-card rounded-xl border border-border text-sm font-medium text-foreground hover:border-accent hover:text-accent hover:shadow-md transition-all duration-200 text-center"
+                  className="flex items-center justify-center gap-2 p-5 h-full min-h-[64px] bg-card rounded-xl border border-border text-sm font-medium text-foreground hover:border-accent hover:text-accent hover:shadow-md transition-all duration-200 text-center"
                 >
                   <MapPin className="w-4 h-4 flex-shrink-0" />
                   {area.label}

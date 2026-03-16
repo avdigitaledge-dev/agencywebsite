@@ -226,6 +226,27 @@ const WebDesignHealthcare = () => {
         </div>
       </section>
 
+      {/* Local Case Studies */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-8 text-center">
+              Real Results in Healthcare
+            </motion.h2>
+            <motion.div variants={fadeUp} className="grid md:grid-cols-1 gap-6 max-w-lg mx-auto">
+              <Link to="/portfolio/coastal-physio-wollongong" className="group">
+                <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
+                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Healthcare</span>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Coastal Physiotherapy</h3>
+                  <p className="text-sm text-muted-foreground mb-3">165% increase in new patient bookings</p>
+                  <span className="text-sm text-accent font-medium">View Case Study →</span>
+                </div>
+              </Link>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />

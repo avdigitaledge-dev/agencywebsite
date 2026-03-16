@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { trackEvent } from "@/lib/utils";
 import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -134,6 +135,7 @@ const Contact = () => {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        trackEvent("generate_lead", { form_name: "contact_form" });
         toast({
           title: "Quote request sent!",
           description: "We'll get back to you within 24 hours.",
@@ -156,7 +158,7 @@ const Contact = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Contact Web Designer Wollongong | Free Quote | Digital Edge Studio"
+        title="Contact Us | Free Quote | Digital Edge Studio"
         description="Get a free quote from your local web designer in Wollongong. Digital Edge Studio specialises in web design and digital marketing for small businesses across Wollongong, Sydney & NSW."
         canonical="https://digitaledgestudio.com/contact"
         keywords="contact web designer wollongong, web designer near me wollongong, hire a web designer in wollongong, digital marketing consultation, free website quote, web design near me wollongong"
@@ -275,7 +277,7 @@ const Contact = () => {
                       <p className="font-medium">Book online via form</p>
                     </div>
                   </div>
-                  <a href="mailto:enquiries@digitaledgestudio.com" className="flex items-center gap-3 text-foreground hover:text-accent transition-colors">
+                  <a href="mailto:enquiries@digitaledgestudio.com" onClick={() => trackEvent("email_click", { location: "contact_page" })} className="flex items-center gap-3 text-foreground hover:text-accent transition-colors">
                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                       <Mail className="w-5 h-5 text-accent" />
                     </div>

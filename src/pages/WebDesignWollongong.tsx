@@ -286,6 +286,43 @@ const WebDesignWollongong = () => {
         </div>
       </section>
 
+      {/* Local Case Studies */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-8 text-center">
+              Real Results in Wollongong
+            </motion.h2>
+            <motion.div variants={fadeUp} className="grid md:grid-cols-3 gap-6">
+              <Link to="/portfolio/grovespark-electrical-wollongong" className="group">
+                <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
+                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Electrician</span>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">GroveSpark Electrical</h3>
+                  <p className="text-sm text-muted-foreground mb-3">40+ leads/month from zero online presence</p>
+                  <span className="text-sm text-accent font-medium">View Case Study →</span>
+                </div>
+              </Link>
+              <Link to="/portfolio/coastal-physio-wollongong" className="group">
+                <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
+                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Healthcare</span>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Coastal Physiotherapy</h3>
+                  <p className="text-sm text-muted-foreground mb-3">165% increase in new patient bookings</p>
+                  <span className="text-sm text-accent font-medium">View Case Study →</span>
+                </div>
+              </Link>
+              <Link to="/portfolio/bright-clean-services" className="group">
+                <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
+                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Cleaning</span>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Bright & Clean</h3>
+                  <p className="text-sm text-muted-foreground mb-3">210% increase in organic leads</p>
+                  <span className="text-sm text-accent font-medium">View Case Study →</span>
+                </div>
+              </Link>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Pricing CTA */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">

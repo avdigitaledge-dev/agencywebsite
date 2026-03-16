@@ -1,7 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Globe, Search, FileText, Star, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
@@ -15,6 +15,30 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={stagger}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const suggestedPages = [
+  { icon: Globe, label: "Our Services", description: "Web design, SEO & marketing", to: "/services" },
+  { icon: Star, label: "Our Work", description: "Case studies & results", to: "/portfolio" },
+  { icon: Search, label: "Free Website Review", description: "Get a free site audit", to: "/free-website-review" },
+  { icon: FileText, label: "Blog", description: "Tips & guides", to: "/blog" },
+  { icon: DollarSign, label: "Pricing", description: "Transparent packages", to: "/pricing" },
+];
+
 const NotFound = () => {
   const location = useLocation();
 
@@ -24,7 +48,7 @@ const NotFound = () => {
 
   return (
     <Layout>
-      <section className="gradient-hero relative overflow-hidden min-h-[60vh] flex items-center">
+      <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-20 text-center relative z-10 w-full">
           <motion.div
@@ -48,11 +72,38 @@ const NotFound = () => {
             </motion.div>
           </motion.div>
         </div>
-        {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
             <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
+        </div>
+      </section>
+
+      {/* Suggested Pages */}
+      <section className="section-padding bg-background">
+        <div className="container-tight max-w-3xl">
+          <ScrollReveal>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-8 text-center">
+              Maybe you were looking for...
+            </motion.h2>
+            <motion.div variants={fadeUp} className="grid sm:grid-cols-2 gap-4">
+              {suggestedPages.map((page) => (
+                <Link
+                  key={page.to}
+                  to={page.to}
+                  className="group flex items-center gap-4 p-5 bg-card rounded-xl border border-border hover:border-accent transition-colors card-hover-lift"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                    <page.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground group-hover:text-accent transition-colors">{page.label}</p>
+                    <p className="text-xs text-muted-foreground">{page.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>
