@@ -87,7 +87,7 @@ const WebDesignIllawarra = () => {
         "name": "How much does web design cost in the Illawarra?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Illawarra web design packages start from $995 for a Starter Website. We offer transparent, fixed pricing with no hidden fees. Get a free quote to discuss your project."
+          "text": "Our Illawarra web design packages start from $1,200 for a Starter Website. We offer transparent, fixed pricing with no hidden fees. Get a free quote to discuss your project."
         }
       }
     ]

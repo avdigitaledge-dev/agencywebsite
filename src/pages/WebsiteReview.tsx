@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { SEOMeta } from "@/components/SEOMeta";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/utils";
 
 /* ── Animation helpers ─────────────────────────────────── */
 const stagger = {
@@ -52,6 +53,7 @@ const WebsiteReview = () => {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        trackEvent("generate_lead", { form_name: "free_website_review" });
         toast({
           title: "Review request received!",
           description: "We'll send your free website review within 1 business day.",

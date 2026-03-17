@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import Layout from "@/components/Layout";
+import { trackEvent } from "@/lib/utils";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -38,7 +39,7 @@ const ChecklistThankYou = () => {
               href="/downloads/5-point-website-checklist.pdf"
               download
               onClick={() => {
-                pushEvent("file_download", {
+                trackEvent("file_download", {
                   event_category: "Lead Magnet",
                   event_label: "5-Point Website Checklist PDF",
                 });

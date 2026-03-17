@@ -63,7 +63,7 @@ const WebDesignSydney = () => {
         "name": "How much does web design cost in Sydney?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Sydney web design packages start from $995 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
+          "text": "Our Sydney web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
         }
       },
       {
@@ -162,7 +162,7 @@ const WebDesignSydney = () => {
       <section className="bg-muted py-8">
         <div className="container-tight px-4">
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            {["Serving All Sydney Regions", "No Lock-In Contracts", "From $995", "Free Consultation", "Local SEO Included"].map((item) => (
+            {["Serving All Sydney Regions", "No Lock-In Contracts", "From $1,200", "Free Consultation", "Local SEO Included"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 <span>{item}</span>
@@ -224,7 +224,7 @@ const WebDesignSydney = () => {
             <motion.div variants={fadeUp} className="space-y-4">
               {[
                 { title: "Sydney Areas We Serve", desc: "Inner West, Western Sydney, Northern Beaches, Sutherland Shire, South Sydney, Eastern Suburbs, Hills District." },
-                { title: "Transparent Sydney Pricing", desc: "Websites from $995. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
+                { title: "Transparent Sydney Pricing", desc: "Websites from $1,200. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
                 { title: "Sydney-Specific SEO", desc: "We optimise for the suburbs and keywords your Sydney customers actually search." },
                 { title: "Fast Turnaround", desc: "Most Sydney website projects completed in 4–8 weeks, not months." },
               ].map((item) => (

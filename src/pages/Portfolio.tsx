@@ -84,15 +84,18 @@ const Portfolio = () => {
         <div className="container-tight px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { value: "50+", label: "Websites Delivered" },
-            { value: "40+", label: "Avg. Leads/Month for Clients" },
+            { value: "40+", label: "Avg. Leads/Month for Clients*" },
             { value: "Top 3", label: "Google Rankings Achieved" },
-            { value: "12x", label: "Average Client ROI" },
+            { value: "12x", label: "Average Client ROI*" },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-2xl md:text-3xl font-bold text-accent font-display">{stat.value}</p>
               <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
             </div>
           ))}
+          <p className="text-xs text-muted-foreground text-center mt-3 col-span-2 md:col-span-4">
+            *Based on <Link to="/portfolio/grovespark-electrical-wollongong" className="underline hover:text-accent transition-colors">GroveSpark Electrical, 2024–2025</Link>
+          </p>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { trackEvent } from "@/lib/utils";
 import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare } from "lucide-react";
@@ -37,6 +37,30 @@ const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode;
     >
       {children}
     </motion.div>
+  );
+};
+
+/* ── Calendly inline embed ────────────────────────────── */
+const CalendlyEmbed = ({ url }: { url: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="calendly-inline-widget"
+      data-url={url}
+      style={{ minWidth: "320px", height: "700px" }}
+    />
   );
 };
 
@@ -274,7 +298,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Consultation</p>
-                      <p className="font-medium">Book online via form</p>
+                      <a href="https://calendly.com/avdigitaledge/30min" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">Book a Free Call</a>
                     </div>
                   </div>
                   <a href="mailto:enquiries@digitaledgestudio.com" onClick={() => trackEvent("email_click", { location: "contact_page" })} className="flex items-center gap-3 text-foreground hover:text-accent transition-colors">
@@ -315,6 +339,23 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Calendly Booking Widget ═══ */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-3">Book a Free 15-Minute Consultation</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Pick a time that suits you — no obligation, no pressure. We'll discuss your goals and how we can help.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card overflow-hidden">
+              <CalendlyEmbed url="https://calendly.com/avdigitaledge/30min" />
             </motion.div>
           </ScrollReveal>
         </div>

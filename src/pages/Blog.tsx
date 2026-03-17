@@ -9,6 +9,7 @@ import { blogPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/utils";
 
 /* ── Animation helpers ─────────────────────────────────── */
 const stagger = {
@@ -56,6 +57,7 @@ const Blog = () => {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        trackEvent("generate_lead", { form_name: "checklist_download" });
         navigate("/checklist-thank-you");
       } else throw new Error();
     } catch {
@@ -249,7 +251,7 @@ const Blog = () => {
                 type="email"
                 required
                 placeholder="Your email address"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/15"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/70 focus:bg-white/15"
               />
               <Button type="submit" variant="hero" disabled={emailLoading} className="shrink-0">
                 {emailLoading ? "Sending..." : "Send Me the Checklist"}

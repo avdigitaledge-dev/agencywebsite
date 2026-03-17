@@ -38,7 +38,7 @@ const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode;
 
 /* ── Comparison data ───────────────────────────────────── */
 const comparisonRows = [
-  { factor: "Monthly Cost", us: "From $995 one-off + $99/mo", them: "$17–$159/mo" },
+  { factor: "Monthly Cost", us: "From $1,200 one-off + $99/mo", them: "$17–$159/mo" },
   { factor: "Custom Design", us: "100% custom, conversion-focused", them: "Template-based, limited customisation" },
   { factor: "Local SEO", us: "Built-in, optimised for your area", them: "Basic, plugin-dependent" },
   { factor: "AEO & GEO", us: "Included", them: "Not available" },
@@ -257,8 +257,8 @@ const CompareWix = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6 mt-8">
-              <Link to="/pricing" className="text-white/50 hover:text-white text-sm underline underline-offset-4 transition-colors">View Pricing</Link>
-              <Link to="/portfolio" className="text-white/50 hover:text-white text-sm underline underline-offset-4 transition-colors">See Our Work</Link>
+              <Link to="/pricing" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">View Pricing</Link>
+              <Link to="/portfolio" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">See Our Work</Link>
             </motion.div>
           </ScrollReveal>
         </div>

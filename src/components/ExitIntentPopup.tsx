@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,25 +6,51 @@ import { Button } from "@/components/ui/button";
 
 const ExitIntentPopup = () => {
   const [show, setShow] = useState(false);
+  const maxScrollY = useRef(0);
 
-  const handleMouseLeave = useCallback((e: MouseEvent) => {
-    if (e.clientY <= 0 && !sessionStorage.getItem("exitIntentShown")) {
+  const triggerPopup = useCallback(() => {
+    if (!sessionStorage.getItem("exitIntentShown")) {
       setShow(true);
       sessionStorage.setItem("exitIntentShown", "true");
     }
   }, []);
 
+  // Desktop: mouseleave detection
+  const handleMouseLeave = useCallback((e: MouseEvent) => {
+    if (e.clientY <= 0) triggerPopup();
+  }, [triggerPopup]);
+
+  // Mobile: scroll-up detection (user scrolls back up 30%+ of page height)
+  const handleScroll = useCallback(() => {
+    const currentY = window.scrollY;
+    if (currentY > maxScrollY.current) {
+      maxScrollY.current = currentY;
+    }
+    const scrolledBack = maxScrollY.current - currentY;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (pageHeight > 0 && scrolledBack / pageHeight >= 0.3) {
+      triggerPopup();
+    }
+  }, [triggerPopup]);
+
   useEffect(() => {
+    const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
     // Only add listener after a 5-second delay to avoid showing on quick visits
     const timer = setTimeout(() => {
-      document.addEventListener("mouseleave", handleMouseLeave);
+      if (isMobile) {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+      } else {
+        document.addEventListener("mouseleave", handleMouseLeave);
+      }
     }, 5000);
 
     return () => {
       clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [handleMouseLeave]);
+  }, [handleMouseLeave, handleScroll]);
 
   return (
     <AnimatePresence>

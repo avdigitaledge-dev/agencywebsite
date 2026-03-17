@@ -78,7 +78,7 @@ const WebDesignTradies = () => {
         "name": "How much does a tradie website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our tradie website packages start from $995. We keep it simple and affordable so tradies can get a professional website without breaking the bank."
+          "text": "Our tradie website packages start from $1,200. We keep it simple and affordable so tradies can get a professional website without breaking the bank."
         }
       },
       {

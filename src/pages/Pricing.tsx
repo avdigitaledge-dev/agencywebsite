@@ -40,7 +40,7 @@ const Pricing = () => {
   const pricingFAQ = [
     {
       question: "How much does a website cost in Wollongong?",
-      answer: "Our web design packages start from $995 for a Starter Website (up to 5 pages), $1,850 for a Business Website (up to 10 pages), and $4,500 for an eCommerce Website (up to 20 pages). All prices are in AUD with no hidden fees."
+      answer: "Our web design packages start from $1,200 for a Starter Website (up to 5 pages), $1,850 for a Business Website (up to 10 pages), and $4,500 for an eCommerce Website (up to 20 pages). All prices are in AUD with no hidden fees."
     },
     {
       question: "What's included in the web design price?",
@@ -86,7 +86,7 @@ const Pricing = () => {
         "@type": "Offer",
         "name": "Starter Website",
         "description": "Up to 5 pages, mobile responsive design, contact form, basic on-page SEO setup, Google Analytics setup, 2 rounds of revisions.",
-        "price": "995",
+        "price": "1200",
         "priceCurrency": "AUD",
         "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
       },
@@ -161,11 +161,11 @@ const Pricing = () => {
     <Layout>
       <SEOMeta
         title="Affordable Web Design Pricing Wollongong | Packages & Cost"
-        description="Transparent web design pricing in Wollongong. Packages from $995 — no hidden fees, no lock-in contracts. Find out how much a website costs in Wollongong."
+        description="Transparent web design pricing in Wollongong. Packages from $1,200 — no hidden fees, no lock-in contracts. Find out how much a website costs in Wollongong."
         keywords="web design pricing, affordable web design wollongong, wollongong web design packages pricing, how much does a website cost in wollongong, website redesign service wollongong, seo pricing wollongong, digital marketing rates"
         canonical="https://digitaledgestudio.com/pricing"
         ogTitle="Affordable Web Design Pricing Wollongong | Packages & Cost"
-        ogDescription="Transparent pricing for web design and digital marketing in Wollongong. From $995 for a starter website — no hidden fees."
+        ogDescription="Transparent pricing for web design and digital marketing in Wollongong. From $1,200 for a starter website — no hidden fees."
         serviceSchema={pricingSchema}
       />
 
@@ -217,7 +217,7 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Perfect for tradies and small service businesses</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $3,000–$5,000</p>
-                <span className="text-4xl font-extrabold text-accent-warm font-display">$995</span>
+                <span className="text-4xl font-extrabold text-accent-warm font-display">$1,200</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
@@ -236,7 +236,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <Button variant="cta" size="lg" className="w-full" asChild>
-                <Link to="/contact">Get a Quote — Starter Website</Link>
+                <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
             </motion.div>
@@ -275,7 +275,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <Button variant="cta" size="lg" className="w-full" asChild>
-                <Link to="/contact">Talk to Us About the Business Package</Link>
+                <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
             </motion.div>
@@ -309,7 +309,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <Button variant="cta" size="lg" className="w-full" asChild>
-                <Link to="/contact">Get a Quote — eCommerce Website</Link>
+                <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
             </motion.div>
@@ -360,7 +360,7 @@ const Pricing = () => {
                 </thead>
                 <tbody>
                   {[
-                    { factor: "Starting Price", us: "From $995", agency: "$5,000-$30,000", freelancer: "$500-$2,000", diy: "$0-$500/yr" },
+                    { factor: "Starting Price", us: "From $1,200", agency: "$5,000-$30,000", freelancer: "$500-$2,000", diy: "$0-$500/yr" },
                     { factor: "Local SEO Included", us: "Yes", agency: "Extra cost", freelancer: "Rarely", diy: "No" },
                     { factor: "AEO & GEO Included", us: "Yes", agency: "Rarely", freelancer: "No", diy: "No" },
                     { factor: "Wollongong / NSW Knowledge", us: "Local team", agency: "Sydney-centric", freelancer: "Varies", diy: "None" },
@@ -424,7 +424,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <Button variant="cta" size="lg" className="w-full" asChild>
-                <Link to="/contact">Get Started with Maintenance</Link>
+                <Link to="/contact">Get a Free Quote</Link>
               </Button>
             </motion.div>
 

@@ -38,7 +38,7 @@ const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode;
 
 /* ── Comparison data ───────────────────────────────────── */
 const comparisonRows = [
-  { factor: "Typical Price", us: "From $995 (transparent, all-inclusive)", them: "$200–$500 (hidden extras)" },
+  { factor: "Typical Price", us: "From $1,200 (transparent, all-inclusive)", them: "$200–$500 (hidden extras)" },
   { factor: "Design Quality", us: "Custom, brand-aligned, conversion-focused", them: "Generic templates, minimal customisation" },
   { factor: "SEO Setup", us: "Full on-page SEO, schema markup, local optimisation", them: "Little to none  — often skipped entirely" },
   { factor: "Ongoing Support", us: "Dedicated support, updates & monitoring", them: "Disappearing developers, no ongoing plan" },
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     question: "What's the real cost difference between cheap and professional?",
-    answer: "A cheap website might cost $200–$500 upfront, but hidden extras (hosting, revisions, stock images, fixes) often push the total past $1,000. A professional website from Digital Edge starts at $995 and includes everything: custom design, SEO setup, mobile optimisation, Google Analytics, and ongoing support from $99/mo. The real difference is ROI  — a professional site pays for itself through leads it generates.",
+    answer: "A cheap website might cost $200–$500 upfront, but hidden extras (hosting, revisions, stock images, fixes) often push the total past $1,000. A professional website from Digital Edge starts at $1,200 and includes everything: custom design, SEO setup, mobile optimisation, Google Analytics, and ongoing support from $99/mo. The real difference is ROI  — a professional site pays for itself through leads it generates.",
   },
   {
     question: "How do I know if my current website is costing me business?",
@@ -176,12 +176,12 @@ const CompareCheapDesigners = () => {
         </div>
       </section>
 
-      {/* ═══ What You Get: $500 vs $995-2500 ═══ */}
+      {/* ═══ What You Get: $500 vs $1,200-2500 ═══ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
           <ScrollReveal className="text-center mb-12">
             <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
-              What You Get for <span className="text-gradient">$500 vs From $995</span>
+              What You Get for <span className="text-gradient">$500 vs From $1,200</span>
             </motion.h2>
           </ScrollReveal>
 
@@ -214,7 +214,7 @@ const CompareCheapDesigners = () => {
             {/* Professional */}
             <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-accent/20 shadow-card p-8">
               <div className="text-center mb-6">
-                <span className="text-2xl font-bold text-accent font-display">From $995</span>
+                <span className="text-2xl font-bold text-accent font-display">From $1,200</span>
                 <p className="text-sm text-muted-foreground mt-1">Digital Edge Studio</p>
               </div>
               <ul className="space-y-3">
@@ -339,8 +339,8 @@ const CompareCheapDesigners = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6 mt-8">
-              <Link to="/pricing" className="text-white/50 hover:text-white text-sm underline underline-offset-4 transition-colors">View Pricing</Link>
-              <Link to="/portfolio" className="text-white/50 hover:text-white text-sm underline underline-offset-4 transition-colors">See Our Work</Link>
+              <Link to="/pricing" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">View Pricing</Link>
+              <Link to="/portfolio" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">See Our Work</Link>
             </motion.div>
           </ScrollReveal>
         </div>

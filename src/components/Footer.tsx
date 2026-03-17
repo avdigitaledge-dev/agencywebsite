@@ -37,7 +37,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-5">
             <img src={logoWhite} alt="Digital Edge" className="h-10 w-auto" />
-            <p className="text-white/55 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW.
             </p>
             <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="inline-block">
@@ -49,11 +49,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Services</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/services" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
-              <Link to="/services#seo" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
-              <Link to="/services/aeo-geo" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
-              <Link to="/services#marketing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
-              <Link to="/pricing" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
+              <Link to="/services" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
+              <Link to="/services#seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
+              <Link to="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
+              <Link to="/services#marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
+              <Link to="/pricing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
           </div>
 
@@ -61,11 +61,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Locations</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/web-design-wollongong" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
-              <Link to="/web-design-sydney" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
-              <Link to="/web-design-illawarra" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
-              <Link to="/web-design-tradies" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
-              <Link to="/web-design-healthcare" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
+              <Link to="/web-design-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
+              <Link to="/web-design-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
+              <Link to="/web-design-illawarra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
+              <Link to="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
+              <Link to="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
             </nav>
           </div>
 
@@ -73,25 +73,25 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Company</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/about" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
-              <Link to="/portfolio" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
-              <Link to="/blog" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
-              <Link to="/free-website-review" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
-              <Link to="/contact" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
-              <Link to="/privacy" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
+              <Link to="/about" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
+              <Link to="/portfolio" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
+              <Link to="/blog" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
+              <Link to="/free-website-review" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
+              <Link to="/contact" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
+              <Link to="/privacy" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
             </nav>
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider pt-2">Compare</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/vs/wix" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
-              <Link to="/vs/squarespace" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
-              <Link to="/vs/cheap-web-designers" className="text-sm text-white/55 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
+              <Link to="/vs/wix" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
+              <Link to="/vs/squarespace" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
+              <Link to="/vs/cheap-web-designers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
             </nav>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Get in Touch</h4>
-            <address className="not-italic flex flex-col gap-3.5 text-sm text-white/55">
+            <address className="not-italic flex flex-col gap-3.5 text-sm text-white/70">
               <a href="mailto:enquiries@digitaledgestudio.com" onClick={() => trackEvent("email_click", { location: "footer" })} className="flex items-center gap-2.5 hover:text-white transition-colors duration-200">
                 <Mail className="w-4 h-4 shrink-0" />
                 enquiries@digitaledgestudio.com

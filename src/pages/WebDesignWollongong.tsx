@@ -67,7 +67,7 @@ const WebDesignWollongong = () => {
         "name": "How much does web design cost in Wollongong?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Wollongong web design packages start from $995 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts."
+          "text": "Our Wollongong web design packages start from $1,200 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts."
         }
       },
       {
@@ -329,7 +329,7 @@ const WebDesignWollongong = () => {
           <ScrollReveal className="grid md:grid-cols-2 gap-8">
             <motion.div variants={fadeUp} className="bg-card rounded-xl p-8 border border-border shadow-card card-hover-lift">
               <h3 className="font-bold text-foreground font-display text-xl mb-2">Starter Website</h3>
-              <p className="text-3xl font-bold text-foreground mb-1">From $995</p>
+              <p className="text-3xl font-bold text-foreground mb-1">From $1,200</p>
               <p className="text-sm text-muted-foreground mb-6">Perfect for tradies and service businesses getting started online</p>
               <ul className="space-y-2 mb-6">
                 {["Custom design", "Mobile responsive", "Contact form", "Google Analytics", "SEO setup", "Fast loading"].map((f) => (

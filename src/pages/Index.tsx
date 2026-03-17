@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { SEOMeta } from "@/components/SEOMeta";
 import Layout from "@/components/Layout";
+import { trackEvent } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 import { useRef } from "react";
 
 /* ── Animation helpers ─────────────────────────────────── */
@@ -72,8 +75,33 @@ const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
   );
 };
 
+const FORMSPREE_ID = "xzdjplaq";
+
 const Index = () => {
+  const { toast } = useToast();
+  const navigate = useNavigate();
   const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [checklistLoading, setChecklistLoading] = useState(false);
+
+  const handleChecklistSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setChecklistLoading(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: new FormData(e.target as HTMLFormElement),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        trackEvent("generate_lead", { form_name: "checklist_download" });
+        navigate("/checklist-thank-you");
+      } else throw new Error();
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
+    } finally {
+      setChecklistLoading(false);
+    }
+  };
 
   const testimonials = [
     { name: "James T.", biz: "Plumber, Sydney", quote: "Since Digital Edge rebuilt our website, we've had a 60% increase in phone calls from Google. Best investment we've made." },
@@ -141,11 +169,11 @@ const Index = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Web Design Wollongong | Website Designer | Digital Edge Studio"
+        title="Web Design & Digital Marketing for Australian Small Businesses | Digital Edge Studio"
         description="Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads guaranteed."
         keywords="web design wollongong, website designer wollongong, web development wollongong, digital marketing agency wollongong, wollongong web designer near me, seo services wollongong, affordable web design wollongong, web design for tradies, web design sydney, local seo wollongong"
         canonical="https://digitaledgestudio.com/"
-        ogTitle="Web Design Wollongong | Website Designer | Digital Edge Studio"
+        ogTitle="Web Design & Digital Marketing for Australian Small Businesses | Digital Edge Studio"
         ogDescription="Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads."
         ogImage="https://digitaledgestudio.com/images/blog/hero-banner.png"
         orgSchema={organizationSchema}
@@ -171,14 +199,14 @@ const Index = () => {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-8 backdrop-blur-md border border-white/10"
               >
                 <MapPin className="w-3.5 h-3.5" />
-                Serving Sydney, Wollongong & NSW
+                #1 Choice for Tradies in Wollongong & Sydney
               </motion.span>
               <motion.h1 variants={fadeUp} className="heading-display text-white mb-6">
-                Websites That Turn Visitors Into{" "}
-                <span className="text-gradient">Paying Customers</span>
+                Websites That Get Tradies{" "}
+                <span className="text-gradient">More Jobs</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="text-body-lg text-white/65 mb-10 max-w-xl">
-                We build professional, fast-loading websites and run local SEO campaigns that help Australian small businesses get found online and generate more leads.
+                We build fast, professional websites for electricians, plumbers, builders and local businesses — with local SEO that gets you ranking on Google and generating 40+ leads per month.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <Button variant="hero" size="lg" asChild>
@@ -191,7 +219,7 @@ const Index = () => {
                   <Link to="/free-website-review">Free Website Review</Link>
                 </Button>
               </motion.div>
-              <motion.div variants={fadeUp} className="flex items-center gap-6 mt-10 text-white/50 text-sm">
+              <motion.div variants={fadeUp} className="flex items-center gap-6 mt-10 text-white/70 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-accent" />
                   No lock-in contracts
@@ -199,6 +227,10 @@ const Index = () => {
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-accent" />
                   Free consultation
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent" />
+                  Built for tradies & local business
                 </div>
               </motion.div>
             </motion.div>
@@ -231,8 +263,8 @@ const Index = () => {
             {[
               { val: "50+", label: "Websites Delivered (2020–2026)" },
               { val: "5.0", label: "Google Rating (Verified)" },
-              { val: "40+", label: "Avg Leads/Month per Client" },
-              { val: "12x", label: "Average Client ROI" },
+              { val: "40+", label: "Avg Leads/Month per Client*" },
+              { val: "12x", label: "Average Client ROI*" },
             ].map((item) => (
               <motion.div
                 key={item.label}
@@ -244,6 +276,9 @@ const Index = () => {
               </motion.div>
             ))}
           </ScrollReveal>
+          <p className="text-xs text-white/40 text-center mt-3 relative z-30">
+            *Based on <Link to="/portfolio/grovespark-electrical-wollongong" className="underline hover:text-white/60 transition-colors">GroveSpark Electrical, 2024–2025</Link>
+          </p>
         </div>
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
@@ -304,7 +339,7 @@ const Index = () => {
 
           <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $995", link: "/services" },
+              { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $1,200", link: "/services" },
               { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
               { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
               { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
@@ -367,7 +402,7 @@ const Index = () => {
                     <span className="text-white text-lg font-bold font-display">{item.step}</span>
                   </div>
                   <h3 className="heading-card text-white mb-3">{item.title}</h3>
-                  <p className="text-white/55 leading-relaxed">{item.desc}</p>
+                  <p className="text-white/70 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -570,6 +605,37 @@ const Index = () => {
                 </Link>
               </motion.div>
             ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Lead Magnet ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal>
+            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 md:p-12 text-center max-w-2xl mx-auto">
+              <div className="w-14 h-14 rounded-xl gradient-cta flex items-center justify-center mx-auto mb-5">
+                <Download className="w-7 h-7 text-accent-foreground" />
+              </div>
+              <h2 className="heading-card text-foreground mb-2">Free: 5-Point Website Checklist for Tradies</h2>
+              <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
+                Find out if your website is costing you jobs. Enter your email and we'll send you the checklist instantly.
+              </p>
+              <form onSubmit={handleChecklistSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="hidden" name="_subject" value="Website Checklist Download Request" />
+                <input type="hidden" name="type" value="lead-magnet" />
+                <Input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Your email address"
+                />
+                <Button type="submit" variant="cta" disabled={checklistLoading} className="shrink-0">
+                  {checklistLoading ? "Sending..." : <>Get the Checklist <Send className="w-4 h-4 ml-1" /></>}
+                </Button>
+              </form>
+              <p className="text-xs text-muted-foreground mt-3">PDF · Free · No spam, ever.</p>
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>
