@@ -74,7 +74,7 @@ const WebsiteReview = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Free Website Review | Web Design Wollongong | Digital Edge Studio"
+        title="Free Website Review Wollongong | Digital Edge Studio"
         description="Get a free website review from Digital Edge Studio. We'll check your SEO, mobile performance, and conversion rate — and tell you exactly what's holding you back."
         canonical="https://digitaledgestudio.com/free-website-review"
         keywords="free website review wollongong, website audit wollongong, seo audit wollongong, free website check"

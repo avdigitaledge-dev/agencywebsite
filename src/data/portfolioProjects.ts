@@ -18,13 +18,13 @@ export interface PortfolioProject {
 export const portfolioProjects: PortfolioProject[] = [
   {
     id: "1",
-    slug: "sparks-electrical-wollongong",
-    clientName: "Sparks Electrical Solutions",
+    slug: "grovespark-electrical-wollongong",
+    clientName: "GroveSpark",
     industry: "Electrician",
     location: "Wollongong, NSW",
     title: "How a Wollongong Electrician Went From Zero Online Presence to 40+ Leads Per Month",
-    excerpt: "Sparks Electrical had no website and relied entirely on word-of-mouth. We built them a lead-generating website and local SEO strategy that transformed their business.",
-    challenge: "Sparks Electrical Solutions had been operating for 8 years in Wollongong with zero online presence. No website, no Google Business Profile, and no way for new customers to find them online. They were losing jobs to competitors who showed up on Google, even though their workmanship was better. The owner was spending $2,000/month on letterbox drops with minimal return.",
+    excerpt: "GroveSpark had no website and relied entirely on word-of-mouth. We built them a lead-generating website and local SEO strategy that transformed their business.",
+    challenge: "GroveSpark had been operating for 8 years in Wollongong with zero online presence. No website, no Google Business Profile, and no way for new customers to find them online. They were losing jobs to competitors who showed up on Google, even though their workmanship was better. The owner was spending $2,000/month on letterbox drops with minimal return.",
     solution: "We built a fast, mobile-first website focused on emergency electrical services and local suburb targeting. We set up and optimised their Google Business Profile, created service-area pages for Wollongong, Shellharbour, and Kiama, and implemented a click-to-call button prominently on every page. The site was built with proper schema markup for local electrician services and optimised for 'electrician Wollongong' and 'emergency electrician near me' keywords.",
     results: [
       { label: "Monthly Leads", value: "40+", description: "From 0 online leads to 40+ enquiries per month within 4 months" },
@@ -35,7 +35,7 @@ export const portfolioProjects: PortfolioProject[] = [
     testimonial: {
       quote: "I was sceptical about needing a website — I'd survived without one for years. But within weeks of launching, my phone started ringing with jobs I never would have got before. Best money I've ever spent on my business.",
       name: "Dave R.",
-      role: "Owner, Sparks Electrical Solutions",
+      role: "Owner, GroveSpark",
     },
     services: ["Website Design", "Local SEO", "Google Business Profile"],
     image: "/images/blog/electrician-project.webp",
@@ -93,13 +93,13 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: "4",
-    slug: "summit-constructions-sydney",
-    clientName: "Summit Constructions",
+    slug: "allcastle-homes-sydney",
+    clientName: "Allcastle Homes",
     industry: "Builder",
     location: "Sydney, NSW",
     title: "Sydney Builder Wins $2.4M in Projects From Their New Website in 12 Months",
-    excerpt: "Summit Constructions needed a website that showcased their high-end residential builds. We created a portfolio-driven site that attracted premium clients.",
-    challenge: "Summit Constructions was a boutique residential builder doing high-end renovations and new builds across Sydney's Inner West and Eastern Suburbs. They had no website and relied entirely on architect referrals. The owner wanted to reduce dependency on referrals and attract clients directly, but needed a site that reflected the quality of their $500K-$2M projects.",
+    excerpt: "Allcastle Homes needed a website that showcased their high-end residential builds. We created a portfolio-driven site that attracted premium clients.",
+    challenge: "Allcastle Homes was a boutique residential builder doing high-end renovations and new builds across Sydney's Inner West and Eastern Suburbs. They had no website and relied entirely on architect referrals. The owner wanted to reduce dependency on referrals and attract clients directly, but needed a site that reflected the quality of their $500K-$2M projects.",
     solution: "We designed a visually striking, portfolio-first website with full-screen project galleries, video walkthroughs, and detailed case studies for each completed build. The site featured a project cost calculator, a detailed 'Our Process' page to build confidence with potential clients, and was optimised for high-intent keywords like 'luxury home builder Sydney' and 'home renovation Inner West'. We also set up a content strategy with monthly blog posts showcasing project progress.",
     results: [
       { label: "Project Value", value: "$2.4M", description: "$2.4 million in new projects attributed directly to website enquiries in 12 months" },
@@ -110,7 +110,7 @@ export const portfolioProjects: PortfolioProject[] = [
     testimonial: {
       quote: "The website completely changed how clients perceive us before we even meet them. People come to consultations already sold on our work because they've spent 20 minutes browsing our project gallery. The quality of enquiries has been incredible.",
       name: "Tom W.",
-      role: "Director, Summit Constructions",
+      role: "Director, Allcastle Homes",
     },
     services: ["Website Design", "Content Strategy", "Local SEO"],
     image: "/images/blog/builder-project.PNG",
@@ -118,13 +118,13 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: "5",
-    slug: "green-thumb-landscaping",
-    clientName: "Green Thumb Landscaping",
+    slug: "nbg-landscapes-shellharbour",
+    clientName: "NBG Landscapes",
     industry: "Landscaper",
     location: "Shellharbour, NSW",
     title: "Shellharbour Landscaper Goes From Part-Time to Fully Booked in 3 Months",
     excerpt: "A one-man landscaping operation turned into a thriving business with a professional website and Google presence that filled his calendar.",
-    challenge: "Green Thumb Landscaping was a one-man operation run by a landscaper who'd been doing weekend jobs through Gumtree and Facebook Marketplace. He wanted to go full-time but couldn't generate enough consistent leads. His only online presence was a Facebook page with 87 followers and no website.",
+    challenge: "NBG Landscapes was a one-man operation run by a landscaper who'd been doing weekend jobs through Gumtree and Facebook Marketplace. He wanted to go full-time but couldn't generate enough consistent leads. His only online presence was a Facebook page with 87 followers and no website.",
     solution: "We built an affordable, single-page website with a strong hero section, before-and-after photo gallery, service list with pricing guides, and a simple quote request form. We set up and optimised his Google Business Profile with professional photos of completed jobs, targeted 'landscaper Shellharbour' and 'garden design Illawarra' keywords, and helped him implement a simple review collection process after each job.",
     results: [
       { label: "Bookings", value: "Fully booked", description: "Went from part-time weekends to fully booked 5 days a week in 3 months" },
@@ -135,7 +135,7 @@ export const portfolioProjects: PortfolioProject[] = [
     testimonial: {
       quote: "I went from scrounging for weekend jobs on Gumtree to having a 3-week waitlist. I've even hired my first employee. The website and Google profile were the best investment I've made in my business.",
       name: "Jake H.",
-      role: "Owner, Green Thumb Landscaping",
+      role: "Owner, NBG Landscapes",
     },
     services: ["Website Design", "Google Business Profile", "Review Strategy"],
     image: "/images/blog/landscaping-project.PNG",

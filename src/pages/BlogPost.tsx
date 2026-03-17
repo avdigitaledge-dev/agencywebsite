@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { Clock, Tag, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Clock, Tag, ChevronLeft, ChevronRight, ArrowRight, Calendar, Linkedin, User } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { SEOMeta } from "@/components/SEOMeta";
@@ -72,9 +72,21 @@ const BlogPost = () => {
     "description": post.excerpt,
     "image": post.image,
     "datePublished": post.date,
+    ...(post.lastUpdated && { "dateModified": post.lastUpdated }),
     "author": {
+      "@type": "Person",
+      "name": "Aleksandar Savevski",
+      "jobTitle": "Founder & Web Designer",
+      "url": "https://www.linkedin.com/in/aleksandarsavevski",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Digital Edge Studio"
+      }
+    },
+    "publisher": {
       "@type": "Organization",
-      "name": post.author
+      "name": "Digital Edge Studio",
+      "url": "https://digitaledgestudio.com"
     },
     "articleBody": post.content
   };
@@ -91,6 +103,7 @@ const BlogPost = () => {
         ogImage={post.image.startsWith('http') ? post.image : `https://digitaledgestudio.com${post.image}`}
         ogType="article"
         articlePublishedTime={post.date}
+        articleModifiedTime={post.lastUpdated || post.date}
       />
 
       <Breadcrumb items={breadcrumbItems} />
@@ -145,9 +158,18 @@ const BlogPost = () => {
                 <span>{post.readTime} min read</span>
               </div>
               <span>•</span>
-              <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span>Published {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              {post.lastUpdated && post.lastUpdated !== post.date && (
+                <>
+                  <span>•</span>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>Updated {new Date(post.lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  </div>
+                </>
+              )}
               <span>•</span>
-              <span>By {post.author}</span>
+              <span>By Aleksandar Savevski</span>
             </motion.div>
 
             <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground italic py-8">
@@ -216,6 +238,8 @@ const BlogPost = () => {
               <span className="text-muted-foreground">•</span>
               <Link to="/services" className="text-sm text-accent hover:underline">Our Services</Link>
               <span className="text-muted-foreground">•</span>
+              <Link to="/portfolio" className="text-sm text-accent hover:underline">Case Studies</Link>
+              <span className="text-muted-foreground">•</span>
               <Link to="/free-website-review" className="text-sm text-accent hover:underline">Free Website Review</Link>
               <span className="text-muted-foreground">•</span>
               <Link to="/pricing" className="text-sm text-accent hover:underline">Pricing</Link>
@@ -236,6 +260,31 @@ const BlogPost = () => {
                   {keyword}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Author Bio */}
+          <div className="mt-10 p-6 bg-card rounded-2xl border border-border shadow-card">
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                <User className="w-7 h-7 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground font-display">Aleksandar Savevski</h4>
+                <p className="text-sm text-accent font-medium">Founder & Web Designer at Digital Edge Studio</p>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                  Aleksandar has been building websites and running digital marketing campaigns for tradies and small businesses across Wollongong, Sydney, and NSW since 2020. He specialises in local SEO, AEO, and conversion-focused web design.
+                </p>
+                <a
+                  href="https://www.linkedin.com/company/digitaledgestudio-agency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent/80 transition-colors mt-2"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Connect on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 

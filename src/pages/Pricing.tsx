@@ -145,7 +145,7 @@ const Pricing = () => {
       {
         "@type": "Offer",
         "name": "Growth Bundle — Website + PPC + SEO",
-        "description": "Complete growth package including a conversion-focused business website (up to 10 pages), Google Ads management with full PPC campaign build, weekly bid optimisation, A/B ad copy testing, plus Local SEO with Google Business Profile optimisation, on-page SEO for top 5 pages, and 1 SEO-optimised article per month.",
+        "description": "Complete growth package including a conversion-focused business website (up to 10 pages), Google Ads management with full PPC campaign build, weekly bid optimisation, A/B ad copy testing, plus Local SEO with Google Business Profile optimisation, on-page SEO for top 5 pages, AEO & GEO optimisation for AI search visibility, and 1 SEO-optimised article per month.",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "price": "2500",
@@ -362,6 +362,7 @@ const Pricing = () => {
                   {[
                     { factor: "Starting Price", us: "From $995", agency: "$5,000-$30,000", freelancer: "$500-$2,000", diy: "$0-$500/yr" },
                     { factor: "Local SEO Included", us: "Yes", agency: "Extra cost", freelancer: "Rarely", diy: "No" },
+                    { factor: "AEO & GEO Included", us: "Yes", agency: "Rarely", freelancer: "No", diy: "No" },
                     { factor: "Wollongong / NSW Knowledge", us: "Local team", agency: "Sydney-centric", freelancer: "Varies", diy: "None" },
                     { factor: "You Deal With", us: "The actual designer", agency: "Account manager", freelancer: "Direct", diy: "DIY only" },
                     { factor: "Ongoing Support", us: "From $99/mo", agency: "Expensive retainer", freelancer: "Often disappears", diy: "Self-service" },
@@ -620,6 +621,7 @@ const Pricing = () => {
                       {[
                         "Google Business Profile optimisation — dominate the Wollongong 3-Pack",
                         "Technical on-page SEO for your top 5 revenue-generating pages",
+                        "AEO & GEO — optimised for AI search (ChatGPT, Google AI Overviews)",
                         "1× SEO-optimised \"Local Authority\" article per month",
                         "Monthly site speed & mobile performance monitoring",
                       ].map((f) => (
@@ -659,9 +661,12 @@ const Pricing = () => {
             <motion.p variants={fadeUp} className="text-primary-foreground/50 text-sm mb-8">
               We take on a limited number of new clients each month — get in touch to check availability.
             </motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Request a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/free-website-review">Free Website Review</Link>
               </Button>
             </motion.div>
           </ScrollReveal>

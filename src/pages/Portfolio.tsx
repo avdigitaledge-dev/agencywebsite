@@ -40,7 +40,7 @@ const Portfolio = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Our Work | Web Design Case Studies Wollongong | Digital Edge Studio"
+        title="Web Design Case Studies Wollongong | Digital Edge Studio"
         description="See real results from our web design and SEO projects. Case studies from tradies and small businesses in Wollongong, Sydney, and the Illawarra region."
         keywords="web design portfolio wollongong, web design case studies, tradie website examples, small business website results, seo results wollongong"
         canonical="https://digitaledgestudio.com/portfolio"
@@ -138,9 +138,11 @@ const Portfolio = () => {
                     </span>
                   </div>
 
-                  <h2 className="heading-section text-foreground mb-4 leading-tight">
-                    {project.title}
-                  </h2>
+                  <Link to={`/portfolio/${project.slug}`} className="hover:text-accent transition-colors">
+                    <h2 className="heading-section text-foreground mb-4 leading-tight hover:text-accent transition-colors">
+                      {project.title}
+                    </h2>
+                  </Link>
 
                   <div className="space-y-4 mb-6">
                     <div>
@@ -171,6 +173,14 @@ const Portfolio = () => {
                       </cite>
                     </blockquote>
                   )}
+
+                  <Link
+                    to={`/portfolio/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm mt-4 hover:gap-2.5 transition-all"
+                  >
+                    View Full Case Study
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </motion.div>
               </ScrollReveal>
             ))}

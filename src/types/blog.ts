@@ -6,6 +6,7 @@ export interface BlogPost {
   content: string;
   author: string;
   date: string;
+  lastUpdated?: string;
   category: string;
   image: string;
   readTime: number;

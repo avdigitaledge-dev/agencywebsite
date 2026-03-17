@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'A professional website is essential for plumbers wanting to attract more customers in Wollongong. Learn how to design a site that converts.',
     content: `Why Plumbers Need a Professional Website
 
-In 2024, most customers search for local plumbers online before calling. If you don't have a professional website, you're losing leads to competitors.
+In 2024, most customers search for local plumbers online before calling. According to BrightLocal's 2024 Local Consumer Review Survey, 98% of consumers use the internet to find information about local businesses. If you don't have a professional website, you're losing leads to competitors.
 
 Key Benefits of Web Design for Plumbers
 
@@ -44,6 +44,7 @@ Next Steps
 If you're a plumber in Wollongong ready to get more leads, contact Digital Edge Studio for a free consultation on web design specifically for plumbing businesses.`,
     author: 'Digital Edge Studio',
     date: '2024-02-28',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/plumber-website.jpg',
     readTime: 6,
@@ -61,7 +62,7 @@ Electricians compete in a tough market. Digital marketing levels the playing fie
 
 Why Digital Marketing Matters for Electricians
 
-- 87% of customers search online before hiring a tradies
+- According to BrightLocal's 2024 Local Consumer Review Survey, 87% of customers search online before hiring a tradies
 - Local search is critical for service businesses
 - Paid ads can deliver immediate results
 - Email marketing keeps you top-of-mind
@@ -113,6 +114,7 @@ Get Started Today
 Contact Digital Edge Studio to create a digital marketing strategy tailored for electricians in your area.`,
     author: 'Digital Edge Studio',
     date: '2024-02-25',
+    lastUpdated: '2026-03-16',
     category: 'Digital Marketing',
     image: '/images/blog/electrician-website.jpg',
     readTime: 7,
@@ -154,7 +156,7 @@ A great small business website isn't just pretty—it converts visitors into cus
 - Showcase results and ROI
 
 6. Mobile Responsiveness
-- 70% of web traffic is mobile
+- According to Statista's 2024 Mobile Internet Traffic report, over 60% of global web traffic now comes from mobile devices.
 - Your site MUST work on phones
 - Test across all devices
 
@@ -210,6 +212,7 @@ Next Steps
 Review your current website against these 10 features. Missing some? Contact Digital Edge Studio for a free website audit.`,
     author: 'Digital Edge Studio',
     date: '2024-02-20',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/website-features.jpg',
     readTime: 8,
@@ -227,7 +230,7 @@ If you're a tradie in Wollongong, Sydney, or NSW, SEO is your best investment. H
 
 Why SEO Matters for Tradies
 
-- 97% of customers search online before hiring
+- According to Google's Economic Impact Report, 97% of customers search online before hiring
 - Local search is critical for service businesses
 - Organic traffic is more cost-effective than paid ads
 - Long-term investment with compounding results
@@ -335,6 +338,7 @@ SEO takes time. If you want faster results, work with an SEO expert who speciali
 Contact Digital Edge Studio for a free SEO audit and local search strategy.`,
     author: 'Digital Edge Studio',
     date: '2024-02-15',
+    lastUpdated: '2026-03-16',
     category: 'SEO',
     image: '/images/blog/seo-tradies.jpeg',
     readTime: 10,
@@ -486,6 +490,7 @@ Start with one platform. Post consistently for 30 days. Track what works. Then e
 Need help? Contact Digital Edge Studio for social media strategy and content creation.`,
     author: 'Digital Edge Studio',
     date: '2024-02-10',
+    lastUpdated: '2026-03-16',
     category: 'Digital Marketing',
     image: '/images/blog/social-media.jpg',
     readTime: 9,
@@ -584,6 +589,7 @@ Get a Free Quote for Your Wollongong Website
 Contact Digital Edge Studio for a transparent, no-obligation quote. We'll recommend the right package for your budget and goals.`,
     author: 'Digital Edge Studio',
     date: '2025-01-20',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/web-costs-pic.jpg',
     readTime: 7,
@@ -690,6 +696,7 @@ Need Help with Local SEO in Wollongong?
 Digital Edge Studio specialises in local SEO for Wollongong and Illawarra businesses. Get a free SEO audit and see where your business stands.`,
     author: 'Digital Edge Studio',
     date: '2025-01-27',
+    lastUpdated: '2026-03-16',
     category: 'SEO',
     image: '/images/blog/wollongongblog-pic.jpg',
     readTime: 10,
@@ -792,6 +799,7 @@ For product-based businesses wanting to sell online, Shopify is the better start
 Want professional advice on which platform is right for you? Contact Digital Edge Studio for a free consultation.`,
     author: 'Digital Edge Studio',
     date: '2025-02-03',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/shopify-pic.jpg',
     readTime: 9,
@@ -913,6 +921,7 @@ Need Help With Your Google Business Profile?
 Digital Edge Studio offers Google Business Profile setup and optimisation as part of our local SEO services in Wollongong and Sydney. Contact us for a free audit.`,
     author: 'Digital Edge Studio',
     date: '2025-02-10',
+    lastUpdated: '2026-03-16',
     category: 'SEO',
     image: '/images/blog/google-biz-pic.jpg',
     readTime: 8,
@@ -1009,6 +1018,7 @@ Ready to Get More Leads from Your Tradie Website?
 Digital Edge Studio specialises in tradie website design in Wollongong and Sydney. Get a free quote and see how we can help you get more phone calls and more jobs.`,
     author: 'Digital Edge Studio',
     date: '2025-02-17',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/webdesign-pic.jpg',
     readTime: 8,
@@ -1108,6 +1118,7 @@ At Digital Edge Studio, we offer transparent, fixed-price web design in Wollongo
 Get a free, detailed quote — no surprises.`,
     author: 'Digital Edge Studio',
     date: '2025-02-24',
+    lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/webhosting-pic.jpg',
     readTime: 7,
@@ -1251,6 +1262,7 @@ The good news? You can get ahead of 99% of your competitors by starting now, whi
 Ready to future-proof your online presence? Get in touch with Digital Edge Studio for a free consultation. We'll show you exactly how AI search is affecting your industry and what you can do about it.`,
     author: 'Digital Edge Studio',
     date: '2026-03-13',
+    lastUpdated: '2026-03-16',
     category: 'SEO',
     image: '/images/blog/aisearch-pic.jpg',
     readTime: 12,

@@ -78,7 +78,7 @@ const Blog = () => {
   return (
     <Layout>
       <SEOMeta
-        title="Web Design & SEO Blog for Wollongong Small Businesses | Digital Edge"
+        title="Web Design & SEO Blog | Digital Edge Studio"
         description="Expert web design, local SEO, and digital marketing tips for tradies and small businesses in Wollongong and Sydney. Read our guides to grow your business online."
         keywords="web design tips wollongong, local seo wollongong, seo tips small business, digital marketing wollongong, how to improve website seo australia, tradie marketing"
         canonical="https://digitaledgestudio.com/blog"
@@ -275,8 +275,13 @@ const Blog = () => {
             "image": post.image,
             "datePublished": post.date,
             "author": {
-              "@type": "Organization",
-              "name": post.author
+              "@type": "Person",
+              "name": "Aleksandar Savevski",
+              "jobTitle": "Founder & Web Designer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Digital Edge Studio"
+              }
             }
           }))
         })}

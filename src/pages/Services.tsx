@@ -386,10 +386,10 @@ const Services = () => {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Think about the last time you asked Siri, Google Assistant, or Alexa a question. It didn't give you a list of links — it just told you the answer. That answer came from a specific website.
+                <span className="text-foreground font-medium">Answer Engine Optimisation (AEO)</span> is the practice of structuring website content so AI-powered assistants like Siri, Google Assistant, Alexa, and ChatGPT can extract and present it as a direct answer to user queries. According to research from Princeton University (KDD 2024), content optimised for AI citation receives up to 40% more visibility than non-optimised content.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                AEO is about making your website <span className="text-foreground font-medium">that website</span>. We format your content so AI assistants and voice searches pull your business as the direct answer when someone asks things like <em>"who's the best electrician in Wollongong"</em> or <em>"how much does a plumber cost near me"</em>.
+                We format your content so AI assistants and voice searches pull your business as the direct answer when someone asks things like <em>"who's the best electrician in Wollongong"</em> or <em>"how much does a plumber cost near me"</em>.
               </p>
               <ul className="space-y-3">
                 {[
@@ -418,10 +418,10 @@ const Services = () => {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                You've probably noticed Google now shows an <span className="text-foreground font-medium">AI-generated summary</span> at the very top of search results — before any website links. That box is called an AI Overview, and it's powered by Google's AI reading and summarising content from across the web.
+                <span className="text-foreground font-medium">Generative Engine Optimisation (GEO)</span> is the practice of optimising website content to appear in AI-generated search summaries, such as Google AI Overviews. These AI summaries now appear in roughly 45% of Google searches and can reduce clicks to traditional results by up to 58%, making GEO essential for maintaining organic visibility.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                GEO means optimising your website so Google's AI picks your content to feature in those summaries. It's like getting a free advertisement at the very top of Google — above everyone else.
+                We optimise your website so Google's AI picks your content to feature in those summaries. It's like getting a free advertisement at the very top of Google — above everyone else.
               </p>
               <ul className="space-y-3">
                 {[
@@ -539,9 +539,12 @@ const Services = () => {
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
               No worries. Get in touch and we'll have a no-pressure chat about what would work best for your business.
             </motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/free-website-review">Free Website Review</Link>
               </Button>
             </motion.div>
           </ScrollReveal>

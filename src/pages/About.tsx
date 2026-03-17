@@ -199,9 +199,12 @@ const About = () => {
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
               Whether you're ready to get started or just exploring your options, we'd love to hear from you.
             </motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/contact">Get in Touch <ArrowRight className="w-5 h-5 ml-1" /></Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/free-website-review">Free Website Review</Link>
               </Button>
             </motion.div>
           </ScrollReveal>
