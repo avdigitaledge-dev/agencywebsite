@@ -133,8 +133,15 @@ async function prerender() {
         { timeout: 10000 }
       );
 
-      const html = await page.content();
+      // Wait for Framer Motion animations to complete
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      let html = await page.content();
       await page.close();
+
+      // Strip Framer Motion inline styles that hide content (opacity: 0, transforms)
+      // These cause Google to see blank pages since it reads the static HTML
+      html = html.replace(/\s*style="[^"]*opacity:\s*0[^"]*"/g, "");
 
       // Determine output path
       const outDir =
