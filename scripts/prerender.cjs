@@ -24,6 +24,7 @@ const ROUTES = [
   "/blog",
   "/contact",
   "/privacy",
+  "/terms",
   "/portfolio",
   "/free-website-review",
   "/checklist-thank-you",
