@@ -7,10 +7,11 @@
  * Run automatically via `npm run build` (postbuild script).
  */
 
-const puppeteer = require("puppeteer");
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+
+const IS_CI = process.env.VERCEL || process.env.CI;
 
 const DIST = path.join(__dirname, "..", "dist");
 const PORT = 45678;
@@ -99,10 +100,25 @@ async function prerender() {
   await new Promise((resolve) => server.listen(PORT, resolve));
   console.log(`\n🔧 Prerender server running on port ${PORT}`);
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  let browser;
+  if (IS_CI) {
+    // On Vercel/CI: use puppeteer-core with @sparticuz/chromium
+    const chromium = require("@sparticuz/chromium");
+    const puppeteerCore = require("puppeteer-core");
+    browser = await puppeteerCore.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  } else {
+    // Locally: use full puppeteer with bundled Chromium
+    const puppeteer = require("puppeteer");
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+  }
 
   let success = 0;
   let failed = 0;

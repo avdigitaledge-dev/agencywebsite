@@ -25,3 +25,9 @@ dist-ssr
 
 # Google API credentials
 credentials.json
+
+# Claude Code / AI tools
+.claude/
+.agents/
+ai-marketing-claude/
+SEO-AUDIT.md
