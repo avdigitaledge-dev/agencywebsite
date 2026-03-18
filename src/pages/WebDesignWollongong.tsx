@@ -124,7 +124,7 @@ const WebDesignWollongong = () => {
     <Layout>
       <SEOMeta
         title="Web Design Wollongong | Website Designer & Local SEO | Digital Edge Studio"
-        description="Award-winning web design in Wollongong. Affordable, custom websites for tradies and small businesses. Local SEO, Google Ads, and website maintenance. Get a free quote today."
+        description="Professional web design in Wollongong. Affordable, custom websites for tradies and small businesses. Local SEO, Google Ads, and website maintenance. Get a free quote today."
         keywords="web design wollongong, website designer wollongong, web development wollongong, small business website design wollongong, ecommerce website design wollongong, wollongong web designer near me, affordable web design wollongong, local seo wollongong, web design company wollongong"
         canonical="https://digitaledgestudio.com/web-design-wollongong"
         ogTitle="Web Design Wollongong | Digital Edge Studio"

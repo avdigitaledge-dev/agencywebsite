@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -140,7 +140,7 @@ const Index = () => {
     "serviceType": ["Web Design", "Digital Marketing", "Local SEO"],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5",
+      "ratingValue": "4.8",
       "reviewCount": "5",
       "bestRating": "5",
       "worstRating": "1"
@@ -261,8 +261,8 @@ const Index = () => {
         <div className="container-tight px-4 py-10">
           <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-30">
             {[
-              { val: "50+", label: "Websites Delivered (2020–2026)" },
-              { val: "5.0", label: "Google Rating (Verified)" },
+              { val: "30+", label: "Websites Delivered (2025–2026)" },
+              { val: "4.8", label: "Google Rating (Verified)" },
               { val: "40+", label: "Avg Leads/Month per Client*" },
               { val: "12x", label: "Average Client ROI*" },
             ].map((item) => (
@@ -301,10 +301,11 @@ const Index = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-3 gap-6">
+          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Globe, title: "Websites That Convert", desc: "Every site we build is designed with one goal: turning your visitors into leads. Fast, mobile-friendly, and built to rank on Google." },
               { icon: Search, title: "Local SEO That Works", desc: "We optimise your Google Business Profile and website so local customers find you first when they search for your services." },
+              { icon: BarChart3, title: "Google Ads & PPC", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your trade. Measurable ROI from day one." },
               { icon: Shield, title: "Ongoing Support & Hosting", desc: "We handle updates, security, and backups so you can focus on running your business. No tech headaches." },
             ].map((item) => (
               <motion.div
@@ -320,6 +321,69 @@ const Index = () => {
               </motion.div>
             ))}
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ AEO/GEO Differentiator ═══ */}
+      <section className="gradient-hero relative overflow-hidden">
+        <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
+        <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight section-padding relative z-10">
+          <ScrollReveal className="text-center mb-14">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4 backdrop-blur-md border border-white/10">
+              <Sparkles className="w-3.5 h-3.5" />
+              AI-Powered SEO
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="heading-section text-white mb-4">The Only Wollongong Agency Optimising for <span className="text-gradient">AI Search</span></motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-white/60 max-w-2xl mx-auto">
+              45% of Google searches now show an AI-generated summary above traditional results. Most agencies aren't prepared — we are.
+            </motion.p>
+          </ScrollReveal>
+
+          <ScrollReveal className="grid md:grid-cols-2 gap-6 mb-10">
+            <motion.div variants={fadeUp} className="card-glass rounded-2xl p-8 group">
+              <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
+                <Sparkles className="w-6 h-6 text-accent-foreground" />
+              </div>
+              <h3 className="heading-card text-white mb-3">Answer Engine Optimisation (AEO)</h3>
+              <p className="text-white/70 leading-relaxed">
+                When a customer asks ChatGPT, Siri, or Alexa "who's the best electrician in Wollongong?" — we make sure your business is the answer they get.
+              </p>
+            </motion.div>
+            <motion.div variants={fadeUp} className="card-glass rounded-2xl p-8 group">
+              <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
+                <Search className="w-6 h-6 text-accent-foreground" />
+              </div>
+              <h3 className="heading-card text-white mb-3">Generative Engine Optimisation (GEO)</h3>
+              <p className="text-white/70 leading-relaxed">
+                Google AI Overviews appear above traditional results and can reduce clicks to other sites by 58%. We structure your content to appear in those summaries — not below them.
+              </p>
+            </motion.div>
+          </ScrollReveal>
+
+          <ScrollReveal className="text-center">
+            <motion.p variants={fadeUp} className="text-white/60 mb-6">Included in every Local SEO package — no extra cost.</motion.p>
+            <motion.div variants={fadeUp}>
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/services/aeo-geo">
+                  Learn More About AI Search
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 
@@ -343,7 +407,7 @@ const Index = () => {
               { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
               { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
               { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
-              { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,500/month", link: "/pricing" },
+              { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,800/month", link: "/pricing" },
               { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
             ].map((service) => (
               <motion.div key={service.title} variants={fadeUp} className="bg-card rounded-2xl p-8 border border-border card-premium flex flex-col group">

@@ -83,7 +83,7 @@ const Portfolio = () => {
       <section className="bg-card border-b border-border">
         <div className="container-tight px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
-            { value: "50+", label: "Websites Delivered" },
+            { value: "30+", label: "Websites Delivered" },
             { value: "40+", label: "Avg. Leads/Month for Clients*" },
             { value: "Top 3", label: "Google Rankings Achieved" },
             { value: "12x", label: "Average Client ROI*" },

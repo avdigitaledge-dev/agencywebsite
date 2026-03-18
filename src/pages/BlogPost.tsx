@@ -77,7 +77,7 @@ const BlogPost = () => {
       "@type": "Person",
       "name": "Aleksandar Savevski",
       "jobTitle": "Founder & Web Designer",
-      "url": "https://www.linkedin.com/in/aleksandarsavevski",
+      "url": "https://www.linkedin.com/in/aleksandar-savevski-b9b907142",
       "worksFor": {
         "@type": "Organization",
         "name": "Digital Edge Studio"
@@ -273,7 +273,7 @@ const BlogPost = () => {
                 <h4 className="font-semibold text-foreground font-display">Aleksandar Savevski</h4>
                 <p className="text-sm text-accent font-medium">Founder & Web Designer at Digital Edge Studio</p>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                  Aleksandar has been building websites and running digital marketing campaigns for tradies and small businesses across Wollongong, Sydney, and NSW since 2020. He specialises in local SEO, AEO, and conversion-focused web design.
+                  Aleksandar has been building websites and running digital marketing campaigns for tradies and small businesses across Wollongong, Sydney, and NSW since 2025. He specialises in local SEO, AEO, and conversion-focused web design.
                 </p>
                 <a
                   href="https://www.linkedin.com/company/digitaledgestudio-agency"

@@ -25,6 +25,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const WebDesignWollongong = lazy(() => import("./pages/WebDesignWollongong"));
 const WebDesignIllawarra = lazy(() => import("./pages/WebDesignIllawarra"));
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/blog/category/:category" element={<BlogCategory />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/web-design-wollongong" element={<WebDesignWollongong />} />
           <Route path="/web-design-illawarra" element={<WebDesignIllawarra />} />
           <Route path="/web-design-sydney" element={<WebDesignSydney />} />

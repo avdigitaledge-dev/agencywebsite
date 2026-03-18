@@ -106,7 +106,7 @@ Track these metrics:
 Budget Recommendations
 
 - Starter Package: $500-$1,000/month (SEO + local listings)
-- Growth Package: $1,500-$2,500/month (SEO + paid ads + social)
+- Growth Package: $1,500-$2,800/month (SEO + paid ads + social)
 - Full Service: $3,000+/month (all channels + professional management)
 
 Get Started Today

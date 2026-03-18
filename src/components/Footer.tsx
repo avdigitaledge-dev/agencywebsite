@@ -79,6 +79,7 @@ const Footer = () => {
               <Link to="/free-website-review" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
               <Link to="/contact" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
               <Link to="/privacy" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
+              <Link to="/terms" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Terms of Service</Link>
             </nav>
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider pt-2">Compare</h4>
             <nav className="flex flex-col gap-2.5">

@@ -72,7 +72,7 @@ const Pricing = () => {
     },
     {
       question: "What's included in the Growth Bundle?",
-      answer: "The Growth Bundle ($2,500/month excl. ad spend) is our all-in-one growth package. Phase 1 (The Foundation) is a conversion-focused business website build — up to 10 pages, mobile-responsive, SEO-ready with lead capture built in. Phase 2 (Lead Accelerator) covers Google Search Ads with full campaign build, weekly optimisation, and conversion page audits. Phase 3 (Authority Engine) covers Google Business Profile optimisation, on-page SEO for your top 5 pages, 1 SEO-optimised article per month, and monthly technical health monitoring. It's everything you need — a website that converts, immediate leads from ads, and long-term organic rankings."
+      answer: "The Growth Bundle ($2,800/month excl. ad spend) is our all-in-one growth package. Phase 1 (The Foundation) is a conversion-focused business website build — up to 10 pages, mobile-responsive, SEO-ready with lead capture built in. Phase 2 (Lead Accelerator) covers Google Search Ads with full campaign build, weekly optimisation, and conversion page audits. Phase 3 (Authority Engine) covers Google Business Profile optimisation, on-page SEO for your top 5 pages, 1 SEO-optimised article per month, and monthly technical health monitoring. It's everything you need — a website that converts, immediate leads from ads, and long-term organic rankings."
     }
   ];
 
@@ -148,7 +148,7 @@ const Pricing = () => {
         "description": "Complete growth package including a conversion-focused business website (up to 10 pages), Google Ads management with full PPC campaign build, weekly bid optimisation, A/B ad copy testing, plus Local SEO with Google Business Profile optimisation, on-page SEO for top 5 pages, AEO & GEO optimisation for AI search visibility, and 1 SEO-optimised article per month.",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "price": "2500",
+          "price": "2800",
           "priceCurrency": "AUD",
           "unitCode": "MON"
         },
@@ -322,8 +322,8 @@ const Pricing = () => {
         <div className="container-tight px-4 py-6">
           <ScrollReveal className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-muted-foreground">
             {[
-              { icon: Users, text: "50+ Websites Delivered" },
-              { icon: Star, text: "5-Star Google Reviews" },
+              { icon: Users, text: "30+ Websites Delivered" },
+              { icon: Star, text: "4.8-Star Google Rating" },
               { icon: Shield, text: "No Lock-In Contracts" },
             ].map((item) => (
               <motion.div key={item.text} variants={fadeUp} className="flex items-center gap-2">
@@ -543,7 +543,7 @@ const Pricing = () => {
                   </motion.div>
                   <p className="text-primary-foreground/70 text-sm mb-1">Investment</p>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-5xl font-extrabold text-primary-foreground font-display">$2,500</span>
+                    <span className="text-5xl font-extrabold text-primary-foreground font-display">$2,800</span>
                     <span className="text-primary-foreground/70">/month</span>
                   </div>
                   <p className="text-primary-foreground/50 text-sm mt-2">Excl. ad spend · No lock-in contracts</p>
