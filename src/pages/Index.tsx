@@ -186,6 +186,7 @@ const Index = () => {
         <div className="hero-orb hero-orb-1" />
         <div className="hero-orb hero-orb-2" />
         <div className="absolute inset-0 hero-noise" />
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
         <div className="container-tight px-4 py-20 md:py-28 relative z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -328,6 +329,8 @@ const Index = () => {
       <section className="gradient-hero relative overflow-hidden">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
@@ -347,7 +350,7 @@ const Index = () => {
           </ScrollReveal>
 
           <ScrollReveal className="grid md:grid-cols-2 gap-6 mb-10">
-            <motion.div variants={fadeUp} className="card-glass rounded-2xl p-8 group">
+            <motion.div variants={fadeUp} className="rounded-2xl p-8 group card-gradient-border">
               <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
                 <Sparkles className="w-6 h-6 text-accent-foreground" />
               </div>
@@ -356,7 +359,7 @@ const Index = () => {
                 When a customer asks ChatGPT, Siri, or Alexa "who's the best electrician in Wollongong?" — we make sure your business is the answer they get.
               </p>
             </motion.div>
-            <motion.div variants={fadeUp} className="card-glass rounded-2xl p-8 group">
+            <motion.div variants={fadeUp} className="rounded-2xl p-8 group card-gradient-border">
               <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
                 <Search className="w-6 h-6 text-accent-foreground" />
               </div>

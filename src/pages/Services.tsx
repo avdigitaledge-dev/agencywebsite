@@ -267,7 +267,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
-              <img src={serviceEcommerce} alt="eCommerce online store website design" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <img src={serviceEcommerce} alt="eCommerce online store website design" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider">eCommerce Website Design</span>
@@ -323,7 +323,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
-              <img src={serviceSeo} alt="Local SEO and Google Maps search results" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <img src={serviceSeo} alt="Local SEO and Google Maps search results" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider">Local SEO</span>
@@ -357,17 +357,28 @@ const Services = () => {
       </section>
 
       {/* ═══ AEO & GEO ═══ */}
-      <section className="section-padding bg-background" id="ai-search">
-        <div className="container-tight">
+      <section className="section-padding gradient-hero relative overflow-hidden" id="ai-search">
+        {/* Radial accent glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,hsl(217_76%_48%/0.15),transparent_70%)]" />
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+        {/* Top wave divider */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+
+        <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-14">
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-semibold mb-4 border border-accent/20">
               <Sparkles className="w-4 h-4" />
               New Service
             </motion.div>
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+            <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
               Get Found in AI Search Results
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/70 max-w-2xl mx-auto">
               Google and AI assistants are changing how people find businesses. We make sure yours gets recommended — not just ranked.
             </motion.p>
           </ScrollReveal>
@@ -375,20 +386,20 @@ const Services = () => {
           <ScrollReveal className="grid lg:grid-cols-2 gap-8 mb-12">
 
             {/* AEO card */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 card-hover-lift">
+            <motion.div variants={fadeUp} className="rounded-2xl backdrop-blur-sm p-8 card-hover-lift card-gradient-border">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center shrink-0">
                   <Bot className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <div>
-                  <h3 className="heading-card text-foreground">AEO — Answer Engine Optimisation</h3>
+                  <h3 className="heading-card text-primary-foreground">AEO — Answer Engine Optimisation</h3>
                   <p className="text-accent text-xs font-semibold uppercase tracking-wider mt-0.5">For AI Assistants & Voice Search</p>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-5">
-                <span className="text-foreground font-medium">Answer Engine Optimisation (AEO)</span> is the practice of structuring website content so AI-powered assistants like Siri, Google Assistant, Alexa, and ChatGPT can extract and present it as a direct answer to user queries. According to research from Princeton University (KDD 2024), content optimised for AI citation receives up to 40% more visibility than non-optimised content.
+              <p className="text-primary-foreground/70 leading-relaxed mb-5">
+                <span className="text-primary-foreground font-medium">Answer Engine Optimisation (AEO)</span> is the practice of structuring website content so AI-powered assistants like Siri, Google Assistant, Alexa, and ChatGPT can extract and present it as a direct answer to user queries. According to research from Princeton University (KDD 2024), content optimised for AI citation receives up to 40% more visibility than non-optimised content.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-5">
+              <p className="text-primary-foreground/70 leading-relaxed mb-5">
                 We format your content so AI assistants and voice searches pull your business as the direct answer when someone asks things like <em>"who's the best electrician in Wollongong"</em> or <em>"how much does a plumber cost near me"</em>.
               </p>
               <ul className="space-y-3">
@@ -398,7 +409,7 @@ const Services = () => {
                   "Content written around the exact questions your customers ask",
                   "Optimised for Google Assistant, Siri, Alexa & ChatGPT",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground text-sm">
+                  <li key={item} className="flex items-start gap-3 text-primary-foreground text-sm">
                     <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -407,20 +418,20 @@ const Services = () => {
             </motion.div>
 
             {/* GEO card */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 card-hover-lift">
+            <motion.div variants={fadeUp} className="rounded-2xl backdrop-blur-sm p-8 card-hover-lift card-gradient-border">
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center shrink-0">
                   <Cpu className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <div>
-                  <h3 className="heading-card text-foreground">GEO — Generative Engine Optimisation</h3>
+                  <h3 className="heading-card text-primary-foreground">GEO — Generative Engine Optimisation</h3>
                   <p className="text-accent text-xs font-semibold uppercase tracking-wider mt-0.5">For Google AI Overviews</p>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-5">
-                <span className="text-foreground font-medium">Generative Engine Optimisation (GEO)</span> is the practice of optimising website content to appear in AI-generated search summaries, such as Google AI Overviews. These AI summaries now appear in roughly 45% of Google searches and can reduce clicks to traditional results by up to 58%, making GEO essential for maintaining organic visibility.
+              <p className="text-primary-foreground/70 leading-relaxed mb-5">
+                <span className="text-primary-foreground font-medium">Generative Engine Optimisation (GEO)</span> is the practice of optimising website content to appear in AI-generated search summaries, such as Google AI Overviews. These AI summaries now appear in roughly 45% of Google searches and can reduce clicks to traditional results by up to 58%, making GEO essential for maintaining organic visibility.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-5">
+              <p className="text-primary-foreground/70 leading-relaxed mb-5">
                 We optimise your website so Google's AI picks your content to feature in those summaries. It's like getting a free advertisement at the very top of Google — above everyone else.
               </p>
               <ul className="space-y-3">
@@ -430,7 +441,7 @@ const Services = () => {
                   "Topical depth — covering your services comprehensively",
                   "Targets the AI Overview box on high-value local searches",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground text-sm">
+                  <li key={item} className="flex items-start gap-3 text-primary-foreground text-sm">
                     <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -440,17 +451,24 @@ const Services = () => {
           </ScrollReveal>
 
           <ScrollReveal>
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 text-center">
+            <motion.div variants={fadeUp} className="rounded-2xl backdrop-blur-sm p-8 text-center card-gradient-border">
               <Sparkles className="w-8 h-8 text-accent mx-auto mb-4" />
-              <h3 className="heading-card text-foreground mb-3">Why Does This Matter Right Now?</h3>
-              <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-                Most businesses in Wollongong and Sydney haven't heard of AEO or GEO yet — which means the window to get ahead of your competitors is still wide open. Traditional SEO gets you onto Google's list. AEO and GEO get you <span className="text-foreground font-medium">above the list</span>. Both are included in our Local SEO package at no extra cost.
+              <h3 className="heading-card text-primary-foreground mb-3">Why Does This Matter Right Now?</h3>
+              <p className="text-primary-foreground/70 leading-relaxed max-w-2xl mx-auto mb-6">
+                Most businesses in Wollongong and Sydney haven't heard of AEO or GEO yet — which means the window to get ahead of your competitors is still wide open. Traditional SEO gets you onto Google's list. AEO and GEO get you <span className="text-primary-foreground font-medium">above the list</span>. Both are included in our Local SEO package at no extra cost.
               </p>
               <Button variant="cta" asChild>
                 <Link to="/contact">Talk to Us About AI Search <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
             </motion.div>
           </ScrollReveal>
+        </div>
+
+        {/* Bottom wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-[hsl(220_16%_96%)]" />
+          </svg>
         </div>
       </section>
 
@@ -486,7 +504,7 @@ const Services = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group">
-              <img src={serviceMarketing} alt="Digital marketing analytics dashboard" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <img src={serviceMarketing} alt="Digital marketing analytics dashboard" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
           </ScrollReveal>
         </div>
@@ -497,7 +515,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
-              <img src={serviceMaintenance} alt="Server security and website maintenance" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <img src={serviceMaintenance} alt="Server security and website maintenance" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider">Maintenance & Hosting</span>

@@ -21,6 +21,7 @@ const Terms = () => {
         description="Terms of Service for Digital Edge Studio. Review our service agreement, payment terms, and refund policy for web design and digital marketing services."
         keywords="terms of service, service agreement, refund policy"
         ogTitle="Terms of Service | Digital Edge Studio"
+        canonical="https://digitaledgestudio.com/terms"
       />
 
       <Breadcrumb items={[

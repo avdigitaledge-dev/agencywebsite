@@ -21,6 +21,7 @@ const Privacy = () => {
         description="Privacy policy for Digital Edge Studio. Learn how we protect your personal information and data."
         keywords="privacy policy, data protection"
         ogTitle="Privacy Policy | Digital Edge Studio"
+        canonical="https://digitaledgestudio.com/privacy"
       />
 
       <Breadcrumb items={[

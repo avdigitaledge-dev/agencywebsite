@@ -114,6 +114,23 @@ export const SEOMeta = ({
       ogImageMeta.setAttribute('content', ogImage);
     }
 
+    // Twitter/X meta tags
+    let twitterTitleMeta = document.querySelector('meta[name="twitter:title"]');
+    if (!twitterTitleMeta) {
+      twitterTitleMeta = document.createElement('meta');
+      twitterTitleMeta.setAttribute('name', 'twitter:title');
+      document.head.appendChild(twitterTitleMeta);
+    }
+    twitterTitleMeta.setAttribute('content', ogTitle || title);
+
+    let twitterDescMeta = document.querySelector('meta[name="twitter:description"]');
+    if (!twitterDescMeta) {
+      twitterDescMeta = document.createElement('meta');
+      twitterDescMeta.setAttribute('name', 'twitter:description');
+      document.head.appendChild(twitterDescMeta);
+    }
+    twitterDescMeta.setAttribute('content', ogDescription || description);
+
     // Article meta tags
     let articlePublishedMeta = document.querySelector('meta[property="article:published_time"]');
     if (articlePublishedTime) {

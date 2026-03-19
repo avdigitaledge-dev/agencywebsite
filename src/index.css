@@ -309,6 +309,46 @@
     width: 100%;
   }
 
+  /* ── Animated gradient border ─────────────────────────── */
+  .card-gradient-border {
+    position: relative;
+    background: transparent;
+    isolation: isolate;
+  }
+
+  .card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--border-angle, 0deg),
+      hsl(217 76% 48% / 0.6),
+      hsl(250 70% 56% / 0.3),
+      transparent 40%,
+      transparent 60%,
+      hsl(250 70% 56% / 0.3),
+      hsl(217 76% 48% / 0.6)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-rotate 4s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-gradient-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: hsl(222 30% 8% / 0.95);
+    z-index: -1;
+  }
+
   /* ── Dot grid pattern ──────────────────────────────────── */
   .dot-pattern {
     background-image: radial-gradient(hsl(217 76% 48% / 0.08) 1px, transparent 1px);
@@ -338,6 +378,17 @@ html {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes border-rotate {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .btn-shimmer {
