@@ -140,7 +140,7 @@ const About = () => {
       </section>
 
       {/* ═══ Mission ═══ */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background gradient-mesh">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
@@ -182,7 +182,7 @@ const About = () => {
       </section>
 
       {/* ═══ Meet the Founder — Dark Section ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.12 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.08 }} />
         {/* Top wave */}
@@ -280,7 +280,7 @@ const About = () => {
       />
 
       {/* ═══ CTA ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.2 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.15 }} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />

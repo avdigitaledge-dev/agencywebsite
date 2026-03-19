@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle2, ArrowRight, Shield, Star, Users, Rocket, Target, Search, Globe } from "lucide-react";
+import { useTilt, useSpotlight } from "@/hooks/use-effects";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -31,6 +32,16 @@ const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode;
       variants={stagger}
       className={className}
     >
+      {children}
+    </motion.div>
+  );
+};
+
+/* ── Tilt wrapper for pricing cards ────────────────────── */
+const PricingTiltCard = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const { ref, style } = useTilt(5);
+  return (
+    <motion.div variants={fadeUp} ref={ref} style={style} className={className}>
       {children}
     </motion.div>
   );
@@ -212,7 +223,7 @@ const Pricing = () => {
 
           <ScrollReveal className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
+            <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">Starter Website</h3>
               <p className="text-muted-foreground text-sm mb-4">Perfect for tradies and small service businesses</p>
               <div className="mb-6">
@@ -239,10 +250,10 @@ const Pricing = () => {
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
-            </motion.div>
+            </PricingTiltCard>
 
             {/* Business */}
-            <motion.div variants={fadeUp} className="bg-gradient-to-b from-accent/[0.04] to-transparent rounded-2xl border-2 border-accent shadow-glow relative p-8 flex flex-col card-hover-lift md:scale-105 md:-my-4">
+            <PricingTiltCard className="bg-gradient-to-b from-accent/[0.04] to-transparent rounded-2xl border-2 border-accent shadow-glow relative p-8 flex flex-col card-hover-lift md:scale-105 md:-my-4">
               <motion.div
                 className="absolute -top-3 left-8 px-3 py-1 gradient-cta text-accent-foreground text-xs font-semibold rounded-full shadow-cta"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -278,10 +289,10 @@ const Pricing = () => {
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
-            </motion.div>
+            </PricingTiltCard>
 
             {/* eCommerce */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
+            <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">eCommerce Website</h3>
               <p className="text-muted-foreground text-sm mb-4">Sell products online with a fully managed store</p>
               <div className="mb-6">
@@ -312,7 +323,7 @@ const Pricing = () => {
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">Payment plans available — ask us how</p>
-            </motion.div>
+            </PricingTiltCard>
           </ScrollReveal>
         </div>
       </section>
@@ -345,13 +356,20 @@ const Pricing = () => {
           </ScrollReveal>
 
           <ScrollReveal>
-            <motion.div variants={fadeUp} className="overflow-x-auto rounded-xl border border-border shadow-card">
+            <motion.div variants={fadeUp} className="overflow-x-auto rounded-xl border border-border shadow-card backdrop-blur-sm">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-border bg-muted/30">
+                  <tr className="border-b border-border bg-gradient-to-r from-muted/30 via-accent/[0.06] to-muted/30">
                     <th className="text-left py-4 pl-6 pr-4 text-muted-foreground font-medium w-1/5">Factor</th>
-                    <th className="py-4 px-4 text-center w-1/5 bg-accent/5">
-                      <span className="inline-block px-3 py-1 gradient-cta text-accent-foreground rounded-full text-xs font-semibold shadow-cta">Digital Edge Studio</span>
+                    <th className="py-4 px-4 text-center w-1/5 bg-accent/[0.08] relative">
+                      <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.05] to-transparent pointer-events-none" />
+                      <motion.span
+                        className="relative inline-block px-3 py-1 gradient-cta text-accent-foreground rounded-full text-xs font-semibold shadow-cta"
+                        animate={{ scale: [1, 1.03, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        Digital Edge Studio
+                      </motion.span>
                     </th>
                     <th className="py-4 px-4 text-center text-muted-foreground font-medium w-1/5">Large Agency</th>
                     <th className="py-4 px-4 text-center text-muted-foreground font-medium w-1/5">Freelancer</th>
@@ -369,10 +387,10 @@ const Pricing = () => {
                     { factor: "Turnaround Time", us: "4-8 weeks", agency: "3-6 months", freelancer: "Varies", diy: "DIY pace" },
                     { factor: "No Lock-In Contract", us: "Yes", agency: "12-month retainers", freelancer: "Usually", diy: "Cancel anytime" },
                   ].map((row, idx) => (
-                    <tr key={row.factor} className={`border-b border-border transition-colors hover:bg-muted/20 ${idx % 2 === 1 ? "bg-muted/10" : ""}`}>
+                    <tr key={row.factor} className={`border-b border-border transition-colors hover:bg-accent/[0.03] ${idx % 2 === 1 ? "bg-muted/10" : ""}`}>
                       <td className="py-4 pl-6 pr-4 font-medium text-foreground">{row.factor}</td>
-                      <td className="py-4 px-4 text-center font-semibold text-accent bg-accent/5">
-                        <span className="inline-flex items-center gap-1.5">
+                      <td className="py-4 px-4 text-center font-semibold text-accent bg-accent/[0.08] relative">
+                        <span className="inline-flex items-center gap-1.5 relative z-10">
                           <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
                           {row.us}
                         </span>
@@ -401,7 +419,7 @@ const Pricing = () => {
 
           <ScrollReveal className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Maintenance */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
+            <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">Website Maintenance</h3>
               <p className="text-muted-foreground text-sm mb-4">Keep your site fast, secure, and updated</p>
               <div className="mb-6">
@@ -426,10 +444,10 @@ const Pricing = () => {
               <Button variant="cta" size="lg" className="w-full" asChild>
                 <Link to="/contact">Get a Free Quote</Link>
               </Button>
-            </motion.div>
+            </PricingTiltCard>
 
             {/* Local SEO — highlighted */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border-2 border-accent shadow-card relative p-8 flex flex-col card-hover-lift">
+            <PricingTiltCard className="bg-card rounded-2xl border-2 border-accent shadow-card relative p-8 flex flex-col card-hover-lift">
               <motion.div
                 className="absolute -top-3 left-8 px-3 py-1 gradient-cta text-accent-foreground text-xs font-semibold rounded-full shadow-cta"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -467,10 +485,10 @@ const Pricing = () => {
               <Button variant="cta" size="lg" className="w-full" asChild>
                 <Link to="/contact">Get a Custom Quote</Link>
               </Button>
-            </motion.div>
+            </PricingTiltCard>
 
             {/* PPC */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
+            <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">Google Ads Management</h3>
               <p className="text-muted-foreground text-sm mb-4">Targeted ads that bring instant leads</p>
               <div className="mb-6">
@@ -499,7 +517,7 @@ const Pricing = () => {
               <Button variant="cta" size="lg" className="w-full" asChild>
                 <Link to="/contact">Get a Custom Quote</Link>
               </Button>
-            </motion.div>
+            </PricingTiltCard>
           </ScrollReveal>
 
           <motion.p
@@ -650,7 +668,7 @@ const Pricing = () => {
       </section>
 
       {/* ═══ Final CTA ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-20 text-center relative z-10">
           <ScrollReveal>

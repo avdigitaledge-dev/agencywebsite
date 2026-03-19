@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import Layout from "@/components/Layout";
 import { trackEvent } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useRef } from "react";
+import { useTilt, useMagnetic, useSpotlight } from "@/hooks/use-effects";
 
 /* ── Animation helpers ─────────────────────────────────── */
 const stagger = {
@@ -45,33 +46,120 @@ const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode;
 };
 
 /* ── Animated counter ──────────────────────────────────── */
-const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
+const AnimatedStat = ({ value, label, white }: { value: string; label: string; white?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [display, setDisplay] = useState("0");
 
   useEffect(() => {
     if (!isInView) return;
-    const numMatch = value.match(/(\d+)/);
+    const numMatch = value.match(/([\d.]+)/);
     if (!numMatch) { setDisplay(value); return; }
-    const target = parseInt(numMatch[1]);
-    const prefix = value.slice(0, value.indexOf(numMatch[1]));
-    const suffix = value.slice(value.indexOf(numMatch[1]) + numMatch[1].length);
+    const targetStr = numMatch[1];
+    const isDecimal = targetStr.includes(".");
+    const target = isDecimal ? parseFloat(targetStr) : parseInt(targetStr);
+    const prefix = value.slice(0, value.indexOf(targetStr));
+    const suffix = value.slice(value.indexOf(targetStr) + targetStr.length);
     let current = 0;
-    const step = Math.max(1, Math.floor(target / 40));
+    const steps = 40;
+    const step = target / steps;
     const interval = setInterval(() => {
       current = Math.min(current + step, target);
-      setDisplay(`${prefix}${current}${suffix}`);
+      const displayVal = isDecimal ? current.toFixed(1) : Math.floor(current).toString();
+      setDisplay(`${prefix}${displayVal}${suffix}`);
       if (current >= target) clearInterval(interval);
     }, 30);
     return () => clearInterval(interval);
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="text-center p-4">
-      <p className="text-3xl md:text-4xl font-extrabold text-accent font-display tracking-tight">{display}</p>
-      <p className="text-sm text-muted-foreground mt-1.5 font-medium">{label}</p>
+    <div ref={ref} className="text-center">
+      <p className={`text-2xl md:text-3xl font-extrabold font-display tracking-tight ${white ? "text-white stat-glow" : "text-accent"}`}>{display}</p>
+      <p className={`text-xs mt-1 font-medium ${white ? "text-white/60" : "text-muted-foreground"}`}>{label}</p>
     </div>
+  );
+};
+
+/* ── Why cards with spotlight + tilt ───────────────────── */
+const TiltCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => {
+  const { ref, style } = useTilt(6);
+  return (
+    <motion.div
+      variants={fadeUp}
+      ref={ref}
+      style={style}
+      data-spotlight
+      className="relative bg-card rounded-2xl p-8 border border-border card-premium group overflow-hidden"
+    >
+      <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
+        <Icon className="w-6 h-6 text-accent-foreground" />
+      </div>
+      <h3 className="heading-card text-foreground mb-3">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{desc}</p>
+    </motion.div>
+  );
+};
+
+const WhyCards = () => {
+  const spotlightRef = useSpotlight();
+  return (
+    <ScrollReveal>
+      <div ref={spotlightRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: Globe, title: "Websites That Convert", desc: "Every site we build is designed with one goal: turning your visitors into leads. Fast, mobile-friendly, and built to rank on Google." },
+          { icon: Search, title: "Local SEO That Works", desc: "We optimise your Google Business Profile and website so local customers find you first when they search for your services." },
+          { icon: BarChart3, title: "Google Ads & PPC", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your trade. Measurable ROI from day one." },
+          { icon: Shield, title: "Ongoing Support & Hosting", desc: "We handle updates, security, and backups so you can focus on running your business. No tech headaches." },
+        ].map((item) => (
+          <TiltCard key={item.title} {...item} />
+        ))}
+      </div>
+    </ScrollReveal>
+  );
+};
+
+/* ── Magnetic CTA button wrapper ──────────────────────── */
+const MagneticButton = ({ children }: { children: React.ReactNode }) => {
+  const ref = useMagnetic(0.25);
+  return <div ref={ref as React.RefObject<HTMLDivElement>} className="inline-block">{children}</div>;
+};
+
+/* ── Service cards with spotlight + staggered reveal ───── */
+const ServiceCards = () => {
+  const spotlightRef = useSpotlight();
+  return (
+    <ScrollReveal>
+      <div ref={spotlightRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $1,200", link: "/services" },
+          { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
+          { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
+          { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
+          { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,800/month", link: "/pricing" },
+          { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
+        ].map((service, i) => (
+          <motion.div
+            key={service.title}
+            variants={fadeUp}
+            custom={i}
+            data-spotlight
+            className="relative bg-card rounded-2xl p-8 border border-border card-premium flex flex-col group overflow-hidden"
+          >
+            <div className="w-11 h-11 rounded-xl gradient-cta flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              <service.icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="heading-card text-foreground mb-3">{service.title}</h3>
+            <p className="text-muted-foreground leading-relaxed flex-1 mb-6">{service.desc}</p>
+            <div className="flex items-center justify-between pt-4 border-t border-border">
+              <span className="font-bold text-accent-warm font-display text-lg">{service.price}</span>
+              <Button variant="ghost" size="sm" asChild className="text-accent">
+                <Link to={service.link}>Learn More <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              </Button>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </ScrollReveal>
   );
 };
 
@@ -117,6 +205,12 @@ const Index = () => {
     }, 6000);
     return () => clearInterval(timer);
   }, [testimonials.length]);
+
+  /* Parallax for hero section */
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(heroProgress, [0, 1], [0, 150]);
+  const heroOpacity = useTransform(heroProgress, [0, 0.8], [1, 0]);
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -181,14 +275,14 @@ const Index = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       {/* ═══ Hero ═══ */}
-      <section className="gradient-hero relative overflow-hidden min-h-[85vh] flex items-center">
+      <section ref={heroRef} className="gradient-hero relative overflow-hidden min-h-[85vh] flex items-center noise-overlay">
         {/* Background effects */}
         <div className="hero-orb hero-orb-1" />
         <div className="hero-orb hero-orb-2" />
         <div className="absolute inset-0 hero-noise" />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-        <div className="container-tight px-4 py-20 md:py-28 relative z-10 w-full">
+        <motion.div className="container-tight px-4 py-20 md:py-28 relative z-10 w-full" style={{ y: heroY, opacity: heroOpacity }}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               variants={stagger}
@@ -210,15 +304,19 @@ const Index = () => {
                 We build fast, professional websites for electricians, plumbers, builders and local businesses — with local SEO that gets you ranking on Google and generating 40+ leads per month.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" asChild>
-                  <Link to="/contact">
-                    Get a Free Quote
-                    <ArrowRight className="w-5 h-5 ml-1" />
-                  </Link>
-                </Button>
-                <Button variant="hero-outline" size="lg" asChild>
-                  <Link to="/free-website-review">Free Website Review</Link>
-                </Button>
+                <MagneticButton>
+                  <Button variant="hero" size="lg" asChild>
+                    <Link to="/contact">
+                      Get a Free Quote
+                      <ArrowRight className="w-5 h-5 ml-1" />
+                    </Link>
+                  </Button>
+                </MagneticButton>
+                <MagneticButton>
+                  <Button variant="hero-outline" size="lg" asChild>
+                    <Link to="/free-website-review">Free Website Review</Link>
+                  </Button>
+                </MagneticButton>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-6 mt-10 text-white/70 text-sm">
                 <div className="flex items-center gap-2">
@@ -254,7 +352,7 @@ const Index = () => {
               </div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ═══ Trust Bar ═══ */}
@@ -270,10 +368,9 @@ const Index = () => {
               <motion.div
                 key={item.label}
                 variants={fadeUp}
-                className="card-glass rounded-xl p-5 text-center"
+                className="card-glass rounded-xl p-5"
               >
-                <p className="text-2xl font-extrabold text-white font-display stat-glow">{item.val}</p>
-                <p className="text-xs text-white/60 mt-1 font-medium">{item.label}</p>
+                <AnimatedStat value={item.val} label={item.label} white />
               </motion.div>
             ))}
           </ScrollReveal>
@@ -302,26 +399,7 @@ const Index = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Globe, title: "Websites That Convert", desc: "Every site we build is designed with one goal: turning your visitors into leads. Fast, mobile-friendly, and built to rank on Google." },
-              { icon: Search, title: "Local SEO That Works", desc: "We optimise your Google Business Profile and website so local customers find you first when they search for your services." },
-              { icon: BarChart3, title: "Google Ads & PPC", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your trade. Measurable ROI from day one." },
-              { icon: Shield, title: "Ongoing Support & Hosting", desc: "We handle updates, security, and backups so you can focus on running your business. No tech headaches." },
-            ].map((item) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                className="bg-card rounded-2xl p-8 border border-border card-premium group"
-              >
-                <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-glow transition-all duration-300">
-                  <item.icon className="w-6 h-6 text-accent-foreground" />
-                </div>
-                <h3 className="heading-card text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </ScrollReveal>
+          <WhyCards />
         </div>
       </section>
 
@@ -393,6 +471,9 @@ const Index = () => {
       {/* ═══ Services Overview ═══ */}
       <section className="section-padding relative" style={{ background: "var(--surface-gradient)" }}>
         <div className="absolute inset-0 dot-pattern opacity-50" />
+        {/* Morphing blobs */}
+        <div className="blob-morph w-[300px] h-[300px] bg-accent/20 top-[10%] left-[5%]" />
+        <div className="blob-morph w-[250px] h-[250px] bg-purple-500/15 bottom-[10%] right-[5%]" style={{ animationDelay: "-6s" }} />
         <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-16">
             <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
@@ -404,37 +485,16 @@ const Index = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $1,200", link: "/services" },
-              { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
-              { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
-              { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
-              { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,800/month", link: "/pricing" },
-              { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
-            ].map((service) => (
-              <motion.div key={service.title} variants={fadeUp} className="bg-card rounded-2xl p-8 border border-border card-premium flex flex-col group">
-                <div className="w-11 h-11 rounded-xl gradient-cta flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <service.icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="heading-card text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed flex-1 mb-6">{service.desc}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="font-bold text-accent-warm font-display text-lg">{service.price}</span>
-                  <Button variant="ghost" size="sm" asChild className="text-accent">
-                    <Link to={service.link}>Learn More <ArrowRight className="w-4 h-4 ml-1" /></Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </ScrollReveal>
+          <ServiceCards />
         </div>
       </section>
 
       {/* ═══ How It Works ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
@@ -453,21 +513,24 @@ const Index = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-3 gap-8">
+          <ScrollReveal className="grid md:grid-cols-3 gap-8 relative">
             {[
               { step: "01", title: "Tell Us About Your Business", desc: "Fill out our quick form or give us a call. We'll learn about your business, goals, and what you need." },
               { step: "02", title: "We Build Your Solution", desc: "We design and develop your website or SEO strategy, keeping you in the loop every step of the way." },
               { step: "03", title: "Start Getting More Leads", desc: "Your new website goes live and starts working for you — bringing in calls, enquiries, and customers." },
             ].map((item, i) => (
               <motion.div key={item.step} variants={fadeUp} className="relative group">
-                {/* Connector line */}
+                {/* Animated timeline connector */}
                 {i < 2 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-px border-t-2 border-dashed border-white/15" />
+                  <div className="hidden md:block timeline-line" />
                 )}
                 <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 rounded-2xl card-glass flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
+                  <motion.div
+                    className="w-16 h-16 rounded-2xl card-glass flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300"
+                    whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.4 } }}
+                  >
                     <span className="text-white text-lg font-bold font-display">{item.step}</span>
-                  </div>
+                  </motion.div>
                   <h3 className="heading-card text-white mb-3">{item.title}</h3>
                   <p className="text-white/70 leading-relaxed">{item.desc}</p>
                 </div>
@@ -484,7 +547,7 @@ const Index = () => {
       </section>
 
       {/* ═══ Testimonials — Carousel ═══ */}
-      <section className="section-padding relative bg-background">
+      <section className="section-padding relative bg-background gradient-mesh">
         <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-14">
             <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-warm/10 text-accent-warm text-sm font-semibold mb-4">
@@ -498,14 +561,17 @@ const Index = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={testimonialIdx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.97 }}
                 transition={{ duration: 0.4 }}
                 className="bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg relative overflow-hidden"
               >
-                {/* Decorative quote watermark */}
-                <Quote className="absolute top-4 left-6 w-16 h-16 text-accent/[0.06]" />
+                {/* Decorative quote with gradient glow */}
+                <div className="absolute top-4 left-6 w-20 h-20">
+                  <Quote className="w-16 h-16 text-accent/[0.1]" />
+                  <div className="absolute inset-0 bg-accent/[0.03] rounded-full blur-xl" />
+                </div>
                 {/* Accent left bar */}
                 <div className="absolute left-0 top-6 bottom-6 w-1 rounded-full gradient-cta" />
                 <div className="pl-4">
@@ -583,16 +649,28 @@ const Index = () => {
               <motion.div
                 key={project.id}
                 variants={fadeUp}
-                className="bg-card rounded-2xl border border-border card-premium overflow-hidden flex flex-col"
+                className="bg-card rounded-2xl border border-border card-premium overflow-hidden flex flex-col group"
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={`${project.clientName} case study`}
-                    className="w-full h-52 object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  {/* Gradient overlay that intensifies on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Results that slide up on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <div className="grid grid-cols-2 gap-2">
+                      {project.results.slice(0, 2).map((result) => (
+                        <div key={result.label} className="bg-black/40 backdrop-blur-sm rounded-lg p-2.5 border border-white/10">
+                          <span className="text-[10px] text-white/70 uppercase tracking-wider">{result.label}</span>
+                          <p className="text-lg font-bold text-white font-display">{result.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-3">
@@ -607,17 +685,6 @@ const Index = () => {
                   <h3 className="font-bold text-foreground font-display mb-3 leading-snug text-sm">
                     {project.clientName}
                   </h3>
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {project.results.slice(0, 2).map((result) => (
-                      <div key={result.label} className="bg-muted/50 rounded-lg p-3">
-                        <div className="flex items-center gap-1 mb-0.5">
-                          <TrendingUp className="w-3 h-3 text-accent" />
-                          <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{result.label}</span>
-                        </div>
-                        <p className="text-lg font-bold text-accent font-display">{result.value}</p>
-                      </div>
-                    ))}
-                  </div>
                   {project.testimonial && (
                     <p className="text-xs text-muted-foreground italic leading-relaxed flex-1">
                       "{project.testimonial.quote.slice(0, 120)}..."
@@ -708,7 +775,7 @@ const Index = () => {
       </section>
 
       {/* ═══ Final CTA ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="absolute inset-0">
           <div className="hero-orb hero-orb-1" style={{ opacity: 0.3 }} />
           <div className="hero-orb hero-orb-2" style={{ opacity: 0.2 }} />

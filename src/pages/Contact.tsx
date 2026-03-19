@@ -228,22 +228,22 @@ const Contact = () => {
           <ScrollReveal className="grid lg:grid-cols-5 gap-12">
             {/* Form */}
             <motion.div variants={fadeUp} className="lg:col-span-3">
-              <div className="bg-card rounded-2xl border border-border shadow-card p-8 card-premium bg-accent/[0.02]">
+              <div className="bg-card rounded-2xl border border-border shadow-card p-8 card-premium bg-accent/[0.02] gradient-mesh">
                 <h2 className="heading-card text-foreground mb-6">Request a Free Quote</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
                       <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <Input id="name" name="name" required placeholder="Name" className="pl-10" />
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                        <Input id="name" name="name" required placeholder="Name" className="pl-10 input-glass-light" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <Input id="email" name="email" type="email" required placeholder="Email" className="pl-10" />
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                        <Input id="email" name="email" type="email" required placeholder="Email" className="pl-10 input-glass-light" />
                       </div>
                     </div>
                   </div>
@@ -251,29 +251,29 @@ const Contact = () => {
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
                       <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" className="pl-10" />
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                        <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" className="pl-10 input-glass-light" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="business">Business Name</Label>
                       <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <Input id="business" name="business" placeholder="Your Business Name" className="pl-10" />
+                        <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                        <Input id="business" name="business" placeholder="Your Business Name" className="pl-10 input-glass-light" />
                       </div>
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">How Can We Help? *</Label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground" />
+                      <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground z-10" />
                       <Textarea
                         id="message"
                         name="message"
                         required
                         rows={5}
                         placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
-                        className="pl-10"
+                        className="pl-10 input-glass-light"
                       />
                     </div>
                   </div>

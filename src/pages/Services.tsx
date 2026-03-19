@@ -357,7 +357,7 @@ const Services = () => {
       </section>
 
       {/* ═══ AEO & GEO ═══ */}
-      <section className="section-padding gradient-hero relative overflow-hidden" id="ai-search">
+      <section className="section-padding gradient-hero relative overflow-hidden noise-overlay" id="ai-search">
         {/* Radial accent glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,hsl(217_76%_48%/0.15),transparent_70%)]" />
         {/* Subtle grid pattern */}
@@ -549,7 +549,7 @@ const Services = () => {
       </section>
 
       {/* ═══ Final CTA ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
+      <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-20 text-center relative z-10">
           <ScrollReveal>

@@ -354,6 +354,105 @@
     background-image: radial-gradient(hsl(217 76% 48% / 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+
+  /* ── Noise / grain texture overlay ──────────────────── */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  /* ── Spotlight / cursor glow on cards ───────────────── */
+  [data-spotlight]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      350px circle at var(--spotlight-x, -100px) var(--spotlight-y, -100px),
+      hsl(217 76% 48% / 0.08) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  [data-spotlight]:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Glassmorphic form inputs ───────────────────────── */
+  .input-glass {
+    background: hsl(0 0% 100% / 0.06) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid hsl(0 0% 100% / 0.1) !important;
+    transition: all 0.3s ease;
+  }
+  .input-glass:focus {
+    background: hsl(0 0% 100% / 0.1) !important;
+    border-color: hsl(217 76% 48% / 0.5) !important;
+    box-shadow: 0 0 20px -4px hsl(217 76% 48% / 0.3), 0 0 0 1px hsl(217 76% 48% / 0.2);
+  }
+
+  /* ── Light mode glassmorphic inputs ────────────────── */
+  .input-glass-light {
+    background: hsl(220 16% 96% / 0.7) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid hsl(220 14% 89%) !important;
+    transition: all 0.3s ease;
+  }
+  .input-glass-light:focus {
+    background: hsl(0 0% 100% / 0.9) !important;
+    border-color: hsl(217 76% 48% / 0.5) !important;
+    box-shadow: 0 0 20px -4px hsl(217 76% 48% / 0.2), 0 0 0 1px hsl(217 76% 48% / 0.15);
+  }
+
+  /* ── Timeline animated connector ────────────────────── */
+  .timeline-line {
+    position: absolute;
+    top: 32px;
+    left: calc(50% + 40px);
+    width: calc(100% - 80px);
+    height: 2px;
+    background: hsl(0 0% 100% / 0.1);
+    overflow: hidden;
+  }
+  .timeline-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, hsl(217 76% 48%) 0%, hsl(250 70% 56%) 100%);
+    animation: timeline-flow 3s ease-in-out infinite;
+    transform-origin: left;
+  }
+
+  /* ── Gradient mesh background ───────────────────────── */
+  .gradient-mesh {
+    background:
+      radial-gradient(at 0% 0%, hsl(217 76% 48% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsl(250 70% 56% / 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(35 92% 55% / 0.04) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(217 76% 48% / 0.05) 0px, transparent 50%);
+  }
+
+  /* ── Morphing blob ──────────────────────────────────── */
+  .blob-morph {
+    position: absolute;
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+    filter: blur(60px);
+    opacity: 0.15;
+    animation: blob-morph 12s ease-in-out infinite;
+  }
 }
 
 /* ── Global smooth scroll ──────────────────────────────── */
@@ -378,6 +477,21 @@ html {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes timeline-flow {
+  0% { transform: scaleX(0); opacity: 0; }
+  30% { opacity: 1; }
+  50% { transform: scaleX(1); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: scaleX(0); opacity: 0; transform-origin: right; }
+}
+
+@keyframes blob-morph {
+  0%, 100% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; transform: translate(0, 0) scale(1); }
+  25% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; transform: translate(20px, -15px) scale(1.05); }
+  50% { border-radius: 30% 70% 50% 50% / 40% 70% 30% 60%; transform: translate(-10px, 20px) scale(0.95); }
+  75% { border-radius: 50% 50% 70% 30% / 60% 40% 60% 40%; transform: translate(15px, 10px) scale(1.02); }
 }
 
 @keyframes border-rotate {
