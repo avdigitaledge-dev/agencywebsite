@@ -472,8 +472,8 @@ const Index = () => {
       <section className="section-padding relative" style={{ background: "var(--surface-gradient)" }}>
         <div className="absolute inset-0 dot-pattern opacity-50" />
         {/* Morphing blobs */}
-        <div className="blob-morph w-[300px] h-[300px] bg-accent/20 top-[10%] left-[5%]" />
-        <div className="blob-morph w-[250px] h-[250px] bg-purple-500/15 bottom-[10%] right-[5%]" style={{ animationDelay: "-6s" }} />
+        <div className="blob-morph w-[400px] h-[400px] bg-accent/40 top-[5%] left-[0%]" />
+        <div className="blob-morph w-[350px] h-[350px] bg-purple-500/30 bottom-[5%] right-[0%]" style={{ animationDelay: "-6s" }} />
         <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-16">
             <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
