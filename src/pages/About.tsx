@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Heart, Target, Users, Award, Globe, Star, Calendar } from "lucide-react";
+import AnimatedStat from "@/components/AnimatedStat";
 import { Button } from "@/components/ui/button";
 import { SEOMeta } from "@/components/SEOMeta";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -111,7 +112,7 @@ const About = () => {
             variants={stagger}
           >
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              About Digital Edge
+              About <span className="text-gradient">Digital Edge</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-10">
               Founded by Aleksandar Savevski, we're a team of web designers and digital marketers passionate about helping Australian businesses grow online.
@@ -124,8 +125,7 @@ const About = () => {
               ].map((stat) => (
                 <div key={stat.label} className="card-glass rounded-xl p-4 text-center">
                   <stat.icon className="w-4 h-4 text-accent mx-auto mb-1.5" />
-                  <p className="text-xl font-extrabold text-white font-display stat-glow">{stat.val}</p>
-                  <p className="text-[11px] text-white/50 mt-0.5 font-medium">{stat.label}</p>
+                  <AnimatedStat value={stat.val} label={stat.label} white />
                 </div>
               ))}
             </motion.div>

@@ -23,7 +23,7 @@ const Footer = () => {
               </h3>
               <p className="text-white/60 mt-1">Get a free, no-obligation quote today.</p>
             </div>
-            <Button variant="hero" size="lg" asChild className="shrink-0">
+            <Button variant="hero" size="lg" asChild className="shrink-0 transition-all duration-300 hover:shadow-[0_0_30px_hsl(35_92%_55%/0.3)] hover:scale-105">
               <Link to="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "footer" })}>
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 ml-1" />

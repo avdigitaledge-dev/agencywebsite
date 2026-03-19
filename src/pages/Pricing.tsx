@@ -228,10 +228,10 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Perfect for tradies and small service businesses</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $3,000–$5,000</p>
-                <span className="text-4xl font-extrabold text-accent-warm font-display">$1,200</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer">$1,200</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Up to 5 pages",
                   "Mobile responsive design",
@@ -265,10 +265,10 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">For businesses serious about growing online</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $5,000–$10,000</p>
-                <span className="text-4xl font-extrabold text-accent-warm font-display">$1,850</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer">$1,850</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Up to 10 pages",
                   "Conversion-focused design",
@@ -297,10 +297,10 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Sell products online with a fully managed store</p>
               <div className="mb-6">
                 <p className="text-sm text-muted-foreground line-through mb-1">Typical agency price: $10,000–$20,000</p>
-                <span className="text-4xl font-extrabold text-accent-warm font-display">$4,500</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer">$4,500</span>
                 <span className="text-muted-foreground ml-1">AUD</span>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Up to 20 pages",
                   "Full online store setup",
@@ -423,10 +423,10 @@ const Pricing = () => {
               <h3 className="heading-card text-foreground mb-1">Website Maintenance</h3>
               <p className="text-muted-foreground text-sm mb-4">Keep your site fast, secure, and updated</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-accent-warm font-display">$99</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer">$99</span>
                 <span className="text-muted-foreground ml-1">/month</span>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Security updates & patches",
                   "Daily backups",
@@ -459,10 +459,10 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Dominate local search & Google Maps in your area</p>
               <div className="mb-6">
                 <span className="text-sm text-muted-foreground">From</span>
-                <span className="text-4xl font-extrabold text-accent-warm font-display ml-2">$1,000</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer ml-2">$1,000</span>
                 <span className="text-muted-foreground ml-1">/month</span>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Google Business Profile setup & ongoing optimisation",
                   "Local keyword research & targeting strategy",
@@ -493,11 +493,11 @@ const Pricing = () => {
               <p className="text-muted-foreground text-sm mb-4">Targeted ads that bring instant leads</p>
               <div className="mb-6">
                 <span className="text-sm text-muted-foreground">From</span>
-                <span className="text-4xl font-extrabold text-accent-warm font-display ml-2">$800</span>
+                <span className="text-4xl font-extrabold font-display price-shimmer ml-2">$800</span>
                 <span className="text-muted-foreground ml-1">/month</span>
                 <p className="text-xs text-muted-foreground mt-1">+ 15% of ad spend · No lock-in contracts</p>
               </div>
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
                 {[
                   "Full Google Ads campaign setup & management",
                   "Keyword research & smart bid strategy",

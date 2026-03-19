@@ -84,11 +84,11 @@ const Header = () => {
       }`}
     >
       <div className="container-tight flex items-center justify-between h-16 md:h-[72px] px-4">
-        <Link to="/" className="flex items-center relative z-10">
+        <Link to="/" className="flex items-center relative z-10 group">
           <img
             src={logoMain}
             alt="Digital Edge"
-            className="h-9 md:h-11 w-auto"
+            className="h-9 md:h-11 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_hsl(217_76%_48%/0.4)]"
           />
         </Link>
 

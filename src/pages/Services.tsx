@@ -12,6 +12,7 @@ import { SEOMeta } from "@/components/SEOMeta";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import Layout from "@/components/Layout";
+import AnimatedStat from "@/components/AnimatedStat";
 
 /* ── Animation helpers ─────────────────────────────────── */
 const stagger = {
@@ -229,14 +230,14 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Website Design & Development</span>
+              <span className="text-accent font-semibold text-base uppercase tracking-wider">Website Design & Development</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
                 A Website That Works as Hard as You Do
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Your website is often the first impression a potential customer has of your business. We build professional, fast-loading, mobile-friendly websites that are designed to turn visitors into paying customers — not just look pretty.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 stagger-list">
                 {[
                   "Custom design tailored to your brand and industry",
                   "Mobile-responsive — looks great on phones, tablets, and desktops",
@@ -255,7 +256,7 @@ const Services = () => {
                 <Link to="/pricing">See Pricing <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
             </motion.div>
-            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group">
+            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <img src={serviceWebdesign} alt="Professional web design on laptop and mobile devices" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
@@ -266,18 +267,18 @@ const Services = () => {
       <section className="section-padding bg-background" id="ecommerce">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
+            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <img src={serviceEcommerce} alt="eCommerce online store website design" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">eCommerce Website Design</span>
+              <span className="text-accent font-semibold text-base uppercase tracking-wider">eCommerce Website Design</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
                 Sell Products Online With a Professional Store
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Ready to sell online? We build fully managed eCommerce websites that make it easy for your customers to browse, buy, and come back for more. From product catalogues to secure checkout — we handle everything.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 stagger-list">
                 {[
                   "Full online store setup with product catalogue",
                   "Secure payment gateway integration (Stripe, PayPal, etc.)",
@@ -304,14 +305,15 @@ const Services = () => {
       {/* ═══ Trust Bar ═══ */}
       <section className="bg-card border-y border-border">
         <div className="container-tight px-4 py-6">
-          <ScrollReveal className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-muted-foreground">
+          <ScrollReveal className="flex flex-wrap justify-center gap-10 md:gap-20">
             {[
-              { icon: Users, text: "30+ Websites Delivered" },
-              { icon: Star, text: "4.8-Star Google Rating" },
-              { icon: Shield, text: "No Lock-In Contracts" },
+              { icon: Users, val: "30+", label: "Websites Delivered" },
+              { icon: Star, val: "4.8", label: "Google Rating" },
+              { icon: Shield, val: "0", label: "Lock-In Contracts" },
             ].map((item) => (
-              <motion.div key={item.text} variants={fadeUp} className="flex items-center gap-2">
-                <item.icon className="w-4 h-4 text-accent" /> {item.text}
+              <motion.div key={item.label} variants={fadeUp} className="flex flex-col items-center text-center">
+                <item.icon className="w-5 h-5 text-accent mb-2" />
+                <AnimatedStat value={item.val} label={item.label} />
               </motion.div>
             ))}
           </ScrollReveal>
@@ -322,18 +324,18 @@ const Services = () => {
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }} id="seo">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
+            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <img src={serviceSeo} alt="Local SEO and Google Maps search results" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Local SEO</span>
+              <span className="text-accent font-semibold text-base uppercase tracking-wider">Local SEO</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
                 Get Found by Customers in Your Area
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 When someone in Sydney or Wollongong searches for your type of business, you want to be the first result they see. Our local SEO services help you rank higher on Google Search and Google Maps so more local customers find and contact you.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 stagger-list">
                 {[
                   "Google Business Profile setup and optimisation",
                   "Local keyword research and targeting",
@@ -477,14 +479,14 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Google Ads & PPC</span>
+              <span className="text-accent font-semibold text-base uppercase tracking-wider">Google Ads & PPC</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
                 Get Instant Leads With Google Ads
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Stop wasting money on ads that don't convert. We manage your Google Ads campaigns with a transparent pricing model — $800/month management fee plus 15% of your ad spend. No lock-in contracts, no hidden fees, and you only pay for results.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 stagger-list">
                 {[
                   "Full Google Ads setup & ongoing management",
                   "Keyword research & smart bid strategy",
@@ -503,7 +505,7 @@ const Services = () => {
                 <Link to="/contact">Discuss Your Strategy <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
             </motion.div>
-            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group">
+            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <img src={serviceMarketing} alt="Digital marketing analytics dashboard" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
           </ScrollReveal>
@@ -514,18 +516,18 @@ const Services = () => {
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }} id="maintenance">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group">
+            <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <img src={serviceMaintenance} alt="Server security and website maintenance" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Maintenance & Hosting</span>
+              <span className="text-accent font-semibold text-base uppercase tracking-wider">Maintenance & Hosting</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
                 Keep Your Website Fast, Secure, and Up to Date
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 A website isn't a "set and forget" tool. It needs regular updates, security monitoring, and performance checks. We take care of all of that so you can focus on what you do best — running your business.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 stagger-list">
                 {[
                   "Fast, reliable Australian hosting",
                   "Regular security updates and patches",
