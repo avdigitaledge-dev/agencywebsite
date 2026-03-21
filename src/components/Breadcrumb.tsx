@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 
 interface BreadcrumbItem {
   label: string;
@@ -16,7 +18,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">
             {item.path ? (
-              <Link to={item.path} className="text-accent hover:text-accent/80 transition-colors">
+              <Link href={item.path} className="text-accent hover:text-accent/80 transition-colors">
                 {item.label}
               </Link>
             ) : (
@@ -28,18 +30,21 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
       </ol>
 
       {/* Breadcrumb Schema Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": items.map((item, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "name": item.label,
-            ...(item.path && { "item": `https://digitaledgestudio.com${item.path}` })
-          }))
-        })}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": items.map((item, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": item.label,
+              ...(item.path && { "item": `https://digitaledgestudio.com${item.path}` })
+            }))
+          })
+        }}
+      />
     </nav>
   );
 };

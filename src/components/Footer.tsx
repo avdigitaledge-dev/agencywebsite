@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { MapPin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/utils";
-import logoWhite from "@/assets/digitaledge-logo-white.svg";
 
 const Footer = () => {
   return (
@@ -24,7 +25,7 @@ const Footer = () => {
               <p className="text-white/60 mt-1">Get a free, no-obligation quote today.</p>
             </div>
             <Button variant="hero" size="lg" asChild className="shrink-0 transition-all duration-300 hover:shadow-[0_0_30px_hsl(35_92%_55%/0.3)] hover:scale-105">
-              <Link to="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "footer" })}>
+              <Link href="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "footer" })}>
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
@@ -36,7 +37,7 @@ const Footer = () => {
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="space-y-5">
-            <img src={logoWhite} alt="Digital Edge" className="h-10 w-auto" />
+            <img src="/assets/digitaledge-logo-white.svg" alt="Digital Edge" className="h-10 w-auto" />
             <p className="text-white/70 text-sm leading-relaxed">
               Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW.
             </p>
@@ -49,11 +50,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Services</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/services" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
-              <Link to="/services#seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
-              <Link to="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
-              <Link to="/services#marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
-              <Link to="/pricing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
+              <Link href="/services" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
+              <Link href="/services#seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
+              <Link href="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
+              <Link href="/services#marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
+              <Link href="/pricing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
           </div>
 
@@ -61,11 +62,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Locations</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/web-design-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
-              <Link to="/web-design-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
-              <Link to="/web-design-illawarra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
-              <Link to="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
-              <Link to="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
+              <Link href="/web-design-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
+              <Link href="/web-design-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
+              <Link href="/web-design-illawarra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
+              <Link href="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
+              <Link href="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
             </nav>
           </div>
 
@@ -73,19 +74,19 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Company</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/about" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
-              <Link to="/portfolio" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
-              <Link to="/blog" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
-              <Link to="/free-website-review" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
-              <Link to="/contact" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
-              <Link to="/privacy" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
-              <Link to="/terms" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Terms of Service</Link>
+              <Link href="/about" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
+              <Link href="/portfolio" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
+              <Link href="/blog" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
+              <Link href="/free-website-review" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
+              <Link href="/contact" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Contact</Link>
+              <Link href="/privacy" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Privacy Policy</Link>
+              <Link href="/terms" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Terms of Service</Link>
             </nav>
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider pt-2">Compare</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link to="/vs/wix" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
-              <Link to="/vs/squarespace" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
-              <Link to="/vs/cheap-web-designers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
+              <Link href="/vs/wix" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
+              <Link href="/vs/squarespace" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
+              <Link href="/vs/cheap-web-designers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
             </nav>
           </div>
 
@@ -115,7 +116,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
           <p>&copy; {new Date().getFullYear()} Digital Edge Studio. All rights reserved.</p>
-          <Link to="/privacy" className="hover:text-white/60 transition-colors duration-200">Privacy Policy</Link>
+          <Link href="/privacy" className="hover:text-white/60 transition-colors duration-200">Privacy Policy</Link>
         </div>
       </div>
     </footer>

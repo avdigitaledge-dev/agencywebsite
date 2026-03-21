@@ -1,30 +1,32 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/utils";
-import logoMain from "@/assets/digitaledge-logo-main.svg";
 
 const servicesDropdown = [
-  { label: "All Services", to: "/services", description: "Website design, SEO & marketing" },
-  { label: "Free Website Review", to: "/free-website-review", description: "Get a free audit of your site" },
-  { label: "AEO & GEO Optimisation", to: "/services/aeo-geo", description: "Get found in AI search results" },
-  { label: "Web Design Wollongong", to: "/web-design-wollongong" },
-  { label: "Web Design Sydney", to: "/web-design-sydney" },
-  { label: "Web Design Illawarra", to: "/web-design-illawarra" },
-  { label: "Web Design for Tradies", to: "/web-design-tradies" },
-  { label: "Healthcare Web Design", to: "/web-design-healthcare" },
+  { label: "All Services", href: "/services", description: "Website design, SEO & marketing" },
+  { label: "Free Website Review", href: "/free-website-review", description: "Get a free audit of your site" },
+  { label: "AEO & GEO Optimisation", href: "/services/aeo-geo", description: "Get found in AI search results" },
+  { label: "Web Design Wollongong", href: "/web-design-wollongong" },
+  { label: "Web Design Sydney", href: "/web-design-sydney" },
+  { label: "Web Design Illawarra", href: "/web-design-illawarra" },
+  { label: "Web Design for Tradies", href: "/web-design-tradies" },
+  { label: "Healthcare Web Design", href: "/web-design-healthcare" },
 ];
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services", hasDropdown: true },
-  { label: "Pricing", to: "/pricing" },
-  { label: "Our Work", to: "/portfolio" },
-  { label: "About", to: "/about" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Our Work", href: "/portfolio" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Header = () => {
@@ -32,7 +34,7 @@ const Header = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -50,7 +52,7 @@ const Header = () => {
     setMobileOpen(false);
     setServicesOpen(false);
     setMobileServicesOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -72,10 +74,10 @@ const Header = () => {
     timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
   };
 
-  const isServicesActive = location.pathname === "/services" ||
-    location.pathname.startsWith("/web-design-") ||
-    location.pathname === "/free-website-review" ||
-    location.pathname.startsWith("/services/");
+  const isServicesActive = pathname === "/services" ||
+    pathname.startsWith("/web-design-") ||
+    pathname === "/free-website-review" ||
+    pathname.startsWith("/services/");
 
   return (
     <header
@@ -84,9 +86,9 @@ const Header = () => {
       }`}
     >
       <div className="container-tight flex items-center justify-between h-16 md:h-[72px] px-4">
-        <Link to="/" className="flex items-center relative z-10 group">
+        <Link href="/" className="flex items-center relative z-10 group">
           <img
-            src={logoMain}
+            src="/assets/digitaledge-logo-main.svg"
             alt="Digital Edge"
             className="h-9 md:h-11 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_hsl(217_76%_48%/0.4)]"
           />
@@ -97,14 +99,14 @@ const Header = () => {
           {navLinks.map((link) => (
             link.hasDropdown ? (
               <div
-                key={link.to}
+                key={link.href}
                 ref={dropdownRef}
                 className="relative"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
                 <Link
-                  to={link.to}
+                  href={link.href}
                   className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 inline-flex items-center gap-1 ${
                     isServicesActive
                       ? "text-accent"
@@ -134,10 +136,10 @@ const Header = () => {
                       <div className="py-2">
                         {servicesDropdown.map((item, i) => (
                           <Link
-                            key={item.to}
-                            to={item.to}
+                            key={item.href}
+                            href={item.href}
                             className={`flex flex-col px-4 py-2.5 text-sm transition-colors ${
-                              location.pathname === item.to
+                              pathname === item.href
                                 ? "text-accent bg-accent/5"
                                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
                             } ${i === 1 ? "border-b border-border mb-1 pb-3" : ""}`}
@@ -155,16 +157,16 @@ const Header = () => {
               </div>
             ) : (
               <Link
-                key={link.to}
-                to={link.to}
+                key={link.href}
+                href={link.href}
                 className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  location.pathname === link.to
+                  pathname === link.href
                     ? "text-accent"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
-                {location.pathname === link.to && (
+                {pathname === link.href && (
                   <motion.div
                     layoutId="nav-indicator"
                     className="absolute inset-0 bg-accent/10 rounded-lg"
@@ -178,7 +180,7 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center gap-3">
           <Button variant="cta" size="default" asChild>
-            <Link to="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "header" })}>
+            <Link href="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "header" })}>
               Get a Free Quote
               <ArrowRight className="w-4 h-4 ml-0.5" />
             </Link>
@@ -208,7 +210,7 @@ const Header = () => {
             <nav className="flex flex-col gap-1 px-4 py-3">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link.to}
+                  key={link.href}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
@@ -217,7 +219,7 @@ const Header = () => {
                     <>
                       <div className="flex items-center">
                         <Link
-                          to={link.to}
+                          href={link.href}
                           className={`flex-1 flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                             isServicesActive
                               ? "text-accent bg-accent/10"
@@ -245,12 +247,11 @@ const Header = () => {
                           >
                             <div className="pl-6 py-1 space-y-0.5">
                               {servicesDropdown.slice(1).map((item) => (
-                                /* includes Free Website Review + all location/industry pages */
                                 <Link
-                                  key={item.to}
-                                  to={item.to}
+                                  key={item.href}
+                                  href={item.href}
                                   className={`flex items-center px-4 py-2.5 rounded-lg text-sm transition-colors ${
-                                    location.pathname === item.to
+                                    pathname === item.href
                                       ? "text-accent bg-accent/5"
                                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                   }`}
@@ -265,9 +266,9 @@ const Header = () => {
                     </>
                   ) : (
                     <Link
-                      to={link.to}
+                      href={link.href}
                       className={`flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                        location.pathname === link.to
+                        pathname === link.href
                           ? "text-accent bg-accent/10"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
@@ -280,7 +281,7 @@ const Header = () => {
             </nav>
             <div className="px-4 pb-4">
               <Button variant="cta" className="w-full" asChild>
-                <Link to="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "header_mobile" })}>
+                <Link href="/contact" onClick={() => trackEvent("cta_click", { button_text: "Get a Free Quote", location: "header_mobile" })}>
                   Get a Free Quote
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>

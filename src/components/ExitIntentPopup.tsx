@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -108,7 +110,7 @@ const ExitIntentPopup = () => {
                 </ul>
 
                 <Button variant="cta" size="lg" className="w-full" asChild>
-                  <Link to="/free-website-review" onClick={() => setShow(false)}>
+                  <Link href="/free-website-review" onClick={() => setShow(false)}>
                     Get My Free Review
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
