@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/utils";
-import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare, ArrowRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -67,6 +67,9 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
 const Contact = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(1);
+  const [nameVal, setNameVal] = useState("");
+  const [emailVal, setEmailVal] = useState("");
 
   const contactSchema = {
     "@context": "https://schema.org",
@@ -181,8 +184,7 @@ const Contact = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -221,60 +223,102 @@ const Contact = () => {
             {/* Form */}
             <motion.div variants={fadeUp} className="lg:col-span-3">
               <div className="bg-card rounded-2xl border border-border shadow-card p-8 card-premium bg-accent/[0.02] gradient-mesh">
-                <h2 className="heading-card text-foreground mb-6">Request a Free Quote</h2>
+                <div className="flex items-center gap-3 mb-6">
+                  <h2 className="heading-card text-foreground">Request a Free Quote</h2>
+                  <span className="text-xs text-muted-foreground ml-auto">Step {step} of 2</span>
+                </div>
+                {/* Progress bar */}
+                <div className="h-1 rounded-full bg-muted mb-6 overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full gradient-cta"
+                    initial={{ width: "50%" }}
+                    animate={{ width: step === 1 ? "50%" : "100%" }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+                </div>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Step 1: Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-                        <Input id="name" name="name" required placeholder="Name" className="pl-10 input-glass-light" />
+                        <Input id="name" name="name" required placeholder="Name" className="pl-10 input-glass-light" value={nameVal} onChange={(e) => setNameVal(e.target.value)} />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-                        <Input id="email" name="email" type="email" required placeholder="Email" className="pl-10 input-glass-light" />
+                        <Input id="email" name="email" type="email" required placeholder="Email" className="pl-10 input-glass-light" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} />
                       </div>
                     </div>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-                        <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" className="pl-10 input-glass-light" />
-                      </div>
+
+                  {step === 1 ? (
+                    <div>
+                      <Button
+                        type="button"
+                        variant="cta"
+                        size="lg"
+                        className="w-full"
+                        disabled={!nameVal.trim() || !emailVal.trim() || !emailVal.includes("@")}
+                        onClick={() => setStep(2)}
+                      >
+                        Continue <ArrowRight className="w-4 h-4 ml-1" />
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center mt-3">
+                        Just two more optional fields after this.
+                      </p>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="business">Business Name</Label>
-                      <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-                        <Input id="business" name="business" placeholder="Your Business Name" className="pl-10 input-glass-light" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">How Can We Help? *</Label>
-                    <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground z-10" />
-                      <Textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={5}
-                        placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
-                        className="pl-10 input-glass-light"
-                      />
-                    </div>
-                  </div>
-                  <Button type="submit" variant="cta" size="lg" className="w-full" disabled={loading}>
-                    {loading ? "Sending..." : <>Request a Free Quote <Send className="w-4 h-4 ml-2" /></>}
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    No spam. No obligation. We'll respond within 24 hours.
-                  </p>
+                  ) : (
+                    <AnimatePresence>
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="space-y-5 overflow-hidden"
+                      >
+                        {/* Step 2: Phone, Business, Message */}
+                        <div className="grid sm:grid-cols-2 gap-5">
+                          <div className="space-y-2">
+                            <Label htmlFor="phone">Phone Number</Label>
+                            <div className="relative">
+                              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                              <Input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" className="pl-10 input-glass-light" />
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="business">Business Name</Label>
+                            <div className="relative">
+                              <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                              <Input id="business" name="business" placeholder="Your Business Name" className="pl-10 input-glass-light" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="message">How Can We Help? *</Label>
+                          <div className="relative">
+                            <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground z-10" />
+                            <Textarea
+                              id="message"
+                              name="message"
+                              required
+                              rows={5}
+                              placeholder="Tell us about your business and what you're looking for — new website, SEO, maintenance, or something else."
+                              className="pl-10 input-glass-light"
+                            />
+                          </div>
+                        </div>
+                        <Button type="submit" variant="cta" size="lg" className="w-full" disabled={loading}>
+                          {loading ? "Sending..." : <>Request a Free Quote <Send className="w-4 h-4 ml-2" /></>}
+                        </Button>
+                        <p className="text-xs text-muted-foreground text-center">
+                          No spam. No obligation. We'll respond within 24 hours.
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+                  )}
                 </form>
               </div>
             </motion.div>
@@ -330,6 +374,32 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Testimonials */}
+              <div className="bg-card rounded-2xl border border-border shadow-card p-6 card-hover-lift">
+                <div className="flex items-center gap-2 mb-4">
+                  <Quote className="w-5 h-5 text-accent" />
+                  <h3 className="font-bold text-foreground font-display">What Our Clients Say</h3>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { name: "James T.", biz: "Plumber, Sydney", quote: "Since Digital Edge rebuilt our website, we've had a 60% increase in phone calls from Google." },
+                    { name: "Sarah M.", biz: "Physiotherapist, Wollongong", quote: "They made the whole process easy and stress-free. Our new website looks incredible." },
+                    { name: "Mark L.", biz: "Electrician, NSW", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps." },
+                  ].map((t) => (
+                    <div key={t.name} className="border-l-2 border-accent/30 pl-4">
+                      <p className="text-sm text-muted-foreground italic leading-relaxed">"{t.quote}"</p>
+                      <div className="flex items-center gap-1 mt-1.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                        ))}
+                      </div>
+                      <p className="text-xs text-foreground font-medium mt-1">{t.name} — <span className="text-muted-foreground">{t.biz}</span></p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 text-center">Rated 4.8 stars on Google</p>
               </div>
             </motion.div>
           </ScrollReveal>

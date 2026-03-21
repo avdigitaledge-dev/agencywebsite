@@ -1,21 +1,149 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { X, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+interface PopupContent {
+  heading: string;
+  description: string;
+  bullets: string[];
+  ctaText: string;
+  ctaHref: string;
+}
+
+function getPopupContent(pathname: string): PopupContent {
+  // Pricing page — they're comparing options, nudge toward a quote
+  if (pathname === "/pricing") {
+    return {
+      heading: "Not Sure Which Package?",
+      description: "Tell us about your business and we'll recommend the best option — no pressure, no obligation.",
+      bullets: [
+        "Personalised package recommendation",
+        "Transparent pricing breakdown",
+        "No lock-in contracts",
+      ],
+      ctaText: "Get a Free Quote",
+      ctaHref: "/contact",
+    };
+  }
+
+  // Services pages — they're evaluating what you offer
+  if (pathname === "/services" || pathname.startsWith("/services/")) {
+    return {
+      heading: "Want to See What We'd Do for You?",
+      description: "Get a free, personalised quote based on your business goals. We'll outline exactly what's included — no surprises.",
+      bullets: [
+        "Custom scope tailored to your business",
+        "Fixed pricing with no hidden fees",
+        "Free consultation call included",
+      ],
+      ctaText: "Get My Free Quote",
+      ctaHref: "/contact",
+    };
+  }
+
+  // Portfolio pages — they're looking at results, push toward getting similar
+  if (pathname.startsWith("/portfolio")) {
+    return {
+      heading: "Want Results Like These?",
+      description: "We'd love to do the same for your business. Get a free quote and we'll show you what's possible.",
+      bullets: [
+        "Strategy tailored to your industry",
+        "Same hands-on approach for every client",
+        "Real results, not just a pretty website",
+      ],
+      ctaText: "Get My Free Quote",
+      ctaHref: "/contact",
+    };
+  }
+
+  // Location pages — location-specific messaging
+  if (pathname.startsWith("/web-design-")) {
+    const area = pathname.includes("wollongong") ? "Wollongong"
+      : pathname.includes("sydney") ? "Sydney"
+      : pathname.includes("illawarra") ? "Illawarra"
+      : pathname.includes("tradies") ? "tradies"
+      : pathname.includes("healthcare") ? "healthcare"
+      : "local";
+
+    return {
+      heading: `Get a Free ${area === "tradies" || area === "healthcare" ? area.charAt(0).toUpperCase() + area.slice(1) : area} Quote`,
+      description: `We'll put together a no-obligation proposal for your ${area === "local" ? "" : area + " "}business — including pricing, timeline, and what's included.`,
+      bullets: [
+        "Custom quote for your business",
+        "Local SEO strategy included",
+        "No lock-in contracts",
+      ],
+      ctaText: "Get My Free Quote",
+      ctaHref: "/contact",
+    };
+  }
+
+  // Comparison pages — they're weighing alternatives
+  if (pathname.startsWith("/vs/")) {
+    return {
+      heading: "See the Difference for Yourself",
+      description: "Get a free website review and we'll show you exactly how a professionally built site compares to what you have now.",
+      bullets: [
+        "Side-by-side comparison with your current site",
+        "Performance & SEO analysis",
+        "No-obligation recommendation",
+      ],
+      ctaText: "Get My Free Review",
+      ctaHref: "/free-website-review",
+    };
+  }
+
+  // Blog pages — they're learning, offer educational value
+  if (pathname.startsWith("/blog")) {
+    return {
+      heading: "Is Your Website Holding You Back?",
+      description: "Get a free review of your website and find out what's working, what's not, and where you're losing potential customers.",
+      bullets: [
+        "SEO & Google ranking check",
+        "Mobile performance review",
+        "Actionable recommendations",
+      ],
+      ctaText: "Get My Free Review",
+      ctaHref: "/free-website-review",
+    };
+  }
+
+  // Default (homepage, about, etc.)
+  return {
+    heading: "Before You Go...",
+    description: "Get a free, no-obligation review of your website. We'll show you exactly what's working, what's not, and how to get more leads.",
+    bullets: [
+      "SEO & Google ranking check",
+      "Mobile performance review",
+      "Conversion opportunities identified",
+    ],
+    ctaText: "Get My Free Review",
+    ctaHref: "/free-website-review",
+  };
+}
+
 const ExitIntentPopup = () => {
   const [show, setShow] = useState(false);
   const maxScrollY = useRef(0);
+  const pathname = usePathname();
+
+  const content = useMemo(() => getPopupContent(pathname), [pathname]);
+
+  // Don't show on contact or free-website-review pages (they're already converting)
+  const suppressPopup = pathname === "/contact" || pathname === "/free-website-review" || pathname === "/checklist-thank-you";
 
   const triggerPopup = useCallback(() => {
+    if (suppressPopup) return;
     if (!sessionStorage.getItem("exitIntentShown")) {
       setShow(true);
       sessionStorage.setItem("exitIntentShown", "true");
     }
-  }, []);
+  }, [suppressPopup]);
 
   // Desktop: mouseleave detection
   const handleMouseLeave = useCallback((e: MouseEvent) => {
@@ -36,6 +164,8 @@ const ExitIntentPopup = () => {
   }, [triggerPopup]);
 
   useEffect(() => {
+    if (suppressPopup) return;
+
     const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     // Only add listener after a 5-second delay to avoid showing on quick visits
@@ -52,7 +182,7 @@ const ExitIntentPopup = () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [handleMouseLeave, handleScroll]);
+  }, [handleMouseLeave, handleScroll, suppressPopup]);
 
   return (
     <AnimatePresence>
@@ -90,18 +220,14 @@ const ExitIntentPopup = () => {
 
               <div className="p-8 text-center">
                 <h3 className="heading-card text-foreground mb-2 font-display">
-                  Before You Go...
+                  {content.heading}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Get a free, no-obligation review of your website. We'll show you exactly what's working, what's not, and how to get more leads.
+                  {content.description}
                 </p>
 
                 <ul className="text-left space-y-2 mb-6">
-                  {[
-                    "SEO & Google ranking check",
-                    "Mobile performance review",
-                    "Conversion opportunities identified",
-                  ].map((item) => (
+                  {content.bullets.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
                       <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
                       {item}
@@ -110,8 +236,8 @@ const ExitIntentPopup = () => {
                 </ul>
 
                 <Button variant="cta" size="lg" className="w-full" asChild>
-                  <Link href="/free-website-review" onClick={() => setShow(false)}>
-                    Get My Free Review
+                  <Link href={content.ctaHref} onClick={() => setShow(false)}>
+                    {content.ctaText}
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </Button>

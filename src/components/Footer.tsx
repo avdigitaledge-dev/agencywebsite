@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/utils";
@@ -37,12 +38,12 @@ const Footer = () => {
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="space-y-5">
-            <img src="/assets/digitaledge-logo-white.svg" alt="Digital Edge" className="h-10 w-auto" />
+            <Image src="/assets/digitaledge-logo-white.svg" alt="Digital Edge" width={160} height={40} className="h-10 w-auto" />
             <p className="text-white/70 text-sm leading-relaxed">
               Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW.
             </p>
             <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="inline-block">
-              <img src="/images/blog/linkedin-icon.png" alt="LinkedIn" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity duration-200" />
+              <Image src="/images/blog/linkedin-icon.png" alt="LinkedIn" width={32} height={32} className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity duration-200" />
             </a>
           </div>
 

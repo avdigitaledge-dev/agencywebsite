@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { trackEvent } from "@/lib/utils";
@@ -57,9 +58,11 @@ const WhatsAppWidget = () => {
           >
             {/* Header — site accent gradient */}
             <div className="gradient-hero px-5 py-4 flex items-center gap-3">
-              <img
+              <Image
                 src="/images/blog/whatsapp-icon.png"
-                alt="Digital Edge Studio"
+                alt="WhatsApp"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-contain"
               />
               <div className="flex-1 min-w-0">
@@ -93,7 +96,7 @@ const WhatsAppWidget = () => {
                 onClick={handleStartChat}
                 className="w-full flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm"
               >
-                <img src="/images/blog/whatsapp-icon.png" alt="" className="w-5 h-5" />
+                <Image src="/images/blog/whatsapp-icon.png" alt="" width={20} height={20} className="w-5 h-5" />
                 Start Chat
               </button>
             </div>
@@ -128,7 +131,7 @@ const WhatsAppWidget = () => {
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <img src="/images/blog/whatsapp-icon.png" alt="WhatsApp" className="w-7 h-7" />
+              <Image src="/images/blog/whatsapp-icon.png" alt="WhatsApp" width={28} height={28} className="w-7 h-7" />
             </motion.span>
           )}
         </AnimatePresence>

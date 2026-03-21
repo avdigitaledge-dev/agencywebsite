@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -66,8 +68,7 @@ export const FAQ = ({ faqs, title = "Frequently Asked Questions" }: FAQProps) =>
         </div>
 
         {/* FAQ Schema Markup */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": faqs.map(faq => ({
@@ -78,8 +79,7 @@ export const FAQ = ({ faqs, title = "Frequently Asked Questions" }: FAQProps) =>
                 "text": faq.answer
               }
             }))
-          })}
-        </script>
+          }) }} />
       </div>
     </section>
   );

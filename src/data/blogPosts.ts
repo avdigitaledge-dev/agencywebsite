@@ -43,7 +43,7 @@ Next Steps
 
 If you're a plumber in Wollongong ready to get more leads, contact Digital Edge Studio for a free consultation on web design specifically for plumbing businesses.`,
     author: 'Digital Edge Studio',
-    date: '2024-02-28',
+    date: '2025-03-10',
     lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/plumber-website.jpg',
@@ -113,7 +113,7 @@ Get Started Today
 
 Contact Digital Edge Studio to create a digital marketing strategy tailored for electricians in your area.`,
     author: 'Digital Edge Studio',
-    date: '2024-02-25',
+    date: '2025-03-24',
     lastUpdated: '2026-03-16',
     category: 'Digital Marketing',
     image: '/images/blog/electrician-website.jpg',
@@ -211,7 +211,7 @@ Next Steps
 
 Review your current website against these 10 features. Missing some? Contact Digital Edge Studio for a free website audit.`,
     author: 'Digital Edge Studio',
-    date: '2024-02-20',
+    date: '2025-04-07',
     lastUpdated: '2026-03-16',
     category: 'Web Design',
     image: '/images/blog/website-features.jpg',
@@ -337,7 +337,7 @@ SEO takes time. If you want faster results, work with an SEO expert who speciali
 
 Contact Digital Edge Studio for a free SEO audit and local search strategy.`,
     author: 'Digital Edge Studio',
-    date: '2024-02-15',
+    date: '2025-04-21',
     lastUpdated: '2026-03-16',
     category: 'SEO',
     image: '/images/blog/seo-tradies.jpeg',
@@ -489,7 +489,7 @@ Start with one platform. Post consistently for 30 days. Track what works. Then e
 
 Need help? Contact Digital Edge Studio for social media strategy and content creation.`,
     author: 'Digital Edge Studio',
-    date: '2024-02-10',
+    date: '2025-05-05',
     lastUpdated: '2026-03-16',
     category: 'Digital Marketing',
     image: '/images/blog/social-media.jpg',

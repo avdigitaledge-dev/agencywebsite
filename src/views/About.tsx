@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Heart, Target, Users, Award, Globe, Star, Calendar } from "lucide-react";
 import AnimatedStat from "@/components/AnimatedStat";
@@ -57,7 +58,7 @@ const About = () => {
     },
     {
       question: "Why should I choose Digital Edge over a larger agency?",
-      answer: "With us, you deal directly with the people doing the work — no account managers or overseas handoffs. We're small enough to care deeply about every project and experienced enough to deliver real results."
+      answer: "With us, you deal directly with Aleks — the person managing, designing, and overseeing every project. No account managers, no runaround. We're small enough to care deeply about every project and experienced enough to deliver real results."
     }
   ];
 
@@ -83,7 +84,7 @@ const About = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -157,16 +158,17 @@ const About = () => {
                 className="inline-flex items-center gap-2 mt-6 text-sm text-accent hover:text-accent/80 transition-colors"
                 aria-label="Connect with us on LinkedIn"
               >
-                <img src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+                <Image src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
                 Follow us on LinkedIn
               </a>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-border shadow-lg">
-              <img
+              <Image
                 src="/images/blog/about-page-pic.jpg"
                 alt="Digital Edge Studio team working on web design"
+                width={800}
+                height={500}
                 className="w-full h-full object-cover min-h-[350px] hover:scale-105 transition-transform duration-500"
-                loading="lazy"
               />
             </motion.div>
           </ScrollReveal>
@@ -199,7 +201,7 @@ const About = () => {
                   I started Digital Edge to do things differently. When you work with us, you deal directly with me — the person designing, building, and optimising your website. No account managers, no runaround, no surprises.
                 </p>
                 <p>
-                  I also work with a team of experienced web developers based in Europe, which means we can deliver agency-quality work faster and at a fraction of the price — while I stay hands-on with every project and make sure it's built for the Australian market.
+                  I also work with a small, trusted team of developers I've hand-picked and worked with for years. This lets us deliver agency-quality work faster and at a fraction of the price — while I stay hands-on with every project and make sure it's built for the Australian market.
                 </p>
               </div>
               <a
@@ -209,17 +211,18 @@ const About = () => {
                 className="inline-flex items-center gap-2 mt-6 text-sm text-accent hover:text-accent/80 transition-colors"
                 aria-label="Connect with Aleksandar on LinkedIn"
               >
-                <img src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity invert" />
+                <Image src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity invert" />
                 Connect on LinkedIn
               </a>
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2 flex justify-center">
               <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden card-glass shadow-lg">
-                <img
+                <Image
                   src="/images/blog/founder-pic.png"
                   alt="Aleksandar Savevski — Founder of Digital Edge Studio"
+                  width={320}
+                  height={320}
                   className="w-full h-full object-cover object-top"
-                  loading="lazy"
                 />
               </div>
             </motion.div>

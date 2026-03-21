@@ -2,7 +2,8 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Search, CheckCircle2, Send, ArrowRight } from "lucide-react";
+import { Search, CheckCircle2, Send, ArrowRight, FileText, AlertTriangle, AlertCircle, Info } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -102,7 +103,7 @@ const WebsiteReview = () => {
       </section>
 
       {/* What's included */}
-      <section className="section-padding bg-background">
+      <section id="review-form" className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-16 items-start">
 
@@ -192,6 +193,87 @@ const WebsiteReview = () => {
                   </div>
                 </div>
               ))}
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Sample Report Preview ═══ */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-10">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+              <FileText className="w-4 h-4" />
+              Sample Report
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-3">What Your Report Looks Like</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Here's a preview of the personalised report you'll receive — with real insights tailored to your website.
+            </motion.p>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card overflow-hidden max-w-2xl mx-auto">
+              {/* Report header */}
+              <div className="gradient-hero p-6">
+                <p className="text-white font-display font-bold text-lg">Website Review Report</p>
+                <p className="text-white/60 text-sm">Prepared for: yourbusiness.com.au</p>
+              </div>
+
+              {/* Score summary */}
+              <div className="p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-b border-border">
+                {[
+                  { label: "SEO Score", score: "42", color: "text-red-500" },
+                  { label: "Speed Score", score: "28", color: "text-red-500" },
+                  { label: "Mobile Score", score: "65", color: "text-yellow-500" },
+                  { label: "Overall Grade", score: "C+", color: "text-yellow-500" },
+                ].map((item) => (
+                  <div key={item.label} className="text-center">
+                    <p className={`text-2xl font-extrabold font-display ${item.color}`}>{item.score}{item.score !== "C+" && <span className="text-sm text-muted-foreground font-normal">/100</span>}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sample findings */}
+              <div className="p-6 space-y-3 border-b border-border">
+                <p className="text-sm font-semibold text-foreground font-display mb-3">Key Findings</p>
+                {[
+                  { severity: "high", icon: AlertTriangle, text: "Missing meta descriptions on 8 pages", color: "text-red-500 bg-red-500/10" },
+                  { severity: "high", icon: AlertCircle, text: "Page load time 4.2s (should be under 2.5s)", color: "text-red-500 bg-red-500/10" },
+                  { severity: "medium", icon: Info, text: "No Google Business Profile linked", color: "text-yellow-500 bg-yellow-500/10" },
+                  { severity: "medium", icon: Info, text: "Mobile tap targets too small on 3 pages", color: "text-yellow-500 bg-yellow-500/10" },
+                ].map((finding) => (
+                  <div key={finding.text} className="flex items-center gap-3 text-sm">
+                    <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${finding.color}`}>
+                      <finding.icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-foreground">{finding.text}</span>
+                  </div>
+                ))}
+                <p className="text-xs text-muted-foreground pt-1">+ 3 more findings...</p>
+              </div>
+
+              {/* Blurred recommendations */}
+              <div className="p-6 relative select-none" aria-hidden="true">
+                <p className="text-sm font-semibold text-foreground font-display mb-3 blur-[2px]">Recommendations & Next Steps</p>
+                <div className="space-y-2 blur-[4px] opacity-60">
+                  <p className="text-sm text-muted-foreground">1. Add unique meta descriptions to all service pages to improve click-through rates from search...</p>
+                  <p className="text-sm text-muted-foreground">2. Optimise images and enable browser caching to reduce page load time by approximately...</p>
+                  <p className="text-sm text-muted-foreground">3. Set up and verify Google Business Profile to improve local search visibility in...</p>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-card/90 backdrop-blur-sm rounded-xl border border-border shadow-lg px-6 py-4 text-center">
+                    <p className="text-sm font-semibold text-foreground mb-2">Get your full report free</p>
+                    <Button variant="cta" size="sm" asChild>
+                      <Link href="#review-form">
+                        Get My Free Review
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </ScrollReveal>
         </div>

@@ -104,8 +104,8 @@ const WebDesignIllawarra = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -243,6 +243,42 @@ const WebDesignIllawarra = () => {
                   <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">NBG Landscapes</h3>
                   <p className="text-sm text-muted-foreground mb-3">From part-time to fully booked in 3 months</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
+                </div>
+              </Link>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Also Serving Nearby Areas */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+              Also Serving Nearby Areas
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              We build websites for businesses across the Illawarra and beyond.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <motion.div variants={fadeUp}>
+              <Link href="/web-design-wollongong" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Wollongong</h3>
+                  <p className="text-sm text-muted-foreground">Professional web design and local SEO for tradies and small businesses in Wollongong and surrounds.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Link href="/web-design-sydney" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
+                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire & more.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>
             </motion.div>

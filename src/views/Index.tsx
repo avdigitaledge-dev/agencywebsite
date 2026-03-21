@@ -231,8 +231,8 @@ const Index = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       {/* ═══ Hero ═══ */}
       <section ref={heroRef} className="gradient-hero relative overflow-hidden min-h-[85vh] flex items-center noise-overlay">
@@ -253,8 +253,8 @@ const Index = () => {
                 variants={fadeUp}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-8 backdrop-blur-md border border-white/10"
               >
-                <MapPin className="w-3.5 h-3.5" />
-                #1 Choice for Tradies in Wollongong & Sydney
+                <Star className="w-3.5 h-3.5" />
+                Trusted by 30+ Local Businesses
               </motion.span>
               <motion.h1 variants={fadeUp} className="heading-display text-white mb-6">
                 Websites That Get Tradies{" "}
@@ -303,6 +303,8 @@ const Index = () => {
                 <img
                   src="/images/blog/electrician-google-pic.webp"
                   alt="Electrician business ranking first on Google search results"
+                  width={560}
+                  height={400}
                   className="relative w-full max-w-[560px] object-contain"
                   style={{
                     maskImage: "radial-gradient(ellipse 90% 85% at 50% 50%, black 50%, transparent 100%)",
@@ -615,6 +617,8 @@ const Index = () => {
                   <img
                     src={project.image}
                     alt={`${project.clientName} case study`}
+                    width={600}
+                    height={208}
                     className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />

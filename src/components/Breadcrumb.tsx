@@ -32,6 +32,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
       {/* Breadcrumb Schema Markup */}
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",

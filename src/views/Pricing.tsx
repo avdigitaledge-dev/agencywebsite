@@ -59,7 +59,7 @@ const Pricing = () => {
     },
     {
       question: "Are there any ongoing costs after the website is built?",
-      answer: "Ongoing costs are optional. We offer a Website Maintenance plan at $99/month covering security updates, daily backups, uptime monitoring, and minor content changes. Hosting costs are separate and vary by provider. We'll advise you on the best option for your budget."
+      answer: "Ongoing costs are optional. We offer Website Maintenance at $99/month, Website Growth Essentials at $349/month (maintenance + basic SEO & content), and full Local SEO from $1,000/month. Hosting costs are separate and vary by provider. We'll advise you on the best option for your budget."
     },
     {
       question: "Do you offer payment plans?",
@@ -131,6 +131,18 @@ const Pricing = () => {
       },
       {
         "@type": "Offer",
+        "name": "Website Growth Essentials",
+        "description": "Everything in Website Maintenance plus monthly SEO health check & fixes, Google Business Profile optimisation, 1 content update or blog post per month, basic keyword tracking (up to 20 keywords), quarterly performance report & strategy call, priority email support.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "349",
+          "priceCurrency": "AUD",
+          "unitCode": "MON"
+        },
+        "seller": { "@type": "Organization", "name": "Digital Edge Studio" }
+      },
+      {
+        "@type": "Offer",
         "name": "Local SEO",
         "description": "Google Business Profile optimisation, local keyword research & targeting, on-page SEO for all key pages, local citation building, Google Maps ranking strategy, AEO (Answer Engine Optimisation) for AI assistants, GEO (Generative Engine Optimisation) for Google AI Overviews, competitor analysis, 1 SEO blog article per month, monthly performance reports & strategy call, ongoing technical SEO health monitoring.",
         "priceSpecification": {
@@ -170,7 +182,7 @@ const Pricing = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -409,7 +421,7 @@ const Pricing = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <ScrollReveal className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {/* Maintenance */}
             <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">Website Maintenance</h3>
@@ -438,15 +450,44 @@ const Pricing = () => {
               </Button>
             </PricingTiltCard>
 
-            {/* Local SEO — highlighted */}
+            {/* Website Growth Essentials — highlighted */}
             <PricingTiltCard className="bg-card rounded-2xl border-2 border-accent shadow-card relative p-8 flex flex-col card-hover-lift">
               <motion.div
                 className="absolute -top-3 left-8 px-3 py-1 gradient-cta text-accent-foreground text-xs font-semibold rounded-full shadow-cta"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                Best Value
+                Most Popular
               </motion.div>
+              <h3 className="heading-card text-foreground mb-1">Website Growth Essentials</h3>
+              <p className="text-muted-foreground text-sm mb-4">Maintenance + basic SEO to start growing</p>
+              <div className="mb-6">
+                <span className="text-4xl font-extrabold font-display price-shimmer">$349</span>
+                <span className="text-muted-foreground ml-1">/month</span>
+              </div>
+              <ul className="space-y-3 flex-1 mb-8 stagger-list">
+                {[
+                  "Everything in Website Maintenance",
+                  "Monthly SEO health check & fixes",
+                  "Google Business Profile optimisation",
+                  "1 content update or blog post per month",
+                  "Basic keyword tracking (20 keywords)",
+                  "Quarterly performance report & strategy call",
+                  "Priority email support",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-foreground text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="cta" size="lg" className="w-full" asChild>
+                <Link href="/contact">Get a Free Quote</Link>
+              </Button>
+            </PricingTiltCard>
+
+            {/* Local SEO */}
+            <PricingTiltCard className="bg-card rounded-2xl border border-border shadow-card p-8 flex flex-col card-hover-lift">
               <h3 className="heading-card text-foreground mb-1">Local SEO</h3>
               <p className="text-muted-foreground text-sm mb-4">Dominate local search & Google Maps in your area</p>
               <div className="mb-6">

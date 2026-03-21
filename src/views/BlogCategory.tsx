@@ -159,6 +159,8 @@ const BlogCategory = ({ category: categorySlug }: { category: string }) => {
                       <img
                         src={post.image}
                         alt={post.title}
+                        width={600}
+                        height={192}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />

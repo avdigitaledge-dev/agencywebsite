@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Clock, Tag, ChevronLeft, ChevronRight, ArrowRight, Calendar, Linkedin, User } from "lucide-react";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -90,20 +91,20 @@ const BlogPost = ({ slug }: { slug: string }) => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(postSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(postSchema) }} />
 
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero with Image */}
       <section className="gradient-hero relative overflow-hidden h-96">
         {post.image && (
-          <img
+          <Image
             src={post.image}
             alt={post.title}
+            width={1200}
+            height={384}
             className="absolute inset-0 w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
+            priority
           />
         )}
         <div className="absolute inset-0 bg-black/40" />
@@ -173,44 +174,77 @@ const BlogPost = ({ slug }: { slug: string }) => {
               variants={fadeUp}
               className="prose prose-lg max-w-none space-y-6 text-foreground"
             >
-              {post.content.split('\n\n').map((paragraph, index) => {
-                if (!paragraph.trim()) return null;
+              {(() => {
+                let paragraphCount = 0;
+                const inlineCta = post.category === "SEO" ? {
+                  text: "Want to see how your site ranks? Get a free website review and find out where you stand.",
+                  ctaText: "Get My Free Review",
+                  href: "/free-website-review",
+                } : {
+                  text: "Need a website that actually gets you leads? We build sites that rank and convert — no lock-in contracts.",
+                  ctaText: "Get a Free Quote",
+                  href: "/contact",
+                };
 
-                const isHeading = !paragraph.includes('\n')
-                  && paragraph.length < 80
-                  && !paragraph.endsWith('.')
-                  && !paragraph.startsWith('- ')
-                  && !paragraph.match(/^\d+\./)
-                  && paragraph.trim().length > 0;
+                return post.content.split('\n\n').flatMap((paragraph, index) => {
+                  if (!paragraph.trim()) return [];
 
-                if (isHeading) {
-                  return (
-                    <h2 key={index} className="heading-section text-foreground mt-8 mb-4">
-                      {paragraph}
-                    </h2>
-                  );
-                } else if (paragraph.startsWith('- ')) {
-                  return (
-                    <ul key={index} className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
-                      {paragraph.split('\n').filter(line => line.startsWith('- ')).map((item, i) => (
-                        <li key={i}>{item.replace(/^-\s*/, '')}</li>
-                      ))}
-                    </ul>
-                  );
-                } else if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\./)) {
-                  return (
-                    <ol key={index} className="list-decimal list-inside space-y-2 text-muted-foreground leading-relaxed">
-                      {paragraph.split('\n').filter(line => line.match(/^\d+\./)).map((item, i) => (
-                        <li key={i}>{item.replace(/^\d+\.\s*/, '')}</li>
-                      ))}
-                    </ol>
-                  );
-                } else {
-                  return (
-                    <p key={index} className="text-muted-foreground leading-relaxed">{paragraph}</p>
-                  );
-                }
-              })}
+                  const isHeading = !paragraph.includes('\n')
+                    && paragraph.length < 80
+                    && !paragraph.endsWith('.')
+                    && !paragraph.startsWith('- ')
+                    && !paragraph.match(/^\d+\./)
+                    && paragraph.trim().length > 0;
+
+                  const elements: React.ReactNode[] = [];
+
+                  if (isHeading) {
+                    elements.push(
+                      <h2 key={index} className="heading-section text-foreground mt-8 mb-4">
+                        {paragraph}
+                      </h2>
+                    );
+                  } else if (paragraph.startsWith('- ')) {
+                    elements.push(
+                      <ul key={index} className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
+                        {paragraph.split('\n').filter(line => line.startsWith('- ')).map((item, i) => (
+                          <li key={i}>{item.replace(/^-\s*/, '')}</li>
+                        ))}
+                      </ul>
+                    );
+                  } else if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\./)) {
+                    elements.push(
+                      <ol key={index} className="list-decimal list-inside space-y-2 text-muted-foreground leading-relaxed">
+                        {paragraph.split('\n').filter(line => line.match(/^\d+\./)).map((item, i) => (
+                          <li key={i}>{item.replace(/^\d+\.\s*/, '')}</li>
+                        ))}
+                      </ol>
+                    );
+                  } else {
+                    paragraphCount++;
+                    elements.push(
+                      <p key={index} className="text-muted-foreground leading-relaxed">{paragraph}</p>
+                    );
+                  }
+
+                  if (paragraphCount === 3) {
+                    paragraphCount = -999; // Only inject once
+                    elements.push(
+                      <div key="inline-cta" className="bg-accent/5 rounded-xl border border-accent/20 p-6 my-8 text-center">
+                        <p className="text-foreground font-medium mb-3">{inlineCta.text}</p>
+                        <Button variant="cta" size="sm" asChild>
+                          <Link href={inlineCta.href}>
+                            {inlineCta.ctaText}
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </Link>
+                        </Button>
+                      </div>
+                    );
+                  }
+
+                  return elements;
+                });
+              })()}
             </motion.article>
           </ScrollReveal>
 
@@ -326,6 +360,8 @@ const BlogPost = ({ slug }: { slug: string }) => {
                           <img
                             src={related.image}
                             alt={related.title}
+                            width={400}
+                            height={160}
                             className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}

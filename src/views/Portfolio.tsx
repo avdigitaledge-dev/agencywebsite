@@ -102,6 +102,8 @@ const Portfolio = () => {
                     <img
                       src={project.image}
                       alt={`${project.clientName} website project`}
+                      width={800}
+                      height={320}
                       className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />

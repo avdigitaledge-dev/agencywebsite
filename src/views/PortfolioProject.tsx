@@ -78,7 +78,7 @@ const PortfolioProject = ({ slug }: { slug: string }) => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }} />
 
       <Breadcrumb items={[
         { label: "Home", path: "/" },
@@ -151,6 +151,8 @@ const PortfolioProject = ({ slug }: { slug: string }) => {
             <img
               src={project.image}
               alt={`${project.clientName} website project`}
+              width={1200}
+              height={384}
               className="w-full h-64 md:h-96 object-cover"
             />
           </div>
@@ -241,6 +243,8 @@ const PortfolioProject = ({ slug }: { slug: string }) => {
                         <img
                           src={other.image}
                           alt={`${other.clientName} website project`}
+                          width={400}
+                          height={160}
                           className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                           loading="lazy"
                         />

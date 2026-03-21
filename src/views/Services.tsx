@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShoppingCart, Globe, Search, Shield, BarChart3, Users, Star, Sparkles, Bot, Cpu } from "lucide-react";
 const serviceWebdesign = "/images/blog/webdesign-pic.jpg";
@@ -148,8 +149,8 @@ const Services = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -249,7 +250,7 @@ const Services = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <img src={serviceWebdesign} alt="Professional web design on laptop and mobile devices" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <Image src={serviceWebdesign} alt="Professional web design on laptop and mobile devices" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
         </div>
@@ -260,7 +261,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <img src={serviceEcommerce} alt="eCommerce online store website design" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <Image src={serviceEcommerce} alt="eCommerce online store website design" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-base uppercase tracking-wider">eCommerce Website Design</span>
@@ -317,7 +318,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <img src={serviceSeo} alt="Local SEO and Google Maps search results" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <Image src={serviceSeo} alt="Local SEO and Google Maps search results" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-base uppercase tracking-wider">Local SEO</span>
@@ -498,7 +499,7 @@ const Services = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <img src={serviceMarketing} alt="Digital marketing analytics dashboard" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <Image src={serviceMarketing} alt="Digital marketing analytics dashboard" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
         </div>
@@ -509,7 +510,7 @@ const Services = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="order-2 lg:order-1 rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <img src={serviceMaintenance} alt="Server security and website maintenance" className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <Image src={serviceMaintenance} alt="Server security and website maintenance" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-base uppercase tracking-wider">Maintenance & Hosting</span>

@@ -122,8 +122,8 @@ const WebDesignWollongong = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -235,7 +235,7 @@ const WebDesignWollongong = () => {
               {[
                 { title: "Local Market Knowledge", desc: "We understand Wollongong's business landscape and what local customers search for." },
                 { title: "Wollongong SEO Expertise", desc: "We optimise specifically for Wollongong and Illawarra search terms, not generic keywords." },
-                { title: "Face-to-Face Support", desc: "We're available for meetings and calls — not hidden behind an overseas support ticket." },
+                { title: "Face-to-Face Support", desc: "We're available for meetings and calls — you always deal directly with the person running your project." },
                 { title: "Long-Term Partnership", desc: "We don't disappear after launch. We're here to grow your business month after month." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
@@ -371,6 +371,42 @@ const WebDesignWollongong = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
               </motion.div>
             ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Also Serving Nearby Areas */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+              Also Serving Nearby Areas
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Based in the Illawarra, we build websites for businesses across NSW.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <motion.div variants={fadeUp}>
+              <Link href="/web-design-sydney" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
+                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire & more.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Link href="/web-design-illawarra" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Illawarra</h3>
+                  <p className="text-sm text-muted-foreground">Serving Shellharbour, Nowra, Kiama, Dapto, and the wider Illawarra region with local web design & SEO.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>

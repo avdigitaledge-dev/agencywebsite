@@ -45,7 +45,6 @@ const FORMSPREE_ID = "xzdjplaq";
 const Blog = () => {
   const { toast } = useToast();
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [emailLoading, setEmailLoading] = useState(false);
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,10 +72,12 @@ const Blog = () => {
     { label: "Blog" }
   ];
 
+  const categoryToSlug: Record<string, string> = {
+    "Web Design": "web-design",
+    "SEO": "seo",
+    "Digital Marketing": "digital-marketing",
+  };
   const categories = Array.from(new Set(blogPosts.map(post => post.category)));
-  const filteredPosts = selectedCategory
-    ? blogPosts.filter(post => post.category === selectedCategory)
-    : blogPosts;
 
   return (
     <>
@@ -113,36 +114,29 @@ const Blog = () => {
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="container-tight relative z-10">
           <ScrollReveal className="flex flex-wrap gap-3 justify-center mb-12">
-            <motion.button
-              variants={fadeUp}
-              onClick={() => setSelectedCategory(null)}
-              className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                selectedCategory === null
-                  ? "bg-accent text-white"
-                  : "bg-card border border-border text-foreground hover:border-accent"
-              }`}
-            >
-              All Posts
-            </motion.button>
-            {categories.map(category => (
-              <motion.button
-                key={category}
-                variants={fadeUp}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  selectedCategory === category
-                    ? "bg-accent text-white"
-                    : "bg-card border border-border text-foreground hover:border-accent"
-                }`}
+            <motion.div variants={fadeUp}>
+              <Link
+                href="/blog"
+                className="inline-block px-6 py-2 rounded-full font-medium transition-colors bg-accent text-white"
               >
-                {category}
-              </motion.button>
+                All Posts
+              </Link>
+            </motion.div>
+            {categories.map(category => (
+              <motion.div key={category} variants={fadeUp}>
+                <Link
+                  href={`/blog/category/${categoryToSlug[category] || category.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="inline-block px-6 py-2 rounded-full font-medium transition-colors bg-card border border-border text-foreground hover:border-accent"
+                >
+                  {category}
+                </Link>
+              </motion.div>
             ))}
           </ScrollReveal>
 
           {/* Blog Posts Grid */}
           <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
+            {blogPosts.map((post) => (
               <motion.div key={post.id} variants={fadeUp}>
                 <Link href={`/blog/${post.slug}`} className="group">
                   <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-all duration-300 h-full flex flex-col card-hover-lift relative">
@@ -159,6 +153,8 @@ const Blog = () => {
                       <img
                         src={post.image}
                         alt={post.title}
+                        width={600}
+                        height={192}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
@@ -206,7 +202,7 @@ const Blog = () => {
             ))}
           </ScrollReveal>
 
-          {filteredPosts.length === 0 && (
+          {blogPosts.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground text-lg">No posts found in this category.</p>
             </div>

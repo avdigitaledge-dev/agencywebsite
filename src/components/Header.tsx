@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
@@ -85,12 +86,21 @@ const Header = () => {
         scrolled ? "border-border shadow-sm" : "border-border/50"
       }`}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg focus:text-sm focus:font-medium"
+      >
+        Skip to content
+      </a>
       <div className="container-tight flex items-center justify-between h-16 md:h-[72px] px-4">
-        <Link href="/" className="flex items-center relative z-10 group">
-          <img
+        <Link href="/" className="flex items-center relative z-10">
+          <Image
             src="/assets/digitaledge-logo-main.svg"
             alt="Digital Edge"
-            className="h-9 md:h-11 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_hsl(217_76%_48%/0.4)]"
+            width={180}
+            height={44}
+            className="h-9 md:h-11 w-auto"
+            priority
           />
         </Link>
 
