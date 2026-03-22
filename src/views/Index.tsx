@@ -68,11 +68,11 @@ const ServiceCards = () => {
       <div ref={spotlightRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { icon: Globe, title: "Website Design & Development", desc: "Custom, mobile-responsive websites built to convert visitors into enquiries. Includes SEO setup, contact forms, and Google Analytics.", price: "From $1,200", link: "/services" },
-          { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services#seo" },
-          { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services#marketing" },
-          { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services#ecommerce" },
+          { icon: Search, title: "Local SEO", desc: "Get found on Google Maps and local search results. We optimise your Google Business Profile and target local keywords for your area.", price: "From $1,000/month", link: "/services/seo" },
+          { icon: BarChart3, title: "Google Ads Management", desc: "Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Measurable ROI from day one.", price: "From $800/month", link: "/services/google-ads" },
+          { icon: ShoppingCart, title: "E-Commerce Solutions", desc: "Custom online stores built on Shopify or WooCommerce. Sell products 24/7 with secure payments, inventory management, and seamless checkout.", price: "From $3,000", link: "/services/ecommerce" },
           { icon: Rocket, title: "Growth Bundle", desc: "The full package — website build, Google Ads, and local SEO combined into one plan. Everything you need to launch and grow your online presence.", price: "From $2,800/month", link: "/pricing" },
-          { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services#hosting" },
+          { icon: Shield, title: "Maintenance & Hosting", desc: "Keep your website fast, secure, and up to date. We handle updates, backups, and performance monitoring so you don't have to.", price: "$99/month", link: "/services/maintenance-hosting" },
         ].map((service, i) => (
           <motion.div
             key={service.title}

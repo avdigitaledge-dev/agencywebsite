@@ -11,13 +11,13 @@ import { trackEvent } from "@/lib/utils";
 
 const servicesDropdown = [
   { label: "All Services", href: "/services", description: "Website design, SEO & marketing" },
-  { label: "Free Website Review", href: "/free-website-review", description: "Get a free audit of your site" },
+  { label: "Website Design", href: "/services/web-design", description: "Custom sites that convert" },
+  { label: "eCommerce", href: "/services/ecommerce", description: "Professional online stores" },
+  { label: "Local SEO", href: "/services/seo", description: "Rank higher on Google" },
   { label: "AEO & GEO Optimisation", href: "/services/aeo-geo", description: "Get found in AI search results" },
-  { label: "Web Design Wollongong", href: "/web-design-wollongong" },
-  { label: "Web Design Sydney", href: "/web-design-sydney" },
-  { label: "Web Design Illawarra", href: "/web-design-illawarra" },
-  { label: "Web Design for Tradies", href: "/web-design-tradies" },
-  { label: "Healthcare Web Design", href: "/web-design-healthcare" },
+  { label: "Google Ads", href: "/services/google-ads", description: "Instant leads from Google" },
+  { label: "Maintenance & Hosting", href: "/services/maintenance-hosting", description: "Keep your site secure" },
+  { label: "Free Website Review", href: "/free-website-review", description: "Get a free audit of your site" },
 ];
 
 const navLinks = [

@@ -56,8 +56,31 @@ const BlogCategory = ({ category: categorySlug }: { category: string }) => {
     );
   }
 
+  const categorySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${categoryName} Articles`,
+    "description": meta.description,
+    "url": `https://digitaledgestudio.com/blog/category/${categorySlug}`,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Digital Edge Studio"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": filteredPosts.length,
+      "itemListElement": filteredPosts.map((post, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://digitaledgestudio.com/blog/${post.slug}`,
+        "name": post.title
+      }))
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(categorySchema) }} />
       <Breadcrumb items={[
         { label: "Home", path: "/" },
         { label: "Blog", path: "/blog" },

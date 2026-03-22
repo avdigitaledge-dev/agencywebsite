@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "ClaudeBot", allow: "/" },
       { userAgent: "anthropic-ai", allow: "/" },
       { userAgent: "Google-Extended", allow: "/" },
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: "/checklist-thank-you" },
     ],
     sitemap: "https://digitaledgestudio.com/sitemap.xml",
   };

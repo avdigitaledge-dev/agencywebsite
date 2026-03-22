@@ -8,19 +8,20 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
-const WebDesignSydney = () => {
+const WebDesignCampbelltown = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Digital Edge Studio",
-    "description": "Web design agency serving Sydney businesses — custom websites, local SEO, and digital marketing for small businesses and tradies across Sydney NSW",
-    "url": "https://digitaledgestudio.com/web-design-sydney",
+    "description": "Web design agency serving Campbelltown and Macarthur businesses — custom websites, local SEO, and digital marketing for small businesses and tradies across Campbelltown, Camden & Macarthur NSW",
+    "url": "https://digitaledgestudio.com/web-design-campbelltown",
     "email": "enquiries@digitaledgestudio.com",
     "areaServed": [
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "AdministrativeArea", "name": "Western Sydney" },
-      { "@type": "AdministrativeArea", "name": "Sutherland Shire" },
-      { "@type": "AdministrativeArea", "name": "South Sydney" },
+      { "@type": "City", "name": "Campbelltown" },
+      { "@type": "City", "name": "Camden" },
+      { "@type": "AdministrativeArea", "name": "Macarthur" },
+      { "@type": "City", "name": "Narellan" },
+      { "@type": "City", "name": "Ingleburn" },
       { "@type": "State", "name": "NSW" }
     ],
     "aggregateRating": {
@@ -31,7 +32,7 @@ const WebDesignSydney = () => {
       "worstRating": "1"
     },
     "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing", "Google Ads"]
+    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
   };
 
   const faqSchema = {
@@ -40,46 +41,46 @@ const WebDesignSydney = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much does web design cost in Sydney?",
+        "name": "How much does web design cost in Campbelltown?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Sydney web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
+          "text": "Our Campbelltown web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Sydney agencies."
         }
       },
       {
         "@type": "Question",
-        "name": "Can you build websites for Western Sydney businesses?",
+        "name": "Do you serve Camden and the wider Macarthur region?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — we work with businesses across all Sydney regions including Western Sydney, Sutherland Shire, South Sydney, and the Inner West. We target location-specific SEO keywords for your suburb."
+          "text": "Yes — we work with businesses across the entire Macarthur region including Campbelltown, Camden, Narellan, Ingleburn, Leumeah, Minto, and surrounding suburbs. We target location-specific SEO keywords for your area."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer SEO services for Sydney businesses?",
+        "name": "Do you offer SEO services for Campbelltown businesses?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. We provide local SEO, Google Business Profile optimisation, and content strategies to help Sydney businesses rank higher in local search results."
+          "text": "Absolutely. We provide local SEO, Google Business Profile optimisation, and content strategies to help Campbelltown and Macarthur businesses rank higher in local search results."
         }
       },
       {
         "@type": "Question",
-        "name": "What makes you different from other Sydney web design agencies?",
+        "name": "What makes you different from other Campbelltown web designers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more affordable than most Sydney agencies, with no lock-in contracts and transparent pricing. You get a real partner, not a faceless agency."
+          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more affordable than most agencies, with no lock-in contracts and transparent pricing. We understand the Macarthur market and build websites that convert local traffic into real business."
         }
       }
     ]
   };
 
   const services = [
-    { title: "Web Design Sydney", desc: "Custom, conversion-focused websites for Sydney businesses. We don't use generic templates — every site is built for your specific goals." },
-    { title: "Local SEO Sydney", desc: "Rank higher in Sydney local search results. We target suburb-specific keywords so the right customers find you first." },
-    { title: "Google Ads Sydney", desc: "Managed Google Ads campaigns for Sydney businesses. Pay only for clicks from real potential customers in your area." },
-    { title: "Ecommerce Web Design", desc: "Shopify and WooCommerce stores for Sydney retailers wanting to sell online to customers across Australia." },
-    { title: "Small Business Websites", desc: "Affordable web design for Sydney small businesses. Professional results without the big-agency price tag." },
-    { title: "Website Redesign", desc: "Transform your outdated Sydney website into a modern, fast-loading site that converts visitors into customers." },
+    { title: "Web Design Campbelltown", desc: "Custom, conversion-focused websites for Campbelltown businesses. We don't use generic templates — every site is built for your specific goals." },
+    { title: "Local SEO Campbelltown", desc: "Rank higher in Campbelltown and Macarthur local search results. We target suburb-specific keywords so the right customers find you first." },
+    { title: "Google Ads", desc: "Managed Google Ads campaigns for Campbelltown businesses. Pay only for clicks from real potential customers in your area." },
+    { title: "Ecommerce Web Design", desc: "Shopify and WooCommerce stores for Macarthur retailers wanting to sell online to customers across Australia." },
+    { title: "Small Business Websites", desc: "Affordable web design for Campbelltown small businesses. Professional results without the big-agency price tag." },
+    { title: "Website Redesign", desc: "Transform your outdated website into a modern, fast-loading site that converts visitors into customers across the Macarthur region." },
   ];
 
   return (
@@ -89,7 +90,7 @@ const WebDesignSydney = () => {
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
-        { label: 'Web Design Sydney' }
+        { label: 'Web Design Campbelltown' }
       ]} />
 
       {/* Hero */}
@@ -104,13 +105,13 @@ const WebDesignSydney = () => {
           >
             <motion.div variants={fadeUpB} className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
               <MapPin className="w-4 h-4" />
-              <span>Serving All Sydney Regions & NSW</span>
+              <span>Serving Campbelltown & Macarthur</span>
             </motion.div>
             <motion.h1 variants={fadeUpB} className="heading-display text-primary-foreground mb-4">
-              Web Design Sydney
+              Web Design Campbelltown
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Affordable, professional web design for Sydney businesses. Custom websites that rank on Google, generate leads, and grow your business — without the inflated agency fees.
+              Affordable, professional web design for businesses in the Macarthur region. As one of Sydney's fastest-growing corridors, Campbelltown businesses need a website that stands out — we build sites that rank on Google, generate leads, and grow your business.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
@@ -128,7 +129,7 @@ const WebDesignSydney = () => {
       <section className="bg-muted py-8">
         <div className="container-tight px-4">
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            {["Serving All Sydney Regions", "No Lock-In Contracts", "From $1,200", "Free Consultation", "Local SEO Included"].map((item) => (
+            {["Serving Campbelltown & Macarthur", "No Lock-In Contracts", "From $1,200", "Free Consultation", "Local SEO Included"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 <span>{item}</span>
@@ -143,10 +144,10 @@ const WebDesignSydney = () => {
         <div className="container-tight">
           <ScrollReveal variant="B" className="text-center mb-14">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
-              Web Design & Digital Marketing for Sydney Businesses
+              Web Design & Digital Marketing for Campbelltown Businesses
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              From the CBD to Western Sydney and the Sutherland Shire — we build websites that make Sydney businesses stand out online.
+              From Campbelltown CBD to Camden, Narellan, and Ingleburn — we build websites that make Macarthur businesses stand out online.
             </motion.p>
           </ScrollReveal>
 
@@ -169,14 +170,14 @@ const WebDesignSydney = () => {
           <ScrollReveal variant="B" className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUpB}>
               <h2 className="heading-section text-foreground mb-6">
-                Affordable Sydney Web Design Without Compromise
+                Affordable Campbelltown Web Design Without Compromise
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Sydney web design agencies often charge $5,000–$20,000 for websites that don't perform any better than ours. We cut through the inflated pricing to deliver real value for Sydney small businesses.
+                  Campbelltown and the Macarthur region are one of Sydney's fastest-growing corridors — new businesses, tradies, and services are booming. But too many local businesses are stuck with outdated websites or no online presence at all.
                 </p>
                 <p>
-                  Whether you're in the Inner West, Northern Beaches, Western Sydney, or the Sutherland Shire — we build websites specifically optimised for your local area, targeting the keywords your customers actually search.
+                  We build websites specifically optimised for the Campbelltown and Macarthur market, targeting the keywords your local customers actually search. Whether you're a tradie in Ingleburn, a retailer in Narellan, or a health practice in Camden — we've got you covered.
                 </p>
                 <p>
                   No lock-in contracts, no hidden fees. Just a professional website that works.
@@ -184,16 +185,16 @@ const WebDesignSydney = () => {
               </div>
               <div className="mt-8">
                 <Button asChild>
-                  <Link href="/contact">Get a Free Sydney Web Design Quote <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                  <Link href="/contact">Get a Free Campbelltown Web Design Quote <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
               </div>
             </motion.div>
             <motion.div variants={fadeUpB} className="space-y-4">
               {[
-                { title: "Sydney Areas We Serve", desc: "Inner West, Western Sydney, Northern Beaches, Sutherland Shire, South Sydney, Eastern Suburbs, Hills District." },
-                { title: "Transparent Sydney Pricing", desc: "Websites from $1,200. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
-                { title: "Sydney-Specific SEO", desc: "We optimise for the suburbs and keywords your Sydney customers actually search." },
-                { title: "Fast Turnaround", desc: "Most Sydney website projects completed in 4–8 weeks, not months." },
+                { title: "Areas We Serve", desc: "Campbelltown, Camden, Narellan, Ingleburn, Leumeah, Minto, Macarthur, and surrounding suburbs." },
+                { title: "Transparent Pricing", desc: "Websites from $1,200. No surprise invoices, no ongoing lock-in — just honest pricing upfront." },
+                { title: "Campbelltown SEO", desc: "We optimise for the suburbs and keywords your Campbelltown and Macarthur customers actually search." },
+                { title: "Fast Turnaround", desc: "Most Campbelltown website projects completed in 4–8 weeks, not months." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -213,7 +214,7 @@ const WebDesignSydney = () => {
         <div className="container-tight max-w-3xl mx-auto">
           <ScrollReveal variant="B" className="text-center mb-10">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
-              Sydney Web Design — Frequently Asked Questions
+              Campbelltown Web Design — Frequently Asked Questions
             </motion.h2>
           </ScrollReveal>
           <ScrollReveal variant="B" className="space-y-4">
@@ -227,27 +228,6 @@ const WebDesignSydney = () => {
         </div>
       </section>
 
-      {/* Local Case Studies */}
-      <section className="section-padding bg-background">
-        <div className="container-tight">
-          <ScrollReveal variant="B">
-            <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-8 text-center">
-              Real Results in Sydney
-            </motion.h2>
-            <motion.div variants={fadeUpB} className="grid md:grid-cols-1 gap-6 max-w-lg mx-auto">
-              <Link href="/portfolio/allcastle-homes-sydney" className="group">
-                <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Builder</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Allcastle Homes</h3>
-                  <p className="text-sm text-muted-foreground mb-3">$2.4M in projects from website enquiries</p>
-                  <span className="text-sm text-accent font-medium">View Case Study →</span>
-                </div>
-              </Link>
-            </motion.div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* Also Serving Nearby Areas */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
@@ -256,26 +236,26 @@ const WebDesignSydney = () => {
               Also Serving Nearby Areas
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              We work with businesses across NSW — not just Sydney.
+              We work with businesses across NSW — not just Campbelltown.
             </motion.p>
           </ScrollReveal>
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <motion.div variants={fadeUpB}>
+              <Link href="/web-design-sydney" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
+                  <p className="text-sm text-muted-foreground">Professional web design and local SEO for businesses across all Sydney regions and suburbs.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
             <motion.div variants={fadeUpB}>
               <Link href="/web-design-wollongong" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Wollongong</h3>
                   <p className="text-sm text-muted-foreground">Professional web design and local SEO for tradies and small businesses in Wollongong and surrounds.</p>
-                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
-                </div>
-              </Link>
-            </motion.div>
-            <motion.div variants={fadeUpB}>
-              <Link href="/web-design-illawarra" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Illawarra</h3>
-                  <p className="text-sm text-muted-foreground">Serving Shellharbour, Nowra, Kiama, Dapto, and the wider Illawarra region with local web design & SEO.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>
@@ -296,10 +276,10 @@ const WebDesignSydney = () => {
         <div className="container-tight px-4 py-20 text-center relative z-10">
           <ScrollReveal variant="B">
             <motion.h2 variants={fadeUpB} className="heading-section text-primary-foreground mb-4">
-              Ready to Grow Your Sydney Business Online?
+              Ready to Grow Your Campbelltown Business Online?
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-              Get a free, no-obligation quote for your Sydney website. We'll discuss your goals and build a solution that fits your budget.
+              Get a free, no-obligation quote for your Campbelltown website. We'll discuss your goals and build a solution that fits your budget.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
@@ -316,4 +296,4 @@ const WebDesignSydney = () => {
   );
 };
 
-export default WebDesignSydney;
+export default WebDesignCampbelltown;

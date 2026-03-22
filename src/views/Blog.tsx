@@ -53,8 +53,31 @@ const Blog = () => {
   };
   const categories = Array.from(new Set(blogPosts.map(post => post.category)));
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Web Design & SEO Blog",
+    "description": "Tips, strategies, and insights for tradies and small businesses wanting to succeed online.",
+    "url": "https://digitaledgestudio.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Digital Edge Studio"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": blogPosts.length,
+      "itemListElement": blogPosts.map((post, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://digitaledgestudio.com/blog/${post.slug}`,
+        "name": post.title
+      }))
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Hero */}

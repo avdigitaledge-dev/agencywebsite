@@ -23,6 +23,13 @@ const WebDesignIllawarra = () => {
       { "@type": "AdministrativeArea", "name": "Illawarra" },
       { "@type": "State", "name": "NSW" }
     ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "priceRange": "$$",
     "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
   };

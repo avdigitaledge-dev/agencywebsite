@@ -11,8 +11,31 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { portfolioProjects } from "@/data/portfolioProjects";
 
 const Portfolio = () => {
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Our Work — Web Design Case Studies",
+    "description": "Real results for real businesses. See how Digital Edge Studio helps tradies and small businesses grow online.",
+    "url": "https://digitaledgestudio.com/portfolio",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Digital Edge Studio"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": portfolioProjects.length,
+      "itemListElement": portfolioProjects.map((project, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://digitaledgestudio.com/portfolio/${project.slug}`,
+        "name": project.title
+      }))
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }} />
       <Breadcrumb items={[
         { label: "Home", path: "/" },
         { label: "Our Work" },

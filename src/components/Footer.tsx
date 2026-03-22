@@ -51,10 +51,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Services</h4>
             <nav className="flex flex-col gap-2.5">
-              <Link href="/services" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Design & Development</Link>
-              <Link href="/services#seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
+              <Link href="/services/web-design" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Design</Link>
+              <Link href="/services/ecommerce" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">eCommerce</Link>
+              <Link href="/services/seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
               <Link href="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
-              <Link href="/services#marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads Management</Link>
+              <Link href="/services/google-ads" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads</Link>
+              <Link href="/services/maintenance-hosting" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Maintenance & Hosting</Link>
               <Link href="/pricing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
           </div>
@@ -66,6 +68,9 @@ const Footer = () => {
               <Link href="/web-design-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
               <Link href="/web-design-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
               <Link href="/web-design-illawarra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
+              <Link href="/web-design-newcastle" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Newcastle</Link>
+              <Link href="/web-design-central-coast" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Central Coast</Link>
+              <Link href="/web-design-campbelltown" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Campbelltown</Link>
               <Link href="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
               <Link href="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
             </nav>
@@ -87,6 +92,8 @@ const Footer = () => {
             <nav className="flex flex-col gap-2.5">
               <Link href="/vs/wix" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Wix</Link>
               <Link href="/vs/squarespace" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Squarespace</Link>
+              <Link href="/vs/wordpress" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs WordPress DIY</Link>
+              <Link href="/vs/godaddy" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs GoDaddy</Link>
               <Link href="/vs/cheap-web-designers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
             </nav>
           </div>
