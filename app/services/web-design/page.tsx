@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServiceWebDesign from "@/views/ServiceWebDesign";
 
 export const metadata: Metadata = {
-  title: "Website Design & Development — Custom Sites That Convert",
-  description: "Professional website design for tradies and small businesses in Wollongong, Sydney, and NSW. Custom, mobile-responsive sites built to generate leads. From $1,200 AUD.",
+  title: "Web Design Wollongong | Custom Websites That Convert | Digital Edge Studio",
+  description: "Professional web design in Wollongong for tradies and small businesses. Custom, mobile-responsive websites built to generate leads. From $1,200 AUD. Free quote.",
   alternates: { canonical: "https://digitaledgestudio.com/services/web-design" },
 };
 

@@ -95,7 +95,7 @@ const ServiceWebDesign = () => {
               Web Design & Development
             </motion.div>
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Custom Website Design That <span className="text-gradient">Converts Visitors Into Customers</span>
+              Professional Web Design in Wollongong — <span className="text-gradient">Custom Sites That Convert</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
               We build professional, fast-loading, mobile-friendly websites for small businesses and tradies across Wollongong, Sydney, and NSW. Every site is designed to generate leads and grow your business.
@@ -304,11 +304,11 @@ const ServiceWebDesign = () => {
                 { label: "All Services", path: "/services" },
                 { label: "Local SEO", path: "/services/seo" },
                 { label: "eCommerce", path: "/services/ecommerce" },
+                { label: "Website Redesign", path: "/services/website-redesign" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Our Work", path: "/portfolio" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },
-                { label: "Web Design for Tradies", path: "/web-design-tradies" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>

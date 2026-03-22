@@ -56,6 +56,8 @@ const Footer = () => {
               <Link href="/services/seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
               <Link href="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
               <Link href="/services/google-ads" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads</Link>
+              <Link href="/services/digital-marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing</Link>
+              <Link href="/services/website-redesign" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Redesign</Link>
               <Link href="/services/maintenance-hosting" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Maintenance & Hosting</Link>
               <Link href="/pricing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Pricing</Link>
             </nav>
@@ -73,6 +75,8 @@ const Footer = () => {
               <Link href="/web-design-campbelltown" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Campbelltown</Link>
               <Link href="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
               <Link href="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
+              <Link href="/seo-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">SEO Wollongong</Link>
+              <Link href="/digital-marketing-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing Wollongong</Link>
             </nav>
           </div>
 

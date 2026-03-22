@@ -5,60 +5,60 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
-import { Search, CheckCircle2, ArrowRight, MapPin, BarChart3, Target, TrendingUp, Globe, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, Paintbrush, Rocket, SearchCheck, AlertTriangle, RefreshCw, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
-const ServiceSEO = () => {
+const ServiceWebsiteRedesign = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Local SEO Services",
-    "description": "Local SEO services that help businesses rank higher on Google Search and Google Maps. Google Business Profile optimisation, keyword targeting, citation building, and monthly reporting. Serving Wollongong, Sydney, and NSW.",
+    "name": "Website Redesign Services",
+    "description": "Website redesign services for small businesses in Wollongong, Sydney, and NSW. Modernise your outdated website with a fast, mobile-responsive design that generates leads.",
     "provider": {
       "@type": "Organization",
       "name": "Digital Edge Studio",
       "url": "https://digitaledgestudio.com"
     },
     "areaServed": ["Wollongong", "Sydney", "NSW", "Australia"],
-    "serviceType": "Local SEO",
+    "serviceType": "Website Redesign",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Local SEO Services",
+      "name": "Website Redesign Packages",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Local SEO Package",
-            "description": "Google Business Profile optimisation, local keyword research, on-page SEO, citation building, monthly reporting, and AEO/GEO optimisation included."
+            "name": "Website Redesign",
+            "description": "Complete website redesign including modern design, mobile responsiveness, speed optimisation, SEO improvements, and content migration."
           }
         }
       ]
     }
   };
 
-  const seoFAQ = [
+  const redesignFAQ = [
     {
-      question: "How long does SEO take to show results?",
-      answer: "Most businesses see noticeable improvements within 3-6 months. SEO is a long-term strategy — the results compound over time and become more powerful the longer you invest."
+      question: "How much does a website redesign cost?",
+      answer: "Website redesigns start from $1,200 for a Starter redesign and $1,850 for a full Business redesign. The exact cost depends on the size and complexity of your current site. We provide a detailed quote after reviewing your site."
     },
     {
-      question: "What's included in your Local SEO package?",
-      answer: "Our Local SEO package includes Google Business Profile optimisation, keyword research, on-page SEO, citation building, monthly reporting, and AEO/GEO optimisation — all for $1,000/month with no lock-in contracts."
+      question: "How long does a website redesign take?",
+      answer: "Most redesigns take 4–8 weeks depending on complexity. We work closely with you throughout the process, with regular check-ins and feedback rounds."
     },
     {
-      question: "Do I need SEO if I already have a website?",
-      answer: "Yes. Having a website is just the first step. Without SEO, your site is invisible to most potential customers. SEO ensures Google can find, understand, and rank your site for the searches that matter."
+      question: "Will I lose my Google rankings during a redesign?",
+      answer: "No — we handle 301 redirects, preserve your URL structure where possible, and migrate all SEO metadata. In most cases, our clients see improved rankings after a redesign due to better speed, mobile responsiveness, and on-page SEO."
     },
     {
-      question: "What is the difference between SEO and Google Ads?",
-      answer: "SEO generates organic (free) traffic over time, while Google Ads provides instant paid visibility. We recommend both — Ads for immediate leads and SEO for sustainable long-term growth."
+      question: "Can you redesign my WordPress/Wix/Squarespace site?",
+      answer: "Yes. We can redesign sites built on any platform. We'll recommend the best platform for your new site based on your needs — whether that's staying on your current platform or migrating to something better."
     },
     {
-      question: "Do you offer SEO for businesses outside Wollongong?",
-      answer: "Yes. While we specialise in Wollongong and Sydney, we work with businesses across NSW and Australia. Our SEO strategies are tailored to your specific location and market."
+      question: "Do I need to provide new content for the redesign?",
+      answer: "Not necessarily. We can work with your existing content and optimise it for SEO and conversions. If new copywriting is needed, we offer content writing as an add-on service."
     }
   ];
 
@@ -69,7 +69,7 @@ const ServiceSEO = () => {
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
         { label: 'Services', path: '/services' },
-        { label: 'Local SEO' }
+        { label: 'Website Redesign' }
       ]} />
 
       {/* ═══ Hero ═══ */}
@@ -83,21 +83,21 @@ const ServiceSEO = () => {
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground/90 text-sm font-semibold mb-6">
-              <Search className="w-4 h-4" />
-              Local SEO Services
+              <RefreshCw className="w-4 h-4" />
+              Website Redesign
             </motion.div>
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Local SEO Services in Wollongong — <span className="text-gradient">Get Found on Google</span>
+              Website Redesign That Transforms Your <span className="text-gradient">Online Presence</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Rank higher on Google Search and Google Maps so more local customers find and contact your business. No lock-in contracts, no hidden fees — just results you can see.
+              Is your website outdated, slow, or not generating leads? We redesign websites that look modern, load fast, and convert visitors into customers — without starting from scratch.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
-                <Link href="/contact">Get Started <ArrowRight className="w-5 h-5 ml-1" /></Link>
+                <Link href="/free-website-review">Get a Free Audit <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link href="/free-website-review">Free Website Review</Link>
+                <Link href="/portfolio">See Our Work</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -110,27 +110,59 @@ const ServiceSEO = () => {
         </div>
       </section>
 
-      {/* ═══ What's Included ═══ */}
+      {/* ═══ Signs You Need a Redesign ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">What's Included</span>
-              <h2 className="heading-section text-foreground mt-2 mb-4">
-                Get Found by Customers in Your Area
-              </h2>
+              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Is It Time?</span>
+              <h2 className="heading-section text-foreground mt-2 mb-6">Signs Your Website Needs a Redesign</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                When someone in your area searches for the services you offer, you want to be the first result they see. Our Local SEO service covers everything you need to rank higher on Google Search and Google Maps — so more customers find and contact your business.
+                An outdated website doesn't just look bad — it actively costs you money. Visitors judge your business within seconds, and a slow, clunky site drives potential customers straight to your competitors.
               </p>
-              <ul className="space-y-3 mb-8 stagger-list">
+              <p className="text-muted-foreground leading-relaxed">
+                If any of these warning signs sound familiar, it's time to invest in a website redesign that reflects the quality of your business and turns traffic into leads.
+              </p>
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  "Google Business Profile setup and optimisation",
-                  "Local keyword research and targeting",
-                  "On-page SEO (title tags, meta descriptions, content)",
-                  "Citation building and directory listings",
-                  "Monthly reporting so you can see the results",
-                  "Ongoing strategy adjustments based on data",
-                  "AEO & GEO optimisation included at no extra cost",
+                  "Your site looks outdated or unprofessional",
+                  "It's not mobile-responsive",
+                  "Pages take more than 3 seconds to load",
+                  "You're not getting leads or enquiries",
+                  "Your bounce rate is above 60%",
+                  "You can't update content easily",
+                ].map((sign) => (
+                  <div key={sign} className="bg-card rounded-xl border border-border p-4 flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                    <span className="text-foreground text-sm">{sign}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ What's Included ═══ */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">What's Included in a Website Redesign</motion.h2>
+          </ScrollReveal>
+
+          <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div variants={fadeUp}>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Modern, professional design tailored to your brand",
+                  "Mobile-responsive layout for all devices",
+                  "Speed optimisation for faster load times",
+                  "SEO improvements and content migration",
+                  "New calls-to-action and conversion elements",
+                  "Google Analytics and Search Console setup",
+                  "Training on managing your new site",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
@@ -138,24 +170,30 @@ const ServiceSEO = () => {
                   </li>
                 ))}
               </ul>
-              <Button variant="cta" asChild>
-                <Link href="/contact">Get Started <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              <Button variant="hero" size="lg" className="btn-shimmer" asChild>
+                <Link href="/free-website-review">Get a Free Audit <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
             </motion.div>
-            <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <Image src="/images/blog/seo-pic.jpg" alt="Local SEO and Google Maps search results" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+            <motion.div variants={fadeUp}>
+              <Image
+                src="/images/blog/webdesign-pic.jpg"
+                alt="Website redesign before and after on laptop and mobile devices"
+                width={600}
+                height={400}
+                className="rounded-2xl border border-border shadow-card w-full h-auto"
+              />
             </motion.div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══ Our SEO Process ═══ */}
+      {/* ═══ Our Redesign Process ═══ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
           <ScrollReveal className="text-center mb-14">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Our SEO Process</motion.h2>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Our Redesign Process</motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              A proven four-step process that takes your business from invisible to unmissable on Google.
+              From audit to launch, we follow a proven four-step process to deliver a redesigned website you'll be proud of.
             </motion.p>
           </ScrollReveal>
 
@@ -164,22 +202,22 @@ const ServiceSEO = () => {
               {
                 step: "01",
                 title: "Audit",
-                description: "We analyse your current rankings, website health, and competitor landscape."
+                description: "We review your current site — design, speed, SEO, and conversion issues."
               },
               {
                 step: "02",
-                title: "Strategy",
-                description: "Custom SEO plan targeting the keywords your customers actually search for."
+                title: "Design",
+                description: "New mockups based on your brand, with your feedback at every stage."
               },
               {
                 step: "03",
-                title: "Optimise",
-                description: "On-page improvements, content updates, citation building, and technical fixes."
+                title: "Build",
+                description: "We develop your new site with clean code, fast loading, and SEO best practices."
               },
               {
                 step: "04",
-                title: "Report",
-                description: "Monthly reports showing your rankings, traffic, and leads so you can see the ROI."
+                title: "Launch",
+                description: "Content migration, testing, redirects, and go-live with zero downtime."
               },
             ].map((item) => (
               <motion.div
@@ -198,32 +236,29 @@ const ServiceSEO = () => {
         </div>
       </section>
 
-      {/* ═══ Why Local SEO Matters ═══ */}
+      {/* ═══ Why Choose Digital Edge Studio ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal className="text-center mb-14">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Why Local SEO Matters</motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              SEO isn't just about rankings — it's about getting the right customers to find your business at the right time.
-            </motion.p>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Why Choose Digital Edge Studio for Your Redesign</motion.h2>
           </ScrollReveal>
 
-          <ScrollReveal className="grid sm:grid-cols-3 gap-6">
+          <ScrollReveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: MapPin,
-                title: "Google Maps Visibility",
-                description: "Appear in the local pack when customers search for services near them."
+                icon: Paintbrush,
+                title: "Conversion-Focused Design",
+                description: "Every element is designed to guide visitors toward contacting you."
               },
               {
-                icon: Target,
-                title: "Qualified Local Leads",
-                description: "Attract customers who are actively searching for your services in your area."
+                icon: Rocket,
+                title: "Performance First",
+                description: "Optimised for speed — fast sites rank higher and convert better."
               },
               {
-                icon: TrendingUp,
-                title: "Long-Term Growth",
-                description: "Unlike ads, SEO builds compounding value — the longer you invest, the stronger your results."
+                icon: SearchCheck,
+                title: "SEO Preserved",
+                description: "We handle redirects, meta data, and content migration so you don't lose your Google rankings."
               },
             ].map((item) => (
               <motion.div
@@ -254,17 +289,17 @@ const ServiceSEO = () => {
         <div className="container-tight px-4 py-20 text-center relative z-10">
           <ScrollReveal>
             <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
-              Ready to Rank Higher on Google?
+              Ready to Modernise Your Website?
             </motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-              Get in touch for a free, no-obligation chat about how Local SEO can help your business get found by more customers.
+              Let's transform your outdated website into a modern, high-performing site that generates leads and grows your business. Get a free audit today.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
-                <Link href="/contact">Get Started <ArrowRight className="w-5 h-5 ml-1" /></Link>
+                <Link href="/free-website-review">Get a Free Audit <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link href="/free-website-review">Free Website Review</Link>
+                <Link href="/portfolio">See Our Work</Link>
               </Button>
             </motion.div>
           </ScrollReveal>
@@ -279,8 +314,8 @@ const ServiceSEO = () => {
 
       {/* ═══ FAQ ═══ */}
       <FAQ
-        faqs={seoFAQ}
-        title="Local SEO — Frequently Asked Questions"
+        faqs={redesignFAQ}
+        title="Website Redesign — Frequently Asked Questions"
       />
 
       {/* ═══ Internal Links ═══ */}
@@ -291,13 +326,10 @@ const ServiceSEO = () => {
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
               {[
                 { label: "All Services", path: "/services" },
-                { label: "AEO & GEO", path: "/services/aeo-geo" },
-                { label: "Google Ads", path: "/services/google-ads" },
-                { label: "Digital Marketing", path: "/services/digital-marketing" },
-                { label: "Pricing", path: "/pricing" },
-                { label: "SEO Wollongong", path: "/seo-wollongong" },
+                { label: "Website Design", path: "/services/web-design" },
+                { label: "Local SEO", path: "/services/seo" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
-                { label: "Web Design Sydney", path: "/web-design-sydney" },
+                { label: "Our Work", path: "/portfolio" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>
@@ -312,4 +344,4 @@ const ServiceSEO = () => {
   );
 };
 
-export default ServiceSEO;
+export default ServiceWebsiteRedesign;

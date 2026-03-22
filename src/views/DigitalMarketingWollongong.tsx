@@ -2,19 +2,19 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, MapPin, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, Star, BarChart3, Target, TrendingUp, Globe, Search, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
-const WebDesignWollongong = () => {
+const DigitalMarketingWollongong = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Digital Edge Studio",
-    "description": "Web design agency in Wollongong specialising in affordable websites and local SEO for tradies and small businesses",
-    "url": "https://digitaledgestudio.com/web-design-wollongong",
+    "description": "Digital marketing agency in Wollongong specialising in SEO, Google Ads, social media, and content marketing for small businesses",
+    "url": "https://digitaledgestudio.com/digital-marketing-wollongong",
     "email": "enquiries@digitaledgestudio.com",
     "address": {
       "@type": "PostalAddress",
@@ -35,7 +35,7 @@ const WebDesignWollongong = () => {
       "worstRating": "1"
     },
     "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
+    "serviceType": ["Digital Marketing", "SEO", "Google Ads", "Social Media Marketing"]
   };
 
   const faqSchema = {
@@ -44,54 +44,62 @@ const WebDesignWollongong = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much does web design cost in Wollongong?",
+        "name": "What does a digital marketing agency do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Wollongong web design packages start from $1,200 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts."
+          "text": "A digital marketing agency manages your online presence across multiple channels — SEO, Google Ads, social media, content marketing, and email. At Digital Edge Studio, we create integrated strategies that drive qualified leads and measurable revenue for Wollongong businesses."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does it take to build a website in Wollongong?",
+        "name": "How much does digital marketing cost in Wollongong?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most Wollongong website projects are completed in 4–8 weeks depending on complexity. We work closely with you throughout the process to ensure everything is perfect before launch."
+          "text": "Our digital marketing packages start from $1,000/month for individual services like SEO or Google Ads. Bundled packages offering multiple services start from $2,800/month. We offer transparent pricing with no hidden fees or lock-in contracts."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer local SEO for Wollongong businesses?",
+        "name": "How long before I see results from digital marketing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — local SEO is one of our specialties. We optimise your Google Business Profile, target Wollongong-specific search terms, and help you rank higher in local Google Maps results."
+          "text": "Google Ads can generate leads within days. SEO typically shows results in 3–6 months. Social media builds brand awareness over time. We provide monthly reporting so you can track progress from day one."
         }
       },
       {
         "@type": "Question",
-        "name": "Are you based in Wollongong?",
+        "name": "Do you offer social media marketing in Wollongong?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're a NSW-based agency serving Wollongong and the surrounding Illawarra region, as well as Sydney. We understand the local market because we're part of it."
+          "text": "Yes — we manage social media marketing for Wollongong businesses across Facebook, Instagram, and LinkedIn. This includes content creation, scheduling, community management, and paid social advertising."
         }
       },
       {
         "@type": "Question",
-        "name": "What types of businesses do you build websites for in Wollongong?",
+        "name": "What's included in your digital marketing packages?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We build websites for tradies (plumbers, electricians, builders), retail shops, hospitality businesses, healthcare providers, professional services, and any local Wollongong business that wants to grow online."
+          "text": "Our packages include strategy development, campaign setup and management, content creation, monthly reporting, and ongoing optimisation. Every package is tailored to your business goals and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you manage Google Ads and SEO together?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Running Google Ads and SEO together is the most effective approach — Ads deliver immediate leads while SEO builds long-term organic traffic. We manage both to maximise your ROI."
         }
       }
     ]
   };
 
   const services = [
-    { title: "Custom Website Design", desc: "Professionally designed websites built to convert visitors into enquiries — not just look pretty." },
-    { title: "Local SEO Wollongong", desc: "Rank higher in Google Maps and organic search for Wollongong-specific keywords that drive real leads." },
-    { title: "Mobile-Optimised Websites", desc: "Over 70% of local searches happen on mobile. Your Wollongong website will look perfect on every device." },
-    { title: "Google Ads Management", desc: "Targeted Google Ads campaigns for Wollongong businesses — only pay when someone clicks to your site." },
-    { title: "Ecommerce Web Design", desc: "Online stores built on Shopify or WooCommerce to sell products to Wollongong and beyond." },
-    { title: "Website Maintenance", desc: "Monthly plans to keep your Wollongong website fast, secure, and up to date. From $99/month." },
+    { title: "SEO & Local SEO", desc: "Rank higher in Google for Wollongong-specific keywords. We optimise your site and Google Business Profile to drive organic traffic and local leads.", link: "/services/seo" },
+    { title: "Google Ads & PPC", desc: "Targeted pay-per-click campaigns that put your business at the top of Google instantly. Only pay when someone clicks through to your site.", link: "/services/google-ads" },
+    { title: "Social Media Marketing", desc: "Build your brand on Facebook, Instagram, and LinkedIn. We handle content creation, scheduling, community management, and paid social campaigns." },
+    { title: "Content Marketing", desc: "Strategic blog posts, landing pages, and website copy that attracts your ideal customers and positions your business as a local authority." },
+    { title: "Email Marketing", desc: "Nurture leads and retain customers with automated email sequences, newsletters, and targeted campaigns that drive repeat business." },
+    { title: "Conversion Rate Optimisation", desc: "Turn more website visitors into paying customers. We analyse user behaviour and optimise your site for maximum conversions." },
   ];
 
   const testimonials = [
@@ -107,7 +115,7 @@ const WebDesignWollongong = () => {
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
-        { label: 'Web Design Wollongong' }
+        { label: 'Digital Marketing Wollongong' }
       ]} />
 
       {/* Hero */}
@@ -121,21 +129,21 @@ const WebDesignWollongong = () => {
             variants={staggerB}
           >
             <motion.div variants={fadeUpB} className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4">
-              <MapPin className="w-4 h-4" />
-              <span>Serving Wollongong, Illawarra & NSW</span>
+              <BarChart3 className="w-4 h-4" />
+              <span>Digital Marketing Services</span>
             </motion.div>
             <motion.h1 variants={fadeUpB} className="heading-display text-primary-foreground mb-4">
-              Web Design Wollongong
+              Digital Marketing Agency in Wollongong
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Professional, affordable web design for Wollongong businesses. We build websites that rank on Google, generate leads, and grow your business — without the big-agency price tag.
+              Grow your Wollongong business with integrated digital marketing — SEO, Google Ads, social media, and content strategy that drives qualified leads and measurable revenue.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
-                <Link href="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+                <Link href="/contact">Book Your Free Strategy Session <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link href="/pricing">View Pricing</Link>
+                <Link href="/free-website-review">Free Website Review</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -146,7 +154,7 @@ const WebDesignWollongong = () => {
       <section className="bg-muted py-8">
         <div className="container-tight px-4">
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            {["Local Wollongong Agency", "No Lock-In Contracts", "Fast 4–8 Week Turnaround", "Free Quote & Consultation", "Google Business Profile Setup Included"].map((item) => (
+            {["Local Wollongong Agency", "No Lock-In Contracts", "Measurable ROI", "Free Strategy Session", "Data-Driven Campaigns"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 <span>{item}</span>
@@ -161,10 +169,10 @@ const WebDesignWollongong = () => {
         <div className="container-tight">
           <ScrollReveal variant="B" className="text-center mb-14">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
-              Web Design Services in Wollongong
+              Digital Marketing Services in Wollongong
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything your Wollongong business needs to get found online and turn website visitors into paying customers.
+              Everything your Wollongong business needs to attract more customers, generate qualified leads, and grow revenue online.
             </motion.p>
           </ScrollReveal>
 
@@ -173,45 +181,50 @@ const WebDesignWollongong = () => {
               <motion.div key={s.title} variants={fadeUpB} className="bg-card rounded-2xl p-6 border border-border shadow-card card-premium">
                 <CheckCircle2 className="w-6 h-6 text-accent mb-3" />
                 <h3 className="font-bold text-foreground font-display mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.desc}</p>
+                {s.link && (
+                  <Link href={s.link} className="text-sm text-accent font-medium inline-flex items-center gap-1 hover:underline">
+                    Learn more <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Why Local */}
+      {/* Why Choose Us */}
       <section className="section-padding relative" style={{ background: "var(--surface-gradient)" }}>
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="container-tight relative z-10">
           <ScrollReveal variant="B" className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUpB}>
               <h2 className="heading-section text-foreground mb-6">
-                Why Choose a Local Wollongong Web Designer?
+                Why Choose a Local Wollongong Digital Marketing Agency?
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  When you hire a local Wollongong web designer, you're not just getting a website — you're getting a partner who understands your local market, your customers, and what it takes to rank in Wollongong's search results.
+                  When you partner with a local Wollongong digital marketing agency, you get more than campaigns — you get a team that understands your market, your competitors, and what it takes to win customers in the Illawarra region.
                 </p>
                 <p>
-                  We know the Illawarra region, the local competition, and the kinds of searches your customers make when they need a business like yours. That local knowledge gives your website a real edge.
+                  We know the local landscape, the seasonal trends, and the search behaviour of Wollongong consumers. That insight shapes every campaign we run, from the keywords we target to the ad copy we write.
                 </p>
                 <p>
-                  Unlike large agencies or offshore developers, you can actually talk to us — and we'll be there to support you long after your site goes live.
+                  Unlike faceless agencies or overseas teams, you deal directly with the people managing your campaigns — and we're accountable for every dollar you spend.
                 </p>
               </div>
               <div className="mt-8">
                 <Button asChild>
-                  <Link href="/contact">Talk to a Wollongong Web Designer <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                  <Link href="/contact">Talk to a Wollongong Marketing Expert <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
               </div>
             </motion.div>
             <motion.div variants={fadeUpB} className="space-y-4">
               {[
                 { title: "Local Market Knowledge", desc: "We understand Wollongong's business landscape and what local customers search for." },
-                { title: "Wollongong SEO Expertise", desc: "We optimise specifically for Wollongong and Illawarra search terms, not generic keywords." },
-                { title: "Face-to-Face Support", desc: "We're available for meetings and calls — you always deal directly with the person running your project." },
-                { title: "Long-Term Partnership", desc: "We don't disappear after launch. We're here to grow your business month after month." },
+                { title: "Integrated Strategy", desc: "SEO, Ads, social, and content working together — not siloed campaigns that compete with each other." },
+                { title: "Transparent Reporting", desc: "Monthly reports showing exactly where your budget goes and the results it delivers." },
+                { title: "No Lock-In Contracts", desc: "We earn your business every month. Stay because it works, not because you're locked in." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -254,12 +267,12 @@ const WebDesignWollongong = () => {
         </div>
       </section>
 
-      {/* Local Case Studies */}
+      {/* Case Studies */}
       <section className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal variant="B">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-8 text-center">
-              Real Results in Wollongong
+              Real Digital Marketing Results in Wollongong
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-3 gap-6">
               <Link href="/portfolio/grovespark-electrical-wollongong" className="group">
@@ -291,53 +304,12 @@ const WebDesignWollongong = () => {
         </div>
       </section>
 
-      {/* Pricing CTA */}
-      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
-        <div className="container-tight">
-          <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-8">
-            <motion.div variants={fadeUpB} className="bg-card rounded-xl p-8 border border-border shadow-card card-hover-lift">
-              <h3 className="font-bold text-foreground font-display text-xl mb-2">Starter Website</h3>
-              <p className="text-3xl font-bold font-display mb-1"><span className="price-shimmer">From $1,200</span></p>
-              <p className="text-sm text-muted-foreground mb-6">Perfect for tradies and service businesses getting started online</p>
-              <ul className="space-y-2 mb-6">
-                {["Custom design", "Mobile responsive", "Contact form", "Google Analytics", "SEO setup", "Fast loading"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild className="w-full">
-                <Link href="/contact">Get a Free Quote</Link>
-              </Button>
-            </motion.div>
-            <motion.div variants={fadeUpB} className="bg-card rounded-xl p-8 border-2 border-accent shadow-card card-hover-lift">
-              <h3 className="font-bold text-foreground font-display text-xl mb-2">Business Website</h3>
-              <p className="text-3xl font-bold font-display mb-1"><span className="price-shimmer">From $1,850</span></p>
-              <p className="text-sm text-muted-foreground mb-6">Full-featured site for established Wollongong businesses ready to grow</p>
-              <ul className="space-y-2 mb-6">
-                {["Everything in Starter", "Up to 10 pages", "Blog setup", "Google Ads ready", "Advanced SEO", "Priority support"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild className="w-full">
-                <Link href="/contact">Get a Free Quote</Link>
-              </Button>
-            </motion.div>
-          </ScrollReveal>
-          <p className="text-center text-sm text-muted-foreground mt-6">
-            Not sure which package is right for you? <Link href="/pricing" className="text-accent underline underline-offset-4">See full pricing details →</Link>
-          </p>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="section-padding bg-background">
         <div className="container-tight max-w-3xl mx-auto">
           <ScrollReveal variant="B" className="text-center mb-10">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
-              Web Design Wollongong — Frequently Asked Questions
+              Digital Marketing Wollongong — Frequently Asked Questions
             </motion.h2>
           </ScrollReveal>
           <ScrollReveal variant="B" className="space-y-4">
@@ -359,7 +331,7 @@ const WebDesignWollongong = () => {
               Also Serving Nearby Areas
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              Based in the Illawarra, we build websites for businesses across NSW.
+              Based in the Illawarra, we deliver digital marketing services for businesses across NSW.
             </motion.p>
           </ScrollReveal>
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -388,17 +360,7 @@ const WebDesignWollongong = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">SEO Wollongong</h3>
-                  <p className="text-sm text-muted-foreground">Expert local SEO services to get your Wollongong business ranking higher on Google Search and Maps.</p>
-                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
-                </div>
-              </Link>
-            </motion.div>
-            <motion.div variants={fadeUpB}>
-              <Link href="/digital-marketing-wollongong" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Digital Marketing Wollongong</h3>
-                  <p className="text-sm text-muted-foreground">Full-service digital marketing — SEO, Google Ads, social media, and content strategy for Wollongong businesses.</p>
+                  <p className="text-sm text-muted-foreground">Dedicated SEO services for Wollongong businesses — local SEO, technical SEO, and content strategy to grow organic traffic.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>
@@ -422,11 +384,11 @@ const WebDesignWollongong = () => {
               Ready to Grow Your Wollongong Business Online?
             </motion.h2>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-              Get a free, no-obligation quote for your Wollongong website. We'll discuss your goals and recommend the best solution for your business.
+              Book a free strategy session and discover how integrated digital marketing can drive more leads and revenue for your Wollongong business.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
-                <Link href="/contact">Get Your Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+                <Link href="/contact">Book Your Free Strategy Session <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <Link href="/services">View Our Services</Link>
@@ -439,4 +401,4 @@ const WebDesignWollongong = () => {
   );
 };
 
-export default WebDesignWollongong;
+export default DigitalMarketingWollongong;

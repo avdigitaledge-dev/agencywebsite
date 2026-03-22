@@ -5,46 +5,60 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
-import { BarChart3, CheckCircle2, ArrowRight, Target, TrendingUp, DollarSign, Search, Zap, LineChart } from "lucide-react";
+import { CheckCircle2, ArrowRight, BarChart3, Target, TrendingUp, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
-const ServiceGoogleAds = () => {
+const ServiceDigitalMarketing = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Google Ads Management",
-    "description": "Google Ads management for businesses in Wollongong, Sydney, and NSW. Transparent pricing at $800/month management fee plus 15% of ad spend. No lock-in contracts.",
+    "name": "Digital Marketing Services",
+    "description": "Full-service digital marketing for small businesses and tradies in Wollongong, Sydney, and NSW. SEO, Google Ads, social media marketing, content strategy, and email marketing.",
     "provider": {
       "@type": "Organization",
       "name": "Digital Edge Studio",
       "url": "https://digitaledgestudio.com"
     },
     "areaServed": ["Wollongong", "Sydney", "NSW", "Australia"],
-    "serviceType": "Google Ads Management"
+    "serviceType": "Digital Marketing",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital Marketing Package",
+            "description": "Integrated digital marketing including SEO, Google Ads, social media, content strategy, and monthly reporting."
+          }
+        }
+      ]
+    }
   };
 
-  const googleAdsFAQ = [
+  const digitalMarketingFAQ = [
     {
-      question: "How much does Google Ads management cost?",
-      answer: "Our management fee is $800/month plus 15% of your ad spend. There are no lock-in contracts and no hidden fees. You can cancel at any time."
+      question: "What is digital marketing?",
+      answer: "Digital marketing covers all online marketing channels — SEO, Google Ads, social media, content marketing, and email marketing. It's about reaching your target customers where they spend their time: online."
     },
     {
-      question: "How quickly will I see results from Google Ads?",
-      answer: "Google Ads can deliver leads from day one. Most campaigns reach optimal performance within 2-4 weeks as we gather data and refine targeting."
+      question: "How much does digital marketing cost?",
+      answer: "Individual services like SEO or Google Ads start from $800–$1,000/month. Bundled digital marketing packages that combine multiple channels start from $2,800/month. We offer transparent pricing with no lock-in contracts."
     },
     {
-      question: "What's the minimum ad spend you recommend?",
-      answer: "We typically recommend a minimum ad spend of $1,000-$2,000/month for local service businesses. This gives us enough budget to test and optimise effectively."
+      question: "Which digital marketing channels should I use?",
+      answer: "It depends on your business and goals. For most local businesses, we recommend starting with SEO and Google Ads for immediate and long-term lead generation, then adding social media and content marketing as you grow."
     },
     {
-      question: "Do I get to see what you're doing with my ads?",
-      answer: "Absolutely. You receive weekly optimisation updates and a detailed monthly report showing clicks, conversions, cost per lead, and return on investment."
+      question: "Do you offer digital marketing for businesses outside Wollongong?",
+      answer: "Yes. While we specialise in Wollongong and Sydney, we work with businesses across NSW and Australia. Our strategies are tailored to your specific location and market."
     },
     {
-      question: "Can I run Google Ads and SEO at the same time?",
-      answer: "Yes, and we recommend it. Google Ads gives you instant visibility while SEO builds long-term organic traffic. Together, they cover both short-term and long-term growth."
+      question: "How do you measure digital marketing results?",
+      answer: "We track key metrics including website traffic, search rankings, leads generated, cost per lead, and return on investment. You'll receive a detailed monthly report showing exactly how your campaigns are performing."
     }
   ];
 
@@ -55,7 +69,7 @@ const ServiceGoogleAds = () => {
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
         { label: 'Services', path: '/services' },
-        { label: 'Google Ads' }
+        { label: 'Digital Marketing' }
       ]} />
 
       {/* ═══ Hero ═══ */}
@@ -68,18 +82,22 @@ const ServiceGoogleAds = () => {
             animate="show"
             variants={stagger}
           >
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground/90 text-sm font-semibold mb-6">
+              <BarChart3 className="w-4 h-4" />
+              Digital Marketing
+            </motion.div>
             <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
-              Google Ads Management in Wollongong — <span className="text-gradient">Get Instant Leads</span>
+              Digital Marketing Services That Drive <span className="text-gradient">Real Growth</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Targeted Google Ads campaigns that put your business in front of customers actively searching for your services. Transparent pricing, no lock-in contracts.
+              Integrated digital marketing combining SEO, Google Ads, social media, and content strategy — built for tradies and small businesses who want real results, not vanity metrics.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
                 <Link href="/contact">Get Started <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link href="/pricing">See Pricing</Link>
+                <Link href="/pricing">View Pricing</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -97,21 +115,22 @@ const ServiceGoogleAds = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp}>
-              <span className="text-accent font-semibold text-base uppercase tracking-wider">Google Ads Management</span>
+              <span className="text-accent font-semibold text-sm uppercase tracking-wider">What's Included</span>
               <h2 className="heading-section text-foreground mt-2 mb-4">
-                What's Included
+                Everything You Need to Grow Online
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Stop wasting money on ads that don't convert. We manage your Google Ads campaigns with a transparent pricing model — $800/month management fee plus 15% of your ad spend. No lock-in contracts, no hidden fees, and you only pay for results.
+                Stop juggling multiple agencies and disconnected campaigns. Our digital marketing service brings everything together — SEO, ads, social, content, and email — into one cohesive strategy designed to drive leads and grow your business.
               </p>
               <ul className="space-y-3 mb-8 stagger-list">
                 {[
-                  "Full Google Ads setup & ongoing management",
-                  "Keyword research & smart bid strategy",
-                  "Ad copywriting & continuous A/B testing",
-                  "Competitor analysis & benchmarking",
-                  "Google Analytics & conversion tracking",
-                  "Weekly optimisation & transparent monthly reports",
+                  "SEO & local keyword targeting",
+                  "Google Ads setup and management",
+                  "Social media content and scheduling",
+                  "Content marketing and blog strategy",
+                  "Email marketing campaigns",
+                  "Monthly analytics and reporting",
+                  "Ongoing strategy optimisation",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-foreground">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
@@ -120,23 +139,23 @@ const ServiceGoogleAds = () => {
                 ))}
               </ul>
               <Button variant="cta" asChild>
-                <Link href="/contact">Discuss Your Strategy <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                <Link href="/contact">Get Started <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <Image src="/images/blog/google-ads-pic.jpg" alt="Digital marketing analytics dashboard" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <Image src="/images/blog/seo-pic.jpg" alt="Digital marketing strategy and analytics dashboard" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══ Our Process ═══ */}
+      {/* ═══ Our Digital Marketing Process ═══ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
           <ScrollReveal className="text-center mb-14">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Our Process</motion.h2>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Our Digital Marketing Process</motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              A proven four-step process to get your Google Ads campaigns delivering results fast.
+              A proven four-step process that takes your business from scattered efforts to a focused, results-driven marketing machine.
             </motion.p>
           </ScrollReveal>
 
@@ -144,23 +163,23 @@ const ServiceGoogleAds = () => {
             {[
               {
                 step: "01",
-                title: "Research",
-                description: "Keyword research, competitor analysis, and market assessment for your industry."
+                title: "Audit",
+                description: "We analyse your current online presence, competitors, and market opportunities."
               },
               {
                 step: "02",
-                title: "Setup",
-                description: "Campaign structure, ad groups, targeting, and conversion tracking configured."
+                title: "Strategy",
+                description: "Custom digital marketing plan targeting the channels and keywords that matter most."
               },
               {
                 step: "03",
-                title: "Optimise",
-                description: "Continuous bid adjustments, A/B testing, and negative keyword refinement."
+                title: "Execute",
+                description: "Launch and manage campaigns across SEO, ads, social, and content."
               },
               {
                 step: "04",
-                title: "Report",
-                description: "Weekly optimisation logs and transparent monthly performance reports."
+                title: "Optimise",
+                description: "Monthly reporting, performance analysis, and continuous improvement."
               },
             ].map((item) => (
               <motion.div
@@ -183,28 +202,28 @@ const ServiceGoogleAds = () => {
       <section className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal className="text-center mb-14">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Why Choose Us for Google Ads</motion.h2>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Why Choose Digital Edge Studio for Digital Marketing</motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
-              Transparent, results-driven Google Ads management built for small businesses.
+              We don't just run campaigns — we build integrated strategies that deliver measurable growth for your business.
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-3 gap-8">
+          <ScrollReveal className="grid sm:grid-cols-3 gap-6">
             {[
               {
-                icon: DollarSign,
-                title: "Transparent Pricing",
-                description: "$800/month management fee plus 15% of ad spend. No hidden fees, no surprises."
-              },
-              {
                 icon: Target,
-                title: "Targeted Campaigns",
-                description: "We target the exact keywords your customers search for — no wasted spend on irrelevant clicks."
+                title: "Integrated Strategy",
+                description: "We combine SEO, ads, social, and content into one cohesive strategy — not siloed campaigns."
               },
               {
                 icon: TrendingUp,
-                title: "Measurable ROI",
-                description: "Full conversion tracking so you know exactly how many leads and sales your ads generate."
+                title: "Measurable Results",
+                description: "Monthly reports showing traffic, leads, and ROI so you always know what's working."
+              },
+              {
+                icon: DollarSign,
+                title: "Transparent Pricing",
+                description: "No hidden fees, no lock-in contracts. You know exactly what you're paying for and what you're getting."
               },
             ].map((item) => (
               <motion.div
@@ -235,17 +254,17 @@ const ServiceGoogleAds = () => {
         <div className="container-tight px-4 py-20 text-center relative z-10">
           <ScrollReveal>
             <motion.h2 variants={fadeUp} className="heading-section text-primary-foreground mb-4">
-              Ready to Get More Leads From Google?
+              Not Sure What You Need?
             </motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl mx-auto mb-8">
-              Let's build a Google Ads strategy that delivers real results for your business.
+              Book a free strategy session and we'll help you figure out which digital marketing channels will deliver the best results for your business.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" className="btn-shimmer" asChild>
-                <Link href="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
+                <Link href="/contact">Book a Free Strategy Session <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link href="/portfolio">See Our Work</Link>
+                <Link href="/services">View Our Services</Link>
               </Button>
             </motion.div>
           </ScrollReveal>
@@ -253,15 +272,15 @@ const ServiceGoogleAds = () => {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-[hsl(210_15%_94%)]" />
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
         </div>
       </section>
 
       {/* ═══ FAQ ═══ */}
       <FAQ
-        faqs={googleAdsFAQ}
-        title="Google Ads — Frequently Asked Questions"
+        faqs={digitalMarketingFAQ}
+        title="Digital Marketing — Frequently Asked Questions"
       />
 
       {/* ═══ Internal Links ═══ */}
@@ -273,10 +292,9 @@ const ServiceGoogleAds = () => {
               {[
                 { label: "All Services", path: "/services" },
                 { label: "Local SEO", path: "/services/seo" },
-                { label: "Web Design", path: "/services/web-design" },
+                { label: "Google Ads", path: "/services/google-ads" },
+                { label: "Digital Marketing Wollongong", path: "/digital-marketing-wollongong" },
                 { label: "Pricing", path: "/pricing" },
-                { label: "Web Design Wollongong", path: "/web-design-wollongong" },
-                { label: "Web Design Sydney", path: "/web-design-sydney" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>
@@ -291,4 +309,4 @@ const ServiceGoogleAds = () => {
   );
 };
 
-export default ServiceGoogleAds;
+export default ServiceDigitalMarketing;

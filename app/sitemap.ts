@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/services/seo`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/services/aeo-geo`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/services/google-ads`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/services/digital-marketing`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/services/website-redesign`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/services/maintenance-hosting`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/blog`, lastModified: lastUpdated, changeFrequency: "weekly", priority: 0.9 },
@@ -29,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/web-design-newcastle`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/web-design-central-coast`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/web-design-campbelltown`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/seo-wollongong`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/digital-marketing-wollongong`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     // Industry pages
     { url: `${BASE_URL}/web-design-tradies`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/web-design-healthcare`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },

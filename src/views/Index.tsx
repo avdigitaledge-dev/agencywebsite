@@ -224,11 +224,11 @@ const Index = () => {
                 Trusted by 30+ Local Businesses
               </motion.span>
               <motion.h1 variants={fadeUp} className="heading-display text-white mb-6">
-                Websites That Get Tradies{" "}
-                <span className="text-gradient">More Jobs</span>
+                Websites That Get Local Businesses{" "}
+                <span className="text-gradient">More Customers</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="text-body-lg text-white/65 mb-10 max-w-xl">
-                We build fast, professional websites for electricians, plumbers, builders and local businesses — with local SEO that gets you ranking on Google and generating 40+ leads per month.
+                We build fast, professional websites for tradies, small businesses, and local services across Wollongong — with local SEO that gets you ranking on Google and generating 40+ leads per month.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <MagneticButton>
@@ -256,7 +256,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-accent" />
-                  Built for tradies & local business
+                  Built for local businesses across Wollongong
                 </div>
               </motion.div>
             </motion.div>
