@@ -35,53 +35,6 @@ const ServiceEcommerce = () => {
     "serviceType": "eCommerce Website Design"
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does an eCommerce website cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our eCommerce websites start from $4,500 AUD. This includes full store setup, product catalogue, payment gateway, shipping configuration, and SEO setup."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What platform do you build eCommerce sites on?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We build on Shopify or WooCommerce depending on your needs. Both are proven platforms with excellent reliability and scalability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I manage products and orders myself?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We provide full training on how to add products, manage inventory, process orders, and handle refunds. You'll have complete control over your store."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you handle payment gateway setup?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We set up secure payment processing through Stripe, PayPal, or other gateways. All transactions are encrypted and PCI-compliant."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will my online store be found on Google?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We include SEO setup for all product and category pages, including meta tags, structured data, and image optimisation."
-        }
-      }
-    ]
-  };
-
   const ecommerceFAQ = [
     {
       question: "How much does an eCommerce website cost?",
@@ -108,7 +61,6 @@ const ServiceEcommerce = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

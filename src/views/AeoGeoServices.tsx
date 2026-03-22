@@ -47,43 +47,6 @@ const AeoGeoServices = () => {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is AEO (Answer Engine Optimisation)?",
-        "acceptedAnswer": { "@type": "Answer", "text": "AEO stands for Answer Engine Optimisation. It is the practice of structuring your website content so AI-powered assistants like Siri, Google Assistant, Alexa, and ChatGPT can extract and present your business as a direct answer to user queries. Instead of showing a list of links, these AI tools give a single spoken or written answer — and AEO ensures that answer is your business." }
-      },
-      {
-        "@type": "Question",
-        "name": "What is GEO (Generative Engine Optimisation)?",
-        "acceptedAnswer": { "@type": "Answer", "text": "GEO stands for Generative Engine Optimisation. It focuses on optimising your website so that AI-generated search summaries — such as Google AI Overviews — feature your content prominently. These AI summaries now appear at the top of roughly 45% of Google searches, making GEO essential for maintaining visibility as search evolves." }
-      },
-      {
-        "@type": "Question",
-        "name": "How is AEO different from traditional SEO?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Traditional SEO focuses on ranking your website in a list of search results. AEO goes further by structuring your content so AI assistants can extract it as a direct, definitive answer. While SEO gets you onto the list, AEO gets you chosen as the answer — which is increasingly how people find businesses through voice search and AI tools." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need AEO and GEO if I already do SEO?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. SEO remains important, but AI is rapidly changing how people search. Google AI Overviews can reduce clicks to traditional results by up to 58%. Without AEO and GEO, your competitors who optimise for AI search will capture the visibility you are missing. AEO and GEO complement your existing SEO strategy." }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to see results from AEO/GEO?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most businesses begin seeing improvements within 4 to 8 weeks as search engines re-crawl and re-index optimised content. However, the full impact builds over 3 to 6 months as AI systems learn to trust and cite your content more frequently. Early adopters see the fastest gains because there is less competition in AI search results right now." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is AEO/GEO included in your SEO packages?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both AEO and GEO are included in our Local SEO package at no extra cost. We believe AI search optimisation should be a standard part of any modern SEO strategy, not an expensive add-on. Every client who signs up for Local SEO gets full AEO and GEO optimisation included." }
-      }
-    ]
-  };
-
   const aeoGeoFAQ = [
     {
       question: "What is AEO (Answer Engine Optimisation)?",
@@ -114,7 +77,6 @@ const AeoGeoServices = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

@@ -24,38 +24,6 @@ const ServiceMaintenanceHosting = () => {
     "areaServed": ["Wollongong", "Sydney", "NSW", "Australia"]
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does website maintenance cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our maintenance and hosting packages start from $99/month. This includes Australian hosting, security updates, daily backups, uptime monitoring, and priority support." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I need changes made to my website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Minor content updates and changes are included in your maintenance plan. For larger updates or new features, we'll provide a quote before any work begins." }
-      },
-      {
-        "@type": "Question",
-        "name": "Where is my website hosted?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We use fast, reliable Australian hosting servers. This means faster load times for your Australian visitors and better SEO performance for local searches." }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens if my website goes down?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We monitor your site 24/7. If an issue is detected, we're alerted immediately and work to resolve it as quickly as possible. Most issues are fixed before you even notice." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I cancel my maintenance plan?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. There are no lock-in contracts. You can cancel with 30 days' written notice. We believe in earning your business every month." }
-      }
-    ]
-  };
-
   const maintenanceFAQ = [
     {
       question: "How much does website maintenance cost?",
@@ -82,7 +50,6 @@ const ServiceMaintenanceHosting = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

@@ -25,38 +25,6 @@ const ServiceGoogleAds = () => {
     "serviceType": "Google Ads Management"
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does Google Ads management cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our management fee is $800/month plus 15% of your ad spend. There are no lock-in contracts and no hidden fees. You can cancel at any time." }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly will I see results from Google Ads?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can deliver leads from day one. Most campaigns reach optimal performance within 2-4 weeks as we gather data and refine targeting." }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the minimum ad spend you recommend?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We typically recommend a minimum ad spend of $1,000-$2,000/month for local service businesses. This gives us enough budget to test and optimise effectively." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I get to see what you're doing with my ads?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You receive weekly optimisation updates and a detailed monthly report showing clicks, conversions, cost per lead, and return on investment." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I run Google Ads and SEO at the same time?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, and we recommend it. Google Ads gives you instant visibility while SEO builds long-term organic traffic. Together, they cover both short-term and long-term growth." }
-      }
-    ]
-  };
-
   const googleAdsFAQ = [
     {
       question: "How much does Google Ads management cost?",
@@ -83,7 +51,6 @@ const ServiceGoogleAds = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

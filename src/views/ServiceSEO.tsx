@@ -39,38 +39,6 @@ const ServiceSEO = () => {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does SEO take to show results?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most businesses see noticeable improvements within 3-6 months. SEO is a long-term strategy — the results compound over time and become more powerful the longer you invest." }
-      },
-      {
-        "@type": "Question",
-        "name": "What's included in your Local SEO package?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our Local SEO package includes Google Business Profile optimisation, keyword research, on-page SEO, citation building, monthly reporting, and AEO/GEO optimisation — all for $1,000/month with no lock-in contracts." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need SEO if I already have a website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Having a website is just the first step. Without SEO, your site is invisible to most potential customers. SEO ensures Google can find, understand, and rank your site for the searches that matter." }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between SEO and Google Ads?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SEO generates organic (free) traffic over time, while Google Ads provides instant paid visibility. We recommend both — Ads for immediate leads and SEO for sustainable long-term growth." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer SEO for businesses outside Wollongong?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. While we specialise in Wollongong and Sydney, we work with businesses across NSW and Australia. Our SEO strategies are tailored to your specific location and market." }
-      }
-    ]
-  };
-
   const seoFAQ = [
     {
       question: "How long does SEO take to show results?",
@@ -97,7 +65,6 @@ const ServiceSEO = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

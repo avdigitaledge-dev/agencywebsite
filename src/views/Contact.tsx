@@ -59,43 +59,6 @@ const Contact = () => {
     }
   };
 
-  const contactFaqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How quickly will Digital Edge respond to my inquiry?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We typically respond to all inquiries within 24 hours during business days. We understand that timing is important for your business, so we prioritize getting back to you quickly with a preliminary assessment and next steps." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is the initial consultation really free?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, absolutely! Our initial consultation is completely free and with no obligation. We'll discuss your business goals, what you're hoping to achieve, and what a partnership with Digital Edge could look like for you." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you service areas outside Sydney and Wollongong?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes! We provide web design and digital marketing services for businesses across Sydney, Wollongong, and throughout NSW. We also work with businesses in other states. Get in touch to discuss your needs." }
-      },
-      {
-        "@type": "Question",
-        "name": "What information should I have ready for our consultation?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It's helpful to have: your current website (if you have one), your main business goals, your target customers, your competitor websites you like, and any specific features or services you want. But don't worry if you don't have all this — we'll guide you through it." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I speak to a real person or is it all digital?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You'll speak to a real person! We're a small team, so you'll work directly with experienced web designers and digital marketers. We're happy to meet via phone, video call, or in person depending on what works best for you." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I need ongoing support after my website launches?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We offer ongoing maintenance and support packages starting at $99/month. This includes updates, security, performance monitoring, and any minor changes you need. You're never left on your own." }
-      }
-    ]
-  };
-
   const contactFAQ = [
     {
       question: "How quickly will Digital Edge respond to my inquiry?",

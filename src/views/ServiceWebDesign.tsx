@@ -47,38 +47,6 @@ const ServiceWebDesign = () => {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does a website cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our web design packages start from $1,200 AUD for a Starter Website (up to 5 pages) and $1,850 for a Business Website (up to 10 pages). See our pricing page for full details." }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to build a website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most websites take 4-8 weeks depending on complexity. We work with you throughout the process to ensure everything is perfect before launch." }
-      },
-      {
-        "@type": "Question",
-        "name": "Will my website be mobile-friendly?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every website we build is fully responsive and tested across phones, tablets, and desktops. Over 60% of web traffic is mobile — we make sure your site looks great everywhere." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide ongoing support after launch?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer maintenance and hosting packages from $99/month that include security updates, backups, content changes, and priority support." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I update the website myself?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build on platforms that allow you to make basic content updates. We also provide training during handover so you feel confident managing your site." }
-      }
-    ]
-  };
-
   const faq = [
     {
       question: "How much does a website cost?",
@@ -105,7 +73,6 @@ const ServiceWebDesign = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
