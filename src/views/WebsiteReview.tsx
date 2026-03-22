@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Search, CheckCircle2, Send, ArrowRight, FileText, AlertTriangle, AlertCircle, Info } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,34 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/utils";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 
 const FORMSPREE_ID = "xzdjplaq";
 

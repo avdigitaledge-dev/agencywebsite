@@ -2,16 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Breadcrumb } from "@/components/Breadcrumb";
-
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+import { stagger, fadeUp } from "@/lib/animations";
 
 const Terms = () => {
   return (

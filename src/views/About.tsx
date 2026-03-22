@@ -1,42 +1,16 @@
 "use client";
 
-import { useRef } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 import { ArrowRight, Heart, Target, Users, Award, Globe, Star, Calendar } from "lucide-react";
 import AnimatedStat from "@/components/AnimatedStat";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 const About = () => {
   const aboutFAQ = [
@@ -286,7 +260,7 @@ const About = () => {
               Whether you're ready to get started or just exploring your options, we'd love to hear from you.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="hero" size="lg" className="btn-shimmer" asChild>
                 <Link href="/contact">Get in Touch <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>

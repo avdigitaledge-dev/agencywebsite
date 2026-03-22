@@ -1,40 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 import { ArrowRight, TrendingUp, MapPin, ChevronLeft, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { portfolioProjects } from "@/data/portfolioProjects";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 const PortfolioProject = ({ slug }: { slug: string }) => {
   const project = portfolioProjects.find(p => p.slug === slug);

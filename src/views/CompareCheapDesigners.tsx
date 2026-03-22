@@ -1,40 +1,13 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle2, X, ArrowRight, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { staggerC, fadeUpC } from "@/lib/animations";
 
 /* ── Comparison data ───────────────────────────────────── */
 const comparisonRows = [
@@ -119,42 +92,37 @@ const CompareCheapDesigners = () => {
       />
 
       {/* ═══ Hero ═══ */}
-      <section className="gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
+      <section className="gradient-hero-deep relative overflow-hidden section-divider-angle">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-16 md:py-24 relative z-10">
-          <motion.div className="max-w-3xl" initial="hidden" animate="show" variants={stagger}>
-            <motion.h1 variants={fadeUp} className="heading-display text-primary-foreground mb-4">
+          <motion.div className="max-w-3xl" initial="hidden" animate="show" variants={staggerC}>
+            <motion.h1 variants={fadeUpC} className="heading-display text-primary-foreground mb-4">
               Professional Web Design vs Cheap Web Designers — <span className="text-gradient">What's the Real Cost?</span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-body-lg text-primary-foreground/75 max-w-2xl">
+            <motion.p variants={fadeUpC} className="text-body-lg text-primary-foreground/75 max-w-2xl">
               A $300–$500 website might seem like a bargain. But when it doesn't rank, doesn't convert, and the developer disappears, you end up paying twice. Here's what separates a smart investment from a costly shortcut.
             </motion.p>
           </motion.div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
-            <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
-          </svg>
         </div>
       </section>
 
       {/* ═══ Hidden Costs Section ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <ScrollReveal className="text-center mb-12">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+          <ScrollReveal variant="C" className="text-center mb-12">
+            <motion.h2 variants={fadeUpC} className="heading-section text-foreground mb-4">
               The Hidden Costs of <span className="text-gradient">Cheap Websites</span>
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+            <motion.p variants={fadeUpC} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
               That budget quote rarely tells the full story. Here's what actually happens when you cut corners on your business website.
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal variant="C" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cheapDesignerProblems.map((problem) => (
               <motion.div
                 key={problem.title}
-                variants={fadeUp}
+                variants={fadeUpC}
                 className="bg-card rounded-2xl border border-border shadow-card p-6 card-hover-lift"
               >
                 <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center mb-4">
@@ -171,15 +139,15 @@ const CompareCheapDesigners = () => {
       {/* ═══ What You Get: $500 vs $1,200-2500 ═══ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight">
-          <ScrollReveal className="text-center mb-12">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+          <ScrollReveal variant="C" className="text-center mb-12">
+            <motion.h2 variants={fadeUpC} className="heading-section text-foreground mb-4">
               What You Get for <span className="text-gradient">$500 vs From $1,200</span>
             </motion.h2>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-2 gap-8">
+          <ScrollReveal variant="C" className="grid md:grid-cols-2 gap-8">
             {/* Cheap */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8">
+            <motion.div variants={fadeUpC} className="bg-card rounded-2xl border border-border shadow-card p-8">
               <div className="text-center mb-6">
                 <span className="text-2xl font-bold text-muted-foreground font-display">~$300–$500</span>
                 <p className="text-sm text-muted-foreground mt-1">Budget Web Designer</p>
@@ -204,7 +172,7 @@ const CompareCheapDesigners = () => {
             </motion.div>
 
             {/* Professional */}
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-accent/20 shadow-card p-8">
+            <motion.div variants={fadeUpC} className="bg-card rounded-2xl border border-accent/20 shadow-card p-8">
               <div className="text-center mb-6">
                 <span className="text-2xl font-bold text-accent font-display">From $1,200</span>
                 <p className="text-sm text-muted-foreground mt-1">Digital Edge Studio</p>
@@ -234,14 +202,14 @@ const CompareCheapDesigners = () => {
       {/* ═══ Comparison Table ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <ScrollReveal className="text-center mb-12">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+          <ScrollReveal variant="C" className="text-center mb-12">
+            <motion.h2 variants={fadeUpC} className="heading-section text-foreground mb-4">
               Full <span className="text-gradient">Comparison</span>
             </motion.h2>
           </ScrollReveal>
 
-          <ScrollReveal>
-            <motion.div variants={fadeUp} className="overflow-x-auto">
+          <ScrollReveal variant="C">
+            <motion.div variants={fadeUpC} className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
                   <tr>
@@ -278,8 +246,8 @@ const CompareCheapDesigners = () => {
       {/* ═══ Positive Framing ═══ */}
       <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
         <div className="container-tight max-w-3xl">
-          <ScrollReveal>
-            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-accent/20 shadow-card p-8 text-center">
+          <ScrollReveal variant="C">
+            <motion.div variants={fadeUpC} className="bg-card rounded-2xl border border-accent/20 shadow-card p-8 text-center">
               <h2 className="heading-section text-foreground mb-4">Your Website Is an Investment, Not an Expense</h2>
               <p className="text-body-lg text-muted-foreground mb-6">
                 The right website doesn't cost you money  — it makes you money. Our clients typically see their investment returned within the first few months through new leads and customers they wouldn't have reached otherwise. When your website ranks on Google, loads fast, and guides visitors to take action, it becomes the hardest-working member of your team.
@@ -312,15 +280,15 @@ const CompareCheapDesigners = () => {
           </svg>
         </div>
         <div className="container-tight px-4 py-24 text-center relative z-10">
-          <ScrollReveal>
-            <motion.h2 variants={fadeUp} className="heading-section text-white mb-5">
+          <ScrollReveal variant="C">
+            <motion.h2 variants={fadeUpC} className="heading-section text-white mb-5">
               Done With Websites That Don't Work?
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-white/60 max-w-2xl mx-auto mb-10">
+            <motion.p variants={fadeUpC} className="text-body-lg text-white/60 max-w-2xl mx-auto mb-10">
               Get a free quote and find out what a website built for results actually looks like.
             </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="hero" size="lg" asChild>
+            <motion.div variants={fadeUpC} className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button variant="hero" size="lg" className="btn-shimmer" asChild>
                 <Link href="/contact">
                   Get a Free Quote
                   <ArrowRight className="w-5 h-5 ml-1" />
@@ -330,7 +298,7 @@ const CompareCheapDesigners = () => {
                 <Link href="/free-website-review">Free Website Review</Link>
               </Button>
             </motion.div>
-            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6 mt-8">
+            <motion.div variants={fadeUpC} className="flex flex-wrap justify-center gap-6 mt-8">
               <Link href="/pricing" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">View Pricing</Link>
               <Link href="/portfolio" className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-colors">See Our Work</Link>
             </motion.div>

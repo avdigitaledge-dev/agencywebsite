@@ -1,41 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Shield, Star, Users, Rocket, Target, Search, Globe } from "lucide-react";
 import { useTilt, useSpotlight } from "@/hooks/use-effects";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 
 /* ── Tilt wrapper for pricing cards ────────────────────── */
 const PricingTiltCard = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
@@ -216,8 +189,10 @@ const Pricing = () => {
       </section>
 
       {/* ═══ Website Packages ═══ */}
-      <section className="section-padding bg-background">
-        <div className="container-tight">
+      <section className="section-padding bg-background relative overflow-hidden">
+        <div className="blob-morph w-[350px] h-[350px] bg-accent/30 top-[10%] left-[-5%]" />
+        <div className="blob-morph w-[300px] h-[300px] bg-purple-500/20 bottom-[5%] right-[-5%]" style={{ animationDelay: "-6s" }} />
+        <div className="container-tight relative z-10">
           <ScrollReveal className="text-center mb-14">
             <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Website Packages</motion.h2>
             <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
@@ -594,7 +569,7 @@ const Pricing = () => {
                   </motion.div>
                   <p className="text-primary-foreground/70 text-sm mb-1">Investment</p>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-5xl font-extrabold text-primary-foreground font-display">$2,800</span>
+                    <span className="text-5xl font-extrabold text-primary-foreground font-display price-shimmer">$2,800</span>
                     <span className="text-primary-foreground/70">/month</span>
                   </div>
                   <p className="text-primary-foreground/50 text-sm mt-2">Excl. ad spend · No lock-in contracts</p>

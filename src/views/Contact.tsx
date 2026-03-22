@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/utils";
 import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare, ArrowRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,34 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import { useToast } from "@/hooks/use-toast";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 
 /* ── Calendly inline embed ────────────────────────────── */
 const CalendlyEmbed = ({ url }: { url: string }) => {
@@ -334,7 +308,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Consultation</p>
-                      <a href="https://calendly.com/avdigitaledge/30min" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">Book a Free Call</a>
+                      <a href="https://calendly.com/avdigitaledge/30min?hide_gdpr_banner=1" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">Book a Free Call</a>
                     </div>
                   </div>
                   <a href="mailto:enquiries@digitaledgestudio.com" onClick={() => trackEvent("email_click", { location: "contact_page" })} className="flex items-center gap-3 text-foreground hover:text-accent transition-colors contact-item">
@@ -417,7 +391,7 @@ const Contact = () => {
           </ScrollReveal>
           <ScrollReveal>
             <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card overflow-hidden">
-              <CalendlyEmbed url="https://calendly.com/avdigitaledge/30min" />
+              <CalendlyEmbed url="https://calendly.com/avdigitaledge/30min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1" />
             </motion.div>
           </ScrollReveal>
         </div>

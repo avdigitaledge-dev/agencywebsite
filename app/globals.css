@@ -130,6 +130,21 @@
     background: var(--hero-gradient);
   }
 
+  /* Hero variant: warm accent (industry pages) */
+  .gradient-hero-warm {
+    background: linear-gradient(155deg, hsl(222 30% 6%) 0%, hsl(25 20% 10%) 50%, hsl(222 25% 12%) 100%);
+  }
+
+  /* Hero variant: deep purple (comparison pages) */
+  .gradient-hero-deep {
+    background: linear-gradient(135deg, hsl(240 25% 6%) 0%, hsl(230 20% 14%) 50%, hsl(222 25% 10%) 100%);
+  }
+
+  /* Hero variant: mesh/lighter (location pages) */
+  .gradient-hero-mesh {
+    background: linear-gradient(160deg, hsl(222 28% 8%) 0%, hsl(217 22% 15%) 60%, hsl(210 18% 12%) 100%);
+  }
+
   .gradient-cta {
     background: var(--cta-gradient);
   }
@@ -231,6 +246,26 @@
 
   .section-divider-wave-dark::after {
     background: hsl(222 30% 6%);
+  }
+
+  .section-divider-wave-muted::after {
+    background: hsl(var(--muted));
+  }
+
+  /* Angled section divider (comparison pages) */
+  .section-divider-angle {
+    position: relative;
+  }
+  .section-divider-angle::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: hsl(var(--background));
+    clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 2;
   }
 
   /* ── Card effects ──────────────────────────────────────── */

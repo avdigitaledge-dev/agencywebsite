@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
@@ -13,41 +13,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useRef } from "react";
 import { useTilt, useMagnetic, useSpotlight } from "@/hooks/use-effects";
 import AnimatedStat from "@/components/AnimatedStat";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.6 } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-/* AnimatedStat imported from @/components/AnimatedStat */
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 
 /* ── Why cards with spotlight + tilt ───────────────────── */
 const TiltCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => {
@@ -120,7 +87,7 @@ const ServiceCards = () => {
             <h3 className="heading-card text-foreground mb-3">{service.title}</h3>
             <p className="text-muted-foreground leading-relaxed flex-1 mb-6">{service.desc}</p>
             <div className="flex items-center justify-between pt-4 border-t border-border">
-              <span className="font-bold text-accent-warm font-display text-lg">{service.price}</span>
+              <span className="font-bold text-accent-warm font-display text-lg price-shimmer">{service.price}</span>
               <Button variant="ghost" size="sm" asChild className="text-accent">
                 <Link href={service.link}>Learn More <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>

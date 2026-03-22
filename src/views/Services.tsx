@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShoppingCart, Globe, Search, Shield, BarChart3, Users, Star, Sparkles, Bot, Cpu } from "lucide-react";
 const serviceWebdesign = "/images/blog/webdesign-pic.jpg";
 const serviceSeo = "/images/blog/seo-pic.jpg";
@@ -14,34 +13,8 @@ import { Button } from "@/components/ui/button";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import AnimatedStat from "@/components/AnimatedStat";
-
-/* ── Animation helpers ─────────────────────────────────── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-/* ── Scroll-triggered section wrapper ──────────────────── */
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : "hidden"}
-      variants={stagger}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { stagger, fadeUp } from "@/lib/animations";
 
 const Services = () => {
   const serviceSchema = {
@@ -206,7 +179,7 @@ const Services = () => {
                 key={item.label}
                 variants={fadeUp}
                 href={item.anchor}
-                className="flex flex-col items-center gap-3 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift text-center group"
+                className="flex flex-col items-center gap-3 p-6 bg-card rounded-2xl border border-border shadow-card card-premium text-center group"
               >
                 <div className="w-12 h-12 rounded-lg gradient-cta flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-6 h-6 text-accent-foreground" />
@@ -553,7 +526,7 @@ const Services = () => {
               No worries. Get in touch and we'll have a no-pressure chat about what would work best for your business.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="hero" size="lg" className="btn-shimmer" asChild>
                 <Link href="/contact">Get a Free Quote <ArrowRight className="w-5 h-5 ml-1" /></Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
