@@ -328,8 +328,6 @@ const Services = () => {
       <section className="section-padding gradient-hero relative overflow-hidden noise-overlay" id="ai-search">
         {/* Radial accent glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,hsl(217_76%_48%/0.15),transparent_70%)]" />
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         {/* Top wave divider */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">

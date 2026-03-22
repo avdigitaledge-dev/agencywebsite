@@ -207,7 +207,7 @@ const Index = () => {
         <div className="hero-orb hero-orb-1" />
         <div className="hero-orb hero-orb-2" />
         <div className="absolute inset-0 hero-noise" />
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+
 
         <motion.div className="container-tight px-4 py-20 md:py-28 relative z-10 w-full" style={{ y: heroY, opacity: heroOpacity }}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -337,7 +337,7 @@ const Index = () => {
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+
         {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
@@ -422,8 +422,6 @@ const Index = () => {
       <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(hsl(0 0% 100% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.4) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
