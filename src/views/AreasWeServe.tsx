@@ -101,33 +101,31 @@ const AreasWeServe = () => {
       <section className="section-padding bg-background">
         <div className="container-tight">
           {regions.map((region) => (
-            <div key={region.heading}>
-              <ScrollReveal variant="B">
-                <motion.h2 variants={fadeUpB} className="text-lg font-bold text-foreground font-display mb-4 mt-8 first:mt-0">
-                  {region.heading}
-                </motion.h2>
-              </ScrollReveal>
-              <ScrollReveal variant="B" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div key={region.heading} className="mb-10">
+              <h2 className="text-lg font-bold text-foreground font-display mb-4">
+                {region.heading}
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {region.locations.map((loc) => (
-                  <motion.div key={loc.name} variants={fadeUpB}>
-                    <Link href={loc.href} className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                  <Link key={loc.name} href={loc.href} className="group block p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                    <div className="flex gap-4">
                       <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">{loc.name}</h3>
                         <p className="text-sm text-muted-foreground">{loc.desc}</p>
                         <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                       </div>
-                    </Link>
-                  </motion.div>
+                    </div>
+                  </Link>
                 ))}
-              </ScrollReveal>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Services We Offer Everywhere */}
-      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+      <section className="section-padding relative" style={{ background: "var(--surface-gradient)" }}>
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="container-tight relative z-10">
           <ScrollReveal variant="B" className="text-center mb-10">
