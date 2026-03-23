@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         {/* Main footer grid */}
-        <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand */}
           <div className="space-y-5">
             <Image src="/assets/digitaledge-logo-white.svg" alt="Digital Edge" width={160} height={40} className="h-10 w-auto" />
@@ -73,10 +73,28 @@ const Footer = () => {
               <Link href="/web-design-newcastle" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Newcastle</Link>
               <Link href="/web-design-central-coast" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Central Coast</Link>
               <Link href="/web-design-campbelltown" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Campbelltown</Link>
-              <Link href="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design for Tradies</Link>
-              <Link href="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare Web Design</Link>
               <Link href="/seo-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">SEO Wollongong</Link>
               <Link href="/digital-marketing-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing Wollongong</Link>
+            </nav>
+          </div>
+
+          {/* Industries */}
+          <div className="space-y-4">
+            <h4 className="font-semibold font-display text-white text-sm uppercase tracking-wider">Industries</h4>
+            <nav className="flex flex-col gap-2.5">
+              <Link href="/web-design-tradies" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Tradies</Link>
+              <Link href="/web-design-restaurants" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Restaurants</Link>
+              <Link href="/web-design-healthcare" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Healthcare</Link>
+              <Link href="/web-design-accountants" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Accountants</Link>
+              <Link href="/web-design-real-estate" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Real Estate</Link>
+              <Link href="/web-design-lawyers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Lawyers</Link>
+              <Link href="/web-design-dentists" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Dentists</Link>
+              <Link href="/web-design-ndis" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">NDIS Providers</Link>
+              <Link href="/web-design-gyms" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Gyms & Fitness</Link>
+              <Link href="/web-design-beauty-salons" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Beauty Salons</Link>
+              <Link href="/web-design-veterinary" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Veterinary</Link>
+              <Link href="/web-design-startups" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Startups</Link>
+              <Link href="/industries" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline font-medium">View All Industries →</Link>
             </nav>
           </div>
 

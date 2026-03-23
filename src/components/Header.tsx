@@ -18,6 +18,7 @@ const servicesDropdown = [
   { label: "Google Ads", href: "/services/google-ads", description: "Instant leads from Google" },
   { label: "Digital Marketing", href: "/services/digital-marketing", description: "SEO, ads & social media" },
   { label: "Maintenance & Hosting", href: "/services/maintenance-hosting", description: "Keep your site secure" },
+  { label: "Industries We Serve", href: "/industries", description: "Web design by industry" },
   { label: "Free Website Review", href: "/free-website-review", description: "Get a free audit of your site" },
 ];
 

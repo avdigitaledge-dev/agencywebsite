@@ -672,6 +672,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══ Industries We Serve ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-12">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Industries We Serve</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              We build industry-specific websites tailored to how your customers search, compare, and buy.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: "Tradies & Contractors", path: "/web-design-tradies" },
+              { label: "Restaurants & Hospitality", path: "/web-design-restaurants" },
+              { label: "Healthcare", path: "/web-design-healthcare" },
+              { label: "Accountants", path: "/web-design-accountants" },
+              { label: "Real Estate", path: "/web-design-real-estate" },
+              { label: "Law Firms", path: "/web-design-lawyers" },
+              { label: "Dentists", path: "/web-design-dentists" },
+              { label: "NDIS Providers", path: "/web-design-ndis" },
+            ].map((ind) => (
+              <motion.div key={ind.path} variants={fadeUp} className="h-full">
+                <Link
+                  href={ind.path}
+                  className="flex items-center justify-center gap-2 p-5 h-full min-h-[64px] bg-card rounded-xl border border-border text-sm font-medium text-foreground hover:border-accent hover:text-accent hover:shadow-md transition-all duration-200 text-center"
+                >
+                  {ind.label}
+                </Link>
+              </motion.div>
+            ))}
+          </ScrollReveal>
+          <ScrollReveal className="text-center mt-6">
+            <motion.div variants={fadeUp}>
+              <Link href="/industries" className="text-sm text-accent font-medium hover:underline">
+                View All Industries →
+              </Link>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ═══ Lead Magnet ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
