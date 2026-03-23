@@ -70,11 +70,12 @@ const Footer = () => {
               <Link href="/web-design-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Wollongong</Link>
               <Link href="/web-design-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sydney</Link>
               <Link href="/web-design-illawarra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Illawarra</Link>
-              <Link href="/web-design-newcastle" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Newcastle</Link>
-              <Link href="/web-design-central-coast" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Central Coast</Link>
-              <Link href="/web-design-campbelltown" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Campbelltown</Link>
-              <Link href="/seo-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">SEO Wollongong</Link>
-              <Link href="/digital-marketing-wollongong" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing Wollongong</Link>
+              <Link href="/web-design-shellharbour" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Shellharbour</Link>
+              <Link href="/web-design-nowra" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Nowra</Link>
+              <Link href="/web-design-sutherland-shire" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sutherland Shire</Link>
+              <Link href="/seo-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">SEO Sydney</Link>
+              <Link href="/digital-marketing-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing Sydney</Link>
+              <Link href="/areas-we-serve" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline font-medium">View All Areas →</Link>
             </nav>
           </div>
 
