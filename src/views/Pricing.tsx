@@ -32,7 +32,7 @@ const Pricing = () => {
     },
     {
       question: "Are there any ongoing costs after the website is built?",
-      answer: "Ongoing costs are optional. We offer Website Maintenance at $99/month, Website Growth Essentials at $349/month (maintenance + basic SEO & content), and full Local SEO from $1,000/month. Hosting costs are separate and vary by provider. We'll advise you on the best option for your budget."
+      answer: "Ongoing costs are optional. We offer Website Maintenance at $99/month, Website Growth Essentials at $349/month (maintenance + basic SEO & content), and full Local SEO from $1,000/month. Hosting costs are separate and vary by provider. We'll advise you on the best option for your budget. For a detailed SEO pricing breakdown, read our SEO pricing guide at /blog/seo-cost-australia."
     },
     {
       question: "Do you offer payment plans?",
@@ -709,6 +709,28 @@ const Pricing = () => {
         faqs={pricingFAQ}
         title="Web Design Pricing — Frequently Asked Questions"
       />
+
+      {/* ═══ Internal Links ═══ */}
+      <section className="section-padding bg-background border-t border-border">
+        <div className="container-tight">
+          <ScrollReveal className="text-center">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-8">Helpful Resources</motion.h2>
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
+              {[
+                { label: "SEO Pricing Guide", path: "/blog/seo-cost-australia" },
+                { label: "Website Cost Guide", path: "/blog/website-cost-wollongong-2025" },
+                { label: "All Services", path: "/services" },
+                { label: "Our Work", path: "/portfolio" },
+                { label: "Contact Us", path: "/contact" },
+              ].map((link) => (
+                <Button key={link.path} variant="outline" asChild>
+                  <Link href={link.path}>{link.label}</Link>
+                </Button>
+              ))}
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
     </>
   );
 };

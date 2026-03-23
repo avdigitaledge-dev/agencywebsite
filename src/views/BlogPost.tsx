@@ -16,7 +16,9 @@ const BlogPost = ({ slug }: { slug: string }) => {
   const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
   const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
   const relatedPosts = post
-    ? blogPosts.filter(p => p.slug !== slug && p.category === post.category).slice(0, 3)
+    ? (post.relatedSlugs
+        ? post.relatedSlugs.map(s => blogPosts.find(p => p.slug === s)).filter(Boolean) as typeof blogPosts
+        : blogPosts.filter(p => p.slug !== slug && p.category === post.category).slice(0, 3))
     : [];
 
   if (!post) {
@@ -62,9 +64,34 @@ const BlogPost = ({ slug }: { slug: string }) => {
     "articleBody": post.content
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitaledgestudio.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://digitaledgestudio.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://digitaledgestudio.com/blog/${post.slug}` }
+    ]
+  };
+
+  const faqSchema = post.faqs && post.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(postSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       <Breadcrumb items={breadcrumbItems} />
 
@@ -219,6 +246,21 @@ const BlogPost = ({ slug }: { slug: string }) => {
                 });
               })()}
             </motion.article>
+
+            {/* FAQ Section */}
+            {post.faqs && post.faqs.length > 0 && (
+              <div className="mt-12">
+                <h2 className="heading-section text-foreground mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-6">
+                  {post.faqs.map((faq, i) => (
+                    <div key={i} className="border border-border rounded-xl p-6 bg-card">
+                      <h3 className="font-semibold text-foreground font-display text-lg mb-3">{faq.question}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </ScrollReveal>
 
           {/* Internal Links */}

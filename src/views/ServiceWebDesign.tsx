@@ -309,6 +309,8 @@ const ServiceWebDesign = () => {
                 { label: "Our Work", path: "/portfolio" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },
+                { label: "How to Choose a Web Designer", path: "/blog/how-to-choose-web-designer-australia" },
+                { label: "Benefits of a Professional Website", path: "/blog/benefits-business-website" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>

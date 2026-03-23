@@ -1,3 +1,8 @@
+export interface BlogFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -12,4 +17,6 @@ export interface BlogPost {
   readTime: number;
   keywords: string[];
   metaDescription: string;
+  faqs?: BlogFAQ[];
+  relatedSlugs?: string[];
 }

@@ -42,7 +42,7 @@ const ServiceSEO = () => {
   const seoFAQ = [
     {
       question: "How long does SEO take to show results?",
-      answer: "Most businesses see noticeable improvements within 3-6 months. SEO is a long-term strategy — the results compound over time and become more powerful the longer you invest."
+      answer: "Most businesses see noticeable improvements within 3-6 months. SEO is a long-term strategy — the results compound over time and become more powerful the longer you invest. Read our guide on how much SEO costs for a full pricing breakdown."
     },
     {
       question: "What's included in your Local SEO package?",
@@ -298,6 +298,8 @@ const ServiceSEO = () => {
                 { label: "SEO Wollongong", path: "/seo-wollongong" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },
+                { label: "SEO Pricing Guide", path: "/blog/seo-cost-australia" },
+                { label: "15 Ways to Improve Your SEO", path: "/blog/improve-website-seo-australia" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>
