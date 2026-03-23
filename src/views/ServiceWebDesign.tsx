@@ -307,6 +307,7 @@ const ServiceWebDesign = () => {
                 { label: "Website Redesign", path: "/services/website-redesign" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Our Work", path: "/portfolio" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },
                 { label: "How to Choose a Web Designer", path: "/blog/how-to-choose-web-designer-australia" },

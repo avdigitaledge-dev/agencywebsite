@@ -295,6 +295,7 @@ const ServiceSEO = () => {
                 { label: "Google Ads", path: "/services/google-ads" },
                 { label: "Digital Marketing", path: "/services/digital-marketing" },
                 { label: "Pricing", path: "/pricing" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "SEO Wollongong", path: "/seo-wollongong" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },

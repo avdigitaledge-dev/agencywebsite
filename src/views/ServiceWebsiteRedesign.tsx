@@ -330,6 +330,7 @@ const ServiceWebsiteRedesign = () => {
                 { label: "Local SEO", path: "/services/seo" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Our Work", path: "/portfolio" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>

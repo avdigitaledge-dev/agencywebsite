@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/contact`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/pricing`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/portfolio`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/reviews`, lastModified: new Date("2026-03-23"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/free-website-review`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.8 },
     // Location pages
     { url: `${BASE_URL}/web-design-wollongong`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },

@@ -553,6 +553,12 @@ const Index = () => {
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
+            <div className="text-center mt-6">
+              <Link href="/reviews" className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm hover:gap-2.5 transition-all">
+                See All Reviews
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

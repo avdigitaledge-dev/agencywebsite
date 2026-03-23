@@ -105,6 +105,7 @@ const Footer = () => {
             <nav className="flex flex-col gap-2.5">
               <Link href="/about" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">About Us</Link>
               <Link href="/portfolio" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Our Work</Link>
+              <Link href="/reviews" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Client Reviews</Link>
               <Link href="/blog" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Blog</Link>
               <Link href="/free-website-review" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Free Website Review</Link>
               <Link href="/contact" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Contact</Link>

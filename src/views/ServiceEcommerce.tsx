@@ -301,6 +301,7 @@ const ServiceEcommerce = () => {
                 { label: "Local SEO", path: "/services/seo" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Portfolio", path: "/portfolio" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "Web Design for Tradies", path: "/web-design-tradies" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Contact Us", path: "/contact" },

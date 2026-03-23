@@ -293,6 +293,7 @@ const ServiceDigitalMarketing = () => {
                 { label: "All Services", path: "/services" },
                 { label: "Local SEO", path: "/services/seo" },
                 { label: "Google Ads", path: "/services/google-ads" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "Digital Marketing Wollongong", path: "/digital-marketing-wollongong" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Contact Us", path: "/contact" },

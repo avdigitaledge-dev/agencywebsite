@@ -277,6 +277,7 @@ const ServiceGoogleAds = () => {
                 { label: "Pricing", path: "/pricing" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },
                 { label: "Web Design Sydney", path: "/web-design-sydney" },
+                { label: "Client Reviews", path: "/reviews" },
                 { label: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <Button key={link.path} variant="outline" asChild>

@@ -254,6 +254,11 @@ const WebDesignRestaurants = () => {
               </motion.div>
             ))}
           </ScrollReveal>
+          <div className="text-center mt-8">
+            <Link href="/reviews" className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm hover:gap-2.5 transition-all">
+              Read more reviews →
+            </Link>
+          </div>
         </div>
       </section>
 

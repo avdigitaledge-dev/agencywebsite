@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
-import { ArrowRight, TrendingUp, MapPin } from "lucide-react";
+import { ArrowRight, TrendingUp, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { portfolioProjects } from "@/data/portfolioProjects";
@@ -84,6 +84,27 @@ const Portfolio = () => {
           <p className="text-xs text-muted-foreground text-center mt-3 col-span-2 md:col-span-4">
             *Based on <Link href="/portfolio/grovespark-electrical-wollongong" className="underline hover:text-accent transition-colors">GroveSpark Electrical, 2024–2025</Link>
           </p>
+        </div>
+      </section>
+
+      {/* Reviews Banner */}
+      <section className="bg-background">
+        <div className="container-tight px-4 py-6">
+          <Link href="/reviews" className="block group">
+            <div className="bg-accent/5 border border-accent/20 rounded-xl p-5 flex items-center justify-between hover:border-accent/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-accent-warm text-accent-warm" />
+                  ))}
+                </div>
+                <p className="text-foreground font-semibold text-sm md:text-base">
+                  See what our clients say <span className="hidden sm:inline">— Read {15} Client Reviews</span>
+                </p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
         </div>
       </section>
 
