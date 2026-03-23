@@ -222,8 +222,8 @@ const WebDesignIllawarra = () => {
               </Link>
             </motion.div>
             <div className="text-center mt-8">
-              <Link href="/reviews" className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm hover:gap-2.5 transition-all">
-                Read more reviews →
+              <Link href="/reviews" className="text-accent hover:underline inline-flex items-center gap-1 mt-4">
+                Read our client reviews <span aria-hidden="true">→</span>
               </Link>
             </div>
           </ScrollReveal>

@@ -554,9 +554,8 @@ const Index = () => {
               </button>
             </div>
             <div className="text-center mt-6">
-              <Link href="/reviews" className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm hover:gap-2.5 transition-all">
-                See All Reviews
-                <ArrowRight className="w-4 h-4" />
+              <Link href="/reviews" className="text-accent hover:underline inline-flex items-center gap-1">
+                See All Reviews <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

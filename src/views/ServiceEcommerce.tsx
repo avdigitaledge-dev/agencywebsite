@@ -245,6 +245,11 @@ const ServiceEcommerce = () => {
               </motion.div>
             ))}
           </ScrollReveal>
+          <div className="text-center mt-8">
+            <Link href="/reviews" className="text-accent hover:underline inline-flex items-center gap-1 mt-4">
+              Read what our clients say <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
