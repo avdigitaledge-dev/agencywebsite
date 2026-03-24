@@ -286,11 +286,11 @@ const WebDesignDentists = () => {
               Real Results for Dental Practices
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-1 max-w-lg mx-auto gap-6">
-              <Link href="/portfolio" className="group">
+              <Link href="/portfolio/affordable-dental-clinic" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">Dental</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Sydney Dental Clinic</h3>
-                  <p className="text-sm text-muted-foreground mb-3">60% increase in online patient bookings</p>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Affordable Dental — Multi-Location, NSW & ACT</h3>
+                  <p className="text-sm text-muted-foreground mb-3">85% increase in new patient bookings with online appointment scheduling across 4 locations</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>
               </Link>

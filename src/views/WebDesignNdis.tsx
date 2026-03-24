@@ -286,11 +286,11 @@ const WebDesignNdis = () => {
               Real Results for NDIS Providers
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-1 max-w-lg mx-auto gap-6">
-              <Link href="/portfolio" className="group">
+              <Link href="/portfolio/guide-me-disability-centre" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">NDIS</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Wollongong NDIS Provider</h3>
-                  <p className="text-sm text-muted-foreground mb-3">3x increase in participant referrals</p>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Guide Me Disability Centre — Sydney, NSW</h3>
+                  <p className="text-sm text-muted-foreground mb-3">70% increase in participant referrals with an accessible, WCAG 2.1 AA compliant website</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>
               </Link>

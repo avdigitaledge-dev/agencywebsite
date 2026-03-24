@@ -287,11 +287,11 @@ const WebDesignRestaurants = () => {
               Real Results for Hospitality Businesses
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-1 max-w-lg mx-auto gap-6">
-              <Link href="/portfolio" className="group">
+              <Link href="/portfolio/finer-pizza-restaurant" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Hospitality</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Local Restaurant</h3>
-                  <p className="text-sm text-muted-foreground mb-3">45% increase in online bookings within 3 months</p>
+                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">Restaurant</span>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Finer Pizza — Melbourne, VIC</h3>
+                  <p className="text-sm text-muted-foreground mb-3">65% increase in online orders and $4,200/mo saved in delivery app commissions</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>
               </Link>

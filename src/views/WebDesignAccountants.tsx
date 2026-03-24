@@ -291,11 +291,11 @@ const WebDesignAccountants = () => {
               Real Results for Financial Professionals
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-1 max-w-lg mx-auto gap-6">
-              <Link href="/portfolio" className="group">
+              <Link href="/portfolio/boroughs-chartered-accountants" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">Accounting</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Local Accounting Firm</h3>
-                  <p className="text-sm text-muted-foreground mb-3">50% increase in online client enquiries</p>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Boroughs Chartered Accountants — Sydney, NSW</h3>
+                  <p className="text-sm text-muted-foreground mb-3">55% increase in high-value client enquiries with a premium website redesign</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>
               </Link>

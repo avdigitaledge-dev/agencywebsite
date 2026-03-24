@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const project = portfolioProjects.find((p) => p.slug === params.slug);
   if (!project) return { title: "Case Study Not Found" };
   return {
-    title: project.title,
+    title: project.metaTitle || project.title,
     description: project.excerpt,
     alternates: { canonical: `https://digitaledgestudio.com/portfolio/${project.slug}` },
     openGraph: {
