@@ -6,7 +6,7 @@ import { useInView } from "framer-motion";
 const AnimatedStat = ({ value, label, white }: { value: string; label: string; white?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!isInView) return;

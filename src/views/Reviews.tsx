@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import { portfolioProjects } from "@/data/portfolioProjects";
+import { RATINGS } from "@/data/siteConfig";
 
 const reviews = [
   {
@@ -191,10 +192,10 @@ const Reviews = () => {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      bestRating: "5",
-      worstRating: "1",
-      reviewCount: String(REVIEW_COUNT),
+      ratingValue: RATINGS.value,
+      bestRating: RATINGS.best,
+      worstRating: RATINGS.worst,
+      reviewCount: RATINGS.count,
     },
     review: reviews.map((r) => ({
       "@type": "Review",

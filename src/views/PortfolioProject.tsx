@@ -48,6 +48,7 @@ const PortfolioProject = ({ slug }: { slug: string }) => {
       "url": "https://digitaledgestudio.com"
     },
     "datePublished": "2025-03-01",
+    "dateModified": "2026-03-24",
     "mainEntityOfPage": `https://digitaledgestudio.com/portfolio/${project.slug}`
   };
 

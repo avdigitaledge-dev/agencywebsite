@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles } from "lucide-react";
@@ -15,6 +16,7 @@ import { useTilt, useMagnetic, useSpotlight } from "@/hooks/use-effects";
 import AnimatedStat from "@/components/AnimatedStat";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
+import { RATINGS } from "@/data/siteConfig";
 
 /* ── Why cards with spotlight + tilt ───────────────────── */
 const TiltCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => {
@@ -170,10 +172,10 @@ const Index = () => {
     "serviceType": ["Web Design", "Digital Marketing", "Local SEO"],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "5",
-      "bestRating": "5",
-      "worstRating": "1"
+      "ratingValue": RATINGS.value,
+      "reviewCount": RATINGS.count,
+      "bestRating": RATINGS.best,
+      "worstRating": RATINGS.worst
     },
     "review": testimonials.slice(0, 5).map(t => ({
       "@type": "Review",
@@ -245,6 +247,7 @@ const Index = () => {
                   </Button>
                 </MagneticButton>
               </motion.div>
+              <p className="text-xs text-white/50 mt-3">Free, no obligation — get a response within 24 hours</p>
               <motion.div variants={fadeUp} className="flex items-center gap-6 mt-10 text-white/70 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-accent" />
@@ -267,11 +270,12 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="relative">
-                <img
+                <Image
                   src="/images/blog/electrician-google-pic.webp"
                   alt="Electrician business ranking first on Google search results"
                   width={560}
                   height={400}
+                  priority
                   className="relative w-full max-w-[560px] object-contain"
                   style={{
                     maskImage: "radial-gradient(ellipse 90% 85% at 50% 50%, black 50%, transparent 100%)",
@@ -578,10 +582,10 @@ const Index = () => {
 
           <ScrollReveal className="grid md:grid-cols-3 gap-6">
             {portfolioProjects.filter(p => p.featured).map((project) => (
+              <Link key={project.id} href={`/portfolio/${project.slug}`} className="block">
               <motion.div
-                key={project.id}
                 variants={fadeUp}
-                className="bg-card rounded-2xl border border-border card-premium overflow-hidden flex flex-col group"
+                className="bg-card rounded-2xl border border-border card-premium overflow-hidden flex flex-col group h-full"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -625,8 +629,12 @@ const Index = () => {
                     </p>
                   )}
                   <p className="text-xs text-muted-foreground mt-2">— {project.testimonial?.name}</p>
+                  <span className="text-accent text-xs font-semibold mt-3 inline-flex items-center gap-1">
+                    View Case Study <ArrowRight className="w-3 h-3" />
+                  </span>
                 </div>
               </motion.div>
+              </Link>
             ))}
           </ScrollReveal>
 

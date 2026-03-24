@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, CheckCircle2, Send, ArrowRight, FileText, AlertTriangle, AlertCircle, Info } from "lucide-react";
+import { Search, CheckCircle2, Send, ArrowRight, FileText, AlertTriangle, AlertCircle, Info, Star, Quote } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -127,8 +127,33 @@ const WebsiteReview = () => {
               </div>
             </motion.div>
 
-            {/* What you get */}
+            {/* Testimonials + What you get */}
             <motion.div variants={fadeUp} className="space-y-8">
+              {/* Testimonials */}
+              <div className="bg-card rounded-2xl border border-border shadow-card p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <Quote className="w-5 h-5 text-accent" />
+                  <h3 className="font-bold text-foreground font-display">What Our Clients Say</h3>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { name: "James T.", biz: "Plumber, Sydney", quote: "Since Digital Edge rebuilt our website, we've had a 60% increase in phone calls from Google." },
+                    { name: "Mark L.", biz: "Electrician, NSW", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps." },
+                  ].map((t) => (
+                    <div key={t.name} className="border-l-2 border-accent/30 pl-4">
+                      <p className="text-sm text-muted-foreground italic leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                      <div className="flex items-center gap-1 mt-1.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                        ))}
+                      </div>
+                      <p className="text-xs text-foreground font-medium mt-1">{t.name} — <span className="text-muted-foreground">{t.biz}</span></p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 text-center">Rated 4.8 stars on Google</p>
+              </div>
+
               <div>
                 <h2 className="heading-section text-foreground mb-4">What We'll Check</h2>
                 <p className="text-muted-foreground mb-8">

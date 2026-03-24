@@ -31,7 +31,7 @@ const MarketingAgencyShoalhaven = () => {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "5",
+      "reviewCount": "16",
       "bestRating": "5",
       "worstRating": "1"
     },
