@@ -17,9 +17,14 @@ const FORMSPREE_ID = "xzdjplaq";
 const WebsiteReview = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(1);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (step === 1) {
+      setStep(2);
+      return;
+    }
     setLoading(true);
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -34,6 +39,7 @@ const WebsiteReview = () => {
           description: "We'll send your free website review within 1 business day.",
         });
         (e.target as HTMLFormElement).reset();
+        setStep(1);
       } else {
         throw new Error("Submit failed");
       }
@@ -85,41 +91,68 @@ const WebsiteReview = () => {
             <motion.div variants={fadeUp}>
               <div className="bg-card rounded-2xl border border-border shadow-card p-8">
                 <h2 className="heading-card text-foreground mb-2">Request Your Free Review</h2>
-                <p className="text-muted-foreground text-sm mb-6">We'll get back to you within 1 business day.</p>
+                <p className="text-muted-foreground text-sm mb-4">We'll get back to you within 1 business day.</p>
+
+                {/* Step indicator */}
+                <div className="flex items-center gap-2 mb-6">
+                  <div className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${step >= 1 ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"}`}>1</div>
+                  <div className={`h-0.5 flex-1 rounded ${step >= 2 ? "bg-accent" : "bg-border"}`} />
+                  <div className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${step >= 2 ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"}`}>2</div>
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <input type="hidden" name="_subject" value="Free Website Review Request" />
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Your Name *</Label>
-                    <Input id="name" name="name" required placeholder="Name" />
+
+                  {/* Step 1: Just email + website URL */}
+                  <div className={step === 1 ? "space-y-5" : "hidden"}>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input id="email" name="email" type="email" required placeholder="you@yourbusiness.com.au" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="website">Your Website URL *</Label>
+                      <Input id="website" name="website" type="url" required placeholder="https://yourbusiness.com.au" />
+                    </div>
+                    <Button type="submit" variant="cta" size="lg" className="w-full">
+                      Next — Almost Done <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input id="email" name="email" type="email" required placeholder="Email" />
+
+                  {/* Step 2: Optional name + challenge */}
+                  <div className={step === 2 ? "space-y-5" : "hidden"}>
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Your Name <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <Input id="name" name="name" placeholder="Name" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="challenge">What's your biggest challenge? <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <select
+                        id="challenge"
+                        name="challenge"
+                        className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                      >
+                        <option value="">Select one...</option>
+                        <option value="not-ranking-google">Not showing up on Google</option>
+                        <option value="low-enquiries">Getting visitors but no enquiries</option>
+                        <option value="outdated-site">Website looks outdated</option>
+                        <option value="mobile-issues">Site doesn't work well on mobile</option>
+                        <option value="slow-site">Site loads too slowly</option>
+                        <option value="not-sure">Not sure — just want feedback</option>
+                      </select>
+                    </div>
+                    <div className="flex gap-3">
+                      <Button type="button" variant="outline" size="lg" onClick={() => setStep(1)} className="shrink-0">
+                        Back
+                      </Button>
+                      <Button type="submit" variant="cta" size="lg" className="w-full" disabled={loading}>
+                        {loading ? "Sending..." : <>Send My Website for Review <Send className="w-4 h-4 ml-2" /></>}
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground text-center">
+                      You can skip these — we only need your URL to start the review.
+                    </p>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="website">Your Website URL *</Label>
-                    <Input id="website" name="website" type="url" required placeholder="https://yourbusiness.com.au" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="challenge">What's your biggest challenge? *</Label>
-                    <select
-                      id="challenge"
-                      name="challenge"
-                      required
-                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                    >
-                      <option value="">Select one...</option>
-                      <option value="not-ranking-google">Not showing up on Google</option>
-                      <option value="low-enquiries">Getting visitors but no enquiries</option>
-                      <option value="outdated-site">Website looks outdated</option>
-                      <option value="mobile-issues">Site doesn't work well on mobile</option>
-                      <option value="slow-site">Site loads too slowly</option>
-                      <option value="not-sure">Not sure — just want feedback</option>
-                    </select>
-                  </div>
-                  <Button type="submit" variant="cta" size="lg" className="w-full" disabled={loading}>
-                    {loading ? "Sending..." : <>Send My Website for Review <Send className="w-4 h-4 ml-2" /></>}
-                  </Button>
+
                   <p className="text-xs text-muted-foreground text-center">
                     Free, no obligation. We respond within 1 business day.
                   </p>

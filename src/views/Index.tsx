@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles, AlertCircle } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -316,6 +316,34 @@ const Index = () => {
           <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
             <path d="M0,60 Q600,-20 1200,60 L1200,60 L0,60 Z" className="fill-background" />
           </svg>
+        </div>
+      </section>
+
+      {/* ═══ Pain-Point Agitation ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight max-w-3xl">
+          <ScrollReveal className="text-center">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-6">Sound Familiar?</motion.h2>
+            <motion.div variants={fadeUp} className="space-y-4 text-left">
+              {[
+                "You paid thousands for a website that sits there doing nothing — no calls, no enquiries, no leads.",
+                "Your competitors show up on Google first, even though you've been in business longer.",
+                "You're getting visitors but nobody's picking up the phone or filling out the form.",
+                "Your website looks outdated on mobile and takes forever to load.",
+              ].map((pain) => (
+                <div key={pain} className="flex items-start gap-3 bg-card rounded-xl border border-border p-4">
+                  <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                  <p className="text-muted-foreground leading-relaxed">{pain}</p>
+                </div>
+              ))}
+            </motion.div>
+            <motion.p variants={fadeUp} className="text-body-lg text-foreground mt-8 font-medium">
+              You're not alone — and it's not your fault. Most web designers build pretty sites, not ones that actually generate business.
+            </motion.p>
+            <motion.p variants={fadeUp} className="text-accent font-semibold mt-2">
+              That's exactly what we fix.
+            </motion.p>
+          </ScrollReveal>
         </div>
       </section>
 
