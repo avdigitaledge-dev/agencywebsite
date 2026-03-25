@@ -8,41 +8,42 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    const API_KEY = process.env.MAILCHIMP_API_KEY;
-    const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+    const API_TOKEN = process.env.MAILERLITE_API_TOKEN;
+    const GROUP_ID = process.env.MAILERLITE_GROUP_ID;
 
-    if (!API_KEY || !AUDIENCE_ID) {
-      return NextResponse.json({ error: "Mailchimp not configured" }, { status: 500 });
+    if (!API_TOKEN) {
+      return NextResponse.json({ error: "MailerLite not configured" }, { status: 500 });
     }
 
-    const DC = API_KEY.split("-")[1]; // "us20"
+    const body: Record<string, unknown> = {
+      email,
+      fields: {
+        name: firstName || "",
+      },
+    };
 
-    const res = await fetch(
-      `https://${DC}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `apikey ${API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email_address: email,
-          status: "subscribed",
-          merge_fields: {
-            FNAME: firstName || "",
-          },
-        }),
-      }
-    );
+    if (GROUP_ID) {
+      body.groups = [GROUP_ID];
+    }
+
+    const res = await fetch("https://connect.mailerlite.com/api/subscribers", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(body),
+    });
 
     const data = await res.json();
 
-    // 400 = already subscribed — treat as success
-    if (res.ok || data.title === "Member Exists") {
+    // 200 = new subscriber, 201 = created, 422 = already exists — all success
+    if (res.ok || res.status === 422) {
       return NextResponse.json({ success: true });
     }
 
-    return NextResponse.json({ error: data.detail || "Subscribe failed" }, { status: 400 });
+    return NextResponse.json({ error: data.message || "Subscribe failed" }, { status: 400 });
   } catch {
     return NextResponse.json({ error: "Internal error" }, { status: 500 });
   }
