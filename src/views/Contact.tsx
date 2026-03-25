@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/utils";
 import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare, ArrowRight, Star, Quote } from "lucide-react";
@@ -39,6 +40,7 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
 };
 
 const Contact = () => {
+  const router = useRouter();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
@@ -100,11 +102,9 @@ const Contact = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "contact_form" });
-        toast({
-          title: "Quote request sent!",
-          description: "We'll get back to you within 24 hours.",
-        });
         (e.target as HTMLFormElement).reset();
+        router.push("/contact-thank-you");
+        return;
       } else {
         throw new Error("Submit failed");
       }

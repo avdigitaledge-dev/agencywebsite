@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Search, CheckCircle2, Send, ArrowRight, FileText, AlertTriangle, AlertCircle, Info, Star, Quote } from "lucide-react";
 import Link from "next/link";
@@ -15,6 +16,7 @@ import { stagger, fadeUp } from "@/lib/animations";
 const FORMSPREE_ID = "xzdjplaq";
 
 const WebsiteReview = () => {
+  const router = useRouter();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
@@ -34,12 +36,9 @@ const WebsiteReview = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "free_website_review" });
-        toast({
-          title: "Review request received!",
-          description: "We'll send your free website review within 1 business day.",
-        });
         (e.target as HTMLFormElement).reset();
-        setStep(1);
+        router.push("/contact-thank-you");
+        return;
       } else {
         throw new Error("Submit failed");
       }
