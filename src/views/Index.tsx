@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles, AlertCircle } from "lucide-react";
+import { ArrowRight, Globe, Search, Shield, CheckCircle2, Star, MapPin, TrendingUp, ChevronLeft, ChevronRight, Quote, Zap, BarChart3, ShoppingCart, Rocket, Download, Send, Sparkles, AlertCircle, Calculator } from "lucide-react";
 import { portfolioProjects } from "@/data/portfolioProjects";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -779,6 +779,43 @@ const Index = () => {
                 </Button>
               </form>
               <p className="text-xs text-muted-foreground mt-3">PDF · Free · No spam, ever.</p>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Free Tools ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-12">
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">
+              Free Tools
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Free Tools to Help You Get Started</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Not ready to chat yet? Use our free tools to get instant insights about your website.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <motion.div variants={fadeUp}>
+              <Link href="/website-cost-calculator" className="block group">
+                <div className="bg-card rounded-2xl border border-border shadow-card p-6 card-hover-lift h-full">
+                  <Calculator className="w-8 h-8 text-accent mb-3" />
+                  <h3 className="font-bold text-foreground font-display mb-2">Website Cost Calculator</h3>
+                  <p className="text-sm text-muted-foreground mb-3">Get an instant estimate tailored to your business.</p>
+                  <span className="text-accent text-sm font-semibold inline-flex items-center gap-1">Calculate Now <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Link href="/free-website-audit" className="block group">
+                <div className="bg-card rounded-2xl border border-border shadow-card p-6 card-hover-lift h-full">
+                  <BarChart3 className="w-8 h-8 text-accent mb-3" />
+                  <h3 className="font-bold text-foreground font-display mb-2">Free Website Audit</h3>
+                  <p className="text-sm text-muted-foreground mb-3">Check your SEO, speed, mobile, and security scores.</p>
+                  <span className="text-accent text-sm font-semibold inline-flex items-center gap-1">Audit My Site <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
             </motion.div>
           </ScrollReveal>
         </div>

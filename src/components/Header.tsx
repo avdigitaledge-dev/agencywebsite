@@ -29,6 +29,7 @@ const navLinks = [
   { label: "Our Work", href: "/portfolio" },
   { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },
+  { label: "Free Tools", href: "/free-tools" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];

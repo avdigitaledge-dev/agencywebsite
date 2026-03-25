@@ -247,6 +247,16 @@ const BlogPost = ({ slug }: { slug: string }) => {
               })()}
             </motion.article>
 
+            {/* Tool CTA */}
+            <div className="my-8 p-6 rounded-2xl border border-accent/20 bg-accent/5">
+              <p className="font-semibold text-foreground mb-2">Want to check your website's health?</p>
+              <p className="text-sm text-muted-foreground mb-3">Use our free tools to get instant insights — no obligation.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/website-cost-calculator" className="text-accent text-sm font-semibold hover:underline">Website Cost Calculator →</Link>
+                <Link href="/free-website-audit" className="text-accent text-sm font-semibold hover:underline">Free Website Audit →</Link>
+              </div>
+            </div>
+
             {/* FAQ Section */}
             {post.faqs && post.faqs.length > 0 && (
               <div className="mt-12">
