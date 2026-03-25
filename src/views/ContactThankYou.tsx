@@ -35,9 +35,21 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
 
 const featuredProjects = portfolioProjects.filter(p => p.featured).slice(0, 3);
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitaledgestudio.com" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://digitaledgestudio.com/contact" },
+    { "@type": "ListItem", "position": 3, "name": "Thank You" },
+  ],
+};
+
 const ContactThankYou = () => {
   return (
     <>
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ═══ Confirmation Hero ═══ */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
