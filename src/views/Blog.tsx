@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/utils";
+import { subscribeToMailchimp } from "@/lib/subscribe";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
 
@@ -32,6 +33,8 @@ const Blog = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "checklist_download" });
+        const formData = new FormData(e.target as HTMLFormElement);
+        subscribeToMailchimp(formData.get("email") as string);
         router.push("/checklist-thank-you");
       } else throw new Error();
     } catch {

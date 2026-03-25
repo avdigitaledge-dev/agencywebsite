@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/utils";
+import { subscribeToMailchimp } from "@/lib/subscribe";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
 
@@ -36,7 +37,10 @@ const WebsiteReview = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "free_website_review" });
-        (e.target as HTMLFormElement).reset();
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+        subscribeToMailchimp(formData.get("email") as string, formData.get("name") as string);
+        form.reset();
         router.push("/contact-thank-you");
         return;
       } else {

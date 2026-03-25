@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/utils";
+import { subscribeToMailchimp } from "@/lib/subscribe";
 import { Mail, MapPin, Clock, Send, Calendar, User, Phone, Building2, MessageSquare, ArrowRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -102,6 +103,7 @@ const Contact = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "contact_form" });
+        subscribeToMailchimp(emailVal, nameVal);
         (e.target as HTMLFormElement).reset();
         router.push("/contact-thank-you");
         return;

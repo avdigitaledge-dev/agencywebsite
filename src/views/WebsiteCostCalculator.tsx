@@ -42,6 +42,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/utils";
+import { subscribeToMailchimp } from "@/lib/subscribe";
 
 /* ── Constants ───────────────────────────────────────────── */
 
@@ -259,6 +260,7 @@ const WebsiteCostCalculator = () => {
       });
       if (res.ok) {
         trackEvent("generate_lead", { form_name: "website_cost_calculator" });
+        subscribeToMailchimp(formEmail, formName);
         setSubmitted(true);
       } else {
         throw new Error("Submit failed");

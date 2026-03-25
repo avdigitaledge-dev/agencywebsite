@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import Link from "next/link";
+import { subscribeToMailchimp } from "@/lib/subscribe";
 import {
   Search,
   Shield,
@@ -204,6 +205,7 @@ const FreeWebsiteAudit = () => {
         body: formData,
         headers: { Accept: "application/json" },
       });
+      subscribeToMailchimp(email, name);
     } catch {
       // Silent — we still show the audit results
     }
