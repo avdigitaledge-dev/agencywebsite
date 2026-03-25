@@ -249,7 +249,7 @@ const WebsiteCostCalculator = () => {
     formData.append("features", selectedFeatures.join(", "));
     formData.append("services", selectedServices.join(", "));
     formData.append("estimated_range", `$${low.toLocaleString()} \u2013 $${high.toLocaleString()}`);
-    formData.append("_subject", `Website Cost Calculator \u2014 ${formName}`);
+    formData.append("_subject", `Website Cost Calculator — ${formName}`);
 
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -927,10 +927,10 @@ const WebsiteCostCalculator = () => {
           </ScrollReveal>
           <ScrollReveal className="space-y-4">
             {[
-              "Custom-designed websites \u2014 no templates, no cookie-cutter layouts",
+              "Custom-designed websites — no templates, no cookie-cutter layouts",
               "Conversion-focused design backed by data and local market expertise",
-              "Full SEO setup included with every build \u2014 so Google can find you from day one",
-              "Australian-owned, Wollongong-based \u2014 we understand local business",
+              "Full SEO setup included with every build — so Google can find you from day one",
+              "Australian-owned, Wollongong-based — we understand local business",
               "Transparent pricing with no hidden fees or surprise charges",
               "Ongoing support and maintenance plans to keep your site running smoothly",
               "5-star reviews from real local businesses across the Illawarra and Sydney",
@@ -954,7 +954,7 @@ const WebsiteCostCalculator = () => {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────── */}
-      <FAQ faqs={faqs} title="Website Cost Calculator \u2014 FAQ" />
+      <FAQ faqs={faqs} title={"Website Cost Calculator — FAQ"} />
 
       {/* ── Bottom CTA ────────────────────────────────────────── */}
       <section className="gradient-hero relative overflow-hidden">
