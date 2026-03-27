@@ -9,32 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignCampbelltown = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency serving Campbelltown and Macarthur businesses — custom websites, local SEO, and digital marketing for small businesses and tradies across Campbelltown, Camden & Macarthur NSW",
-    "url": "https://digitaledgestudio.com/web-design-campbelltown",
-    "email": "enquiries@digitaledgestudio.com",
-    "areaServed": [
-      { "@type": "City", "name": "Campbelltown" },
-      { "@type": "City", "name": "Camden" },
-      { "@type": "AdministrativeArea", "name": "Macarthur" },
-      { "@type": "City", "name": "Narellan" },
-      { "@type": "City", "name": "Ingleburn" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -83,10 +57,31 @@ const WebDesignCampbelltown = () => {
     { title: "Website Redesign", desc: "Transform your outdated website into a modern, fast-loading site that converts visitors into customers across the Macarthur region." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Campbelltown | Affordable Website Designer",
+    "description": "Professional web design for Campbelltown businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies in Campbelltown, Camden & Macarthur NSW.",
+    "url": "https://digitaledgestudio.com/web-design-campbelltown",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Campbelltown",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Campbelltown",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

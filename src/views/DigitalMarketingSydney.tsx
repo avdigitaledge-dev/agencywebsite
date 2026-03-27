@@ -9,36 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const DigitalMarketingSydney = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Digital marketing agency serving Sydney specialising in SEO, Google Ads, social media, and content marketing for small businesses across all Sydney regions",
-    "url": "https://digitaledgestudio.com/digital-marketing-sydney",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wollongong",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "City", "name": "Parramatta" },
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Digital Marketing", "SEO", "Google Ads", "Social Media Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -109,10 +79,31 @@ const DigitalMarketingSydney = () => {
     { name: "Mark L.", role: "Tradie, Illawarra", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Digital Marketing Agency Sydney | SEO, Ads & Social Media",
+    "description": "Full-service digital marketing agency in Sydney. SEO, Google Ads, social media, and content marketing. Transparent pricing, no lock-in contracts. Free strategy session.",
+    "url": "https://digitaledgestudio.com/digital-marketing-sydney",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Digital Marketing in Sydney",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Sydney",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

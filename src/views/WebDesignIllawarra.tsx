@@ -9,31 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignIllawarra = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design and digital marketing for businesses across the Illawarra region including Wollongong, Shellharbour, Nowra and surrounding areas",
-    "url": "https://digitaledgestudio.com/web-design-illawarra",
-    "email": "enquiries@digitaledgestudio.com",
-    "areaServed": [
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "City", "name": "Shellharbour" },
-      { "@type": "City", "name": "Nowra" },
-      { "@type": "AdministrativeArea", "name": "Illawarra" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -82,10 +57,31 @@ const WebDesignIllawarra = () => {
     { name: "Thirroul & Northern Suburbs", desc: "From Thirroul to Helensburgh — we serve the northern Illawarra corridor." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Illawarra | Wollongong, Shellharbour & Nowra",
+    "description": "Professional web design for Illawarra businesses — Wollongong, Shellharbour, Nowra, Kiama and surrounding areas. Local SEO and digital marketing. Get a free quote.",
+    "url": "https://digitaledgestudio.com/web-design-illawarra",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Illawarra",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Illawarra",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

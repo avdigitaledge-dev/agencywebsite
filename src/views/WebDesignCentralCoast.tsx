@@ -9,32 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignCentralCoast = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency serving Central Coast businesses — custom websites, local SEO, and digital marketing for small businesses and tradies across the Central Coast NSW",
-    "url": "https://digitaledgestudio.com/web-design-central-coast",
-    "email": "enquiries@digitaledgestudio.com",
-    "areaServed": [
-      { "@type": "City", "name": "Gosford" },
-      { "@type": "City", "name": "Wyong" },
-      { "@type": "City", "name": "Terrigal" },
-      { "@type": "City", "name": "Erina" },
-      { "@type": "City", "name": "Tuggerah" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -83,10 +57,31 @@ const WebDesignCentralCoast = () => {
     { title: "Website Redesign", desc: "Transform your outdated website into a modern, fast-loading site that converts visitors into customers." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Central Coast | Affordable Website Designer",
+    "description": "Professional web design for Central Coast businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies in Gosford, Wyong & the Central Coast NSW.",
+    "url": "https://digitaledgestudio.com/web-design-central-coast",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Central Coast",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Central Coast",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

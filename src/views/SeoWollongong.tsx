@@ -9,35 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const SeoWollongong = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "SEO agency in Wollongong specialising in local SEO, Google Maps optimisation, and content strategy for small businesses",
-    "url": "https://digitaledgestudio.com/seo-wollongong",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wollongong",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Local SEO", "Technical SEO", "Google Business Profile Optimisation", "Content Strategy"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -117,10 +88,31 @@ const SeoWollongong = () => {
     { name: "Mark L.", role: "Tradie, Illawarra", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SEO Services Wollongong | Local SEO & Google Rankings",
+    "description": "Expert SEO services in Wollongong. Local SEO, technical audits, content strategy, and Google Business optimisation. Get found on Google. Free SEO audit.",
+    "url": "https://digitaledgestudio.com/seo-wollongong",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "SEO in Wollongong",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wollongong",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

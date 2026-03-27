@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Providers from "./Providers";
 import Layout from "@/components/Layout";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <LocalBusinessSchema />
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

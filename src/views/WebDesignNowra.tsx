@@ -9,36 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignNowra = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency serving Nowra and the Shoalhaven region, specialising in affordable websites and local SEO for small businesses",
-    "url": "https://digitaledgestudio.com/web-design-nowra",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nowra",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Nowra" },
-      { "@type": "City", "name": "Shoalhaven" },
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -101,10 +71,31 @@ const WebDesignNowra = () => {
     { name: "Mark L.", role: "Tradie, Illawarra", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Nowra | Shoalhaven Websites & Local SEO",
+    "description": "Website design for Nowra and Shoalhaven businesses. Fast, mobile-friendly sites with local SEO and Google Ads. Digital Edge Studio — serving the South Coast.",
+    "url": "https://digitaledgestudio.com/web-design-nowra",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Nowra",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Nowra",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

@@ -9,35 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignWollongong = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency in Wollongong specialising in affordable websites and local SEO for tradies and small businesses",
-    "url": "https://digitaledgestudio.com/web-design-wollongong",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wollongong",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -100,10 +71,31 @@ const WebDesignWollongong = () => {
     { name: "Mark L.", role: "Tradie, Illawarra", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Wollongong | Website Designer & Local SEO",
+    "description": "Professional web design in Wollongong. Affordable, custom websites for tradies and small businesses. Local SEO, Google Ads, and website maintenance. Get a free quote today.",
+    "url": "https://digitaledgestudio.com/web-design-wollongong",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Wollongong",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wollongong",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

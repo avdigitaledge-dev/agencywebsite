@@ -9,35 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignShellharbour = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency serving Shellharbour specialising in affordable websites and local SEO for tradies and small businesses",
-    "url": "https://digitaledgestudio.com/web-design-shellharbour",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Shellharbour",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Shellharbour" },
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -100,10 +71,31 @@ const WebDesignShellharbour = () => {
     { name: "Mark L.", role: "Tradie, Illawarra", quote: "The local SEO work has been a game changer. We're now showing up at the top of Google Maps in our area." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Shellharbour | Local Websites That Convert",
+    "description": "Professional web design for Shellharbour businesses. Custom websites, local SEO, and Google Ads by Digital Edge Studio. Based nearby in Wollongong. Free quote.",
+    "url": "https://digitaledgestudio.com/web-design-shellharbour",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Shellharbour",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Shellharbour",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

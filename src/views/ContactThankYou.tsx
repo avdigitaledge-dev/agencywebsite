@@ -195,6 +195,31 @@ const ContactThankYou = () => {
         </div>
       </section>
 
+      {/* ═══ Google Review CTA ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight max-w-xl">
+          <ScrollReveal>
+            <motion.div variants={fadeUp} className="bg-card rounded-2xl border border-border shadow-card p-8 text-center">
+              <div className="flex items-center justify-center gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <h3 className="font-bold text-foreground font-display text-lg mb-2">Already a Client? We'd Love Your Feedback!</h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Your review helps other local businesses find a web design partner they can trust.
+              </p>
+              {/* TODO: Confirm the Google review URL from Google Business Profile */}
+              <Button variant="default" size="lg" asChild>
+                <a href="https://g.page/r/CeNf4hjentYWEBE/review" target="_blank" rel="noopener noreferrer">
+                  ⭐ Leave a Google Review
+                </a>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ═══ Trust Footer ═══ */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">

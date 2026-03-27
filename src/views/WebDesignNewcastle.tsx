@@ -9,31 +9,6 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { staggerB, fadeUpB } from "@/lib/animations";
 
 const WebDesignNewcastle = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design agency serving Newcastle businesses — custom websites, local SEO, and digital marketing for small businesses and tradies across Newcastle, Lake Macquarie & the Hunter Valley",
-    "url": "https://digitaledgestudio.com/web-design-newcastle",
-    "email": "enquiries@digitaledgestudio.com",
-    "areaServed": [
-      { "@type": "City", "name": "Newcastle" },
-      { "@type": "AdministrativeArea", "name": "Lake Macquarie" },
-      { "@type": "AdministrativeArea", "name": "Hunter Valley" },
-      { "@type": "City", "name": "Maitland" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Local SEO", "Digital Marketing", "Google Ads"]
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -82,10 +57,31 @@ const WebDesignNewcastle = () => {
     { title: "Website Redesign", desc: "Transform your outdated Newcastle website into a modern, fast-loading site that converts visitors into customers." },
   ];
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Design Newcastle | Affordable Website Designer",
+    "description": "Professional web design for Newcastle businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies across Newcastle, Lake Macquarie & the Hunter Valley.",
+    "url": "https://digitaledgestudio.com/web-design-newcastle",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Web Design in Newcastle",
+      "provider": { "@id": "https://digitaledgestudio.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Newcastle",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "New South Wales"
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

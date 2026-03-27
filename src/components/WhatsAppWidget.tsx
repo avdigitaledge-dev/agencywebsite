@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 import { trackEvent } from "@/lib/utils";
 
 const WHATSAPP_URL =
-  "https://wa.me/61401871071?text=Hi%2C%20I%20saw%20your%20website%20packages.%20Can%20I%20get%20a%20quote%20for%20web%20design%2C%20SEO%2C%20or%20PPC%20services%3F";
+  "https://wa.me/61419807321?text=Hi%20Digital%20Edge%20Studio%2C%20I%27m%20interested%20in%20your%20web%20design%20services.";
 
 const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -177,49 +177,8 @@ const faq = [
 const featuredCaseStudies = portfolioProjects.slice(0, 6);
 
 const Reviews = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "Digital Edge Studio",
-    image: "https://digitaledgestudio.com/logo.png",
-    url: "https://digitaledgestudio.com",
-    telephone: "+61401871071",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Wollongong",
-      addressRegion: "NSW",
-      addressCountry: "AU",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: RATINGS.value,
-      bestRating: RATINGS.best,
-      worstRating: RATINGS.worst,
-      reviewCount: RATINGS.count,
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      reviewBody: r.text,
-      datePublished: r.date,
-    })),
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
-      />
-
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },

@@ -153,41 +153,6 @@ const Index = () => {
   const heroY = useTransform(heroProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(heroProgress, [0, 0.8], [1, 0]);
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Digital Edge Studio",
-    "description": "Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW",
-    "url": "https://digitaledgestudio.com",
-    "email": "enquiries@digitaledgestudio.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wollongong",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sydney" },
-      { "@type": "City", "name": "Wollongong" },
-      { "@type": "State", "name": "NSW" }
-    ],
-    "priceRange": "$$",
-    "serviceType": ["Web Design", "Digital Marketing", "Local SEO"],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": RATINGS.value,
-      "reviewCount": RATINGS.count,
-      "bestRating": RATINGS.best,
-      "worstRating": RATINGS.worst
-    },
-    "review": testimonials.slice(0, 5).map(t => ({
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-      "author": { "@type": "Person", "name": t.name },
-      "reviewBody": t.quote
-    }))
-  };
-
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -203,7 +168,6 @@ const Index = () => {
 
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       {/* ═══ Hero ═══ */}
