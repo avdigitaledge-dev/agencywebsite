@@ -211,7 +211,7 @@ const ContactThankYou = () => {
               </p>
               {/* TODO: Confirm the Google review URL from Google Business Profile */}
               <Button variant="default" size="lg" asChild>
-                <a href="https://g.page/r/CeNf4hjentYWEBE/review" target="_blank" rel="noopener noreferrer">
+                <a href="https://g.page/r/CeNf4hieLx1WEBM/review" target="_blank" rel="noopener noreferrer">
                   ⭐ Leave a Google Review
                 </a>
               </Button>
