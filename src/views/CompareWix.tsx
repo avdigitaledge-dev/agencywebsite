@@ -48,7 +48,7 @@ const CompareWix = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare" },
+          { label: "Compare", path: "/" },
           { label: "Wix vs Professional Web Design" },
         ]}
       />
