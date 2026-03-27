@@ -43,7 +43,7 @@ const Footer = () => {
               Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW.
             </p>
             <a href="https://www.linkedin.com/company/digitaledgestudio-agency" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="inline-block">
-              <Image src="/images/blog/linkedin-icon.png" alt="LinkedIn" width={32} height={32} className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity duration-200" />
+              <Image src="/images/blog/linkedin-icon.webp" alt="LinkedIn" width={32} height={32} className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity duration-200" />
             </a>
           </div>
 

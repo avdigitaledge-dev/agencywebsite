@@ -176,7 +176,7 @@ const ServiceWebsiteRedesign = () => {
             </motion.div>
             <motion.div variants={fadeUp}>
               <Image
-                src="/images/blog/webdesign-pic.jpg"
+                src="/images/blog/webdesign-pic.webp"
                 alt="Website redesign before and after on laptop and mobile devices"
                 width={600}
                 height={400}

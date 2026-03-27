@@ -132,13 +132,13 @@ const About = () => {
                 className="inline-flex items-center gap-2 mt-6 text-sm text-accent hover:text-accent/80 transition-colors"
                 aria-label="Connect with us on LinkedIn"
               >
-                <Image src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
+                <Image src="/images/blog/linkedin-icon-dark.webp" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity" />
                 Follow us on LinkedIn
               </a>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden border border-border shadow-lg">
               <Image
-                src="/images/blog/about-page-pic.jpg"
+                src="/images/blog/about-page-pic.webp"
                 alt="Digital Edge Studio team working on web design"
                 width={800}
                 height={500}
@@ -185,14 +185,14 @@ const About = () => {
                 className="inline-flex items-center gap-2 mt-6 text-sm text-accent hover:text-accent/80 transition-colors"
                 aria-label="Connect with Aleksandar on LinkedIn"
               >
-                <Image src="/images/blog/linkedin-icon-dark.png" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity invert" />
+                <Image src="/images/blog/linkedin-icon-dark.webp" alt="LinkedIn" width={24} height={24} className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity invert" />
                 Connect on LinkedIn
               </a>
             </motion.div>
             <motion.div variants={fadeUp} className="order-1 lg:order-2 flex justify-center">
               <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden card-glass shadow-lg">
                 <Image
-                  src="/images/blog/founder-pic.png"
+                  src="/images/blog/founder-pic.webp"
                   alt="Aleksandar Savevski — Founder of Digital Edge Studio"
                   width={320}
                   height={320}

@@ -112,7 +112,7 @@ const ServiceEcommerce = () => {
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
               <Image
-                src="/images/blog/e-commerce-pic.png"
+                src="/images/blog/e-commerce-pic.webp"
                 alt="eCommerce online store website design"
                 width={600}
                 height={400}

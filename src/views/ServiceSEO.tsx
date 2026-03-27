@@ -143,7 +143,7 @@ const ServiceSEO = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <Image src="/images/blog/seo-pic.jpg" alt="Local SEO and Google Maps search results" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <Image src="/images/blog/seo-pic.webp" alt="Local SEO and Google Maps search results" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
         </div>

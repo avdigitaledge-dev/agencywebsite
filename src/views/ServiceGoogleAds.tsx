@@ -124,7 +124,7 @@ const ServiceGoogleAds = () => {
               </Button>
             </motion.div>
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <Image src="/images/blog/google-ads-pic.jpg" alt="Digital marketing analytics dashboard" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <Image src="/images/blog/google-ads-pic.webp" alt="Digital marketing analytics dashboard" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
           </ScrollReveal>
         </div>

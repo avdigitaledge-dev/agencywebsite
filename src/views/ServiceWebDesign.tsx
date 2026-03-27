@@ -149,7 +149,7 @@ const ServiceWebDesign = () => {
             </motion.div>
             <motion.div variants={fadeUp}>
               <Image
-                src="/images/blog/webdesign-pic.jpg"
+                src="/images/blog/webdesign-pic.webp"
                 alt="Professional web design on laptop and mobile devices"
                 width={600}
                 height={400}

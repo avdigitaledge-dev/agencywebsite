@@ -96,7 +96,7 @@ const ServiceMaintenanceHosting = () => {
         <div className="container-tight">
           <ScrollReveal className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden min-h-[300px] group image-hover-glow">
-              <Image src="/images/blog/webhosting-pic.jpg" alt="Server security and website maintenance" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
+              <Image src="/images/blog/webhosting-pic.webp" alt="Server security and website maintenance" width={600} height={400} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </motion.div>
             <motion.div variants={fadeUp}>
               <span className="text-accent font-semibold text-base uppercase tracking-wider">What's Included</span>

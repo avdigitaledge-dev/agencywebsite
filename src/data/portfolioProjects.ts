@@ -64,7 +64,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Director, Precision Plumbing Illawarra",
     },
     services: ["Website Design", "Local SEO", "Google Ads Optimisation"],
-    image: "/images/blog/plumbing-project.png",
+    image: "/images/blog/plumbing-project.webp",
     featured: true,
   },
   {
@@ -89,7 +89,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Principal Physiotherapist, Coastal Physiotherapy",
     },
     services: ["Website Design", "Local SEO", "Booking Integration"],
-    image: "/images/blog/phsyio-project.jpg",
+    image: "/images/blog/phsyio-project.webp",
     featured: true,
   },
   {
@@ -114,7 +114,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Director, Allcastle Homes",
     },
     services: ["Website Design", "Content Strategy", "Local SEO"],
-    image: "/images/blog/builder-project.PNG",
+    image: "/images/blog/builder-project.webp",
     featured: false,
   },
   {
@@ -139,7 +139,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Owner, NBG Landscapes",
     },
     services: ["Website Design", "Google Business Profile", "Review Strategy"],
-    image: "/images/blog/landscaping-project.PNG",
+    image: "/images/blog/landscaping-project.webp",
     featured: false,
   },
   {
@@ -164,7 +164,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Operations Manager, Bright & Clean Services",
     },
     services: ["Website Design", "Local SEO", "Google Ads Optimisation"],
-    image: "/images/blog/cleaning-project.jpg",
+    image: "/images/blog/cleaning-project.webp",
     featured: false,
   },
   {
@@ -190,7 +190,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Finer Pizza",
     },
     services: ["Website Design", "Online Ordering Integration", "Local SEO", "Google Business Profile Optimisation"],
-    image: "/images/blog/finer-pizza.png",
+    image: "/images/blog/finer-pizza.webp",
     featured: false,
   },
   {
@@ -216,7 +216,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Affordable Dental",
     },
     services: ["Website Design", "Local SEO", "Google Ads", "Conversion Rate Optimisation"],
-    image: "/images/blog/affordable-dental.png",
+    image: "/images/blog/affordable-dental.webp",
     featured: false,
   },
   {
@@ -242,7 +242,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Boroughs Chartered Accountants",
     },
     services: ["Website Redesign", "SEO", "Content Strategy", "Brand Positioning"],
-    image: "/images/blog/boroughs-accountants.png",
+    image: "/images/blog/boroughs-accountants.webp",
     featured: false,
   },
   {
@@ -268,7 +268,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "Guide Me Disability Centre",
     },
     services: ["Website Design", "Accessibility Optimisation", "SEO", "Referral Form Integration"],
-    image: "/images/blog/guide-me-ndis.png",
+    image: "/images/blog/guide-me-ndis.webp",
     featured: false,
   },
   {
@@ -294,7 +294,7 @@ export const portfolioProjects: PortfolioProject[] = [
       role: "K1N1 Australia",
     },
     services: ["Website Design", "Local SEO", "Google Ads", "Membership Funnel Optimisation"],
-    image: "/images/blog/k1n1-gym.png",
+    image: "/images/blog/k1n1-gym.webp",
     featured: false,
   },
 ];
