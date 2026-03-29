@@ -81,14 +81,11 @@ const WebDesignWollongong = () => {
       "@type": "Service",
       "name": "Web Design in Wollongong",
       "provider": { "@id": "https://digitaledgestudio.com/#business" },
-      "areaServed": {
-        "@type": "City",
-        "name": "Wollongong",
-        "containedInPlace": {
-          "@type": "AdministrativeArea",
-          "name": "New South Wales"
-        }
-      }
+      "areaServed": [
+        { "@type": "City", "name": "Wollongong" },
+        { "@type": "AdministrativeArea", "name": "Illawarra" },
+        { "@type": "AdministrativeArea", "name": "New South Wales" }
+      ]
     }
   };
 
@@ -342,6 +339,55 @@ const WebDesignWollongong = () => {
               <motion.div key={q.name} variants={fadeUpB} className="bg-card rounded-xl p-6 border border-border card-hover-lift">
                 <h3 className="font-semibold text-foreground mb-2">{q.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
+              </motion.div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Suburbs We Serve */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal variant="B" className="text-center mb-10">
+            <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
+              Web Design for Suburbs Across Wollongong
+            </motion.h2>
+            <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              We build websites for businesses in every corner of the Wollongong LGA and wider Illawarra region.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal variant="B">
+            <motion.div variants={fadeUpB} className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+              {["Wollongong CBD", "North Wollongong", "Fairy Meadow", "Figtree", "Unanderra", "Dapto", "West Wollongong", "Keiraville", "Gwynneville", "Mangerton", "Coniston", "Balgownie", "Austinmer", "Thirroul", "Bulli", "Woonona", "Corrimal", "Bellambi", "Towradgi", "Fernhill", "Berkeley", "Warrawong", "Port Kembla", "Windang", "Primbee", "Cringila", "Lake Heights"].map((suburb) => (
+                <span key={suburb} className="px-3 py-1.5 bg-card rounded-full text-sm text-muted-foreground border border-border">
+                  {suburb}
+                </span>
+              ))}
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Related Blog Posts */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal variant="B" className="text-center mb-10">
+            <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
+              Wollongong Web Design Resources
+            </motion.h2>
+          </ScrollReveal>
+          <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { href: "/blog/5-things-wollongong-business-website-2026", title: "5 Things Every Wollongong Business Needs on Their Website in 2026" },
+              { href: "/blog/website-cost-wollongong-2025", title: "How Much Does a Website Cost in Wollongong?" },
+              { href: "/blog/local-seo-wollongong-guide", title: "The Ultimate Guide to Local SEO for Wollongong Businesses" },
+              { href: "/blog/web-design-plumbers-wollongong", title: "Web Design for Plumbers: Get More Local Leads in Wollongong" },
+            ].map((post) => (
+              <motion.div key={post.href} variants={fadeUpB}>
+                <Link href={post.href} className="group flex gap-3 p-4 bg-card rounded-xl border border-border card-hover-lift">
+                  <ArrowRight className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                  <span className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">{post.title}</span>
+                </Link>
               </motion.div>
             ))}
           </ScrollReveal>

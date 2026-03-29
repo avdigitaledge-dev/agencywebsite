@@ -52,6 +52,14 @@ const WebDesignNowra = () => {
           "@type": "Answer",
           "text": "Absolutely — we have experience building websites for tourism and hospitality businesses. We understand the Shoalhaven's tourism market and can create a site that attracts visitors and drives bookings."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of Nowra businesses do you build websites for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We build websites for all types of Nowra and Shoalhaven businesses — including tradies (plumbers, electricians, builders), tourism and hospitality operators, retail shops, real estate agencies, healthcare providers, agricultural businesses, and professional services. Whether you're in Nowra CBD, Huskisson, Berry, or Sanctuary Point, we create websites tailored to your local market."
+        }
       }
     ]
   };
@@ -81,14 +89,11 @@ const WebDesignNowra = () => {
       "@type": "Service",
       "name": "Web Design in Nowra",
       "provider": { "@id": "https://digitaledgestudio.com/#business" },
-      "areaServed": {
-        "@type": "City",
-        "name": "Nowra",
-        "containedInPlace": {
-          "@type": "AdministrativeArea",
-          "name": "New South Wales"
-        }
-      }
+      "areaServed": [
+        { "@type": "City", "name": "Nowra" },
+        { "@type": "AdministrativeArea", "name": "Shoalhaven" },
+        { "@type": "AdministrativeArea", "name": "New South Wales" }
+      ]
     }
   };
 
@@ -251,7 +256,7 @@ const WebDesignNowra = () => {
         <div className="container-tight">
           <ScrollReveal variant="B">
             <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-8 text-center">
-              Real Results in Wollongong
+              Real Results Across the Region
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-3 gap-6">
               <Link href="/portfolio/grovespark-electrical-wollongong" className="group">
@@ -337,6 +342,54 @@ const WebDesignNowra = () => {
               <motion.div key={q.name} variants={fadeUpB} className="bg-card rounded-xl p-6 border border-border card-hover-lift">
                 <h3 className="font-semibold text-foreground mb-2">{q.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{q.acceptedAnswer.text}</p>
+              </motion.div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Suburbs We Serve */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal variant="B" className="text-center mb-10">
+            <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
+              Web Design for Suburbs Across Nowra & the Shoalhaven
+            </motion.h2>
+            <motion.p variants={fadeUpB} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              We build websites for businesses throughout Nowra and the wider Shoalhaven region.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal variant="B">
+            <motion.div variants={fadeUpB} className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+              {["Nowra CBD", "Bomaderry", "South Nowra", "North Nowra", "Worrigee", "West Nowra", "Shoalhaven Heads", "Culburra Beach", "Callala Bay", "Callala Beach", "Huskisson", "Vincentia", "Sanctuary Point", "St Georges Basin", "Sussex Inlet", "Berry", "Kangaroo Valley", "Greenwell Point", "Jervis Bay", "Currarong", "Erowal Bay", "Old Erowal Bay", "Terara", "Cambewarra", "Bangalee"].map((suburb) => (
+                <span key={suburb} className="px-3 py-1.5 bg-card rounded-full text-sm text-muted-foreground border border-border">
+                  {suburb}
+                </span>
+              ))}
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Related Blog Posts */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal variant="B" className="text-center mb-10">
+            <motion.h2 variants={fadeUpB} className="heading-section text-foreground mb-4">
+              Nowra & Shoalhaven Web Design Resources
+            </motion.h2>
+          </ScrollReveal>
+          <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { href: "/blog/website-cost-nowra-shoalhaven-2026", title: "How Much Does a Website Cost in Nowra & the Shoalhaven? (2026 Guide)" },
+              { href: "/blog/small-business-website-features", title: "Small Business Website Design: 10 Essential Features" },
+              { href: "/blog/how-to-choose-web-designer-australia", title: "How to Choose a Web Designer in Australia: The Complete 2026 Guide" },
+            ].map((post) => (
+              <motion.div key={post.href} variants={fadeUpB}>
+                <Link href={post.href} className="group flex gap-3 p-4 bg-card rounded-xl border border-border card-hover-lift">
+                  <ArrowRight className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                  <span className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">{post.title}</span>
+                </Link>
               </motion.div>
             ))}
           </ScrollReveal>

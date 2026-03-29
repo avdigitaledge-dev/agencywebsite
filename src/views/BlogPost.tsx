@@ -279,6 +279,8 @@ const BlogPost = ({ slug }: { slug: string }) => {
             <div className="flex flex-wrap gap-3">
               <Link href="/web-design-wollongong" className="text-sm text-accent hover:underline">Web Design Wollongong</Link>
               <span className="text-muted-foreground">•</span>
+              <Link href="/web-design-nowra" className="text-sm text-accent hover:underline">Web Design Nowra</Link>
+              <span className="text-muted-foreground">•</span>
               <Link href="/web-design-tradies" className="text-sm text-accent hover:underline">Web Design for Tradies</Link>
               <span className="text-muted-foreground">•</span>
               <Link href="/services" className="text-sm text-accent hover:underline">Our Services</Link>
