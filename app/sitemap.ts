@@ -73,7 +73,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vs/godaddy`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/vs/natiive`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/vs/love-my-online-marketing`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/contact-thank-you`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.3 },
     // Legal
     { url: `${BASE_URL}/privacy`, lastModified: new Date("2025-01-01"), changeFrequency: "yearly", priority: 0.5 },
     { url: `${BASE_URL}/terms`, lastModified: new Date("2025-01-01"), changeFrequency: "yearly", priority: 0.5 },
