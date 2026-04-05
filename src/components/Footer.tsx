@@ -55,6 +55,7 @@ const Footer = () => {
               <Link href="/services/ecommerce" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">eCommerce</Link>
               <Link href="/services/seo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Local SEO</Link>
               <Link href="/services/aeo-geo" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AEO & GEO Optimisation</Link>
+              <Link href="/ai-services" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">AI Solutions</Link>
               <Link href="/services/google-ads" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Google Ads</Link>
               <Link href="/services/digital-marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing</Link>
               <Link href="/services/website-redesign" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Website Redesign</Link>
