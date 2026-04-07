@@ -82,7 +82,7 @@ const Portfolio = () => {
             </div>
           ))}
           <p className="text-xs text-muted-foreground text-center mt-3 col-span-2 md:col-span-4">
-            *Based on <Link href="/portfolio/grovespark-electrical-wollongong" className="underline hover:text-accent transition-colors">GroveSpark Electrical, 2024–2025</Link>
+            *Based on <Link href="/portfolio/volt-current-electrical-wollongong" className="underline hover:text-accent transition-colors">Volt Current Electrical, 2024–2025</Link>
           </p>
         </div>
       </section>

@@ -127,9 +127,7 @@ const PortfolioProject = ({ slug }: { slug: string }) => {
             <img
               src={project.image}
               alt={`${project.clientName} website project`}
-              width={1200}
-              height={384}
-              className="w-full h-64 md:h-96 object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

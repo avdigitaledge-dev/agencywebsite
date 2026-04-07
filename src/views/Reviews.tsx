@@ -14,7 +14,7 @@ import { RATINGS } from "@/data/siteConfig";
 const reviews = [
   {
     name: "Mark T.",
-    business: "GroveSpark Electrical",
+    business: "Volt Current Electrical",
     location: "Wollongong",
     rating: 5,
     text: "Aleks and the team built us a website that actually brings in leads. We went from getting zero enquiries online to 15+ a month. Best investment we've made for the business.",
@@ -50,7 +50,7 @@ const reviews = [
   },
   {
     name: "Tom W.",
-    business: "Allcastle Homes",
+    business: "Elysian Estate Builders",
     location: "Sydney",
     rating: 5,
     text: "The website completely changed how clients perceive us. People come to consultations already sold on our work because they've browsed our project gallery. The quality of enquiries has been incredible.",

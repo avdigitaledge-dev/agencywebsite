@@ -231,10 +231,10 @@ const WebDesignSydney = () => {
               Real Results in Sydney
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-1 gap-6 max-w-lg mx-auto">
-              <Link href="/portfolio/allcastle-homes-sydney" className="group">
+              <Link href="/portfolio/elysian-estate-builders-sydney" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">Builder</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Allcastle Homes</h3>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Elysian Estate Builders</h3>
                   <p className="text-sm text-muted-foreground mb-3">$2.4M in projects from website enquiries</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>

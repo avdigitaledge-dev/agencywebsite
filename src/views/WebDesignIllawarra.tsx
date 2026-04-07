@@ -250,11 +250,31 @@ const WebDesignIllawarra = () => {
               </Link>
             </motion.div>
             <motion.div variants={fadeUpB}>
+              <Link href="/web-design-nowra" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Nowra</h3>
+                  <p className="text-sm text-muted-foreground">Custom web design and local SEO for Nowra and Shoalhaven businesses — trades, tourism, and services.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUpB}>
+              <Link href="/web-design-shellharbour" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Shellharbour</h3>
+                  <p className="text-sm text-muted-foreground">Professional web design for Shellharbour and surrounds — helping local businesses get found online.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUpB}>
               <Link href="/web-design-sydney" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
-                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire & more.</p>
+                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire &amp; more.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>

@@ -256,10 +256,10 @@ const WebDesignWollongong = () => {
               Real Results in Wollongong
             </motion.h2>
             <motion.div variants={fadeUpB} className="grid md:grid-cols-3 gap-6">
-              <Link href="/portfolio/grovespark-electrical-wollongong" className="group">
+              <Link href="/portfolio/volt-current-electrical-wollongong" className="group">
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-accent transition-colors card-hover-lift">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider">Electrician</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">GroveSpark Electrical</h3>
+                  <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors mt-2 mb-2">Volt Current Electrical</h3>
                   <p className="text-sm text-muted-foreground mb-3">40+ leads/month from zero online presence</p>
                   <span className="text-sm text-accent font-medium">View Case Study →</span>
                 </div>
@@ -437,11 +437,11 @@ const WebDesignWollongong = () => {
               </Link>
             </motion.div>
             <motion.div variants={fadeUpB}>
-              <Link href="/digital-marketing-wollongong" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+              <Link href="/web-design-nowra" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Digital Marketing Wollongong</h3>
-                  <p className="text-sm text-muted-foreground">Full-service digital marketing — SEO, Google Ads, social media, and content strategy for Wollongong businesses.</p>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Nowra</h3>
+                  <p className="text-sm text-muted-foreground">Professional web design and local SEO for Nowra and Shoalhaven businesses — just 45 minutes south of Wollongong.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>

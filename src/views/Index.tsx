@@ -275,7 +275,7 @@ const Index = () => {
             ))}
           </ScrollReveal>
           <p className="text-xs text-white/40 text-center mt-3 relative z-30">
-            *Based on <Link href="/portfolio/grovespark-electrical-wollongong" className="underline hover:text-white/60 transition-colors">GroveSpark Electrical, 2024–2025</Link>
+            *Based on <Link href="/portfolio/volt-current-electrical-wollongong" className="underline hover:text-white/60 transition-colors">Volt Current Electrical, 2024–2025</Link>
           </p>
         </div>
         {/* Wave divider */}
@@ -287,30 +287,61 @@ const Index = () => {
       </section>
 
       {/* ═══ Pain-Point Agitation ═══ */}
-      <section className="section-padding bg-background">
-        <div className="container-tight max-w-3xl">
+      <section className="relative overflow-hidden">
+        {/* Dark background with texture */}
+        <div className="absolute inset-0 bg-[hsl(222_24%_6%)]" />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(0_84%_60%/0.06),transparent_70%)]" />
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-10 rotate-180">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
+        </div>
+        <div className="container-tight max-w-3xl section-padding relative z-10">
           <ScrollReveal className="text-center">
-            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-6">Sound Familiar?</motion.h2>
+            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 text-red-400 text-sm font-semibold mb-6 backdrop-blur-md border border-red-500/20">
+              <AlertCircle className="w-3.5 h-3.5" />
+              The Problem
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="heading-section text-white mb-10">Sound Familiar?</motion.h2>
             <motion.div variants={fadeUp} className="space-y-4 text-left">
               {[
                 "You paid thousands for a website that sits there doing nothing — no calls, no enquiries, no leads.",
                 "Your competitors show up on Google first, even though you've been in business longer.",
                 "You're getting visitors but nobody's picking up the phone or filling out the form.",
                 "Your website looks outdated on mobile and takes forever to load.",
-              ].map((pain) => (
-                <div key={pain} className="flex items-start gap-3 bg-card rounded-xl border border-border p-4">
-                  <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
-                  <p className="text-muted-foreground leading-relaxed">{pain}</p>
-                </div>
+              ].map((pain, i) => (
+                <motion.div
+                  key={pain}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  viewport={{ once: true }}
+                  className="group flex items-start gap-4 rounded-2xl border border-red-500/10 bg-white/[0.03] backdrop-blur-sm p-5 hover:border-red-500/25 hover:bg-white/[0.05] transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <AlertCircle className="w-4 h-4 text-red-400" />
+                  </div>
+                  <p className="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors">{pain}</p>
+                </motion.div>
               ))}
             </motion.div>
-            <motion.p variants={fadeUp} className="text-body-lg text-foreground mt-8 font-medium">
-              You're not alone — and it's not your fault. Most web designers build pretty sites, not ones that actually generate business.
-            </motion.p>
-            <motion.p variants={fadeUp} className="text-accent font-semibold mt-2">
-              That's exactly what we fix.
-            </motion.p>
+            <motion.div variants={fadeUp} className="mt-12 space-y-3">
+              <p className="text-lg md:text-xl text-white font-medium leading-relaxed">
+                You&apos;re not alone — and it&apos;s not your fault. Most web designers build pretty sites, not ones that actually generate business.
+              </p>
+              <p className="text-accent font-semibold text-lg">
+                That&apos;s exactly what we fix.
+              </p>
+            </motion.div>
           </ScrollReveal>
+        </div>
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px]">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" className="fill-background" />
+          </svg>
         </div>
       </section>
 

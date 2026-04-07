@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import WebDesignNowra from "@/views/WebDesignNowra";
 
 export const metadata: Metadata = {
-  title: "Web Design Nowra | Shoalhaven Websites & Local SEO",
-  description: "Website design for Nowra and Shoalhaven businesses. Fast, mobile-friendly sites with local SEO and Google Ads. Digital Edge Studio — serving the South Coast.",
+  title: "Web Design Nowra | Fast Websites & Local SEO — Digital Edge Studio",
+  description: "Custom web design for Nowra & Shoalhaven businesses. Ultra-fast sites that outperform WordPress, built for Google rankings and real leads. Free quote — no lock-in contracts.",
   alternates: { canonical: "https://digitaledgestudio.com/web-design-nowra" },
 };
 
