@@ -122,7 +122,7 @@ const About = () => {
                   We've seen tradies, physiotherapists, plumbers, electricians, and dozens of other local businesses transform their lead generation by getting a website that actually works. Not a template. Not a DIY drag-and-drop site. A properly built, professionally designed website that ranks on Google and turns visitors into phone calls and enquiries.
                 </p>
                 <p>
-                  We're based in NSW and work with businesses across Sydney, Wollongong, and the surrounding areas. We understand the local market because we're part of it.
+                  We&apos;re based in the Illawarra and work with businesses across <Link href="/web-design-sydney" className="text-accent hover:underline">Sydney</Link>, <Link href="/web-design-wollongong" className="text-accent hover:underline">Wollongong</Link>, and the surrounding areas. We understand the local market because we&apos;re part of it.
                 </p>
               </div>
               <a
