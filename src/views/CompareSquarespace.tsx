@@ -49,7 +49,7 @@ const CompareSquarespace = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "Squarespace vs Professional Web Design" },
         ]}
       />

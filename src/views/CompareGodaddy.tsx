@@ -48,7 +48,7 @@ const CompareGodaddy = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "GoDaddy vs Professional Web Design" },
         ]}
       />

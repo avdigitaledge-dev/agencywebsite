@@ -48,7 +48,7 @@ const CompareNatiive = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "Digital Edge vs natiive" },
         ]}
       />

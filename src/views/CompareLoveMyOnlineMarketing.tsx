@@ -48,7 +48,7 @@ const CompareLoveMyOnlineMarketing = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "Digital Edge vs Love My Online Marketing" },
         ]}
       />

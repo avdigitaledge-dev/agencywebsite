@@ -48,7 +48,7 @@ const CompareWordpress = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "WordPress DIY vs Professional Web Design" },
         ]}
       />

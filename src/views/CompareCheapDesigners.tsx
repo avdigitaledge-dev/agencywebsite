@@ -75,7 +75,7 @@ const CompareCheapDesigners = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Compare", path: "/" },
+          { label: "Compare" },
           { label: "Cheap Web Design vs Professional" },
         ]}
       />
