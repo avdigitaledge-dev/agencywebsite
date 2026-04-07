@@ -1753,9 +1753,9 @@ We're happy to walk you through the options based on your specific situation. Th
   },
   {
     id: '17',
-    title: 'Why Your Website Isn\'t Ranking on Google (And How to Fix It)',
+    title: '11 Reasons Your Website Isn\'t Ranking on Google (+ Fixes)',
     slug: 'website-not-ranking-google',
-    excerpt: 'Frustrated that your website isn\'t showing up on Google? Here are 11 common reasons your site isn\'t ranking — and exactly what to do about each one.',
+    excerpt: 'Not showing up on Google? We break down 11 fixable reasons — from indexing errors to thin content — with step-by-step solutions any business owner can action today.',
     content: `You've built a website, maybe even paid good money for it. But when you search for your business or the services you offer on Google, your site is nowhere to be found. If your website is not ranking on Google, you're not alone — and the fix might be simpler than you think.
 
 Most websites that fail to rank have identifiable, fixable problems. The challenge is knowing where to look. Google considers hundreds of factors when deciding which pages to show in search results, but the majority of ranking failures can be traced back to a handful of common issues.
@@ -1826,9 +1826,9 @@ Bring in a professional if you're dealing with multiple overlapping issues. When
 
 Consider professional SEO services if your site has been stagnant for 6+ months despite your efforts, you're in a competitive industry where your competitors have clearly invested in SEO, you're dealing with a Google penalty or sudden ranking drop, your website needs structural or technical changes beyond your comfort level, or the opportunity cost of your time exceeds the cost of hiring help.
 
-Our professional SEO services include a comprehensive audit that identifies every factor holding your rankings back, followed by a prioritised action plan to fix them systematically.
+Get a Free SEO Health Check
 
-If you want a quick health check before committing to anything, our free website review gives you a clear picture of where your site stands and what needs attention.`,
+Not sure which of these 11 issues are holding your site back? We'll run a free SEO audit and show you exactly what's wrong, what to fix first, and what results to expect — no obligations, no jargon. Most business owners we speak to have 3 to 5 of these issues without realising it. Book a free 15-minute discovery call and we'll walk you through your site's ranking roadblocks live.`,
     author: 'Digital Edge Studio',
     date: '2026-03-10',
     lastUpdated: '2026-03-10',
@@ -1836,7 +1836,7 @@ If you want a quick health check before committing to anything, our free website
     image: '/images/blog/website-not-ranking-google.webp',
     readTime: 12,
     keywords: ['why your website is not ranking on Google', 'website not showing on Google', 'how to fix Google rankings', 'Google ranking problems', 'SEO troubleshooting'],
-    metaDescription: 'Frustrated with your Google rankings? Here are 11 common reasons your site isn\'t ranking — and exactly what to do about each one.',
+    metaDescription: 'Not showing up on Google? We break down 11 fixable reasons — from indexing errors to thin content — with step-by-step solutions any business owner can action today.',
     faqs: [
       {
         question: 'How long does it take for a new website to rank on Google?',
