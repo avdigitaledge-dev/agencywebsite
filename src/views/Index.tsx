@@ -166,9 +166,37 @@ const Index = () => {
     }
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Get a Website That Brings You More Customers",
+    "description": "Getting started is simple. No jargon, no confusion — just results.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Tell Us About Your Business",
+        "text": "Fill out our quick form or give us a call. We'll learn about your business, goals, and what you need."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "We Build Your Solution",
+        "text": "We design and develop your website or SEO strategy, keeping you in the loop every step of the way."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Start Getting More Leads",
+        "text": "Your new website goes live and starts working for you — bringing in calls, enquiries, and customers."
+      }
+    ]
+  };
+
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* ═══ Hero ═══ */}
       <section ref={heroRef} className="gradient-hero relative overflow-hidden min-h-[85vh] flex items-center noise-overlay">

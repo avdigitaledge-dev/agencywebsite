@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Blog from "@/views/Blog";
 
 export const metadata: Metadata = {
-  title: "Web Design & SEO Blog | Tips for Wollongong Small Businesses",
+  title: "Web Design & SEO Blog | Digital Edge Studio",
   description: "Web design, SEO, and digital marketing tips for small businesses and tradies in Wollongong and NSW. Expert advice from Digital Edge Studio.",
   alternates: { canonical: "https://digitaledgestudio.com/blog" },
 };
