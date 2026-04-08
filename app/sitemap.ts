@@ -5,7 +5,7 @@ import { portfolioProjects } from "@/data/portfolioProjects";
 const BASE_URL = "https://digitaledgestudio.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastUpdated = new Date("2026-04-07");
+  const lastUpdated = new Date("2026-04-08");
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/`, lastModified: lastUpdated, changeFrequency: "weekly", priority: 1.0 },

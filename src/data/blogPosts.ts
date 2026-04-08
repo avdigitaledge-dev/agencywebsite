@@ -2090,7 +2090,7 @@ We offer transparent, fixed-price web design for Nowra and Shoalhaven businesses
 We understand the Shoalhaven because we work with businesses across the region — from Nowra CBD and Bomaderry to Huskisson, Berry, and Sanctuary Point. Whether you're a tradie needing a simple lead-generation site or a tourism operator needing an online booking system, we build [websites for Nowra businesses](/web-design-nowra) that actually generate enquiries and customers. Get in touch for a free, no-obligation quote.`,
     author: 'Digital Edge Studio',
     date: '2026-03-30',
-    lastUpdated: '2026-03-30',
+    lastUpdated: '2026-04-08',
     category: 'Web Design',
     image: '/images/blog/web-costs-pic.webp',
     readTime: 8,
