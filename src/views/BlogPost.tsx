@@ -184,7 +184,12 @@ const BlogPost = ({ slug }: { slug: string }) => {
             >
               {(() => {
                 let paragraphCount = 0;
-                const inlineCta = post.category === "SEO" ? {
+                const isNowraPost = post.slug.includes("nowra") || post.slug.includes("shoalhaven");
+                const inlineCta = isNowraPost ? {
+                  text: "Need a website that gets your Nowra business found on Google? We build fast, SEO-ready sites for Shoalhaven businesses.",
+                  ctaText: "See Our Nowra Web Design Packages",
+                  href: "/web-design-nowra",
+                } : post.category === "SEO" ? {
                   text: "Want to see how your site ranks? Get a free website review and find out where you stand.",
                   ctaText: "Get My Free Review",
                   href: "/free-website-review",
