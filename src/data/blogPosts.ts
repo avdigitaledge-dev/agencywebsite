@@ -2068,7 +2068,7 @@ Nowra vs Sydney Web Design Pricing
 
 Here's something Nowra business owners should know: you don't need to pay Sydney prices for a professional website. Sydney web design agencies typically charge $5,000 to $15,000 for a standard business website — often more.
 
-The difference isn't quality — it's overhead. Sydney agencies pay Sydney rent, Sydney salaries, and Sydney marketing costs. They pass those costs on to you. A Nowra-serving agency delivers the same quality of design, development, and SEO at a price that makes sense for regional businesses. Plus, a nearby agency understands the Shoalhaven market — the mix of tourism, trades, agriculture, retail, and professional services that makes this region unique.
+The difference isn't quality — it's overhead. Sydney agencies pay Sydney rent, Sydney salaries, and Sydney marketing costs. They pass those costs on to you. A [Nowra-serving web design agency](/web-design-nowra) delivers the same quality of design, development, and SEO at a price that makes sense for regional businesses. Plus, a nearby agency understands the Shoalhaven market — the mix of tourism, trades, agriculture, retail, and professional services that makes this region unique.
 
 Hidden Costs to Watch Out For
 
@@ -2087,7 +2087,7 @@ Why Nowra Businesses Choose Digital Edge Studio
 
 We offer transparent, fixed-price web design for Nowra and Shoalhaven businesses. No lock-in contracts, no hidden fees, no surprises. Every website we build includes mobile-first design, local SEO for Nowra and surrounding suburbs, Google Analytics, and a content management system so you can make updates yourself.
 
-We understand the Shoalhaven because we work with businesses across the region — from Nowra CBD and Bomaderry to Huskisson, Berry, and Sanctuary Point. Whether you're a tradie needing a simple lead-generation site or a tourism operator needing an online booking system, we build websites that actually generate enquiries and customers. Get in touch for a free, no-obligation quote.`,
+We understand the Shoalhaven because we work with businesses across the region — from Nowra CBD and Bomaderry to Huskisson, Berry, and Sanctuary Point. Whether you're a tradie needing a simple lead-generation site or a tourism operator needing an online booking system, we build [websites for Nowra businesses](/web-design-nowra) that actually generate enquiries and customers. Get in touch for a free, no-obligation quote.`,
     author: 'Digital Edge Studio',
     date: '2026-03-30',
     lastUpdated: '2026-03-30',
@@ -2147,7 +2147,7 @@ Consistency is critical. Your business name, address, and phone number must be i
 
 Step 3: Optimise Your Website for Nowra Keywords
 
-Your website needs to clearly signal to Google that you serve the Nowra and Shoalhaven area. This means more than just mentioning Nowra once on your homepage.
+Your website needs to clearly signal to Google that you serve the Nowra and Shoalhaven area. This means more than just mentioning Nowra once on your homepage. A [well-built Nowra website](/web-design-nowra) starts with the right structure.
 
 Create a dedicated service page for each core service you offer, mentioning your coverage area naturally. If you're an electrician, you need a page targeting "electrician Nowra" with content about the specific electrical services you offer in the Shoalhaven region.
 
@@ -2187,7 +2187,7 @@ The businesses that see results fastest are the ones that combine a well-optimis
 
 Get Started with Local SEO in Nowra
 
-If you want to rank higher on Google and get more customers from the Nowra and Shoalhaven area, Digital Edge Studio can help. We build websites with local SEO built in from day one, and we offer ongoing SEO services specifically designed for regional NSW businesses. Get a free website review and we'll show you exactly where you stand and what needs fixing.`,
+If you want to rank higher on Google and get more customers from the Nowra and Shoalhaven area, Digital Edge Studio can help. We build [websites for Nowra businesses](/web-design-nowra) with local SEO built in from day one, and we offer ongoing SEO services specifically designed for regional NSW businesses. Get a free website review and we'll show you exactly where you stand and what needs fixing.`,
     author: 'Digital Edge Studio',
     date: '2026-04-08',
     category: 'SEO',
@@ -2222,7 +2222,7 @@ If you want to rank higher on Google and get more customers from the Nowra and S
     excerpt: 'Searching for a WordPress developer in Nowra? Before you commit, here\'s why most Shoalhaven businesses get better results with a custom-built website.',
     content: `If you've been searching for a WordPress developer in Nowra or the Shoalhaven, you're probably assuming WordPress is the obvious choice. It's the most popular website platform in the world. Everyone uses it. It must be good, right?
 
-Not necessarily. WordPress was built in 2003 as a blogging tool. It's been bolted onto and patched up for two decades to do things it was never designed for. And for most Nowra small businesses, there's now a better option that costs the same, loads faster, ranks higher on Google, and doesn't require constant maintenance.
+Not necessarily. WordPress was built in 2003 as a blogging tool. It's been bolted onto and patched up for two decades to do things it was never designed for. And for most [Nowra small businesses](/web-design-nowra), there's now a better option that costs the same, loads faster, ranks higher on Google, and doesn't require constant maintenance.
 
 This guide explains why so many Shoalhaven businesses are moving away from WordPress and what they're choosing instead.
 
@@ -2290,7 +2290,7 @@ What does your site score on Google PageSpeed Insights? Ask them to show you a l
 
 The Better Option for Nowra Businesses
 
-Digital Edge Studio builds custom, high-performance websites for businesses across Nowra, the Shoalhaven, and regional NSW. Our sites score 90 to 100 on Google PageSpeed, load in under 1.5 seconds, and include local SEO built in from day one. Same price as WordPress, none of the baggage. No lock-in contracts, no hidden fees, and no ongoing maintenance headaches. Get a free quote and see the difference a fast website makes for your business.`,
+Digital Edge Studio builds [custom, high-performance websites for Nowra businesses](/web-design-nowra) across the Shoalhaven and regional NSW. Our sites score 90 to 100 on Google PageSpeed, load in under 1.5 seconds, and include local SEO built in from day one. Same price as WordPress, none of the baggage. No lock-in contracts, no hidden fees, and no ongoing maintenance headaches. Get a free quote and see the difference a fast website makes for your business.`,
     author: 'Digital Edge Studio',
     date: '2026-04-08',
     category: 'Web Design',
@@ -2363,7 +2363,7 @@ The number one mistake is targeting keywords that are too broad. Running ads for
 
 Not using negative keywords is the second biggest budget drain. Without negative keywords, your plumbing ad might show for "plumber salary" or "plumbing course." Add negatives like "salary," "course," "DIY," "jobs," and "how to" to stop irrelevant clicks eating your budget.
 
-Sending traffic to your homepage instead of a dedicated landing page is another common error. Your Google Ads should land on a page specifically designed for that service and location, with a clear call to action. A page targeting "emergency plumber Nowra" should talk about emergency plumbing in Nowra, not your entire service catalogue.
+Sending traffic to your homepage instead of a dedicated landing page is another common error. Your Google Ads should land on a page specifically designed for that service and location, with a clear call to action. A [dedicated Nowra landing page](/web-design-nowra) targeting "emergency plumber Nowra" should talk about emergency plumbing in Nowra, not your entire service catalogue.
 
 Setting and forgetting your campaigns wastes money over time. Google Ads requires weekly monitoring to adjust bids, pause underperforming keywords, add negative keywords, and test new ad copy. If you're not checking your campaigns at least weekly, you're overspending.
 
@@ -2393,7 +2393,7 @@ If you have a service or product with good margins, you serve the local Nowra an
 
 The businesses that fail with Google Ads are the ones that spend $200 for two weeks, get 5 clicks, and conclude it doesn't work. Give it time, track your results, and optimise based on data.
 
-Digital Edge Studio offers Google Ads management for Nowra and Shoalhaven businesses. We handle keyword research, ad creation, landing page optimisation, and ongoing campaign management. No lock-in contracts and transparent reporting so you always know where your money is going. Contact us for a free consultation.`,
+Digital Edge Studio offers Google Ads management for [Nowra and Shoalhaven businesses](/web-design-nowra). We handle keyword research, ad creation, landing page optimisation, and ongoing campaign management. No lock-in contracts and transparent reporting so you always know where your money is going. Contact us for a free consultation.`,
     author: 'Digital Edge Studio',
     date: '2026-04-08',
     category: 'Digital Marketing',
@@ -2482,7 +2482,7 @@ Interstate or overseas designers often produce generic websites that could belon
 
 How Much Should Web Design Cost in Wollongong?
 
-For a professional small business website in Wollongong, expect to pay between $1,500 and $5,000. This should include custom design, mobile responsiveness, on-page SEO, contact forms, and basic analytics setup.
+For a professional small business website in Wollongong, expect to pay between $1,500 and $5,000. This should include custom design, mobile responsiveness, [on-page SEO](/web-design-wollongong), contact forms, and basic analytics setup.
 
 Anything under $1,000 is almost certainly a template. Anything over $8,000 for a standard small business site means you're either getting a lot of extra features or paying a premium for a big agency with high overheads.
 
@@ -2494,7 +2494,7 @@ Get quotes from at least 3 web designers in Wollongong. Compare not just price b
 
 The best web designer for your Wollongong business is someone who understands your goals, builds sites that actually generate leads, communicates clearly, and delivers on time. Everything else is secondary.
 
-Digital Edge Studio builds custom websites for Wollongong businesses with local SEO, fast load times, and conversion-focused design built in from day one. Get a free consultation and we'll show you what a proper website can do for your business.`,
+Digital Edge Studio builds [custom websites for Wollongong businesses](/web-design-wollongong) with local SEO, fast load times, and conversion-focused design built in from day one. Get a free consultation and we'll show you what a proper website can do for your business.`,
     author: 'Digital Edge Studio',
     date: '2026-04-08',
     category: 'Web Design',
@@ -2593,7 +2593,7 @@ Can I see PageSpeed scores for your recent projects? This single question reveal
 
 What Wollongong Businesses Should Invest In
 
-For a local business in Wollongong, the ideal website investment combines strong design with solid development.
+For a [local business in Wollongong](/web-design-wollongong), the ideal website investment combines strong design with solid development.
 
 Design priorities: clean and professional layout, mobile-first responsive design, clear calls to action above the fold, trust signals like reviews and credentials, and local imagery and context that resonates with Illawarra customers.
 
@@ -2603,7 +2603,7 @@ When both sides are done well, you get a website that looks professional, loads 
 
 Get the Full Package
 
-Digital Edge Studio handles both web design and development for Wollongong businesses. Every site we build is custom-designed for your brand, developed for speed and SEO performance, and built to generate enquiries from local customers. No templates, no locked-in platforms, no surprises. Get a free consultation and we'll assess what your business actually needs.`,
+Digital Edge Studio handles both [web design and development for Wollongong businesses](/web-design-wollongong). Every site we build is custom-designed for your brand, developed for speed and SEO performance, and built to generate enquiries from local customers. No templates, no locked-in platforms, no surprises. Get a free consultation and we'll assess what your business actually needs.`,
     author: 'Digital Edge Studio',
     date: '2026-04-08',
     category: 'Web Design',

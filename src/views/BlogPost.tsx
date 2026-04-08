@@ -10,6 +10,20 @@ import { blogPosts } from "@/data/blogPosts";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
 
+function renderWithLinks(text: string): React.ReactNode {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    const [, linkText, href] = match;
+    if (href.startsWith('/')) {
+      return <Link key={i} href={href} className="text-accent hover:underline font-medium">{linkText}</Link>;
+    }
+    return <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">{linkText}</a>;
+  });
+}
+
 const BlogPost = ({ slug }: { slug: string }) => {
   const post = blogPosts.find(p => p.slug === slug);
   const postIndex = blogPosts.findIndex(p => p.slug === slug);
@@ -185,10 +199,15 @@ const BlogPost = ({ slug }: { slug: string }) => {
               {(() => {
                 let paragraphCount = 0;
                 const isNowraPost = post.slug.includes("nowra") || post.slug.includes("shoalhaven");
+                const isWollongongPost = post.slug.includes("wollongong");
                 const inlineCta = isNowraPost ? {
                   text: "Need a website that gets your Nowra business found on Google? We build fast, SEO-ready sites for Shoalhaven businesses.",
                   ctaText: "See Our Nowra Web Design Packages",
                   href: "/web-design-nowra",
+                } : isWollongongPost ? {
+                  text: "Looking for a web designer in Wollongong? We build fast, SEO-optimised websites that generate leads for Illawarra businesses.",
+                  ctaText: "See Our Wollongong Web Design Packages",
+                  href: "/web-design-wollongong",
                 } : post.category === "SEO" ? {
                   text: "Want to see how your site ranks? Get a free website review and find out where you stand.",
                   ctaText: "Get My Free Review",
@@ -214,14 +233,14 @@ const BlogPost = ({ slug }: { slug: string }) => {
                   if (isHeading) {
                     elements.push(
                       <h2 key={index} className="heading-section text-foreground mt-8 mb-4">
-                        {paragraph}
+                        {renderWithLinks(paragraph)}
                       </h2>
                     );
                   } else if (paragraph.startsWith('- ')) {
                     elements.push(
                       <ul key={index} className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
                         {paragraph.split('\n').filter(line => line.startsWith('- ')).map((item, i) => (
-                          <li key={i}>{item.replace(/^-\s*/, '')}</li>
+                          <li key={i}>{renderWithLinks(item.replace(/^-\s*/, ''))}</li>
                         ))}
                       </ul>
                     );
@@ -229,14 +248,14 @@ const BlogPost = ({ slug }: { slug: string }) => {
                     elements.push(
                       <ol key={index} className="list-decimal list-inside space-y-2 text-muted-foreground leading-relaxed">
                         {paragraph.split('\n').filter(line => line.match(/^\d+\./)).map((item, i) => (
-                          <li key={i}>{item.replace(/^\d+\.\s*/, '')}</li>
+                          <li key={i}>{renderWithLinks(item.replace(/^\d+\.\s*/, ''))}</li>
                         ))}
                       </ol>
                     );
                   } else {
                     paragraphCount++;
                     elements.push(
-                      <p key={index} className="text-muted-foreground leading-relaxed">{paragraph}</p>
+                      <p key={index} className="text-muted-foreground leading-relaxed">{renderWithLinks(paragraph)}</p>
                     );
                   }
 
