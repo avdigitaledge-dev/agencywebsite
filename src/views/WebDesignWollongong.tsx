@@ -743,6 +743,8 @@ const WebDesignWollongong = () => {
               { href: "/blog/website-cost-wollongong-2025", title: "How Much Does a Website Cost in Wollongong?" },
               { href: "/blog/local-seo-wollongong-guide", title: "The Ultimate Guide to Local SEO for Wollongong Businesses" },
               { href: "/blog/web-design-plumbers-wollongong", title: "Web Design for Plumbers: Get More Local Leads in Wollongong" },
+              { href: "/blog/how-to-choose-web-designer-wollongong", title: "How to Choose a Web Designer in Wollongong" },
+              { href: "/blog/website-development-vs-web-design-wollongong", title: "Website Development vs Web Design in Wollongong" },
             ].map((post) => (
               <motion.div key={post.href} variants={fadeUpB}>
                 <Link href={post.href} className="group flex gap-3 p-5 bg-card rounded-xl border border-border card-hover-lift">
