@@ -41,6 +41,10 @@ const BlogPost = ({ slug }: { slug: string }) => {
   const postSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://digitaledgestudio.com/blog/${post.slug}`
+    },
     "headline": post.title,
     "description": post.excerpt,
     "image": post.image,
@@ -59,7 +63,11 @@ const BlogPost = ({ slug }: { slug: string }) => {
     "publisher": {
       "@type": "Organization",
       "name": "Digital Edge Studio",
-      "url": "https://digitaledgestudio.com"
+      "url": "https://digitaledgestudio.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digitaledgestudio.com/assets/digitaledge-logo-main.svg"
+      }
     },
     "articleBody": post.content
   };

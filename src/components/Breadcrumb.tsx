@@ -37,12 +37,14 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": items.map((item, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "name": item.label,
-              ...(item.path && { "item": `https://digitaledgestudio.com${item.path}` })
-            }))
+            "itemListElement": items
+              .filter((item, i) => item.path || i === items.length - 1)
+              .map((item, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "name": item.label,
+                ...(item.path && { "item": `https://digitaledgestudio.com${item.path}` })
+              }))
           })
         }}
       />
