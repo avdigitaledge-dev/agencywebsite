@@ -577,7 +577,7 @@ const AiServices = () => {
             </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <ScrollReveal className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             {[
               {
                 icon: Bot,
@@ -595,6 +595,9 @@ const AiServices = () => {
                   "Monthly performance reporting",
                   "Ongoing training & optimisation",
                 ],
+                ctaHref: "/contact",
+                ctaLabel: "Get Started",
+                badge: null as string | null,
               },
               {
                 icon: Phone,
@@ -612,12 +615,42 @@ const AiServices = () => {
                   "SMS call summaries after every call",
                   "Monthly call analytics & reporting",
                 ],
+                ctaHref: "/contact",
+                ctaLabel: "Get Started",
+                badge: null,
+              },
+              {
+                icon: Zap,
+                title: "AI Lead Response Engine",
+                price: "$1,990",
+                period: "/month",
+                setup: "$2,500 one-time setup",
+                description:
+                  "Replies to every lead in under 60 seconds, qualifies the job, and books it into your calendar — built for Illawarra and Sydney trades.",
+                features: [
+                  "Under 60-second SMS + WhatsApp + email replies",
+                  "Job qualification & calendar booking",
+                  "Google Ads management included",
+                  "Custom landing page",
+                  "Up to 500 leads / month",
+                ],
+                ctaHref: "/ai-services/lead-response-engine",
+                ctaLabel: "Learn More",
+                badge: "Flagship",
               },
             ].map((plan) => (
               <PricingTiltCard
                 key={plan.title}
-                className="bg-card rounded-2xl border border-border shadow-card p-8 card-hover-lift flex flex-col"
+                className="relative bg-card rounded-2xl border border-border shadow-card p-8 card-hover-lift flex flex-col"
               >
+                {plan.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full gradient-cta text-accent-foreground text-xs font-bold uppercase tracking-wider shadow-md whitespace-nowrap">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl gradient-cta flex items-center justify-center shrink-0">
                     <plan.icon className="w-6 h-6 text-accent-foreground" />
@@ -656,8 +689,8 @@ const AiServices = () => {
                   ))}
                 </ul>
                 <Button variant="cta" size="lg" className="w-full" asChild>
-                  <Link href="/contact">
-                    Get Started <ArrowRight className="w-4 h-4 ml-1" />
+                  <Link href={plan.ctaHref}>
+                    {plan.ctaLabel} <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </Button>
               </PricingTiltCard>
