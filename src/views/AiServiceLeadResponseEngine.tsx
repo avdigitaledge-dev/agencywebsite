@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
@@ -22,8 +22,9 @@ import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { useTilt } from "@/hooks/use-effects";
 
-// TODO: Swap the href below with the real Cal.com Lead Leak Audit booking URL once it's live.
-const BOOKING_HREF = "/contact";
+// Primary CTA opens a pre-filled WhatsApp chat to book the free Lead Leak Audit.
+const BOOKING_HREF =
+  "https://wa.me/61419807321?text=Hi%20Aleksandar%2C%20I%27d%20like%20to%20book%20a%20free%20Lead%20Leak%20Audit%20for%20my%20business.";
 
 const PricingTiltCard = ({
   children,
@@ -231,17 +232,18 @@ const AiServiceLeadResponseEngine = () => {
     },
   ];
 
-  const mathRows = [
-    { label: "Average trade business", value: "20 leads / week" },
-    { label: "Current conversion rate", value: "~30% = 6 jobs / week" },
-    { label: "With Lead Response Engine", value: "~50% = 10 jobs / week" },
-    { label: "Extra jobs", value: "4 / week" },
-    {
-      label: "Extra revenue (4 × $800 avg)",
-      value: "$3,200 / week",
-      highlight: true,
-    },
-    { label: "Cost of the system", value: "$1,990 / month" },
+  const withoutStats = [
+    { value: "20", label: "leads / week" },
+    { value: "30%", label: "conversion rate" },
+    { value: "6", label: "jobs / week" },
+    { value: "$4,800", label: "revenue / week" },
+  ];
+
+  const withStats = [
+    { value: "20", label: "leads / week" },
+    { value: "50%", label: "conversion rate" },
+    { value: "10", label: "jobs / week" },
+    { value: "$8,000", label: "revenue / week" },
   ];
 
   return (
@@ -264,50 +266,71 @@ const AiServiceLeadResponseEngine = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-16 md:py-24 relative z-10">
           <motion.div
-            className="max-w-3xl"
+            className="grid lg:grid-cols-2 gap-12 items-center"
             initial="hidden"
             animate="show"
             variants={stagger}
           >
+            <div className="max-w-xl">
+              <motion.div
+                variants={fadeUp}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground/90 text-sm font-semibold mb-6"
+              >
+                <Zap className="w-4 h-4" />
+                Flagship AI Service
+              </motion.div>
+              <motion.h1
+                variants={fadeUp}
+                className="heading-display text-primary-foreground mb-4"
+              >
+                Stop Losing Jobs to Slow Replies.{" "}
+                <span className="text-gradient">
+                  Book More Trade Work on Autopilot.
+                </span>
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8"
+              >
+                The average Illawarra tradie misses 7 out of 10 leads because
+                they can't answer the phone on the tools. Our AI Lead Response
+                Engine replies in under 60 seconds, qualifies the job, and
+                books it straight into your calendar — 24 hours a day, 7 days
+                a week.
+              </motion.p>
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <Button variant="hero" size="lg" asChild>
+                  <a
+                    href={BOOKING_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book a Free Lead Leak Audit{" "}
+                    <ArrowRight className="w-5 h-5 ml-1" />
+                  </a>
+                </Button>
+                <Button variant="hero-outline" size="lg" asChild>
+                  <a href="#how-it-works">See How It Works</a>
+                </Button>
+              </motion.div>
+            </div>
+
             <motion.div
               variants={fadeUp}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground/90 text-sm font-semibold mb-6"
+              className="relative mx-auto w-full max-w-sm lg:max-w-md mt-4 lg:mt-0"
             >
-              <Zap className="w-4 h-4" />
-              Flagship AI Service
-            </motion.div>
-            <motion.h1
-              variants={fadeUp}
-              className="heading-display text-primary-foreground mb-4"
-            >
-              Stop Losing Jobs to Slow Replies.{" "}
-              <span className="text-gradient">
-                Book More Trade Work on Autopilot.
-              </span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8"
-            >
-              The average Illawarra tradie misses 7 out of 10 leads because they
-              can't answer the phone on the tools. Our AI Lead Response Engine
-              replies in under 60 seconds, qualifies the job, and books it
-              straight into your calendar — 24 hours a day, 7 days a week.
-            </motion.p>
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              {/* TODO: Swap href for the real Cal.com Lead Leak Audit booking URL once live. */}
-              <Button variant="hero" size="lg" asChild>
-                <Link href={BOOKING_HREF}>
-                  Book a Free Lead Leak Audit{" "}
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <a href="#how-it-works">See How It Works</a>
-              </Button>
+              <Image
+                src="/images/ai-services/lead-response-engine-hero.png"
+                alt="Phone mockup showing the AI Lead Response Engine replying to a homeowner's enquiry in under 60 seconds and booking the job into the tradie's calendar."
+                width={560}
+                height={840}
+                priority
+                sizes="(max-width: 1024px) 80vw, 480px"
+                className="w-full h-auto drop-shadow-2xl rounded-2xl"
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -528,17 +551,20 @@ const AiServiceLeadResponseEngine = () => {
                     </li>
                   ))}
                 </ul>
-                {/* TODO: Swap href for the real Cal.com Lead Leak Audit booking URL once live. */}
                 <Button
                   variant={plan.featured ? "cta" : "outline"}
                   size="lg"
                   className="w-full"
                   asChild
                 >
-                  <Link href={BOOKING_HREF}>
+                  <a
+                    href={BOOKING_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Book My Free Audit{" "}
                     <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
+                  </a>
                 </Button>
               </PricingTiltCard>
             ))}
@@ -577,34 +603,71 @@ const AiServiceLeadResponseEngine = () => {
           <ScrollReveal>
             <motion.div
               variants={fadeUp}
-              className="max-w-2xl mx-auto bg-card rounded-2xl border border-border shadow-card p-8 md:p-10"
+              className="max-w-3xl mx-auto bg-card rounded-2xl border border-border shadow-card p-6 md:p-10"
             >
-              <ul className="divide-y divide-border">
-                {mathRows.map((row) => (
-                  <li
-                    key={row.label}
-                    className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
-                  >
-                    <span
-                      className={`text-sm md:text-base ${
-                        row.highlight
-                          ? "text-foreground font-semibold"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      {row.label}
-                    </span>
-                    <span
-                      className={`text-base md:text-lg font-bold font-display tabular-nums text-right ${
-                        row.highlight ? "text-accent" : "text-foreground"
-                      }`}
-                    >
-                      {row.value}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
+              <div className="grid sm:grid-cols-2 gap-8 sm:gap-6 md:gap-12">
+                {/* Without the Engine */}
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-8 text-center">
+                    Without the Engine
+                  </h3>
+                  <div className="space-y-6">
+                    {withoutStats.map((stat) => (
+                      <div
+                        key={stat.label}
+                        className="text-center"
+                      >
+                        <div className="font-display font-extrabold text-3xl md:text-4xl text-muted-foreground tabular-nums">
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* With the Engine */}
+                <div className="sm:border-l sm:border-border sm:pl-6 md:pl-12">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-accent mb-8 text-center">
+                    With the Engine
+                  </h3>
+                  <div className="space-y-6">
+                    {withStats.map((stat) => (
+                      <div
+                        key={stat.label}
+                        className="text-center"
+                      >
+                        <div className="font-display font-extrabold text-3xl md:text-4xl text-foreground tabular-nums">
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Result row */}
+              <div className="mt-10 pt-8 border-t border-border text-center">
+                <div className="font-display font-extrabold text-4xl md:text-5xl text-green-600 tabular-nums">
+                  +$3,200 / week
+                </div>
+                <div className="text-sm font-semibold text-foreground mt-2">
+                  extra revenue
+                </div>
+                <p className="text-sm text-muted-foreground mt-6">
+                  Cost of the system:{" "}
+                  <span className="font-semibold text-foreground">
+                    $1,990 / month + GST
+                  </span>
+                </p>
+              </div>
+
+              <p className="text-xs text-muted-foreground mt-6 leading-relaxed text-center">
                 Results vary. Numbers based on industry benchmarks for
                 Illawarra trade businesses.
               </p>
@@ -678,12 +741,15 @@ const AiServiceLeadResponseEngine = () => {
               many jobs you're losing each month and what it's costing you.
             </motion.p>
             <motion.div variants={fadeUp} className="flex justify-center">
-              {/* TODO: Swap href for the real Cal.com Lead Leak Audit booking URL once live. */}
               <Button variant="hero" size="lg" asChild>
-                <Link href={BOOKING_HREF}>
+                <a
+                  href={BOOKING_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book My Free Audit{" "}
                   <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
+                </a>
               </Button>
             </motion.div>
             <motion.p
