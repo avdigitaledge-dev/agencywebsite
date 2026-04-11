@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/services/website-redesign`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/services/maintenance-hosting`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/ai-services`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/ai-services/lead-response-engine`, lastModified: new Date("2026-04-11"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/blog`, lastModified: lastUpdated, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.5 },

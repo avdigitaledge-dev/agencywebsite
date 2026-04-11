@@ -16,6 +16,7 @@ const servicesDropdown = [
   { label: "Local SEO", href: "/services/seo", description: "Rank higher on Google" },
   { label: "AEO & GEO Optimisation", href: "/services/aeo-geo", description: "Get found in AI search results" },
   { label: "AI Solutions", href: "/ai-services", description: "AI chatbots & voice receptionists" },
+  { label: "AI Lead Response Engine", href: "/ai-services/lead-response-engine", description: "Reply to every lead in under 60 seconds" },
   { label: "Google Ads", href: "/services/google-ads", description: "Instant leads from Google" },
   { label: "Digital Marketing", href: "/services/digital-marketing", description: "SEO, ads & social media" },
   { label: "Maintenance & Hosting", href: "/services/maintenance-hosting", description: "Keep your site secure" },
@@ -83,7 +84,7 @@ const Header = () => {
     pathname.startsWith("/web-design-") ||
     pathname === "/free-website-review" ||
     pathname.startsWith("/services/") ||
-    pathname === "/ai-services";
+    pathname.startsWith("/ai-services");
 
   return (
     <header

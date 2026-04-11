@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingCart, Globe, Search, Shield, BarChart3, Users, Star, Sparkles } from "lucide-react";
+import { ArrowRight, ShoppingCart, Globe, Search, Shield, BarChart3, Users, Star, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -47,6 +47,15 @@ const services = [
     alt: "",
     href: "/services/aeo-geo",
     price: "Included with SEO",
+  },
+  {
+    icon: Zap,
+    title: "AI Lead Response Engine",
+    description: "Replies to every lead in under 60 seconds via SMS and WhatsApp, qualifies the job, and books it straight into your calendar — 24/7. Built for Wollongong and Sydney tradies.",
+    image: null,
+    alt: "",
+    href: "/ai-services/lead-response-engine",
+    price: "From $990/month",
   },
   {
     icon: BarChart3,

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { stagger, fadeUp } from "@/lib/animations";
@@ -47,13 +48,34 @@ const AiServiceLeadResponseEngine = () => {
     "@type": "Service",
     name: "AI Lead Response Engine",
     description:
-      "AI lead response service for home-service tradies. Replies to inbound leads in under 60 seconds via SMS and WhatsApp, qualifies the job, and books it straight into your calendar — 24/7.",
+      "AI lead response service for home-service tradies in Wollongong, the Illawarra and Sydney. Replies to inbound leads in under 60 seconds via SMS and WhatsApp, qualifies the job, and books it straight into your calendar — 24/7.",
     provider: {
-      "@type": "Organization",
+      "@type": "LocalBusiness",
+      "@id": "https://digitaledgestudio.com/#localbusiness",
       name: "Digital Edge Studio",
       url: "https://digitaledgestudio.com",
+      telephone: "+61419807321",
+      email: "enquiries@digitaledgestudio.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Wollongong",
+        addressRegion: "NSW",
+        addressCountry: "AU",
+      },
+      areaServed: [
+        { "@type": "City", name: "Wollongong" },
+        { "@type": "Place", name: "Illawarra" },
+        { "@type": "City", name: "Sydney" },
+        { "@type": "State", name: "New South Wales" },
+      ],
     },
-    areaServed: ["Illawarra", "Wollongong", "Sydney", "NSW", "Australia"],
+    areaServed: [
+      { "@type": "City", name: "Wollongong" },
+      { "@type": "Place", name: "Illawarra" },
+      { "@type": "City", name: "Sydney" },
+      { "@type": "State", name: "New South Wales" },
+      { "@type": "Country", name: "Australia" },
+    ],
     serviceType: "AI Lead Response & Booking Automation",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -283,11 +305,18 @@ const AiServiceLeadResponseEngine = () => {
                 variants={fadeUp}
                 className="heading-display text-primary-foreground mb-4"
               >
-                Stop Losing Jobs to Slow Replies.{" "}
+                AI Lead Response Engine for{" "}
                 <span className="text-gradient">
-                  Book More Trade Work on Autopilot.
+                  Wollongong &amp; Sydney Tradies
                 </span>
               </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="text-xl md:text-2xl font-semibold text-primary-foreground/90 max-w-2xl mb-4 leading-snug"
+              >
+                Stop losing jobs to slow replies. Book more trade work on
+                autopilot.
+              </motion.p>
               <motion.p
                 variants={fadeUp}
                 className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8"
@@ -772,6 +801,37 @@ const AiServiceLeadResponseEngine = () => {
               className="fill-background"
             />
           </svg>
+        </div>
+      </section>
+
+      {/* ═══ Explore More (internal links) ═══ */}
+      <section className="section-padding bg-background border-t border-border">
+        <div className="container-tight">
+          <ScrollReveal className="text-center">
+            <motion.h2
+              variants={fadeUp}
+              className="heading-section text-foreground mb-8"
+            >
+              Explore More
+            </motion.h2>
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap justify-center gap-4"
+            >
+              {[
+                { label: "All AI Services", path: "/ai-services" },
+                { label: "Web Design for Tradies", path: "/web-design-tradies" },
+                { label: "Web Design Wollongong", path: "/web-design-wollongong" },
+                { label: "Google Ads Management", path: "/services/google-ads" },
+                { label: "All Services", path: "/services" },
+                { label: "Contact Us", path: "/contact" },
+              ].map((link) => (
+                <Button key={link.path} variant="outline" asChild>
+                  <Link href={link.path}>{link.label}</Link>
+                </Button>
+              ))}
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
     </>

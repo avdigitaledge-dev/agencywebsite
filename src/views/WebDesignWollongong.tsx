@@ -518,6 +518,42 @@ const WebDesignWollongong = () => {
         </div>
       </section>
 
+      {/* Lead Response Engine Callout */}
+      <section className="section-padding bg-background">
+        <div className="container-tight">
+          <ScrollReveal variant="B">
+            <motion.div
+              variants={fadeUpB}
+              className="relative bg-card rounded-2xl border border-accent/30 shadow-card p-8 md:p-10 max-w-4xl mx-auto overflow-hidden card-hover-lift"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="relative flex flex-col md:flex-row md:items-center gap-6">
+                <div className="w-14 h-14 rounded-xl gradient-cta flex items-center justify-center shrink-0">
+                  <Zap className="w-7 h-7 text-accent-foreground" />
+                </div>
+                <div className="flex-1">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full gradient-cta text-accent-foreground text-xs font-bold uppercase tracking-wider mb-3">
+                    New
+                  </span>
+                  <h3 className="font-display font-bold text-xl md:text-2xl text-foreground mb-2">
+                    AI Lead Response Engine for Wollongong Tradies
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                    Reply to every lead in under 60 seconds, qualify the job,
+                    and book it straight into your calendar — 24/7.
+                  </p>
+                </div>
+                <Button variant="cta" size="lg" asChild className="shrink-0">
+                  <Link href="/ai-services/lead-response-engine">
+                    Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="section-padding relative overflow-hidden" style={{ background: "var(--surface-gradient)" }}>
         <div className="absolute inset-0 gradient-mesh opacity-50" />
