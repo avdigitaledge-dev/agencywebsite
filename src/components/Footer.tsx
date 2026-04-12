@@ -136,6 +136,7 @@ const Footer = () => {
               <Link href="/vs/cheap-web-designers" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Cheap Designers</Link>
               <Link href="/vs/natiive" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs natiive</Link>
               <Link href="/vs/love-my-online-marketing" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs Love My Online Marketing</Link>
+              <Link href="/vs/madweb" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">vs MadWeb</Link>
             </nav>
           </div>
 

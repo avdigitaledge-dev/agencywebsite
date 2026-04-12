@@ -1274,7 +1274,26 @@ Ready to future-proof your online presence? Get in touch with Digital Edge Studi
     image: '/images/blog/aisearch-pic.webp',
     readTime: 12,
     keywords: ['aeo optimisation', 'geo optimisation', 'answer engine optimisation', 'generative engine optimisation', 'ai search optimisation', 'ai seo wollongong', 'future of seo', 'google ai overviews', 'voice search optimisation', 'local seo ai'],
-    metaDescription: 'What are AEO and GEO? Learn how Answer Engine Optimisation and Generative Engine Optimisation are changing how customers find local businesses — and why the businesses that move first will win.'
+    metaDescription: 'What are AEO and GEO? Learn how Answer Engine Optimisation and Generative Engine Optimisation are changing how customers find local businesses — and why the businesses that move first will win.',
+    faqs: [
+      {
+        question: 'What is AEO (Answer Engine Optimisation)?',
+        answer: 'AEO is the practice of optimising your website content so AI assistants like ChatGPT, Siri, and Google Assistant recommend your business when someone asks a question. It focuses on structured content, FAQ schema, and clear answers to customer queries.'
+      },
+      {
+        question: 'What is GEO (Generative Engine Optimisation)?',
+        answer: 'GEO focuses specifically on Google AI Overviews — the AI-generated summary boxes that appear above search results. It involves structured data, topical depth, E-E-A-T signals, and authoritative content that Google\'s AI can cite.'
+      },
+      {
+        question: 'Do small businesses need AEO and GEO?',
+        answer: 'Yes. AI search is already changing how customers discover local businesses. The businesses that optimise now will dominate AI search results before their competitors even know these terms exist.'
+      },
+      {
+        question: 'How much does AEO/GEO optimisation cost?',
+        answer: 'At Digital Edge Studio, AEO and GEO optimisation is included in every website build at no extra cost. This includes FAQ schema, structured data, content structuring, and an llms.txt file.'
+      }
+    ],
+    relatedSlugs: ['ai-search-tradies-chatgpt-google-ai', 'ai-search-ready-website-checklist', 'seo-tradies-google-ranking']
   },
   {
     id: '13',
@@ -2630,5 +2649,219 @@ Digital Edge Studio handles both [web design and development for Wollongong busi
       }
     ],
     relatedSlugs: ['how-to-choose-web-designer-wollongong', 'website-cost-wollongong-2025', '5-things-wollongong-business-website-2026']
+  },
+  {
+    id: '26',
+    title: 'How AI Search (ChatGPT, Google AI Overviews) Is Changing How Customers Find Tradies',
+    slug: 'ai-search-tradies-chatgpt-google-ai',
+    excerpt: 'AI search tools like ChatGPT and Google AI Overviews are changing how customers find tradies. Here is what is happening, why it matters, and what you can do about it.',
+    content: `Something Has Changed in How People Search
+
+Picture this: a homeowner in Wollongong has a burst pipe at 9pm. Instead of opening Google and scrolling through a list of plumbers, they pick up their phone and say "Hey Google, who is the best emergency plumber near me?" Or they open ChatGPT and type "Can you recommend a reliable plumber in Wollongong?"
+
+Google does not show ten blue links anymore. It shows one AI-generated answer at the top of the page. ChatGPT does not show a list at all. It gives one recommendation and explains why.
+
+If your business is not the source these AI tools pull from, you are invisible to a growing number of customers. And most tradies have no idea this is happening.
+
+What AI Search Actually Looks Like for a Tradie
+
+Here are three real scenarios happening right now:
+
+Scenario one: A homeowner asks Google "who is the best electrician in Wollongong?" Google's AI Overview scans the web and generates a summary. It names one or two businesses with strong local content, good reviews, and structured data on their websites. Everyone else is buried below the fold.
+
+Scenario two: Someone asks ChatGPT "how much does a bathroom renovation cost in Sydney?" ChatGPT pulls from websites that have specific, detailed pricing content. If your site says "contact us for a quote" instead of giving a real price range, ChatGPT will cite your competitor who actually published their pricing.
+
+Scenario three: A property manager searches Perplexity for "reliable builder near Shellharbour." Perplexity looks for sites with genuine reviews, case studies, detailed service descriptions, and FAQ content. A three-page template site with no blog, no reviews, and no FAQ section will not get mentioned.
+
+The pattern is clear: AI does not show a list. It picks sources. Your website needs to be the one it picks.
+
+Why This Matters More for Tradies Than Other Businesses
+
+Tradies rely on local search more than almost any other industry. When someone needs a plumber, electrician, or builder, they search online. That is your primary lead source.
+
+Voice search is growing fastest in home services. "Hey Siri, I need an emergency plumber" is becoming more common than typing on a keyboard. AI tools treat voice queries the same way. They give one answer, not a list.
+
+Here is the opportunity: AI tools favour businesses with clear answers, local authority, and structured content. Most tradie websites have none of this. They are three-page templates with a phone number and a stock photo. That means the bar is low, and the first tradies who optimise for AI search will dominate before their competitors even know what happened.
+
+What Makes AI Pick One Business Over Another
+
+AI tools are not random. They follow patterns. Here is what makes them choose one tradie over another:
+
+FAQ content that directly answers customer questions. If someone asks "how much does a plumber cost in Wollongong?" and your website has a clear answer to that question, AI tools will cite you.
+
+Schema markup. This is structured data in your website's code that tells AI exactly what your business does, where you are located, what services you offer, and what your customers say about you. Without schema, AI tools have to guess. With it, they know. [Learn more about how we optimise for AI search](/services/aeo-geo).
+
+Genuine local authority. Google Business Profile reviews, consistent business name and address across directories, and content that mentions specific suburbs and regions naturally.
+
+Detailed, specific content. Not generic marketing copy. "We offer quality plumbing services" tells AI nothing. "Emergency plumbing callouts in Wollongong and the Illawarra start from $150 for the first hour, with same-day availability for burst pipes and blocked drains" gives AI exactly what it needs.
+
+Case studies and real results. AI trusts specificity. A page showing "we helped a Wollongong electrician increase enquiries by 150% in 6 months" is far more citable than "we build great websites."
+
+What This Means for Your Tradie Website Right Now
+
+If your website is a three-page template with no FAQ section, no schema markup, no blog content, and no reviews, AI tools have nothing useful to pull from. You are not in the game.
+
+The window is open right now. Most tradies in Wollongong, Sydney, and the Illawarra have not optimised for AI search. In twelve to eighteen months, this will be standard practice. The businesses that move first will own the AI search results in their area.
+
+This does not mean you need to rebuild everything from scratch. But you do need a website that gives AI tools something to work with: structured data, FAQ content, specific local information, and genuine authority signals. [Read our full guide to AEO and GEO](/blog/aeo-geo-future-of-marketing) to understand the full picture.
+
+Next Steps
+
+Not sure if your website is ready for AI search? [Get a free website review](/free-website-review) and we will assess how AI-ready your site is, including schema markup, FAQ structure, content depth, and local authority signals.
+
+At Digital Edge Studio, AEO and GEO optimisation is included in every website we build. We do not treat it as an add-on. It is built into the foundation because we believe every tradie and small business in Wollongong deserves to show up where customers are actually looking. [See how our AEO and GEO services work](/services/aeo-geo).`,
+    author: 'Digital Edge Studio',
+    date: '2026-04-12',
+    category: 'SEO',
+    image: '/images/blog/aisearch-pic.webp',
+    readTime: 8,
+    keywords: ['ai search for tradies', 'chatgpt local business', 'google ai overviews tradies', 'ai search tradie website', 'how customers find tradies online', 'ai search wollongong'],
+    metaDescription: 'AI search tools like ChatGPT and Google AI Overviews are changing how customers find tradies. Here is what is happening, why it matters, and what you can do about it.',
+    faqs: [
+      {
+        question: 'What is AI search and how does it affect tradies?',
+        answer: 'AI search refers to tools like ChatGPT, Google AI Overviews, and Perplexity that answer questions directly instead of showing a list of websites. For tradies, this means customers may find or miss your business based on whether AI tools can pull useful information from your site.'
+      },
+      {
+        question: 'Do I need to pay for AI search optimisation?',
+        answer: 'You do not need to pay for ads. AI search optimisation (AEO/GEO) is about structuring your website content so AI tools can understand and cite it. This includes FAQ sections, schema markup, and detailed local content. At Digital Edge Studio, it is included in every website build.'
+      },
+      {
+        question: 'Will traditional Google search disappear?',
+        answer: 'No. Traditional search results still exist and still matter. But AI Overviews now appear above them for most searches, and a growing number of people are using ChatGPT and Perplexity instead of Google entirely. Optimising for both traditional and AI search is the smart approach.'
+      },
+      {
+        question: 'How do I know if my website is AI search ready?',
+        answer: 'Check whether your site has FAQ sections with schema markup, structured data (JSON-LD), fast page speed, and content that directly answers customer questions. If you are unsure, request a free website review from Digital Edge Studio and we will assess your AI readiness.'
+      },
+      {
+        question: 'What is the difference between SEO and AEO?',
+        answer: 'SEO focuses on ranking in Google\'s list of blue links. AEO (Answer Engine Optimisation) focuses on being the answer AI tools give when someone asks a question. Both matter, but AEO is becoming increasingly important as more people use AI to search.'
+      }
+    ],
+    relatedSlugs: ['aeo-geo-future-of-marketing', 'seo-tradies-google-ranking', 'web-design-plumbers-wollongong']
+  },
+  {
+    id: '27',
+    title: 'Is Your Website Ready for AI Search? A Checklist for Small Businesses',
+    slug: 'ai-search-ready-website-checklist',
+    excerpt: 'Use this practical checklist to audit your website for ChatGPT, Google AI Overviews, and other AI search tools. Written for small business owners, not marketers.',
+    content: `Why AI Search Readiness Matters Now
+
+AI tools like ChatGPT, Google AI Overviews, and Perplexity are already deciding which businesses customers see and which ones they skip. Most small business websites were built for traditional Google search, which means they are structured for a world that is rapidly changing.
+
+The good news is that checking whether your site is ready takes about fifteen minutes. This checklist covers the five things that matter most. If your site passes all five, you are ahead of 90 percent of your competitors. If it fails most of them, the gap between you and AI-ready competitors will only grow.
+
+Not sure what AEO and GEO mean? [Start with our beginner guide to AI search optimisation](/blog/aeo-geo-future-of-marketing).
+
+Checklist Item 1: FAQ Sections on Key Pages
+
+AI tools love question-and-answer content because it matches how real people ask questions. When someone asks ChatGPT "how much does a plumber cost in Wollongong?", ChatGPT looks for a website that answers that exact question clearly.
+
+Every service page on your website should have four to six frequently asked questions that address the real things your customers ask. Write in plain language, not marketing speak.
+
+Good example: "How much does a kitchen renovation cost in Wollongong?" followed by a specific answer with price ranges.
+
+Bad example: "We offer competitive pricing" with no actual numbers or detail.
+
+The FAQ section should be marked up with FAQPage schema (see checklist item 2) so AI tools can identify the questions and answers programmatically. Without the schema markup, AI tools may still find your FAQ content, but they are far more likely to cite it when it is properly structured.
+
+Checklist Item 2: Schema Markup (Structured Data)
+
+Schema markup is code embedded in your website that tells AI tools and search engines exactly what your content is about. Think of it as a label on a filing cabinet. Without it, AI has to read your entire page and guess what matters. With it, AI knows immediately that you are a plumber in Wollongong who offers emergency callouts, has a 4.8-star rating, and charges between $150 and $350.
+
+The key schema types for small businesses are:
+
+LocalBusiness: tells AI who you are, where you are located, and how to contact you.
+
+FAQPage: marks up your frequently asked questions so AI can extract them directly.
+
+Service: describes the specific services you offer with pricing and availability.
+
+Review and AggregateRating: shows your customer ratings in a structured format.
+
+To check if your site has schema markup, search for "Google Rich Results Test" and paste your URL. If the results are empty or only show basic metadata, your site is not giving AI tools what they need.
+
+Most template website builders like basic Wix or Squarespace offer very limited schema options. Comprehensive schema markup usually requires a developer or a site built with structured data in mind from the start.
+
+Checklist Item 3: Content That Answers Specific Questions
+
+AI tools pull from content that directly answers questions. They skip vague marketing copy.
+
+Instead of "We provide quality plumbing services across the Illawarra", write "Emergency plumbing callouts in Wollongong and the Illawarra start from $150 for the first hour. We cover burst pipes, blocked drains, hot water system repairs, and gas fitting. Same-day appointments available for urgent jobs."
+
+The difference matters because AI tools are looking for citable, factual content. Specific details like price ranges, locations, timeframes, service lists, and process descriptions give AI something concrete to reference.
+
+This applies to blog posts, service pages, about pages, and pricing pages. Every page on your site is an opportunity to answer a question a potential customer might ask.
+
+Checklist Item 4: Page Speed and Technical Health
+
+AI tools and Google AI Overviews prefer fast, well-structured websites. A slow site signals poor quality, and AI tools are less likely to cite content from sites that are technically weak.
+
+Test your website at Google PageSpeed Insights. Aim for a score of 90 or above on both mobile and desktop. If your mobile score is below 70, your site has significant performance issues that affect both traditional search rankings and AI citability.
+
+Mobile performance matters most because the majority of local searches happen on phones. If your site takes more than three seconds to load on mobile, many potential customers will leave before the page finishes loading, and AI tools take this signal into account when deciding which sources to trust.
+
+Common speed issues include unoptimised images, excessive JavaScript from plugins and third-party scripts, slow hosting, and bloated template code from website builders.
+
+Checklist Item 5: Local Authority Signals
+
+AI tools give priority to businesses that have strong local authority. This means your website and online presence need to signal that you are a real, established, trusted business in your area.
+
+Google Business Profile: make sure yours is claimed, verified, complete, and regularly updated with posts, photos, and responses to reviews.
+
+Google reviews: both the quantity and recency of your reviews matter. A business with 30 reviews from the last six months signals more authority than one with 5 reviews from two years ago.
+
+Consistent NAP: your business name, address, and phone number should be identical across your website, Google Business Profile, Yellow Pages, True Local, and any other directories you are listed on.
+
+Local content: mention the suburbs, regions, and landmarks you serve naturally in your content. A [Wollongong web design page](/web-design-wollongong) that references Wollongong, Illawarra, Shellharbour, and Kiama tells AI tools you are a genuine local business, not a generic national company.
+
+[Learn how our local SEO approach builds these authority signals](/services/seo).
+
+What To Do Next
+
+Score yourself against this checklist:
+
+Zero to one items passed: your website is not ready for AI search. The gap between you and AI-optimised competitors is growing every month.
+
+Two to three items passed: you are partially ready. Targeted improvements to schema markup and FAQ content will make the biggest difference.
+
+Four to five items passed: you are well positioned. Continue building content depth and collecting reviews to strengthen your advantage.
+
+If your site fails most of these checks, the cost of inaction increases every month as more customers shift to AI search. The businesses that optimise now will be the ones AI tools recommend in twelve months.
+
+Not sure where you stand? [Get a free website review](/free-website-review) and we will assess your AI readiness across all five areas, with specific recommendations for your business.
+
+Want to skip the DIY audit and get it done properly? [See how our AEO and GEO services make your site AI-ready from day one](/services/aeo-geo). Every website we build at Digital Edge Studio includes full schema markup, FAQ structure, and AI search optimisation as standard.`,
+    author: 'Digital Edge Studio',
+    date: '2026-04-12',
+    category: 'SEO',
+    image: '/images/blog/seo-pic.webp',
+    readTime: 7,
+    keywords: ['ai search ready website', 'ai search checklist', 'website optimisation ai', 'ai search small business', 'website ai readiness audit', 'ai search checklist small business'],
+    metaDescription: 'Is your website ready for AI search? Use this practical checklist to audit your site for ChatGPT, Google AI Overviews, and other AI tools. Written for small business owners.',
+    faqs: [
+      {
+        question: 'How do I check if my website has schema markup?',
+        answer: 'Go to Google\'s Rich Results Test (search.google.com/test/rich-results) and enter your URL. It will show you what structured data Google can detect on your page. If the results are empty, your site has no schema markup and AI tools cannot easily understand your content.'
+      },
+      {
+        question: 'Can I add schema markup to my website myself?',
+        answer: 'It depends on your platform. WordPress has plugins like Yoast or Rank Math that add basic schema. Wix and Squarespace have very limited schema options. For comprehensive schema markup including FAQPage, LocalBusiness, and Service schemas, you typically need a developer or a site built with schema in mind from the start.'
+      },
+      {
+        question: 'How long does it take to see results from AI search optimisation?',
+        answer: 'Most businesses see improvements within four to eight weeks of implementing structured data and FAQ content. Google AI Overviews can pick up new schema markup within days of it being indexed. The compounding effect grows over time as you add more optimised content.'
+      },
+      {
+        question: 'Is AI search optimisation different from regular SEO?',
+        answer: 'AI search optimisation builds on regular SEO but adds a layer focused specifically on how AI tools read and cite your content. Traditional SEO gets you into Google\'s list of results. AI search optimisation gets you into the AI-generated answer that appears above those results.'
+      },
+      {
+        question: 'Do I need to rebuild my entire website for AI search?',
+        answer: 'Not necessarily. Many sites can be improved by adding FAQ sections, implementing schema markup, and restructuring existing content. However, if your site is built on a platform with limited technical flexibility like basic Wix, a rebuild on a more capable platform may be the better long-term investment.'
+      }
+    ],
+    relatedSlugs: ['aeo-geo-future-of-marketing', 'ai-search-tradies-chatgpt-google-ai', 'improve-website-seo-australia']
   }
 ];
