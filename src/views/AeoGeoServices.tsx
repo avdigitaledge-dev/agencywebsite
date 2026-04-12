@@ -71,6 +71,30 @@ const AeoGeoServices = () => {
     {
       question: "Is AEO/GEO included in your SEO packages?",
       answer: "Yes. Both AEO and GEO are included in our Local SEO package at no extra cost. We believe AI search optimisation should be a standard part of any modern SEO strategy, not an expensive add-on. Every client who signs up for Local SEO gets full AEO and GEO optimisation included."
+    },
+    {
+      question: "Do I need to rebuild my website to get AEO and GEO?",
+      answer: "No. Some agencies will only do AEO and GEO if you move your website to their platform first — that's an unnecessary cost and a lock-in tactic. We optimise your existing site for AI search. If your site is built on WordPress, Squarespace, Wix, or any other platform, we can still implement AEO and GEO strategies. If your site does need a rebuild for performance reasons, we'll tell you upfront — but it's never a prerequisite for AI search optimisation."
+    },
+    {
+      question: "What platforms do you optimise for?",
+      answer: "We optimise for all major AI search platforms: Google AI Overviews, ChatGPT, Bing Copilot, Perplexity, Claude, Google Assistant, Siri, and Alexa. Each platform pulls information differently, so we structure your content to perform well across all of them — not just one."
+    },
+    {
+      question: "Can AEO and GEO help my business get into ChatGPT or Perplexity results?",
+      answer: "Yes. Generative AI tools like ChatGPT and Perplexity pull information from websites they consider authoritative and well-structured. GEO strategies like schema markup, clear content structure, and building topical authority all increase the chances these platforms cite your business when answering relevant queries. There are no guarantees with any AI platform, but optimised sites consistently outperform non-optimised ones."
+    },
+    {
+      question: "How is AEO/GEO different from what other agencies offer?",
+      answer: "Most agencies offering 'AI search optimisation' are repackaging basic SEO with new buzzwords. We take a technical approach: schema markup implementation, content restructuring for AI extraction, llms.txt configuration, speakable content markup, and ongoing monitoring of how AI platforms actually represent your business. We also don't require you to rebuild your site on our platform — we work with what you have."
+    },
+    {
+      question: "Is AEO/GEO worth it for a local tradie business?",
+      answer: "Absolutely. Local service queries are some of the most common questions people ask AI assistants — 'who's the best plumber near me', 'electrician in Wollongong', 'reliable builder in the Illawarra'. If your business isn't structured to be the answer, your competitors will be. Tradies who optimise early have the biggest advantage because most haven't started yet."
+    },
+    {
+      question: "Will AEO and GEO replace traditional SEO?",
+      answer: "No. AEO and GEO work alongside traditional SEO, not instead of it. You still need strong rankings, good content, and technical SEO fundamentals. AEO and GEO add an extra layer that ensures your business shows up in AI-generated answers and summaries — not just the traditional blue links. Think of it as future-proofing your existing SEO investment."
     }
   ];
 
@@ -143,7 +167,7 @@ const AeoGeoServices = () => {
                 When someone asks Siri, Google Assistant, Alexa, or ChatGPT a question like <em>"who's the best electrician in Wollongong"</em>, the AI doesn't show a list of ten blue links. It gives one direct answer. AEO is how we make sure that answer is <span className="text-foreground font-medium">your business</span>.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                According to research from Princeton University (KDD 2024), content optimised for AI citation receives up to <span className="text-foreground font-medium">40% more visibility</span> than non-optimised content. This isn't a future trend — it's happening right now, and most of your competitors haven't started.
+                According to <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">research from Princeton University (KDD 2024)</a>, content optimised for AI citation receives up to <span className="text-foreground font-medium">40% more visibility</span> than non-optimised content. This isn't a future trend — it's happening right now, and most of your competitors haven't started.
               </p>
               <ul className="space-y-3">
                 {[
@@ -204,15 +228,15 @@ const AeoGeoServices = () => {
               <div className="space-y-5">
                 <div className="p-4 rounded-xl bg-accent/5 border border-accent/10">
                   <p className="text-accent font-bold text-2xl mb-1">45%</p>
-                  <p className="text-muted-foreground text-sm">of Google searches now show an AI-generated summary at the top of results.</p>
+                  <p className="text-muted-foreground text-sm">of Google searches now show an AI-generated summary at the top of results. (<a href="https://searchengineland.com/google-ai-overviews-data-443203" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">Source</a>)</p>
                 </div>
                 <div className="p-4 rounded-xl bg-accent/5 border border-accent/10">
                   <p className="text-accent font-bold text-2xl mb-1">58%</p>
-                  <p className="text-muted-foreground text-sm">reduction in clicks to traditional search results when an AI Overview is present.</p>
+                  <p className="text-muted-foreground text-sm">reduction in clicks to traditional search results when an AI Overview is present. (<a href="https://searchengineland.com/google-ai-overviews-data-443203" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">Source</a>)</p>
                 </div>
                 <div className="p-4 rounded-xl bg-accent/5 border border-accent/10">
                   <p className="text-accent font-bold text-2xl mb-1">+40%</p>
-                  <p className="text-muted-foreground text-sm">more visibility for content optimised for AI citation (Princeton University, KDD 2024).</p>
+                  <p className="text-muted-foreground text-sm">more visibility for content optimised for AI citation. (<a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer" className="text-accent underline hover:text-accent/80">Princeton University, KDD 2024</a>)</p>
                 </div>
               </div>
             </motion.div>
@@ -399,6 +423,53 @@ const AeoGeoServices = () => {
                 <p className="text-accent font-display font-bold text-3xl mb-1">{item.stat}</p>
                 <p className="text-foreground font-semibold mb-2">{item.label}</p>
                 <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Why Us ═══ */}
+      <section className="section-padding" style={{ background: "var(--surface-gradient)" }}>
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-14">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">Not All AEO & GEO Is Created Equal</motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              Some agencies are repackaging basic SEO with AI buzzwords. Here's what makes our approach different.
+            </motion.p>
+          </ScrollReveal>
+
+          <ScrollReveal className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                title: "No Platform Lock-In",
+                description: "Some agencies require you to rebuild your entire website on their hosting platform before they'll touch AEO or GEO. We work with your existing site — WordPress, Squarespace, custom-built, whatever. No forced rebuilds, no lock-in."
+              },
+              {
+                title: "Technical, Not Cosmetic",
+                description: "We implement real schema markup, llms.txt files, speakable content markup, and structured data — not just content rewrites with 'AI-optimised' slapped on. Our approach is based on how AI platforms actually extract and cite information."
+              },
+              {
+                title: "Included, Not Upsold",
+                description: "AEO and GEO are built into our Local SEO package at no extra cost. Other agencies charge thousands for 'AI readiness' as a premium add-on. We think it should be standard — because it is standard in modern SEO."
+              },
+              {
+                title: "Built for Tradies & Local Business",
+                description: "Our AEO and GEO strategies are tailored for local service businesses, not enterprise corporations. We optimise for the queries your actual customers use: 'best plumber near me', 'electrician in Wollongong', 'reliable builder Illawarra'."
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                className="bg-card rounded-2xl border border-border shadow-card p-8"
+              >
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="heading-card text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </ScrollReveal>
