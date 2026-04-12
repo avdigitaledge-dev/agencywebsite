@@ -166,6 +166,18 @@ const Index = () => {
     }
   };
 
+  const ratingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://digitaledgestudio.com/#business",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": RATINGS.value,
+      "reviewCount": RATINGS.count,
+      "bestRating": RATINGS.best
+    }
+  };
+
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -196,6 +208,7 @@ const Index = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* ═══ Hero ═══ */}

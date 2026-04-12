@@ -46,12 +46,6 @@ export default function LocalBusinessSchema() {
     "sameAs": [
       "https://www.linkedin.com/company/digitaledgestudio-agency"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "16",
-      "bestRating": "5"
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Web Design & Digital Marketing Services",

@@ -176,9 +176,36 @@ const faq = [
 
 const featuredCaseStudies = portfolioProjects.slice(0, 6);
 
+const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
+
+const ratingSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://digitaledgestudio.com/#business",
+  "name": "Digital Edge Studio",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": avgRating,
+    "reviewCount": String(reviews.length),
+    "bestRating": "5"
+  },
+  "review": reviews.map((r) => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.name },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": String(r.rating),
+      "bestRating": "5"
+    },
+    "reviewBody": r.text,
+    "datePublished": r.date
+  }))
+};
+
 const Reviews = () => {
   return (
     <>
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
