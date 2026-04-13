@@ -43,7 +43,6 @@ const About = () => {
     "name": "Aleksandar Savevski",
     "alternateName": "Aleks",
     "url": "https://digitaledgestudio.com/about",
-    "image": "https://digitaledgestudio.com/images/aleksandar-savevski.jpg",
     "jobTitle": "Founder & Web Designer",
     "description": "Founder of Digital Edge Studio. Designs and builds lead-generating websites for tradies, hospitality, and small businesses across Wollongong, the Illawarra, and Sydney.",
     "worksFor": { "@type": "Organization", "@id": "https://digitaledgestudio.com/#business" },
