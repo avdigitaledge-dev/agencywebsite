@@ -66,13 +66,22 @@ const BlogPost = ({ slug }: { slug: string }) => {
     ...(post.lastUpdated && { "dateModified": post.lastUpdated }),
     "author": {
       "@type": "Person",
+      "@id": "https://digitaledgestudio.com/#aleksandar",
       "name": "Aleksandar Savevski",
       "jobTitle": "Founder & Web Designer",
-      "url": "https://www.linkedin.com/in/aleksandar-savevski-b9b907142",
+      "url": "https://digitaledgestudio.com/about",
+      "sameAs": [
+        "https://www.linkedin.com/in/aleksandar-savevski-b9b907142"
+      ],
       "worksFor": {
         "@type": "Organization",
+        "@id": "https://digitaledgestudio.com/#business",
         "name": "Digital Edge Studio"
       }
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".article-headline", ".article-lede"]
     },
     "publisher": {
       "@type": "Organization",
@@ -144,7 +153,7 @@ const BlogPost = ({ slug }: { slug: string }) => {
                 {post.category}
               </span>
             </motion.div>
-            <motion.h1 variants={fadeUp} className="heading-display text-white mb-4">
+            <motion.h1 variants={fadeUp} className="article-headline heading-display text-white mb-4">
               {post.title}
             </motion.h1>
           </motion.div>
@@ -178,10 +187,10 @@ const BlogPost = ({ slug }: { slug: string }) => {
                 </>
               )}
               <span>•</span>
-              <span>By Aleksandar Savevski</span>
+              <span>By <Link href="/about" className="text-accent hover:underline font-medium">Aleksandar Savevski</Link></span>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground italic py-8">
+            <motion.p variants={fadeUp} className="article-lede text-body-lg text-muted-foreground italic py-8">
               {post.excerpt}
             </motion.p>
           </ScrollReveal>

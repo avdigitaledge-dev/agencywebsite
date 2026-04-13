@@ -56,7 +56,7 @@ export const FAQ = ({ faqs, title = "Frequently Asked Questions" }: FAQProps) =>
                     >
                       <div className="px-6 pb-5 pl-16">
                         <div className="border-l-2 border-accent/20 pl-4">
-                          <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                          <p className="faq-answer text-muted-foreground leading-relaxed">{faq.answer}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -71,6 +71,10 @@ export const FAQ = ({ faqs, title = "Frequently Asked Questions" }: FAQProps) =>
         <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [".faq-answer"]
+            },
             "mainEntity": faqs.map(faq => ({
               "@type": "Question",
               "name": faq.question,
