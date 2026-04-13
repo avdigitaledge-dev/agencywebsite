@@ -820,6 +820,18 @@ const WebDesignWollongong = () => {
         </div>
       </section>
 
+      {/* Related services — intent split */}
+      <section className="bg-muted/30 py-8">
+        <div className="container-tight max-w-3xl text-center">
+          <p className="text-sm text-muted-foreground">
+            Looking for something different? See our{" "}
+            <Link href="/seo-wollongong" className="text-accent hover:underline font-medium">Wollongong SEO page</Link>,{" "}
+            <Link href="/digital-marketing-wollongong" className="text-accent hover:underline font-medium">full digital marketing page</Link>, or the{" "}
+            <Link href="/web-design-illawarra" className="text-accent hover:underline font-medium">Illawarra region page</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
