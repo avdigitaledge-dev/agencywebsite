@@ -145,7 +145,7 @@ const FreeTools = () => {
               ))}
             </motion.div>
             <motion.p variants={fadeUp} className="text-muted-foreground mb-4">
-              Rated 4.8/5 on Google — trusted by 30+ local businesses across Wollongong and Sydney
+              Rated 5.0/5 on Google — trusted by 30+ local businesses across Wollongong and Sydney
             </motion.p>
             <motion.div variants={fadeUp}>
               <Button variant="outline" asChild>

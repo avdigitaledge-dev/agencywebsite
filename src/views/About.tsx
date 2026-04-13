@@ -87,7 +87,7 @@ const About = () => {
             <motion.div variants={fadeUp} className="grid grid-cols-3 gap-4 max-w-lg">
               {[
                 { icon: Globe, val: "30+", label: "Websites Delivered" },
-                { icon: Star, val: "4.8", label: "Google Rating" },
+                { icon: Star, val: "5.0", label: "Google Rating" },
                 { icon: Calendar, val: "2025", label: "Founded" },
               ].map((stat) => (
                 <div key={stat.label} className="card-glass rounded-xl p-4 text-center">

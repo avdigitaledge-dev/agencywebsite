@@ -220,7 +220,7 @@ const Services = () => {
           <ScrollReveal className="flex flex-wrap justify-center gap-10 md:gap-20">
             {[
               { icon: Users, val: "30+", label: "Websites Delivered" },
-              { icon: Star, val: "4.8", label: "Google Rating" },
+              { icon: Star, val: "5.0", label: "Google Rating" },
               { icon: Shield, val: "0", label: "Lock-In Contracts" },
             ].map((item) => (
               <motion.div key={item.label} variants={fadeUp} className="flex flex-col items-center text-center">

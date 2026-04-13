@@ -235,7 +235,7 @@ const ContactThankYou = () => {
               ))}
             </motion.div>
             <motion.p variants={fadeUp} className="text-white/70 text-sm mb-6">
-              Rated 4.8/5 on Google — trusted by 30+ local businesses
+              Rated 5.0/5 on Google — trusted by 30+ local businesses
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button variant="hero" size="lg" asChild>

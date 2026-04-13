@@ -313,7 +313,7 @@ const Pricing = () => {
           <ScrollReveal className="flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-muted-foreground">
             {[
               { icon: Users, text: "30+ Websites Delivered" },
-              { icon: Star, text: "4.8-Star Google Rating" },
+              { icon: Star, text: "5.0-Star Google Rating" },
               { icon: Shield, text: "No Lock-In Contracts" },
             ].map((item) => (
               <motion.div key={item.text} variants={fadeUp} className="flex items-center gap-2">

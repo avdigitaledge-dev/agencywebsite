@@ -302,7 +302,7 @@ const Index = () => {
           <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-30">
             {[
               { val: "30+", label: "Websites Delivered (2025–2026)" },
-              { val: "4.8", label: "Google Rating (Verified)" },
+              { val: "5.0", label: "Google Rating (Verified)" },
               { val: "40+", label: "Avg Leads/Month per Client*" },
               { val: "12x", label: "Average Client ROI*" },
             ].map((item) => (

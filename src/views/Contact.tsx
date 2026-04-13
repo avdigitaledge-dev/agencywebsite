@@ -367,7 +367,7 @@ const Contact = () => {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-muted-foreground mt-4 text-center">Rated 4.8 stars on Google</p>
+                <p className="text-xs text-muted-foreground mt-4 text-center">Rated 5.0 stars on Google</p>
               </div>
             </motion.div>
           </ScrollReveal>

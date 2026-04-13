@@ -1,5 +1,5 @@
 export const RATINGS = {
-  value: "4.8",
+  value: "5.0",
   count: "15",
   best: "5",
   worst: "1",

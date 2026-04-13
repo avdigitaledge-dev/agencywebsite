@@ -139,19 +139,7 @@ const WebDesignSydney = () => {
       "name": "Web Design in Sydney",
       "description": "Affordable custom website design, local SEO, and digital marketing services for businesses across Sydney, Western Sydney, Sutherland Shire, and all Sydney regions.",
       "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://digitaledgestudio.com/#business",
-        "name": "Digital Edge Studio",
-        "url": "https://digitaledgestudio.com",
-        "telephone": "+61419807321",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Wollongong",
-          "addressRegion": "NSW",
-          "postalCode": "2500",
-          "addressCountry": "AU"
-        }
+        "@id": "https://digitaledgestudio.com/#business"
       },
       "areaServed": [
         { "@type": "City", "name": "Sydney" },
@@ -217,7 +205,7 @@ const WebDesignSydney = () => {
               {[
                 { value: "90+", label: "PageSpeed Score" },
                 { value: "<2s", label: "Load Time" },
-                { value: "4.8\u2605", label: "Client Rating" },
+                { value: "5.0\u2605", label: "Client Rating" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="text-2xl md:text-3xl font-bold font-display text-primary-foreground stat-glow">{stat.value}</p>
