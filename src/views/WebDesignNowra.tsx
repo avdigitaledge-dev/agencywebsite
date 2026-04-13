@@ -132,19 +132,7 @@ const WebDesignNowra = () => {
       "name": "Web Design in Nowra & Shoalhaven",
       "description": "Custom website design and local SEO services for businesses in Nowra, Bomaderry, Berry, Huskisson, and the wider Shoalhaven region.",
       "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://digitaledgestudio.com/#business",
-        "name": "Digital Edge Studio",
-        "url": "https://digitaledgestudio.com",
-        "telephone": "+61412345678",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Wollongong",
-          "addressRegion": "NSW",
-          "postalCode": "2500",
-          "addressCountry": "AU"
-        }
+        "@id": "https://digitaledgestudio.com/#business"
       },
       "areaServed": [
         { "@type": "City", "name": "Nowra", "containedInPlace": { "@type": "AdministrativeArea", "name": "New South Wales" } },
@@ -780,6 +768,7 @@ const WebDesignNowra = () => {
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
               { href: "/web-design-south-coast", title: "Web Design South Coast", desc: "Affordable web design for businesses across the NSW South Coast — Ulladulla, Batemans Bay, Sussex Inlet & more." },
+              { href: "/marketing-agency-shoalhaven", title: "Marketing Agency Shoalhaven", desc: "Full-service digital marketing — SEO, Google Ads, social media & content strategy for Nowra and Shoalhaven businesses." },
               { href: "/web-design-shellharbour", title: "Web Design Shellharbour", desc: "Professional web design and local SEO for Shellharbour businesses — helping you stand out online." },
               { href: "/web-design-wollongong", title: "Web Design Wollongong", desc: "Our home base — expert web design and SEO for Wollongong and the Illawarra region." },
               { href: "/web-design-kiama", title: "Web Design Kiama", desc: "Website design and local SEO for Kiama businesses — tourism, retail, trades & professional services." },

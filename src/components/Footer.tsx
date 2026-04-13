@@ -85,6 +85,7 @@ const Footer = () => {
               <Link href="/web-design-sutherland-shire" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Web Design Sutherland Shire</Link>
               <Link href="/seo-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">SEO Sydney</Link>
               <Link href="/digital-marketing-sydney" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Digital Marketing Sydney</Link>
+              <Link href="/marketing-agency-shoalhaven" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline">Marketing Agency Shoalhaven</Link>
               <Link href="/areas-we-serve" className="text-sm text-white/70 hover:text-white transition-colors duration-200 link-underline font-medium">View All Areas →</Link>
             </nav>
           </div>

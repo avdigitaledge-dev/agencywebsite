@@ -24,6 +24,7 @@ const regions = [
     locations: [
       { name: "Nowra", href: "/web-design-nowra", desc: "Website design for Nowra, Bomaderry, and Shoalhaven businesses." },
       { name: "South Coast / Shoalhaven", href: "/web-design-south-coast", desc: "Serving Berry, Huskisson, Jervis Bay, Ulladulla, Milton, and the wider South Coast." },
+      { name: "Marketing Agency Shoalhaven", href: "/marketing-agency-shoalhaven", desc: "SEO, Google Ads, and digital marketing for Shoalhaven businesses \u2014 integrated strategy for Nowra, Berry, and beyond." },
     ],
   },
   {

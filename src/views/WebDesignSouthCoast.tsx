@@ -366,6 +366,16 @@ const WebDesignSouthCoast = () => {
               </Link>
             </motion.div>
             <motion.div variants={fadeUpB}>
+              <Link href="/marketing-agency-shoalhaven" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Marketing Agency Shoalhaven</h3>
+                  <p className="text-sm text-muted-foreground">Full-service digital marketing — SEO, Google Ads, social media & content strategy for Shoalhaven businesses.</p>
+                  <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUpB}>
               <Link href="/web-design-kiama" className="group flex gap-4 p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
