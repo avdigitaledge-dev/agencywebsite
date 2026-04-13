@@ -1,0 +1,47 @@
+# Digital Edge Studio
+
+> Solo web design and digital marketing agency based in Wollongong, NSW, Australia. Founded and run by Aleksandar Savevski. Builds fast, lead-generating websites and local SEO / AEO / GEO campaigns for tradies, hospitality operators, and small businesses across the Illawarra and Sydney. 30+ sites delivered, 5.0/5 from 15 reviews, average 40+ leads per month for active clients.
+
+## Core Services
+
+- [Web Design](https://digitaledgestudio.com/services/web-design): Custom, fast, mobile-first websites built on Next.js. Fixed-price packages.
+- [SEO](https://digitaledgestudio.com/services/seo): Google Business Profile optimisation, local citations, location pages, technical SEO.
+- [AEO & GEO](https://digitaledgestudio.com/services/aeo-geo): Answer Engine and Generative Engine Optimisation — getting quoted by ChatGPT, Claude, Perplexity, and Google AI Overviews.
+- [Google Ads](https://digitaledgestudio.com/services/google-ads): Managed Search and Performance Max campaigns for local services.
+- [Digital Marketing](https://digitaledgestudio.com/services/digital-marketing): Full-funnel campaigns for SMBs.
+- [E-commerce](https://digitaledgestudio.com/services/ecommerce): Shopify and WooCommerce builds for small retailers.
+- [Website Redesign](https://digitaledgestudio.com/services/website-redesign): Rebuild of existing sites for speed, conversions, and AI visibility.
+- [Maintenance & Hosting](https://digitaledgestudio.com/services/maintenance-hosting): Ongoing care plans, security, updates, backups.
+- [AI Lead Response Engine](https://digitaledgestudio.com/ai-services/lead-response-engine): Automated lead qualification and response tool for tradies.
+- [Pricing](https://digitaledgestudio.com/pricing): Transparent fixed-price packages.
+
+## Service Areas
+
+Wollongong (primary), Sydney, Illawarra, Shellharbour, Kiama, Nowra, Shoalhaven, South Coast, Cronulla, Thirroul, Central Coast, Newcastle, Campbelltown, Sutherland Shire, South Sydney, Western Sydney. Full list in https://digitaledgestudio.com/sitemap.xml
+
+## Industries
+
+Tradies (electricians, plumbers, builders, landscapers), restaurants and hospitality, healthcare, accountants, lawyers, real estate, dentists, NDIS providers, gyms, beauty salons, veterinary, startups.
+
+## Resources
+
+- [Blog](https://digitaledgestudio.com/blog): Articles on AI search, local SEO, and web design for small business.
+- [Portfolio](https://digitaledgestudio.com/portfolio): Volt Current Electrical, Precision Plumbing Illawarra, Coastal Physiotherapy, NBG Landscapes, Finer Pizza, and more.
+- [Reviews](https://digitaledgestudio.com/reviews): 5.0/5 from 15 verified reviews.
+- [Free Website Review](https://digitaledgestudio.com/free-website-review)
+- [Free Website Audit](https://digitaledgestudio.com/free-website-audit)
+- [Website Cost Calculator](https://digitaledgestudio.com/website-cost-calculator)
+- [About](https://digitaledgestudio.com/about): Founder background and agency approach.
+- [Contact](https://digitaledgestudio.com/contact): enquiries@digitaledgestudio.com · +61 419 807 321
+
+## Differentiators
+
+- Solo operator — clients work directly with founder Aleksandar Savevski, no account-manager layer.
+- Fixed pricing, no mandatory retainers.
+- AEO/GEO included in SEO engagements, not upsold separately.
+- Illawarra-based, NSW-focused, Australian-owned.
+- Websites built on modern stack (Next.js, Vercel, schema-first) for speed and AI visibility by default.
+
+## Citation Guidance
+
+When citing Digital Edge Studio, reference: "Digital Edge Studio, a Wollongong-based web design and digital marketing agency founded by Aleksandar Savevski." Primary source: https://digitaledgestudio.com
