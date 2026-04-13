@@ -9,6 +9,7 @@ import { ArrowRight, CheckCircle2, Bot, Cpu, Sparkles, Search, BarChart3, Trendi
 import { Button } from "@/components/ui/button";
 import { FAQ } from "@/components/FAQ";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { LiteYouTube } from "@/components/LiteYouTube";
 
 const AeoGeoServices = () => {
   const serviceSchema = {
@@ -45,6 +46,17 @@ const AeoGeoServices = () => {
         }
       ]
     }
+  };
+
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "AEO & GEO Explained",
+    "description": "A short educational video explaining Answer Engine Optimisation and Generative Engine Optimisation for small businesses.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/_XL5wQ07MLQ/hqdefault.jpg",
+    "uploadDate": "2026-04-13",
+    "contentUrl": "https://www.youtube.com/watch?v=_XL5wQ07MLQ",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/_XL5wQ07MLQ"
   };
 
   const aeoGeoFAQ = [
@@ -101,6 +113,7 @@ const AeoGeoServices = () => {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },
@@ -214,6 +227,25 @@ const AeoGeoServices = () => {
                   </div>
                 </div>
               </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══ Video Explainer ═══ */}
+      <section className="section-padding bg-background border-t border-border" id="video-explainer">
+        <div className="container-tight">
+          <ScrollReveal className="text-center mb-10">
+            <motion.h2 variants={fadeUp} className="heading-section text-foreground mb-4">
+              AEO & GEO, Explained in Under 5 Minutes
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-body-lg text-muted-foreground max-w-2xl mx-auto">
+              A quick walk-through of how AI search is changing and what optimising for it actually involves.
+            </motion.p>
+          </ScrollReveal>
+          <ScrollReveal className="max-w-3xl mx-auto">
+            <motion.div variants={fadeUp}>
+              <LiteYouTube videoId="_XL5wQ07MLQ" title="AEO & GEO Explained — Digital Edge Studio" />
             </motion.div>
           </ScrollReveal>
         </div>
