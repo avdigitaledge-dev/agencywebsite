@@ -30,7 +30,7 @@ const regions = [
   {
     heading: "Sydney & Surrounds",
     locations: [
-      { name: "Sydney", href: "/web-design-sydney", desc: "Affordable web design for businesses across all Sydney regions." },
+      { name: "Sydney", href: "/web-design-sydney", desc: "Reliable web design for businesses across all Sydney regions." },
       { name: "Sutherland Shire", href: "/web-design-sutherland-shire", desc: "Web design for Cronulla, Miranda, Caringbah, Sutherland, and surrounds." },
       { name: "Cronulla", href: "/web-design-cronulla", desc: "Websites for Cronulla\u2019s beachside businesses \u2014 caf\u00e9s, retail, and services." },
       { name: "South Sydney", href: "/web-design-south-sydney", desc: "Serving Hurstville, Kogarah, Rockdale, and the St George area." },

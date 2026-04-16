@@ -360,7 +360,7 @@ const WebDesignSouthSydney = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
-                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, North Shore & more.</p>
+                  <p className="text-sm text-muted-foreground">Reliable web design for businesses across all Sydney regions — CBD, Western Sydney, North Shore & more.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>

@@ -18,7 +18,7 @@ const WebDesignNewcastle = () => {
         "name": "How much does web design cost in Newcastle?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Newcastle web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Newcastle agencies."
+          "text": "Our Newcastle web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more competitive than most Newcastle agencies."
         }
       },
       {
@@ -42,7 +42,7 @@ const WebDesignNewcastle = () => {
         "name": "What makes you different from other Newcastle web designers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more affordable than most Newcastle agencies, with no lock-in contracts and transparent pricing. You get a real partner, not a faceless agency."
+          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more competitive than most Newcastle agencies, with no lock-in contracts and transparent pricing. You get a real partner, not a faceless agency."
         }
       }
     ]
@@ -53,14 +53,14 @@ const WebDesignNewcastle = () => {
     { title: "Local SEO Newcastle", desc: "Rank higher in Newcastle local search results. We target suburb-specific keywords so the right customers find you first." },
     { title: "Google Ads Newcastle", desc: "Managed Google Ads campaigns for Newcastle businesses. Pay only for clicks from real potential customers in your area." },
     { title: "Ecommerce Web Design", desc: "Shopify and WooCommerce stores for Newcastle retailers wanting to sell online to customers across Australia." },
-    { title: "Small Business Websites", desc: "Affordable web design for Newcastle small businesses. Professional results without the big-agency price tag." },
+    { title: "Small Business Websites", desc: "Reliable web design for Newcastle small businesses. Professional results without the big-agency price tag." },
     { title: "Website Redesign", desc: "Transform your outdated Newcastle website into a modern, fast-loading site that converts visitors into customers." },
   ];
 
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Web Design Newcastle | Affordable Website Designer",
+    "name": "Web Design Newcastle | Local Website Designer",
     "description": "Professional web design for Newcastle businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies across Newcastle, Lake Macquarie & the Hunter Valley.",
     "url": "https://digitaledgestudio.com/web-design-newcastle",
     "mainEntity": {
@@ -106,7 +106,7 @@ const WebDesignNewcastle = () => {
               Web Design Newcastle
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Affordable, professional web design for Newcastle businesses. Custom websites that rank on Google, generate leads, and grow your business — without the inflated agency fees.
+              Reliable, professional web design for Newcastle businesses. Custom websites that rank on Google, generate leads, and grow your business — without the inflated agency fees.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
@@ -165,7 +165,7 @@ const WebDesignNewcastle = () => {
           <ScrollReveal variant="B" className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUpB}>
               <h2 className="heading-section text-foreground mb-6">
-                Affordable Newcastle Web Design Without Compromise
+                Reliable Newcastle Web Design Without Compromise
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>

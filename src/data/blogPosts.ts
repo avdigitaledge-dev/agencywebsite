@@ -2236,9 +2236,9 @@ If you want to rank higher on Google and get more customers from the Nowra and S
   },
   {
     id: '22',
-    title: 'WordPress Developer in Nowra? Why Smart Businesses Are Choosing Custom Websites Instead',
+    title: 'WordPress Developer in Nowra & Shoalhaven: Custom Sites That Outperform WP',
     slug: 'wordpress-developer-nowra-shoalhaven',
-    excerpt: 'Searching for a WordPress developer in Nowra? Before you commit, here\'s why most Shoalhaven businesses get better results with a custom-built website.',
+    excerpt: 'Need a WordPress developer in Nowra or Shoalhaven? Before you hire one, see why local businesses now get faster, cheaper-to-run custom sites instead. Free quote.',
     content: `If you've been searching for a WordPress developer in Nowra or the Shoalhaven, you're probably assuming WordPress is the obvious choice. It's the most popular website platform in the world. Everyone uses it. It must be good, right?
 
 Not necessarily. WordPress was built in 2003 as a blogging tool. It's been bolted onto and patched up for two decades to do things it was never designed for. And for most [Nowra small businesses](/web-design-nowra), there's now a better option that costs the same, loads faster, ranks higher on Google, and doesn't require constant maintenance.

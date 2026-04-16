@@ -132,7 +132,7 @@ const WebDesignWollongong = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Web Design Wollongong | Website Designer & Local SEO",
-    "description": "Professional web design in Wollongong. Affordable, custom websites for tradies and small businesses. Local SEO, Google Ads, and website maintenance. Get a free quote today.",
+    "description": "Professional web design in Wollongong. Reliable, custom websites for tradies and small businesses. Local SEO, Google Ads, and website maintenance. Get a free quote today.",
     "url": "https://digitaledgestudio.com/web-design-wollongong",
     "mainEntity": {
       "@type": "Service",
@@ -800,7 +800,7 @@ const WebDesignWollongong = () => {
           </ScrollReveal>
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { href: "/web-design-sydney", title: "Web Design Sydney", desc: "Affordable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire & more." },
+              { href: "/web-design-sydney", title: "Web Design Sydney", desc: "Reliable web design for businesses across all Sydney regions — CBD, Western Sydney, Sutherland Shire & more." },
               { href: "/web-design-illawarra", title: "Web Design Illawarra", desc: "Serving Shellharbour, Nowra, Kiama, Dapto, and the wider Illawarra region with local web design & SEO." },
               { href: "/seo-wollongong", title: "SEO Wollongong", desc: "Expert local SEO services to get your Wollongong business ranking higher on Google Search and Maps." },
               { href: "/web-design-nowra", title: "Web Design Nowra", desc: "Professional web design and local SEO for Nowra and Shoalhaven businesses — just 45 minutes south of Wollongong." },

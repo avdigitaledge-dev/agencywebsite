@@ -25,7 +25,7 @@ const comparisonRows = [
 const faqs = [
   {
     question: "Is MadWeb a good web design agency?",
-    answer: "Yes — MadWeb is a Wollongong-based web design agency offering affordable websites with fast turnaround. Their $599 setup fee makes them accessible for businesses on a tight budget. The trade-off is that their sites are built on Wix, which limits page speed, SEO flexibility, and long-term ownership. If you want a custom-coded site you own outright — with AEO/GEO and tradie-specific design included — Digital Edge Studio is the better fit.",
+    answer: "Yes — MadWeb is a Wollongong-based web design agency offering reliable websites with fast turnaround. Their $599 setup fee makes them accessible for businesses on a tight budget. The trade-off is that their sites are built on Wix, which limits page speed, SEO flexibility, and long-term ownership. If you want a custom-coded site you own outright — with AEO/GEO and tradie-specific design included — Digital Edge Studio is the better fit.",
   },
   {
     question: "Why is Digital Edge Studio more expensive upfront than MadWeb?",

@@ -44,7 +44,10 @@ export default function LocalBusinessSchema() {
     "image": "https://digitaledgestudio.com/images/digital-edge-studio-og.jpg",
     "logo": "https://digitaledgestudio.com/images/logo.png",
     "sameAs": [
-      "https://www.linkedin.com/company/digitaledgestudio-agency"
+      "https://www.linkedin.com/company/digitaledgestudio-agency",
+      "https://www.facebook.com/digitaledgestudioau/",
+      "https://www.instagram.com/digitaledgestudio.au/",
+      "https://www.google.com/maps/place/Digital+Edge+Studio/data=!4m2!3m1!1s0x6b131900d038aeb5:0x561d2f9e18e25fe3"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

@@ -767,7 +767,7 @@ const WebDesignNowra = () => {
           </ScrollReveal>
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { href: "/web-design-south-coast", title: "Web Design South Coast", desc: "Affordable web design for businesses across the NSW South Coast — Ulladulla, Batemans Bay, Sussex Inlet & more." },
+              { href: "/web-design-south-coast", title: "Web Design South Coast", desc: "Reliable web design for businesses across the NSW South Coast — Ulladulla, Batemans Bay, Sussex Inlet & more." },
               { href: "/marketing-agency-shoalhaven", title: "Marketing Agency Shoalhaven", desc: "Full-service digital marketing — SEO, Google Ads, social media & content strategy for Nowra and Shoalhaven businesses." },
               { href: "/web-design-shellharbour", title: "Web Design Shellharbour", desc: "Professional web design and local SEO for Shellharbour businesses — helping you stand out online." },
               { href: "/web-design-wollongong", title: "Web Design Wollongong", desc: "Our home base — expert web design and SEO for Wollongong and the Illawarra region." },

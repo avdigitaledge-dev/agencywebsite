@@ -35,7 +35,7 @@ const WebDesignStartups = () => {
         "name": "How much does a startup website cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our startup website packages start from $1,200. MVP landing pages can be even more affordable. We offer flexible pricing designed for pre-revenue and early-stage startups."
+          "text": "Our startup website packages start from $1,200. MVP landing pages can be even more cost-effective. We offer flexible pricing designed for pre-revenue and early-stage startups."
         }
       },
       {
@@ -205,7 +205,7 @@ const WebDesignStartups = () => {
                   Speed matters. Startups need to launch quickly and iterate based on feedback. We build websites fast — most MVPs and landing pages are live within 1–2 weeks — so you can start testing and validating your ideas.
                 </p>
                 <p>
-                  Budget matters too. We understand that pre-revenue startups need to be smart with every dollar. Our startup packages are affordable and designed to give you maximum impact for minimum spend.
+                  Budget matters too. We understand that pre-revenue startups need to be smart with every dollar. Our startup packages are reliable and designed to give you maximum impact for minimum spend.
                 </p>
               </div>
             </motion.div>

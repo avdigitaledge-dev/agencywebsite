@@ -18,7 +18,7 @@ const WebDesignCentralCoast = () => {
         "name": "How much does web design cost on the Central Coast?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Central Coast web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more affordable than most Central Coast agencies."
+          "text": "Our Central Coast web design packages start from $1,200 for a Starter Website and $1,850 for a Business Website. We offer transparent, fixed pricing with no hidden fees — far more competitive than most Central Coast agencies."
         }
       },
       {
@@ -42,7 +42,7 @@ const WebDesignCentralCoast = () => {
         "name": "What makes you different from other Central Coast web designers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more affordable than most Central Coast agencies, with no lock-in contracts and transparent pricing. You get a real partner, not a faceless agency."
+          "text": "We focus exclusively on results — more leads, more phone calls, more customers. We're more competitive than most Central Coast agencies, with no lock-in contracts and transparent pricing. You get a real partner, not a faceless agency."
         }
       }
     ]
@@ -53,14 +53,14 @@ const WebDesignCentralCoast = () => {
     { title: "Local SEO Central Coast", desc: "Rank higher in Central Coast local search results. We target suburb-specific keywords so the right customers find you first." },
     { title: "Google Ads", desc: "Managed Google Ads campaigns for Central Coast businesses. Pay only for clicks from real potential customers in your area." },
     { title: "Ecommerce Web Design", desc: "Shopify and WooCommerce stores for Central Coast retailers wanting to sell online to customers across Australia." },
-    { title: "Small Business Websites", desc: "Affordable web design for Central Coast small businesses. Professional results without the big-agency price tag." },
+    { title: "Small Business Websites", desc: "Reliable web design for Central Coast small businesses. Professional results without the big-agency price tag." },
     { title: "Website Redesign", desc: "Transform your outdated website into a modern, fast-loading site that converts visitors into customers." },
   ];
 
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Web Design Central Coast | Affordable Website Designer",
+    "name": "Web Design Central Coast | Local Website Designer",
     "description": "Professional web design for Central Coast businesses. Custom websites, local SEO, and digital marketing for small businesses and tradies in Gosford, Wyong & the Central Coast NSW.",
     "url": "https://digitaledgestudio.com/web-design-central-coast",
     "mainEntity": {
@@ -106,7 +106,7 @@ const WebDesignCentralCoast = () => {
               Web Design Central Coast
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Affordable, professional web design for Central Coast businesses. Custom websites that rank on Google, generate leads, and help you tap into one of Australia's fastest growing coastal markets.
+              Reliable, professional web design for Central Coast businesses. Custom websites that rank on Google, generate leads, and help you tap into one of Australia's fastest growing coastal markets.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
@@ -165,7 +165,7 @@ const WebDesignCentralCoast = () => {
           <ScrollReveal variant="B" className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUpB}>
               <h2 className="heading-section text-foreground mb-6">
-                Affordable Central Coast Web Design Without Compromise
+                Reliable Central Coast Web Design Without Compromise
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>

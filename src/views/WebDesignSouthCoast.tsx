@@ -120,7 +120,7 @@ const WebDesignSouthCoast = () => {
               Web Design South Coast NSW
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Professional, affordable web design for South Coast and Shoalhaven businesses — including tourism, hospitality, trades, and local services. Websites that rank on Google, generate leads, and grow your business.
+              Professional, reliable web design for South Coast and Shoalhaven businesses — including tourism, hospitality, trades, and local services. Websites that rank on Google, generate leads, and grow your business.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
@@ -380,7 +380,7 @@ const WebDesignSouthCoast = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Kiama</h3>
-                  <p className="text-sm text-muted-foreground">Affordable web design for Kiama businesses — local SEO and Google Ads included.</p>
+                  <p className="text-sm text-muted-foreground">Reliable web design for Kiama businesses — local SEO and Google Ads included.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>

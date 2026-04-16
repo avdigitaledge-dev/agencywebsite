@@ -76,7 +76,7 @@ const WebDesignSydney = () => {
         "name": "What makes you different from other Sydney web design agencies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Three things: price, speed, and results. We're significantly more affordable than most Sydney agencies ($1,200 vs $5,000-$20,000), our sites load in under 2 seconds with 90+ Google PageSpeed scores (most WordPress sites score 40-65), and we focus on generating leads — not just building pretty websites. No lock-in contracts, no account managers, no inflated fees. You deal directly with the person building your site."
+          "text": "Three things: price, speed, and results. We're significantly more competitive than most Sydney agencies ($1,200 vs $5,000-$20,000), our sites load in under 2 seconds with 90+ Google PageSpeed scores (most WordPress sites score 40-65), and we focus on generating leads — not just building pretty websites. No lock-in contracts, no account managers, no inflated fees. You deal directly with the person building your site."
         }
       },
       {
@@ -131,13 +131,13 @@ const WebDesignSydney = () => {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Affordable Web Design Sydney | Websites from $1,200",
+    "name": "Web Design Sydney | Reliable Sites for Tradies & Small Business",
     "description": "Sydney web design from $1,200 — no lock-in contracts. Custom-built sites with 95+ PageSpeed scores, local SEO, and Google Business setup included.",
     "url": "https://digitaledgestudio.com/web-design-sydney",
     "mainEntity": {
       "@type": "Service",
       "name": "Web Design in Sydney",
-      "description": "Affordable custom website design, local SEO, and digital marketing services for businesses across Sydney, Western Sydney, Sutherland Shire, and all Sydney regions.",
+      "description": "Fixed-price custom website design, local SEO, and digital marketing services for businesses across Sydney, Western Sydney, Sutherland Shire, and all Sydney regions.",
       "provider": {
         "@id": "https://digitaledgestudio.com/#business"
       },
@@ -186,7 +186,7 @@ const WebDesignSydney = () => {
               <span>Serving All Sydney Regions &amp; NSW</span>
             </motion.div>
             <motion.h1 variants={fadeUpB} className="heading-display text-primary-foreground mb-6">
-              Affordable Web Design <span className="text-gradient">Sydney</span>
+              Reliable Web Design <span className="text-gradient">Sydney</span>
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/70 max-w-2xl mb-10 leading-relaxed">
               Sydney agencies charge $5,000&ndash;$20,000. We build custom websites from $1,200 that load faster, rank higher on Google, and generate more leads &mdash; without the inflated fees or lock-in contracts.
@@ -760,7 +760,7 @@ const WebDesignSydney = () => {
           </ScrollReveal>
           <ScrollReveal variant="B" className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { href: "/web-design-western-sydney", title: "Web Design Western Sydney", desc: "Affordable web design for Parramatta, Penrith, Liverpool, Blacktown, and the greater Western Sydney region." },
+              { href: "/web-design-western-sydney", title: "Web Design Western Sydney", desc: "Reliable web design for Parramatta, Penrith, Liverpool, Blacktown, and the greater Western Sydney region." },
               { href: "/web-design-south-sydney", title: "Web Design South Sydney", desc: "Professional web design for Sutherland Shire, Hurstville, Kogarah, and South Sydney businesses." },
               { href: "/web-design-wollongong", title: "Web Design Wollongong", desc: "Our home base — expert web design and SEO for Wollongong and the Illawarra region." },
               { href: "/web-design-illawarra", title: "Web Design Illawarra", desc: "Serving Shellharbour, Nowra, Kiama, Dapto, and the wider Illawarra region with local web design & SEO." },

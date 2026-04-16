@@ -3,7 +3,7 @@ import Index from "@/views/Index";
 
 export const metadata: Metadata = {
   title: "Digital Edge Studio | Web Design & Marketing Agency Wollongong",
-  description: "Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads guaranteed.",
+  description: "Wollongong web design agency building fast, reliable websites for tradies and small businesses. Fixed-price packages, local SEO, and more leads guaranteed.",
   alternates: { canonical: "https://digitaledgestudio.com" },
 };
 

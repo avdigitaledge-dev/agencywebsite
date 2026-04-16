@@ -26,7 +26,7 @@ const WebDesignWesternSydney = () => {
         "name": "How much does a website cost in Western Sydney?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our web design packages start from $1,200 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts — affordable without cutting corners."
+          "text": "Our web design packages start from $1,200 for a Starter Website and $1,850 for a full Business Website. We offer transparent pricing with no hidden fees or lock-in contracts — fixed-price without cutting corners."
         }
       },
       {
@@ -57,7 +57,7 @@ const WebDesignWesternSydney = () => {
   };
 
   const services = [
-    { title: "Custom Website Design", desc: "Professionally designed websites built to convert visitors into enquiries — affordable, effective, and tailored to Western Sydney businesses." },
+    { title: "Custom Website Design", desc: "Professionally designed websites built to convert visitors into enquiries — reliable, effective, and tailored to Western Sydney businesses." },
     { title: "Local SEO Western Sydney", desc: "Rank higher in Google Maps and organic search for Western Sydney keywords that drive real leads to your business." },
     { title: "Mobile-Optimised Websites", desc: "Over 70% of local searches happen on mobile. Your website will look perfect on every device and load fast." },
     { title: "Google Ads Management", desc: "Targeted Google Ads campaigns for Western Sydney businesses — only pay when someone clicks to your site." },
@@ -74,8 +74,8 @@ const WebDesignWesternSydney = () => {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Web Design Western Sydney | Affordable Business Websites",
-    "description": "Website design for Western Sydney businesses. Custom, affordable websites with local SEO and Google Ads. Serving Parramatta, Penrith, Liverpool, and beyond.",
+    "name": "Web Design Western Sydney | Reliable Business Websites",
+    "description": "Fixed-price web design for Western Sydney businesses. Custom-built, fast-loading sites with local SEO and Google Ads. Serving Parramatta, Penrith, Liverpool, and beyond.",
     "url": "https://digitaledgestudio.com/web-design-western-sydney",
     "mainEntity": {
       "@type": "Service",
@@ -120,7 +120,7 @@ const WebDesignWesternSydney = () => {
               Web Design Western Sydney
             </motion.h1>
             <motion.p variants={fadeUpB} className="text-body-lg text-primary-foreground/75 max-w-2xl mb-8">
-              Affordable, results-focused web design for Western Sydney businesses. Custom websites that rank on Google, generate leads, and grow your business — from Parramatta to Penrith to Liverpool and beyond.
+              Reliable, results-focused web design for Western Sydney businesses. Custom websites that rank on Google, generate leads, and grow your business — from Parramatta to Penrith to Liverpool and beyond.
             </motion.p>
             <motion.div variants={fadeUpB} className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" asChild>
@@ -138,7 +138,7 @@ const WebDesignWesternSydney = () => {
       <section className="bg-muted py-8">
         <div className="container-tight px-4">
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            {["Affordable, Results-Focused", "No Lock-In Contracts", "Fast 4–8 Week Turnaround", "Free Quote & Consultation", "Google Business Profile Setup Included"].map((item) => (
+            {["Fixed-Price, Results-Focused", "No Lock-In Contracts", "Fast 4–8 Week Turnaround", "Free Quote & Consultation", "Google Business Profile Setup Included"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-accent" />
                 <span>{item}</span>
@@ -202,7 +202,7 @@ const WebDesignWesternSydney = () => {
               {[
                 { title: "Western Sydney Market Knowledge", desc: "We understand the diverse businesses across Parramatta, Penrith, Liverpool, and surrounding areas." },
                 { title: "Local SEO Expertise", desc: "We optimise for Western Sydney-specific search terms to drive qualified local leads to your business." },
-                { title: "Affordable Without Compromise", desc: "Professional web design at prices that work for growing Western Sydney businesses — no shortcuts." },
+                { title: "Fixed-Price Without Compromise", desc: "Professional web design at prices that work for growing Western Sydney businesses — no shortcuts." },
                 { title: "Long-Term Partnership", desc: "We don't disappear after launch. We're here to grow your business month after month." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4 p-4 bg-card rounded-xl border border-border card-hover-lift">
@@ -360,7 +360,7 @@ const WebDesignWesternSydney = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Sydney</h3>
-                  <p className="text-sm text-muted-foreground">Affordable web design for businesses across all Sydney regions — CBD, North Shore, Inner West & more.</p>
+                  <p className="text-sm text-muted-foreground">Reliable web design for businesses across all Sydney regions — CBD, North Shore, Inner West & more.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>

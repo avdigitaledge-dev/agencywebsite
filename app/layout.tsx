@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Digital Edge Studio",
   },
   description:
-    "Wollongong web design agency building fast, professional websites for tradies and small businesses. Affordable packages, local SEO, and more leads guaranteed.",
+    "Wollongong web design agency building fast, professional websites for tradies and small businesses. Reliable packages, local SEO, and more leads guaranteed.",
   openGraph: {
     siteName: "Digital Edge Studio",
     locale: "en_AU",

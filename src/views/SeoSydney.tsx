@@ -332,7 +332,7 @@ const SeoSydney = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Wollongong</h3>
-                  <p className="text-sm text-muted-foreground">Professional, affordable web design for Wollongong businesses — custom websites that rank and convert.</p>
+                  <p className="text-sm text-muted-foreground">Professional, reliable web design for Wollongong businesses — custom websites that rank and convert.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>
@@ -362,7 +362,7 @@ const SeoSydney = () => {
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">Web Design Western Sydney</h3>
-                  <p className="text-sm text-muted-foreground">Affordable web design for Parramatta, Penrith, Liverpool, Blacktown, and beyond.</p>
+                  <p className="text-sm text-muted-foreground">Reliable web design for Parramatta, Penrith, Liverpool, Blacktown, and beyond.</p>
                   <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
                 </div>
               </Link>
