@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title:
     "Gym Marketing — Local SEO + Google Ads for Australian Gyms | Digital Edge Studio",
   description:
-    "Done-for-you local SEO and Google Ads for independent gyms, PT studios, CrossFit and F45 in Australia. $2,500/month, 3-month minimum. Book a 15-min call.",
+    "Done-for-you local SEO and Google Ads for independent gyms, PT studios, CrossFit and F45 in Australia. $2,500/month, 3-month minimum. Book a 30-min call.",
   alternates: { canonical: "https://digitaledgestudio.com/gym-marketing" },
   robots: { index: true, follow: true },
   openGraph: {

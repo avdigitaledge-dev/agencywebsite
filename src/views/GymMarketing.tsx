@@ -296,7 +296,7 @@ const GymMarketing = () => {
                 className="btn-shimmer"
                 onClick={() => scrollToBook("hero")}
               >
-                Book a 15-min Call
+                Book a 30-min Call
                 <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
               <p className="text-primary-foreground/50 text-sm mt-3">
@@ -481,7 +481,7 @@ const GymMarketing = () => {
               {
                 step: "01",
                 icon: CalendarIcon,
-                title: "Free 15-min diagnostic",
+                title: "Free 30-min diagnostic",
                 desc: "Book the call. I look at your current ads, Google Business Profile, and website before we talk so we don&apos;t waste the 15 minutes on basics.",
               },
               {
@@ -603,7 +603,7 @@ const GymMarketing = () => {
                     className="btn-shimmer"
                     onClick={() => scrollToBook("price_block")}
                   >
-                    Book a 15-min Call
+                    Book a 30-min Call
                     <ArrowRight className="w-5 h-5 ml-1" />
                   </Button>
                   <p className="text-xs text-muted-foreground mt-4">
@@ -632,7 +632,7 @@ const GymMarketing = () => {
               variants={fadeUpB}
               className="heading-section text-foreground mb-4"
             >
-              Book a 15-min Call
+              Book a 30-min Call
             </motion.h2>
             <motion.p
               variants={fadeUpB}
