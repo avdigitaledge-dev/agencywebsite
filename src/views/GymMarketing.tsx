@@ -557,14 +557,8 @@ const GymMarketing = () => {
           <ScrollReveal variant="B">
             <motion.div
               variants={fadeUpB}
-              className="bg-card rounded-2xl card-gradient-border shadow-glow relative overflow-hidden"
+              className="bg-card rounded-2xl border-2 border-accent shadow-card relative overflow-hidden"
             >
-              {/* Floating badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
-                <span className="gradient-cta text-white text-xs font-bold uppercase tracking-wider px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                  One Plan. Everything Included.
-                </span>
-              </div>
               <div className="gradient-hero relative px-8 py-10 text-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
                 <div className="relative z-10">
