@@ -1,10 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { trackEvent } from "@/lib/utils";
+
+// Single-offer paid landing pages should not compete with their own CTA.
+const SUPPRESS_ON_PATHS = new Set<string>(["/gym-marketing"]);
 
 const WHATSAPP_URL =
   "https://wa.me/61419807321?text=Hi%20Digital%20Edge%20Studio%2C%20I%27m%20interested%20in%20your%20web%20design%20services.";
@@ -12,16 +16,19 @@ const WHATSAPP_URL =
 const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const suppress = SUPPRESS_ON_PATHS.has(pathname);
 
   // Auto-open after 30s (once per session)
   useEffect(() => {
+    if (suppress) return;
     if (sessionStorage.getItem("whatsappAutoShown")) return;
     const timer = setTimeout(() => {
       setIsOpen(true);
       sessionStorage.setItem("whatsappAutoShown", "true");
     }, 30000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [suppress]);
 
   // Close on outside click
   useEffect(() => {
@@ -42,6 +49,8 @@ const WhatsAppWidget = () => {
     trackEvent("whatsapp_click", { location: "chat_widget" });
     window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer");
   };
+
+  if (suppress) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50" ref={popupRef}>

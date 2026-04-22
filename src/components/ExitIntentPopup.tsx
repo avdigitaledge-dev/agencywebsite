@@ -134,8 +134,13 @@ const ExitIntentPopup = () => {
 
   const content = useMemo(() => getPopupContent(pathname), [pathname]);
 
-  // Don't show on contact or free-website-review pages (they're already converting)
-  const suppressPopup = pathname === "/contact" || pathname === "/free-website-review" || pathname === "/checklist-thank-you";
+  // Don't show on contact or free-website-review pages (they're already converting).
+  // /gym-marketing is a single-offer paid landing page — popup would compete with the inline Calendly CTA.
+  const suppressPopup =
+    pathname === "/contact" ||
+    pathname === "/free-website-review" ||
+    pathname === "/checklist-thank-you" ||
+    pathname === "/gym-marketing";
 
   const triggerPopup = useCallback(() => {
     if (suppressPopup) return;
