@@ -253,7 +253,9 @@ const GymMarketing = () => {
       />
 
       {/* ═══ 1. Hero ═══ */}
-      <section className="gradient-hero-warm relative overflow-hidden">
+      <section className="gradient-hero-warm relative overflow-hidden noise-overlay">
+        <div className="hero-orb hero-orb-1" style={{ opacity: 0.2 }} />
+        <div className="hero-orb hero-orb-2" style={{ opacity: 0.12 }} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(217_71%_30%/0.4),transparent_70%)]" />
         <div className="container-tight px-4 py-16 md:py-24 relative z-10">
           <motion.div
@@ -319,7 +321,7 @@ const GymMarketing = () => {
       </section>
 
       {/* ═══ 2. Proof bar ═══ */}
-      <section className="bg-muted py-8">
+      <section className="bg-muted py-8 border-t-2 border-accent/30 shadow-[0_-4px_20px_hsl(217_76%_48%/0.08)]">
         <div className="container-tight px-4">
           <p className="text-center text-sm md:text-base font-semibold text-foreground">
             We rank <span className="text-accent">#1 in our own market</span>{" "}
@@ -331,7 +333,7 @@ const GymMarketing = () => {
       </section>
 
       {/* ═══ 3. Who this is for ═══ */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background dot-pattern">
         <div className="container-tight">
           <ScrollReveal variant="B" className="text-center mb-12">
             <motion.h2
@@ -358,13 +360,14 @@ const GymMarketing = () => {
               "PT studios and small-group training",
               "CrossFit and F45 franchises",
               "Boutique yoga, pilates, and boxing studios",
-            ].map((item) => (
+            ].map((item, i) => (
               <motion.div
                 key={item}
                 variants={fadeUpB}
-                className="bg-card rounded-xl border border-border p-5 shadow-card card-hover-lift flex items-start gap-3"
+                transition={{ delay: i * 0.1 }}
+                className="group bg-card rounded-xl border border-border p-5 shadow-card card-hover-lift flex items-start gap-3"
               >
-                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                 <p className="text-sm text-foreground font-medium">{item}</p>
               </motion.div>
             ))}
@@ -418,10 +421,10 @@ const GymMarketing = () => {
               <motion.div
                 key={item.title}
                 variants={fadeUpB}
-                className="bg-card rounded-2xl border border-border p-7 shadow-card card-hover-lift"
+                className="group bg-card rounded-2xl border border-border p-7 shadow-card card-hover-lift card-premium"
               >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                  <item.icon className="w-6 h-6 text-accent" />
+                <div className="w-12 h-12 rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-300 flex items-center justify-center mb-5">
+                  <item.icon className="w-6 h-6 text-accent group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="heading-card text-foreground mb-3">
                   {item.title}
@@ -554,8 +557,14 @@ const GymMarketing = () => {
           <ScrollReveal variant="B">
             <motion.div
               variants={fadeUpB}
-              className="bg-card rounded-2xl border-2 border-accent shadow-card relative overflow-hidden"
+              className="bg-card rounded-2xl card-gradient-border shadow-glow relative overflow-hidden"
             >
+              {/* Floating badge */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
+                <span className="gradient-cta text-white text-xs font-bold uppercase tracking-wider px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
+                  One Plan. Everything Included.
+                </span>
+              </div>
               <div className="gradient-hero relative px-8 py-10 text-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
                 <div className="relative z-10">
@@ -651,7 +660,7 @@ const GymMarketing = () => {
 
             {/* Backup form */}
             <motion.div variants={fadeUpB} className="lg:col-span-2">
-              <div className="bg-card rounded-2xl border border-border shadow-card p-7">
+              <div className="bg-card rounded-2xl border border-accent/20 shadow-card p-7 gradient-mesh">
                 <h3 className="heading-card text-foreground mb-2">
                   Prefer email?
                 </h3>
