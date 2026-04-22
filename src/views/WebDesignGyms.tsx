@@ -316,6 +316,33 @@ const WebDesignGyms = () => {
         </div>
       </section>
 
+      {/* Gym Marketing cross-link */}
+      <section className="section-padding bg-background">
+        <div className="container-tight max-w-3xl">
+          <ScrollReveal variant="B">
+            <motion.div
+              variants={fadeUpB}
+              className="bg-card rounded-2xl border-2 border-accent/30 shadow-card p-8 text-center"
+            >
+              <Dumbbell className="w-8 h-8 text-accent mx-auto mb-4" />
+              <h3 className="heading-card text-foreground mb-3">
+                Already have a website? Need more members walking through the door?
+              </h3>
+              <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
+                Our done-for-you local SEO + Google Ads package is built specifically for
+                independent gyms and PT studios doing $30K–$100K/month.
+              </p>
+              <Button variant="cta" size="lg" asChild>
+                <Link href="/gym-marketing">
+                  See the Gym Marketing Package
+                  <ArrowRight className="w-5 h-5 ml-1" />
+                </Link>
+              </Button>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />

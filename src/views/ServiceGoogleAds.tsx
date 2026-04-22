@@ -278,6 +278,7 @@ const ServiceGoogleAds = () => {
               {[
                 { label: "All Services", path: "/services" },
                 { label: "Local SEO", path: "/services/seo" },
+                { label: "Gym Marketing", path: "/gym-marketing" },
                 { label: "Web Design", path: "/services/web-design" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Web Design Wollongong", path: "/web-design-wollongong" },

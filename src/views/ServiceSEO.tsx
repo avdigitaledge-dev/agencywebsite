@@ -298,6 +298,7 @@ const ServiceSEO = () => {
                 { label: "All Services", path: "/services" },
                 { label: "AEO & GEO", path: "/services/aeo-geo" },
                 { label: "Google Ads", path: "/services/google-ads" },
+                { label: "Gym Marketing", path: "/gym-marketing" },
                 { label: "Digital Marketing", path: "/services/digital-marketing" },
                 { label: "Pricing", path: "/pricing" },
                 { label: "Client Reviews", path: "/reviews" },
