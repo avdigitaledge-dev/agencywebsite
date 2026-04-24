@@ -5,6 +5,7 @@ const categories = [
   { slug: "web-design", label: "Web Design" },
   { slug: "seo", label: "SEO" },
   { slug: "digital-marketing", label: "Digital Marketing" },
+  { slug: "gym-marketing", label: "Gym Marketing" },
 ];
 
 export async function generateStaticParams() {

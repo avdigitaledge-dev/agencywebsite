@@ -221,6 +221,10 @@ const BlogPost = ({ slug }: { slug: string }) => {
                   text: "Want to see how your site ranks? Get a free website review and find out where you stand.",
                   ctaText: "Get My Free Review",
                   href: "/free-website-review",
+                } : post.category === "Gym Marketing" ? {
+                  text: "Want the full Local SEO + Google Ads system run for your gym? We build and manage it for $2,500/month, no lock-in after the first 3 months.",
+                  ctaText: "See the Gym Marketing Service",
+                  href: "/gym-marketing",
                 } : {
                   text: "Need a website that actually gets you leads? We build sites that rank and convert — no lock-in contracts.",
                   ctaText: "Get a Free Quote",

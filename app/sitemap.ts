@@ -61,6 +61,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/web-design-ndis`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/web-design-gyms`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/gym-marketing`, lastModified: new Date("2026-04-22"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/gym-marketing-sydney`, lastModified: new Date("2026-04-24"), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/google-ads-for-gyms`, lastModified: new Date("2026-04-24"), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/web-design-beauty-salons`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/web-design-veterinary`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/web-design-startups`, lastModified: lastUpdated, changeFrequency: "monthly", priority: 0.7 },
@@ -93,6 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "web-design",
     "seo",
     "digital-marketing",
+    "gym-marketing",
   ].map((category) => ({
     url: `${BASE_URL}/blog/category/${category}`,
     lastModified: lastUpdated,

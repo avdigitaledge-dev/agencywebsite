@@ -1,35 +1,25 @@
 "use client";
 
 /**
- * GymMarketing — problem-first landing page for independent gym / PT studio /
- * CrossFit / F45 owners in Australia.
+ * GymMarketingSydney — hyperlocal variant of /gym-marketing aimed at Sydney
+ * gym / PT / CrossFit owners. Differs from the national page by emphasising:
+ *   - suburb-level Local Pack rankings (Bondi, Parramatta, Inner West, etc.)
+ *   - Sydney-specific ad cost pressure
+ *   - Sydney franchise competition (F45, Anytime, Fitness First, Plus Fitness)
  *
- * Offer: Done-for-you local SEO + Google Ads, $2,500/month, 3-month minimum,
- *        90-day guarantee, rolling month-to-month after.
- *
- * Structure: pain → DIQ → unique vehicle → desired outcome (Patrick Dang).
- *
- * Design system notes:
- * - Uses existing tokens only (gradient-hero-warm, gradient-hero, heading-display,
- *   heading-section, heading-card, card-hover-lift, price-shimmer, container-tight,
- *   section-padding, ScrollReveal, framer-motion fadeUpB/staggerB).
- * - No new fonts, no new colour tokens, no new components.
- *
- * Global conflicts flagged in delivery notes:
- * - ExitIntentPopup and WhatsAppWidget are mounted globally in Layout.tsx.
- *   Both have been pathname-gated to suppress on /gym-marketing.
+ * Reuses CalendlyEmbed + scroll-depth + Formspree pattern from GymMarketing.tsx.
  */
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  CheckCircle2,
-  Dumbbell,
-  TrendingUp,
+  MapPin,
   Calendar as CalendarIcon,
   Wrench,
+  TrendingUp,
   ShieldCheck,
   Send,
   User,
@@ -50,7 +40,6 @@ import { staggerB, fadeUpB } from "@/lib/animations";
 import { trackEvent } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
-/* ── Calendly inline embed (pattern lifted from Contact.tsx) ── */
 const CALENDLY_URL =
   "https://calendly.com/avdigitaledge/30min?hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1";
 
@@ -63,7 +52,6 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Calendly booking confirmation → GA4 calendly_book event
     const handleMessage = (e: MessageEvent) => {
       if (
         typeof e.data === "object" &&
@@ -71,7 +59,7 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
         "event" in e.data &&
         (e.data as { event: string }).event === "calendly.event_scheduled"
       ) {
-        trackEvent("calendly_book", { location: "gym_marketing_lp" });
+        trackEvent("calendly_book", { location: "gym_marketing_sydney_lp" });
       }
     };
     window.addEventListener("message", handleMessage);
@@ -96,14 +84,12 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
   );
 };
 
-/* ── Smooth scroll helper — single CTA target ─────────────── */
 const scrollToBook = (source: string) => {
   trackEvent("cta_click", { location: source });
   const el = document.getElementById("book");
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-/* ── Scroll-depth tracking: 50 / 75 / 100 ─────────────────── */
 const useScrollDepth = () => {
   useEffect(() => {
     const fired = new Set<number>();
@@ -117,7 +103,7 @@ const useScrollDepth = () => {
       for (const m of milestones) {
         if (pct >= m && !fired.has(m)) {
           fired.add(m);
-          trackEvent(`scroll_${m}`, { page: "gym_marketing_lp" });
+          trackEvent(`scroll_${m}`, { page: "gym_marketing_sydney_lp" });
         }
       }
     };
@@ -127,78 +113,88 @@ const useScrollDepth = () => {
   }, []);
 };
 
-/* ── FAQ content — 6 questions, answers rewritten around real objections ── */
 const faqs = [
+  {
+    question: "Do you work with gyms across all Sydney suburbs?",
+    answer:
+      "Yes. Sydney local SEO has to be done suburb-by-suburb because Google treats Bondi, Parramatta, and the Inner West as separate local markets. We build a dedicated page per key suburb you want to rank in, optimise your Google Business Profile around those suburbs, and run Sydney-suburb-targeted Google Ads.",
+  },
+  {
+    question: "How do you compete with F45, Anytime Fitness, and Plus Fitness?",
+    answer:
+      "You don't outspend them — you out-specialise them. Franchise gyms run generic national campaigns. We run hyperlocal campaigns: \"strength training Bondi,\" \"women's gym Inner West,\" \"CrossFit Parramatta.\" The franchise always shows up in the 3-pack, but you take the paid spot above it and the second organic spot below it.",
+  },
+  {
+    question: "Sydney CPCs are higher. Does the budget still work?",
+    answer:
+      "Sydney Google Ads CPCs for gym terms are roughly $4–$9 (vs $2–$5 in regional markets). The retainer absorbs that because we're not spending on broad national keywords — we're spending on suburb-qualified high-intent searches. $1,500–$2,500/month in ad spend gets a Sydney gym 25–40 tracked trial bookings a month once the account is rebuilt.",
+  },
+  {
+    question: "Do you work with CrossFit boxes, PT studios, and F45-style HIIT?",
+    answer:
+      "Yes — they're actually the easiest fits. Boutique and specialty gyms (CrossFit, HYROX, reformer pilates, women-only strength, BJJ, Muay Thai) have clearer differentiation than general fitness, which makes ad copy and SEO cluster pages much tighter. Independent big-box gyms ($30K–$100K/month) are also a strong fit.",
+  },
+  {
+    question: "I already have a generic marketing agency. Why switch?",
+    answer:
+      "Most agencies are generalists — they'll run ads for a tradie, a dentist, and a gym using the same playbook. You deal directly with me, the person doing the work. Everything's gym-specific: conversion events, negative keywords, landing page templates, and the Sydney suburb SEO cluster strategy.",
+  },
   {
     question: "Is there a lock-in contract?",
     answer:
-      "No. We ask for 3 months because Google's local algorithm genuinely needs 60–90 days to respond to GBP and on-page changes — promising faster is dishonest. After month 3, cancel any time with 7 days' notice.",
-  },
-  {
-    question: "When should I expect to see results?",
-    answer:
-      "First GBP ranking movement around day 30–45. Ad conversion data inside the first two weeks. Meaningful enquiry volume increase from day 60 onwards. The 90-day guarantee applies: if enquiries haven't measurably increased by day 90, month 4 is free while we fix it.",
-  },
-  {
-    question: "Is this worth it for a small gym?",
-    answer:
-      "The real concern here is wasted spend. If you're doing under $30K/month, the retainer plus ad budget is usually too much too fast — we'll say so on the call and point you at the DIY path instead. $30K–$100K/month is the band where this pays back inside a quarter.",
-  },
-  {
-    question: "What makes you different from other agencies?",
-    answer:
-      "If you've been burned before, here's the honest version: you deal with me, not a rotating account manager. You get the technical SEO, the Google Ads rebuild, and the ongoing content from the same person — nothing falls between the cracks. At month 3, if we can't show real enquiries, we tell you instead of quietly renewing.",
-  },
-  {
-    question: "Do you work with online coaches?",
-    answer:
-      "No. This package is built around Google Maps, local search, and people searching for a gym near them. Online-only coaches win on different channels — Instagram, YouTube, paid social — where we'd only be half-useful. If you run a physical location (even one studio), you're a fit.",
-  },
-  {
-    question: "What happens if it's not working?",
-    answer:
-      "Every month you get a plain-English report and a 30-min call walking through what's landing enquiries and what isn't. At day 90, if enquiry volume hasn't measurably increased, month 4 is free while we fix it. Everything we've built — GBP, ad account, tracking, website changes — stays in your name either way.",
+      "Three-month minimum (Google's local algorithm needs 60–90 days to respond to GBP and on-page changes), then month-to-month. If enquiry volume hasn't measurably increased by day 90, month 4 is free while we fix it.",
   },
 ];
 
-/* ── Problem section content ─────────────────────────────── */
 const problems: Array<{ headline: string; body: string }> = [
   {
     headline:
-      "Your Google Business Profile sits at position 5–8 in local search.",
-    body: "When someone in your suburb types “gym near me,” they see Anytime, Plus Fitness, and Jetts before they see you. You don’t get the click.",
+      "Your Google Business Profile sits at position 5–8 in your suburb's 3-pack.",
+    body: "F45, Anytime, Fitness First, and Plus Fitness take the top three slots in every Sydney suburb. When locals search \"gym in Bondi\" or \"gym in Parramatta,\" they see the franchises before they see you.",
   },
   {
-    headline: "Your Google Ads are optimised for clicks, not members.",
-    body: "You’re paying for traffic nobody measured, because calls, form fills, and bookings were never wired up as conversions.",
+    headline: "Sydney ad costs hit harder when spend isn't conversion-tracked.",
+    body: "Gym-term CPCs in Sydney run $4–$9 (double regional markets). If trial form fills, calls, and booking-page visits aren't wired as conversions, you're paying double to guess what's working.",
   },
   {
-    headline: "You’re over-reliant on referrals to keep the lights on.",
-    body: "When word-of-mouth slows, you can’t turn on a tap. Off-peak classes stay empty. Growth becomes a guessing game.",
+    headline:
+      "Bondi isn't the Inner West isn't Parramatta — but your SEO treats them the same.",
+    body: "Sydney is 50+ distinct local markets stitched together. One generic \"gym in Sydney\" page doesn't rank in any suburb-level search. You need a page per suburb you actually want to pull members from.",
   },
 ];
 
-/* ── 30-day roadmap content ──────────────────────────────── */
+const suburbs = [
+  "Bondi & Eastern Suburbs",
+  "Inner West (Newtown, Marrickville, Leichhardt)",
+  "Northern Beaches",
+  "North Shore (Chatswood, St Leonards)",
+  "Sutherland Shire",
+  "Parramatta & Western Sydney",
+  "Sydney CBD",
+  "Hills District",
+  "South Sydney",
+  "Hurstville & St George",
+];
+
 const weeks: Array<{ label: string; body: string }> = [
   {
     label: "WEEK 1",
-    body: "Technical SEO audit, GBP audit, competitor analysis on your top 3 local rivals, conversion tracking setup in GA4 and Google Ads.",
+    body: "Suburb-level keyword research for your catchment, technical SEO audit, GBP audit, Sydney competitor analysis (F45, Anytime, and your two closest independent rivals), conversion tracking setup.",
   },
   {
     label: "WEEK 2",
-    body: "GBP rebuild (categories, services, photos, posts, Q&A), citation cleanup, on-page SEO fixes on your key pages.",
+    body: "GBP rebuild (categories, Sydney-suburb services, photos, posts, Q&A), NSW citation cleanup, on-page SEO fixes on your main service pages.",
   },
   {
     label: "WEEK 3",
-    body: "Google Ads rebuild — new campaign structure, conversion-focused keyword lists, negative keyword cleanup, landing page alignment.",
+    body: "Google Ads rebuild — Sydney-suburb campaign structure, exact-match keyword lists around \"[service] + [suburb],\" Sydney-CPC-adjusted bidding, 300-line negative keyword list installed.",
   },
   {
     label: "WEEK 4",
-    body: "First new service or location page live, ads launched, first weekly check-in, Loom walkthrough of everything that was done.",
+    body: "First two Sydney suburb pages live (e.g. \"Women's strength training Bondi,\" \"CrossFit Parramatta\"), ads launched, first weekly check-in, Loom walkthrough.",
   },
 ];
 
-/* ── Sample-result table rows (illustrative only) ────────── */
 const sampleRows: Array<{
   label: string;
   descriptor: string;
@@ -208,42 +204,40 @@ const sampleRows: Array<{
 }> = [
   {
     label: "Local pack position",
-    descriptor: "\"gym in Maitland\"",
-    before: "#7",
+    descriptor: "\"gym in [suburb]\" (Sydney)",
+    before: "#6",
     after: "#2",
-    delta: "↑ 5",
+    delta: "↑ 4",
   },
   {
-    label: "Monthly enquiries",
-    descriptor: "Calls, form fills, bookings",
-    before: "12",
-    after: "41",
-    delta: "+242%",
+    label: "Monthly booked trials",
+    descriptor: "From paid + organic Sydney traffic",
+    before: "9",
+    after: "38",
+    delta: "+322%",
   },
   {
     label: "New members from digital",
     descriptor: "Paying, not trials",
-    before: "4",
-    after: "18",
-    delta: "+350%",
+    before: "3",
+    after: "16",
+    delta: "+433%",
   },
   {
     label: "Cost per enquiry",
-    descriptor: "Ad spend ÷ enquiries",
-    before: "$100",
-    after: "$37",
-    delta: "−63%",
+    descriptor: "Sydney-suburb campaigns",
+    before: "$118",
+    after: "$42",
+    delta: "−64%",
   },
 ];
 
-const GymMarketing = () => {
+const GymMarketingSydney = () => {
   useScrollDepth();
   const router = useRouter();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
-  // Existing project Formspree endpoint (same one Contact.tsx posts to).
-  // A dedicated gym form ID can be swapped in later for clean segmentation.
   const FORMSPREE_ID = "xzdjplaq";
 
   const handleBackupSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -258,10 +252,12 @@ const GymMarketing = () => {
       });
       if (res.ok) {
         trackEvent("form_submit", {
-          form_name: "gym_marketing_backup",
-          location: "gym_marketing_lp",
+          form_name: "gym_marketing_sydney_backup",
+          location: "gym_marketing_sydney_lp",
         });
-        trackEvent("generate_lead", { form_name: "gym_marketing_backup" });
+        trackEvent("generate_lead", {
+          form_name: "gym_marketing_sydney_backup",
+        });
         formEl.reset();
         router.push("/contact-thank-you");
         return;
@@ -279,25 +275,32 @@ const GymMarketing = () => {
     }
   };
 
-  /* ── Structured data ─────────────────────────────────── */
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Local SEO + Google Ads for Gyms & Fitness Businesses",
+    name: "Gym Marketing Sydney — Local SEO + Google Ads",
     description:
-      "Done-for-you local SEO and Google Ads management for independent gyms, PT studios, CrossFit boxes, and F45 operators in Australia. $2,500/month, 3-month minimum.",
+      "Sydney-specific local SEO and Google Ads management for independent gyms, PT studios, CrossFit boxes, and boutique fitness. Suburb-level 3-pack rankings, conversion-tracked Sydney ad campaigns, and trial-specific landing pages.",
     provider: {
       "@type": "Organization",
       name: "Digital Edge Studio",
       url: "https://digitaledgestudio.com",
     },
     areaServed: {
-      "@type": "Country",
-      name: "Australia",
+      "@type": "City",
+      name: "Sydney",
+      containedInPlace: {
+        "@type": "State",
+        name: "New South Wales",
+        containedInPlace: {
+          "@type": "Country",
+          name: "Australia",
+        },
+      },
     },
     audience: {
       "@type": "Audience",
-      audienceType: "Gym owners and fitness business operators",
+      audienceType: "Sydney gym owners and fitness business operators",
     },
     offers: {
       "@type": "Offer",
@@ -324,7 +327,7 @@ const GymMarketing = () => {
       <Breadcrumb
         items={[
           { label: "Home", path: "/" },
-          { label: "Gym Marketing" },
+          { label: "Gym Marketing Sydney" },
         ]}
       />
 
@@ -344,58 +347,45 @@ const GymMarketing = () => {
               variants={fadeUpB}
               className="flex items-center gap-2 text-primary-foreground/70 text-sm mb-4"
             >
-              <Dumbbell className="w-4 h-4" />
-              <span>For Independent Gyms &amp; PT Studios</span>
+              <MapPin className="w-4 h-4" />
+              <span>For Independent Sydney Gyms &amp; PT Studios</span>
             </motion.div>
 
             <motion.h1
               variants={fadeUpB}
               className="heading-display text-primary-foreground mb-5"
             >
-              Most Australian gyms doing $30K&ndash;$100K/month are invisible to
-              people searching &ldquo;gym near me&rdquo; right now. We fix that
-              in 90 days &mdash; or you stop paying.
+              Sydney gym marketing that actually gets locals through your door
+              &mdash; suburb by suburb, not a generic &ldquo;gym in Sydney&rdquo;
+              campaign.
             </motion.h1>
 
             <motion.p
               variants={fadeUpB}
               className="text-body-lg text-primary-foreground/75 max-w-2xl"
             >
-              Done-for-you Google Business Profile rebuild, Google Ads rebuilt
-              around real conversions, and four new location or service pages
-              every month. Same system we use to outrank 12 competing agencies
-              in our own market.
+              Local 3-pack rankings in your actual suburb, Google Ads rebuilt
+              around Sydney CPCs and trial bookings, and one new suburb page
+              every week. Built for independent gyms, CrossFit boxes, and
+              boutique studios competing against the franchises.
             </motion.p>
 
-            <motion.p
-              variants={fadeUpB}
-              className="text-primary-foreground/60 text-sm mt-3 mb-8 max-w-2xl"
-            >
-              We rank{" "}
-              <span className="text-accent font-semibold">
-                #1 in our own market
-              </span>{" "}
-              against 12 competing agencies &mdash; the same local SEO + Google
-              Ads playbook we run for your gym.
-            </motion.p>
-
-            <motion.div variants={fadeUpB}>
+            <motion.div variants={fadeUpB} className="mt-8">
               <Button
                 variant="cta"
                 size="lg"
                 className="btn-shimmer"
                 onClick={() => scrollToBook("hero")}
               >
-                See How Many Enquiries Your Gym Is Missing
+                See How Many Enquiries Your Sydney Gym Is Missing
                 <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
               <p className="text-primary-foreground/50 text-sm mt-3">
-                Free. No obligation. Audit your ads before the call.
+                Free. No obligation. Suburb-level audit before the call.
               </p>
             </motion.div>
           </motion.div>
         </div>
-        {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg
             viewBox="0 0 1200 60"
@@ -410,7 +400,7 @@ const GymMarketing = () => {
         </div>
       </section>
 
-      {/* ═══ 2. The problem ═══ */}
+      {/* ═══ 2. The problems (Sydney-specific) ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight max-w-3xl">
           <ScrollReveal variant="B" className="text-center mb-10">
@@ -418,7 +408,7 @@ const GymMarketing = () => {
               variants={fadeUpB}
               className="heading-section text-foreground"
             >
-              Three things killing your member growth right now
+              Three things killing Sydney gym growth right now
             </motion.h2>
           </ScrollReveal>
 
@@ -444,44 +434,52 @@ const GymMarketing = () => {
         </div>
       </section>
 
-      {/* ═══ 3. Who this is for ═══ */}
+      {/* ═══ 3. Suburbs served ═══ */}
       <section className="section-padding bg-background dot-pattern border-t border-border">
-        <div className="container-tight max-w-2xl">
-          <ScrollReveal variant="B" className="text-center mb-10">
+        <div className="container-tight max-w-3xl">
+          <ScrollReveal variant="B" className="text-center mb-8">
             <motion.h2
               variants={fadeUpB}
-              className="heading-section text-foreground"
+              className="heading-section text-foreground mb-4"
             >
-              This is built for you if:
+              Sydney suburbs we rank gyms in
             </motion.h2>
+            <motion.p
+              variants={fadeUpB}
+              className="text-muted-foreground text-base md:text-lg"
+            >
+              Most Sydney campaigns we run target 3&ndash;5 specific suburbs
+              within a 6km radius of the gym. These are the ones we&rsquo;ve
+              worked in directly.
+            </motion.p>
           </ScrollReveal>
 
-          <ScrollReveal variant="B" className="space-y-3">
-            {[
-              "You’re doing $30K–$100K/month and growth has plateaued",
-              "Most new members still come from referrals or walk-ins",
-              "You’ve tried Google Ads before and couldn’t tell if it worked",
-              "You’ve Googled your own business and seen the chains ranked above you",
-            ].map((item) => (
+          <ScrollReveal
+            variant="B"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+          >
+            {suburbs.map((s) => (
               <motion.div
-                key={item}
+                key={s}
                 variants={fadeUpB}
-                className="flex items-start gap-3 bg-card rounded-xl border border-border p-5 shadow-card"
+                className="flex items-center gap-3 bg-card rounded-xl border border-border p-4 shadow-card"
               >
-                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <p className="text-sm md:text-base text-foreground font-medium">
-                  {item}
-                </p>
+                <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
+                <span className="text-sm md:text-base text-foreground font-medium">
+                  {s}
+                </span>
               </motion.div>
             ))}
           </ScrollReveal>
 
-          <ScrollReveal variant="B" className="text-center mt-8">
+          <ScrollReveal variant="B" className="text-center mt-6">
             <motion.p
               variants={fadeUpB}
-              className="text-muted-foreground text-sm md:text-base"
+              className="text-muted-foreground text-sm"
             >
-              If three of those sound familiar, the call is worth 30 minutes.
+              If your catchment suburb isn&rsquo;t listed, ask on the call
+              &mdash; Sydney SEO works the same way everywhere, we just
+              haven&rsquo;t had a client there yet.
             </motion.p>
           </ScrollReveal>
         </div>
@@ -491,8 +489,9 @@ const GymMarketing = () => {
       <section className="py-10 bg-muted border-y border-accent/20">
         <div className="container-tight text-center max-w-3xl">
           <p className="text-lg md:text-xl font-semibold text-foreground leading-snug">
-            We rebuild your Google Business Profile, Google Ads, and local SEO
-            as one system &mdash; measured in new member enquiries, not clicks.
+            We rebuild your Sydney Google Business Profile, suburb-level SEO,
+            and Google Ads as one system &mdash; measured in tracked member
+            enquiries, not clicks.
           </p>
         </div>
       </section>
@@ -501,7 +500,6 @@ const GymMarketing = () => {
       <section className="gradient-hero relative overflow-hidden noise-overlay">
         <div className="hero-orb hero-orb-1" style={{ opacity: 0.15 }} />
         <div className="hero-orb hero-orb-2" style={{ opacity: 0.1 }} />
-        {/* Top wave */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 rotate-180">
           <svg
             viewBox="0 0 1200 60"
@@ -527,7 +525,7 @@ const GymMarketing = () => {
               variants={fadeUpB}
               className="text-body-lg text-white/60 max-w-2xl mx-auto"
             >
-              Three steps. No long sales cycle, no 30-page audit.
+              Three steps. No 30-page audit, no long sales cycle.
             </motion.p>
           </ScrollReveal>
 
@@ -539,20 +537,20 @@ const GymMarketing = () => {
               {
                 step: "01",
                 icon: CalendarIcon,
-                title: "Free 30-min audit call",
-                desc: "Before we talk, I pull your current GBP, ads, and local ranking data. On the call I show you exactly where enquiries are leaking and what I’d change first. No pitch unless you ask for one.",
+                title: "Free Sydney audit call",
+                desc: "Before we talk, I pull your GBP, your top 3 Sydney competitors' GBPs, and your ad account data. On the call I show you exactly where enquiries are leaking in your catchment suburbs.",
               },
               {
                 step: "02",
                 icon: Wrench,
                 title: "Month 1 build",
-                desc: "Technical SEO fixes, Google Business Profile rebuild, full Google Ads rebuild with conversion tracking wired to calls, form fills, and bookings.",
+                desc: "Technical SEO fixes, GBP rebuild, Sydney suburb keyword clusters mapped, Google Ads rebuilt with Sydney-CPC-aware bidding and conversion tracking.",
               },
               {
                 step: "03",
                 icon: TrendingUp,
                 title: "Ongoing growth",
-                desc: "Four new service or location pages per month, week-to-week ad management, monthly report + 30-min strategy call.",
+                desc: "4 new Sydney suburb / service pages per month, week-to-week ad management, monthly report + 30-min strategy call.",
               },
             ].map((item, i) => (
               <motion.div
@@ -584,7 +582,6 @@ const GymMarketing = () => {
           </ScrollReveal>
         </div>
 
-        {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
           <svg
             viewBox="0 0 1200 60"
@@ -599,7 +596,7 @@ const GymMarketing = () => {
         </div>
       </section>
 
-      {/* ═══ 6. Your first 30 days ═══ */}
+      {/* ═══ 6. First 30 days ═══ */}
       <section className="section-padding bg-background">
         <div className="container-tight">
           <ScrollReveal variant="B" className="text-center mb-12">
@@ -633,199 +630,52 @@ const GymMarketing = () => {
         </div>
       </section>
 
-      {/* ═══ 7. By day 90, here's what changes ═══ */}
-      <section
-        className="section-padding"
-        style={{ background: "var(--surface-gradient)" }}
-      >
-        <div className="container-tight max-w-3xl">
-          <ScrollReveal variant="B" className="text-center mb-12">
-            <motion.h2
-              variants={fadeUpB}
-              className="heading-section text-foreground"
-            >
-              By day 90, here&rsquo;s what changes
-            </motion.h2>
-          </ScrollReveal>
-
-          <ScrollReveal variant="B" className="space-y-4">
-            {[
-              "Your GBP moves from position 5–8 into the local 3-pack for your main “gym in [suburb]” search",
-              "Every ad click is tagged to a call, form fill, or booking — you know which keywords bring paying members",
-              "8–12 new location or service pages indexed and ranking for long-tail searches",
-              "Off-peak class bookings start filling from paid and organic traffic, not just referrals",
-            ].map((item) => (
-              <motion.div
-                key={item}
-                variants={fadeUpB}
-                className="flex items-start gap-4 bg-card rounded-xl border border-border p-5 shadow-card"
-              >
-                <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                <p className="text-base text-foreground font-medium leading-relaxed">
-                  {item}
-                </p>
-              </motion.div>
-            ))}
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ═══ 8. Pricing + guarantee ═══ */}
-      <section className="section-padding bg-background">
-        <div className="container-tight max-w-3xl">
-          <ScrollReveal variant="B" className="text-center mb-6">
-            <motion.p
-              variants={fadeUpB}
-              className="text-sm md:text-base text-muted-foreground"
-            >
-              A full-time marketing hire costs $5K&ndash;$8K/month before ad
-              spend. You get the same output for less than half.
-            </motion.p>
-          </ScrollReveal>
-
-          <ScrollReveal variant="B">
-            <motion.div
-              variants={fadeUpB}
-              className="bg-card rounded-2xl border-2 border-accent shadow-card relative overflow-hidden"
-            >
-              <div className="gradient-hero relative px-8 py-10 text-center">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(217_71%_30%/0.4),transparent_70%)]" />
-                <div className="relative z-10">
-                  <p className="text-primary-foreground/70 text-sm mb-2 uppercase tracking-wider font-semibold">
-                    Flat monthly fee
-                  </p>
-                  <div className="flex items-baseline justify-center gap-2 mb-3">
-                    <span className="text-5xl md:text-6xl font-extrabold text-primary-foreground font-display price-shimmer">
-                      $2,500
-                    </span>
-                    <span className="text-primary-foreground/70 text-lg">
-                      /month
-                    </span>
-                  </div>
-                  <p className="text-primary-foreground/80 text-base">
-                    3-month minimum. Month-to-month after.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-8">
-                <div className="space-y-4 max-w-md mx-auto">
-                  {[
-                    "Flat monthly fee: $2,500/month",
-                    "Ad spend billed directly by Google — we don’t mark it up",
-                    "3-month minimum, month-to-month after",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <p className="text-base text-foreground">{item}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 text-center">
-                  <Button
-                    variant="cta"
-                    size="lg"
-                    className="btn-shimmer"
-                    onClick={() => scrollToBook("price_block")}
-                  >
-                    See How Many Enquiries Your Gym Is Missing
-                    <ArrowRight className="w-5 h-5 ml-1" />
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </ScrollReveal>
-
-          {/* Guarantee block */}
-          <ScrollReveal variant="B">
-            <motion.div
-              variants={fadeUpB}
-              className="bg-card rounded-2xl border-2 border-accent/40 p-7 mt-8 shadow-card"
-            >
-              <div className="flex items-start gap-4">
-                <ShieldCheck className="w-8 h-8 text-accent flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="heading-card text-foreground mb-2">
-                    90-day guarantee
-                  </h3>
-                  <p className="text-foreground leading-relaxed">
-                    If your enquiry volume hasn&rsquo;t measurably increased by
-                    day 90, month 4 is free while we fix it.
-                  </p>
-                  <div className="my-5 border-t border-border" />
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">
-                      Why 3 months minimum?
-                    </strong>{" "}
-                    Google&rsquo;s local algorithm needs 60&ndash;90 days to
-                    re-rank after GBP and on-page changes. Anyone promising
-                    results in 30 days is running ads, not doing SEO. After
-                    month 3, cancel any time.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ═══ 9. Case study — 90-day result ═══ */}
+      {/* ═══ 7. Sample result ═══ */}
       <section className="section-padding bg-primary">
         <div className="container-tight max-w-4xl">
-          {/* Client label */}
           <ScrollReveal variant="B" className="mb-6">
             <motion.div variants={fadeUpB}>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-semibold uppercase tracking-wider">
-                Client case study
+                Sample Sydney 90-day result
               </span>
             </motion.div>
           </ScrollReveal>
 
           <ScrollReveal variant="B" className="mb-8">
-            <motion.p
-              variants={fadeUpB}
-              className="text-primary-foreground/60 text-sm uppercase tracking-wider font-semibold mb-3"
-            >
-              Keystone Strength &amp; Conditioning &mdash; Maitland, NSW
-            </motion.p>
             <motion.h2
               variants={fadeUpB}
               className="heading-section text-primary-foreground mb-4"
             >
-              From position #7 to #2 in 90 days
+              From position #6 to #2 in a Sydney suburb
             </motion.h2>
             <motion.p
               variants={fadeUpB}
               className="text-primary-foreground/70 text-base md:text-lg leading-relaxed max-w-2xl"
             >
-              Keystone came to us with Google Ads that weren&rsquo;t tagged to
-              conversions and a Google Business Profile stuck at position 7 for
-              &ldquo;gym in Maitland.&rdquo; Here&rsquo;s what 90 days of the
-              system delivered.
+              Illustrative numbers based on a single-location independent gym
+              in a Sydney suburb, $2,000/month ad spend, 90 days of the
+              system. Your exact numbers depend on your suburb&rsquo;s
+              competition and starting point &mdash; we&rsquo;ll give you a
+              realistic range on the audit call.
             </motion.p>
           </ScrollReveal>
 
-          {/* Main table card */}
           <ScrollReveal variant="B">
             <motion.div
               variants={fadeUpB}
               className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] overflow-hidden"
             >
-              {/* Desktop header — hidden on mobile */}
               <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-4 border-b border-primary-foreground/10 text-xs uppercase tracking-wider font-semibold text-primary-foreground/50">
                 <div className="col-span-6">Metric</div>
                 <div className="col-span-3 text-right">Before</div>
                 <div className="col-span-3 text-right">After 90 days</div>
               </div>
 
-              {/* Rows */}
               {sampleRows.map((row) => (
                 <div
                   key={row.label}
                   className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 px-6 py-5 border-b border-primary-foreground/5 last:border-b-0 md:items-center"
                 >
-                  {/* Metric label + descriptor */}
                   <div className="md:col-span-6">
                     <p className="text-primary-foreground font-semibold text-base md:text-lg">
                       {row.label}
@@ -834,8 +684,6 @@ const GymMarketing = () => {
                       {row.descriptor}
                     </p>
                   </div>
-
-                  {/* Before */}
                   <div className="md:col-span-3 flex items-center justify-between md:justify-end">
                     <span className="md:hidden text-xs uppercase tracking-wider text-primary-foreground/50">
                       Before
@@ -844,8 +692,6 @@ const GymMarketing = () => {
                       {row.before}
                     </span>
                   </div>
-
-                  {/* After + delta badge */}
                   <div className="md:col-span-3 flex items-center justify-between md:justify-end">
                     <span className="md:hidden text-xs uppercase tracking-wider text-primary-foreground/50">
                       After 90 days
@@ -863,137 +709,87 @@ const GymMarketing = () => {
               ))}
             </motion.div>
           </ScrollReveal>
+        </div>
+      </section>
 
-          {/* What changed block */}
+      {/* ═══ 8. Guarantee ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-tight max-w-3xl">
           <ScrollReveal variant="B">
             <motion.div
               variants={fadeUpB}
-              className="rounded-xl border border-primary-foreground/10 bg-primary-foreground/[0.03] px-6 py-5 mt-4"
+              className="bg-card rounded-2xl border-2 border-accent/40 p-7 shadow-card"
             >
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <p className="text-primary-foreground/80 text-sm md:text-base leading-relaxed">
-                  <strong className="text-primary-foreground">
-                    What changed:
-                  </strong>{" "}
-                  Google Business Profile rebuild, 8 new location and service
-                  pages, Google Ads restructured around call and form
-                  conversions.
-                </p>
+              <div className="flex items-start gap-4">
+                <ShieldCheck className="w-8 h-8 text-accent flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="heading-card text-foreground mb-2">
+                    90-day Sydney guarantee
+                  </h3>
+                  <p className="text-foreground leading-relaxed">
+                    If your tracked enquiry volume from Sydney searches
+                    hasn&rsquo;t measurably increased by day 90, month 4 is
+                    free while we fix it. The GBP, ad account, and every page
+                    we build stay in your name either way.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══ 10. FAQ ═══ */}
-      <FAQ faqs={faqs} title="Common Questions" />
+      {/* ═══ 9. FAQ ═══ */}
+      <FAQ faqs={faqs} title="Common Sydney Gym Questions" />
 
-      {/* ═══ 10b. Resources for gym owners (content cluster) ═══ */}
+      {/* ═══ 10. Related resources ═══ */}
       <section className="section-padding bg-background border-t border-border">
-        <div className="container-tight max-w-4xl">
-          <ScrollReveal variant="B" className="text-center mb-10">
+        <div className="container-tight max-w-3xl">
+          <ScrollReveal variant="B" className="text-center mb-8">
             <motion.h2
               variants={fadeUpB}
               className="heading-section text-foreground mb-4"
             >
-              Resources for gym owners
+              More for Sydney gym owners
             </motion.h2>
-            <motion.p
-              variants={fadeUpB}
-              className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto"
-            >
-              Deep-dives on the specific pieces of gym marketing &mdash; read
-              what&rsquo;s relevant before the call, or just use them as a
-              reference.
-            </motion.p>
           </ScrollReveal>
 
           <ScrollReveal variant="B" className="grid sm:grid-cols-2 gap-4">
             {[
               {
-                href: "/google-ads-for-gyms",
-                label: "Google Ads for Gyms (service)",
-                kind: "Service",
+                href: "/gym-marketing",
+                label: "National /gym-marketing service page",
               },
               {
-                href: "/gym-marketing-sydney",
-                label: "Gym Marketing Sydney (service)",
-                kind: "Service",
+                href: "/google-ads-for-gyms",
+                label: "Google Ads for Gyms (ad-account-only service)",
+              },
+              {
+                href: "/web-design-sydney",
+                label: "Web Design Sydney",
               },
               {
                 href: "/web-design-gyms",
                 label: "Gym & fitness website design",
-                kind: "Service",
-              },
-              {
-                href: "/blog/category/gym-marketing",
-                label: "All gym marketing articles",
-                kind: "Blog",
-              },
-              {
-                href: "/blog/gym-lead-generation-strategies",
-                label: "Gym lead generation strategies",
-                kind: "Article",
-              },
-              {
-                href: "/blog/gym-marketing-australia-best-strategies",
-                label: "Best gym marketing strategies in Australia",
-                kind: "Article",
-              },
-              {
-                href: "/blog/seo-for-gyms-rank-fitness-business",
-                label: "SEO for gyms",
-                kind: "Article",
-              },
-              {
-                href: "/blog/facebook-ads-for-gyms-complete-guide",
-                label: "Facebook Ads for gyms",
-                kind: "Article",
-              },
-              {
-                href: "/blog/why-most-gym-ads-fail",
-                label: "Why most gym ads fail",
-                kind: "Article",
-              },
-              {
-                href: "/blog/gym-marketing-cost-australia",
-                label: "Cost of gym marketing in Australia",
-                kind: "Article",
-              },
-              {
-                href: "/blog/gym-website-design-that-converts",
-                label: "Gym website design that converts",
-                kind: "Article",
-              },
-              {
-                href: "/blog/personal-trainer-marketing-get-clients-online",
-                label: "Personal trainer marketing (solo PTs)",
-                kind: "Article",
               },
             ].map((r) => (
-              <motion.a
-                key={r.href}
-                href={r.href}
-                variants={fadeUpB}
-                className="flex items-center justify-between gap-3 bg-card rounded-xl border border-border p-5 shadow-card hover:border-accent transition-colors group"
-              >
-                <div className="flex-1">
-                  <p className="text-xs font-bold tracking-widest text-accent mb-1 uppercase">
-                    {r.kind}
-                  </p>
+              <motion.div key={r.href} variants={fadeUpB}>
+                <Link
+                  href={r.href}
+                  className="flex items-center justify-between gap-3 bg-card rounded-xl border border-border p-5 shadow-card hover:border-accent transition-colors group"
+                >
                   <span className="text-sm md:text-base text-foreground font-medium">
                     {r.label}
                   </span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-accent opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all flex-shrink-0" />
-              </motion.a>
+                  <ArrowRight className="w-4 h-4 text-accent opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Link>
+              </motion.div>
             ))}
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══ 11. Booking — Calendly inline + backup form ═══ */}
+      {/* ═══ 11. Booking ═══ */}
       <section
         id="book"
         className="section-padding"
@@ -1005,14 +801,14 @@ const GymMarketing = () => {
               variants={fadeUpB}
               className="heading-section text-foreground mb-4"
             >
-              Book a 30-min Call
+              Book a 30-min Sydney Gym Call
             </motion.h2>
             <motion.p
               variants={fadeUpB}
               className="text-body-lg text-muted-foreground max-w-2xl mx-auto"
             >
               Pick a time that suits. If nothing works, use the form and
-              we&apos;ll come back to you with two options.
+              we&rsquo;ll come back with two options.
             </motion.p>
           </ScrollReveal>
 
@@ -1020,39 +816,37 @@ const GymMarketing = () => {
             variant="B"
             className="grid lg:grid-cols-5 gap-8 items-start"
           >
-            {/* Calendly inline embed */}
             <motion.div variants={fadeUpB} className="lg:col-span-3">
               <CalendlyEmbed url={CALENDLY_URL} />
             </motion.div>
 
-            {/* Backup form */}
             <motion.div variants={fadeUpB} className="lg:col-span-2">
               <div className="bg-card rounded-2xl border border-accent/20 shadow-card p-7 gradient-mesh">
                 <h3 className="heading-card text-foreground mb-2">
                   Prefer email?
                 </h3>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Tell us a bit about your gym and we&apos;ll reply within 24
-                  hours with a time.
+                  Tell us your gym and suburb &mdash; we&rsquo;ll reply within
+                  24 hours.
                 </p>
                 <form onSubmit={handleBackupSubmit} className="space-y-4">
                   <input
                     type="hidden"
                     name="_subject"
-                    value="New gym marketing enquiry (/gym-marketing)"
+                    value="New Sydney gym marketing enquiry (/gym-marketing-sydney)"
                   />
                   <input
                     type="hidden"
                     name="source"
-                    value="gym_marketing_lp"
+                    value="gym_marketing_sydney_lp"
                   />
 
                   <div className="space-y-2">
-                    <Label htmlFor="gm-name">Your name *</Label>
+                    <Label htmlFor="gms-name">Your name *</Label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                       <Input
-                        id="gm-name"
+                        id="gms-name"
                         name="name"
                         required
                         placeholder="Full name"
@@ -1062,25 +856,48 @@ const GymMarketing = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="gm-business">Business name *</Label>
+                    <Label htmlFor="gms-business">
+                      Gym / studio name *
+                    </Label>
                     <div className="relative">
                       <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                       <Input
-                        id="gm-business"
+                        id="gms-business"
                         name="business"
                         required
-                        placeholder="Gym / studio name"
+                        placeholder="e.g. Bondi Strength Co."
                         className="pl-10 input-glass-light"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="gm-website">Website <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                    <Label htmlFor="gms-suburb">
+                      Sydney suburb *
+                    </Label>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
+                      <Input
+                        id="gms-suburb"
+                        name="suburb"
+                        required
+                        placeholder="e.g. Bondi, Parramatta, Inner West"
+                        className="pl-10 input-glass-light"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="gms-website">
+                      Website{" "}
+                      <span className="text-muted-foreground font-normal">
+                        (optional)
+                      </span>
+                    </Label>
                     <div className="relative">
                       <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                       <Input
-                        id="gm-website"
+                        id="gms-website"
                         name="website"
                         type="url"
                         placeholder="https://"
@@ -1090,11 +907,11 @@ const GymMarketing = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="gm-phone">Phone *</Label>
+                    <Label htmlFor="gms-phone">Phone *</Label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                       <Input
-                        id="gm-phone"
+                        id="gms-phone"
                         name="phone"
                         type="tel"
                         required
@@ -1105,14 +922,19 @@ const GymMarketing = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="gm-help">What do you need help with? <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                    <Label htmlFor="gms-help">
+                      What do you need help with?{" "}
+                      <span className="text-muted-foreground font-normal">
+                        (optional)
+                      </span>
+                    </Label>
                     <div className="relative">
                       <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground z-10" />
                       <Textarea
-                        id="gm-help"
+                        id="gms-help"
                         name="message"
                         rows={4}
-                        placeholder="More members, off-peak classes, Google Ads not working, etc."
+                        placeholder="Local 3-pack ranking, ads not converting, off-peak classes empty, etc."
                         className="pl-10 input-glass-light"
                       />
                     </div>
@@ -1148,4 +970,4 @@ const GymMarketing = () => {
   );
 };
 
-export default GymMarketing;
+export default GymMarketingSydney;

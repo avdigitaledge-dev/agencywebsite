@@ -26,6 +26,11 @@ const categoryMeta: Record<string, { title: string; description: string; keyword
     description: "Digital marketing strategies, online advertising tips, and growth guides for tradies and small businesses in Wollongong, Sydney, and NSW.",
     keywords: "digital marketing tips, online marketing wollongong, small business marketing, tradie marketing",
   },
+  "gym-marketing": {
+    title: "Gym Marketing Articles | Digital Edge Studio Blog",
+    description: "Gym marketing strategies, lead generation, Google Ads, and local SEO guides for independent Australian gyms, PT studios, and CrossFit boxes.",
+    keywords: "gym marketing australia, gym lead generation, gym seo, personal trainer marketing, facebook ads for gyms, google ads for gyms",
+  },
 };
 
 // Map URL slugs to actual category names used in data
@@ -33,6 +38,7 @@ const slugToCategory: Record<string, string> = {
   "web-design": "Web Design",
   "seo": "SEO",
   "digital-marketing": "Digital Marketing",
+  "gym-marketing": "Gym Marketing",
 };
 
 const BlogCategory = ({ category: categorySlug }: { category: string }) => {
