@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Digital Edge Studio",
     locale: "en_AU",
     type: "website",
-    images: ["/images/blog/hero-banner.png"],
+    images: ["/images/OG-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",

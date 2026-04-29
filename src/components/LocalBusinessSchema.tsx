@@ -41,7 +41,7 @@ export default function LocalBusinessSchema() {
       }
     ],
     "priceRange": "$$",
-    "image": "https://digitaledgestudio.com/images/digital-edge-studio-og.jpg",
+    "image": "https://digitaledgestudio.com/images/OG-image.jpg",
     "logo": "https://digitaledgestudio.com/images/logo.png",
     "sameAs": [
       "https://www.linkedin.com/company/digitaledgestudio-agency",
