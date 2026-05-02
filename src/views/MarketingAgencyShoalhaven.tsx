@@ -63,6 +63,7 @@ const MarketingAgencyShoalhaven = () => {
     { title: "Content Marketing", desc: "Strategic blog posts, landing pages, and website copy that attract visitors and position your Shoalhaven business as a local authority." },
     { title: "Email Marketing", desc: "Nurture leads and retain customers with automated email sequences, newsletters, and targeted campaigns that drive repeat business and bookings." },
     { title: "Conversion Rate Optimisation", desc: "Turn more website visitors into paying customers. We analyse user behaviour and optimise your site for maximum conversions and bookings." },
+    { title: "WordPress & Custom Web Development", desc: "WordPress sites, custom builds, and migrations for Shoalhaven businesses. See our full guide for Nowra and Shoalhaven WordPress projects.", link: "/blog/wordpress-developer-nowra-shoalhaven" },
   ];
 
   const testimonials = [

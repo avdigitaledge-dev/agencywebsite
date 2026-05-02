@@ -2236,7 +2236,7 @@ If you want to rank higher on Google and get more customers from the Nowra and S
   },
   {
     id: '22',
-    title: 'WordPress Developer in Nowra & Shoalhaven: Custom Sites That Outperform WP',
+    title: 'WordPress Developer Nowra & Shoalhaven | Digital Edge Studio',
     slug: 'wordpress-developer-nowra-shoalhaven',
     excerpt: 'Need a WordPress developer in Nowra or Shoalhaven? Before you hire one, see why local businesses now get faster, cheaper-to-run custom sites instead. Free quote.',
     content: `If you've been searching for a WordPress developer in Nowra or the Shoalhaven, you're probably assuming WordPress is the obvious choice. It's the most popular website platform in the world. Everyone uses it. It must be good, right?
@@ -2316,7 +2316,7 @@ Digital Edge Studio builds [custom, high-performance websites for Nowra business
     image: '/images/blog/webdesign-pic.webp',
     readTime: 10,
     keywords: ['nowra wordpress developer', 'wordpress developer nowra', 'shoalhaven wordpress developer', 'wordpress website nowra', 'web developer nowra', 'custom website nowra'],
-    metaDescription: 'Searching for a WordPress developer in Nowra? Find out why Shoalhaven businesses are switching to faster, custom-built websites that cost the same and rank higher.',
+    metaDescription: 'Wollongong-based studio building WordPress and custom sites for Nowra and Shoalhaven businesses. Same-day quotes, fixed pricing from $1,200, and a real human who picks up the phone.',
     faqs: [
       {
         question: 'Is a custom website more expensive than WordPress in Nowra?',
@@ -2333,6 +2333,18 @@ Digital Edge Studio builds [custom, high-performance websites for Nowra business
       {
         question: 'Should I migrate my existing WordPress site to a custom build?',
         answer: 'If your WordPress site is slow, hard to maintain, or not ranking well on Google, migrating to a custom build is worth considering. We handle the full migration including content transfer, URL redirects to preserve any existing SEO value, and Google Business Profile updates. Most migrations are completed within 3 to 4 weeks.'
+      },
+      {
+        question: 'How much does a WordPress site in Nowra cost?',
+        answer: 'A professional WordPress site for a Nowra business typically costs $1,200 to $5,000 depending on page count, custom design, and integrations. A standard 5-page brochure site sits around $1,500 to $2,500. We provide fixed-price quotes after a free 30-minute discovery call so you know the total cost upfront — no hourly billing surprises.'
+      },
+      {
+        question: 'Do you support WordPress hosting?',
+        answer: 'Yes. We offer managed WordPress hosting for Nowra and Shoalhaven clients including daily backups, security monitoring, plugin and core updates, SSL, and uptime monitoring. Plans start at $50 per month. We also support clients who prefer to host elsewhere — we can advise on hosting choice and handle the setup.'
+      },
+      {
+        question: 'Can you fix my existing WordPress site?',
+        answer: 'Yes. Common fixes for Nowra clients include slow-loading pages, broken contact forms, outdated plugins causing security warnings, design issues on mobile, and recovering hacked sites. We start with a free site audit, give you a fixed quote for the work, and most fixes are completed within 1 to 2 weeks. We can also take over maintenance from your current developer.'
       }
     ],
     relatedSlugs: ['website-cost-nowra-shoalhaven-2026', 'best-cms-small-business', 'how-to-choose-web-designer-australia']

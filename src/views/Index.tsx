@@ -767,6 +767,7 @@ const Index = () => {
               { label: "Web Design Wollongong", path: "/web-design-wollongong" },
               { label: "Web Design Sydney", path: "/web-design-sydney" },
               { label: "Web Design Illawarra", path: "/web-design-illawarra" },
+              { label: "WordPress Developer Nowra", path: "/blog/wordpress-developer-nowra-shoalhaven" },
               { label: "Web Design for Tradies", path: "/web-design-tradies" },
               { label: "Healthcare Web Design", path: "/web-design-healthcare" },
             ].map((area) => (

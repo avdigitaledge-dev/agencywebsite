@@ -22,7 +22,7 @@ const regions = [
   {
     heading: "South Coast",
     locations: [
-      { name: "Nowra", href: "/web-design-nowra", desc: "Website design for Nowra, Bomaderry, and Shoalhaven businesses." },
+      { name: "Nowra", href: "/web-design-nowra", desc: "Website design for Nowra, Bomaderry, and Shoalhaven businesses.", extraLink: { label: "Read: WordPress Developer Nowra & Shoalhaven", href: "/blog/wordpress-developer-nowra-shoalhaven" } },
       { name: "South Coast / Shoalhaven", href: "/web-design-south-coast", desc: "Serving Berry, Huskisson, Jervis Bay, Ulladulla, Milton, and the wider South Coast." },
       { name: "Marketing Agency Shoalhaven", href: "/marketing-agency-shoalhaven", desc: "SEO, Google Ads, and digital marketing for Shoalhaven businesses \u2014 integrated strategy for Nowra, Berry, and beyond." },
     ],
@@ -108,16 +108,23 @@ const AreasWeServe = () => {
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {region.locations.map((loc) => (
-                  <Link key={loc.name} href={loc.href} className="group block p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
-                    <div className="flex gap-4">
-                      <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">{loc.name}</h3>
-                        <p className="text-sm text-muted-foreground">{loc.desc}</p>
-                        <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                  <div key={loc.name}>
+                    <Link href={loc.href} className="group block p-6 bg-card rounded-xl border border-border shadow-card card-hover-lift">
+                      <div className="flex gap-4">
+                        <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                        <div>
+                          <h3 className="font-bold text-foreground font-display group-hover:text-accent transition-colors mb-1">{loc.name}</h3>
+                          <p className="text-sm text-muted-foreground">{loc.desc}</p>
+                          <span className="text-sm text-accent font-medium mt-2 inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                    {loc.extraLink && (
+                      <Link href={loc.extraLink.href} className="block mt-2 px-2 text-xs text-muted-foreground hover:text-accent inline-flex items-center gap-1">
+                        {loc.extraLink.label} <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
