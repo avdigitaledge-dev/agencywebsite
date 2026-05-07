@@ -155,14 +155,12 @@ const Index = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://digitaledgestudio.com/#website",
     "name": "Digital Edge Studio",
     "url": "https://digitaledgestudio.com",
     "description": "Web design and digital marketing for tradies and small businesses in Wollongong, Sydney & NSW",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": { "@type": "EntryPoint", "urlTemplate": "https://digitaledgestudio.com/blog?q={search_term_string}" },
-      "query-input": "required name=search_term_string"
-    }
+    "publisher": { "@id": "https://digitaledgestudio.com/#business" },
+    "inLanguage": "en-AU"
   };
 
   return (
