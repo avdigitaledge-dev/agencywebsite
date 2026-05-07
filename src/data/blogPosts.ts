@@ -1637,10 +1637,10 @@ Consider a local tradesman currently getting 5 enquiries per month from their we
 
 The compounding effect is what makes SEO especially powerful. Unlike paid ads where traffic stops the moment you stop paying, SEO builds lasting organic visibility. The content you create and the authority you build continue generating traffic for months and years.
 
-For more context on overall website costs, our local SEO guide covers how local optimisation specifically benefits businesses in the Illawarra region. And if you're a tradie considering SEO, our guide on SEO for tradies breaks down the specific ROI for trade businesses.`,
+For more context on overall website costs, our [local SEO guide](/blog/local-seo-wollongong-guide) covers how local optimisation specifically benefits businesses in the Illawarra region. And if you're weighing organic against paid, our companion guide on [Google Ads costs in Australia](/blog/google-ads-cost-australia) breaks down what to expect from PPC budgets. If you're a tradie considering SEO, our guide on [SEO for tradies](/blog/seo-tradies-google-ranking) breaks down the specific ROI for trade businesses.`,
     author: 'Digital Edge Studio',
     date: '2026-02-24',
-    lastUpdated: '2026-02-24',
+    lastUpdated: '2026-05-06',
     category: 'SEO',
     image: '/images/blog/seo-cost-australia.webp',
     readTime: 10,
@@ -3772,5 +3772,203 @@ If you just want Google Ads rebuilt standalone: [/google-ads-for-gyms](/google-a
       }
     ],
     relatedSlugs: ['gym-lead-generation-strategies', 'why-most-gym-ads-fail', 'gym-marketing-australia-best-strategies']
+  },
+  {
+    id: '36',
+    title: 'Google Ads Cost in Australia: 2026 Pricing Breakdown',
+    slug: 'google-ads-cost-australia',
+    excerpt: 'Google Ads in Australia typically cost $300 to $5,000+ per month with cost-per-click averaging $1.50 to $25 by industry. Here\'s the real pricing breakdown and what to actually pay.',
+    content: `Google Ads in Australia typically cost between $300 and $5,000+ per month, with most small businesses spending $500 to $2,000. Cost-per-click averages $1.50 to $25 depending on industry — legal and finance keywords routinely hit $20+, while hospitality and basic local services often pay under $2. On top of ad spend, you'll pay management fees of 15–25% (percentage model) or $400 to $1,500 per month (flat retainer).
+
+Google's own Economic Impact Report estimates an average of $2 in revenue for every $1 spent on Ads, and well-managed local-service campaigns regularly hit 4–8x return on ad spend.
+
+This guide breaks down the real numbers — what affects pricing, what you should pay by business size, the hidden costs nobody quotes, and the specific red flags to avoid when shopping for an agency or freelancer.
+
+The Quick Answer: $300–$5,000+ Per Month
+
+Most Australian small businesses run Google Ads in one of four budget tiers:
+
+- Starter ($300–$700/month): Single-location service business, 1–3 keywords, hyper-local targeting. Suitable for new tradies, cafés, salons. Expect 30–100 clicks per month.
+- Local Business ($700–$2,000/month): Established small business targeting a city or region. 5–15 keywords, multiple ad groups, conversion tracking. The most common tier for Australian SMBs.
+- Growing Business ($2,000–$5,000/month): Multi-location or competitive metro market. Search + Performance Max + retargeting, dedicated landing pages. Typical for ecommerce, professional services, and trades scaling beyond one suburb.
+- High-Spend ($5,000+/month): Multi-state operations or competitive professional services like legal, finance, and dental. Dedicated account management, custom audiences, advanced bidding strategies.
+
+These ranges are the ad spend itself. Management fees from a freelancer or agency add 15–25% on top, or a flat retainer of $400 to $1,500 per month. We cover [our pricing](/pricing) in detail on a separate page.
+
+The right number for your business depends on three things: how competitive your industry is, how much each customer is worth to you, and how fast you need leads. A plumber in [Wollongong](/web-design-wollongong) with $300/month can break even in week one. A personal injury lawyer in Sydney usually needs $3,000+/month just to compete in the auction.
+
+What Determines Google Ads Cost in Australia?
+
+Google Ads pricing is an auction. You're not paying a fixed rate — you're bidding against other advertisers for each click. Five factors decide what you actually pay.
+
+Industry competition is the single biggest variable. Legal, finance, and insurance keywords in Australia routinely cost $20–$50 per click. Tradies pay $4–$12. Hospitality and basic local services often pay under $2. The more profitable a customer is, the higher competing advertisers will bid.
+
+Geographic location matters more than most businesses realise. Sydney and Melbourne CBD costs significantly more than regional NSW or Tasmania. "Plumber Sydney" can hit $15+ CPC while "plumber Wollongong" averages $4–$7. Tightening your geo-targeting to actual service areas — not entire metros — is one of the fastest ways to cut wasted spend.
+
+Quality Score is Google's 1–10 rating of your ads, keywords, and landing pages. According to Google Search Central, advertisers with a Quality Score of 8+ pay up to 50% less per click than advertisers at score 4–5. This is why a slow or poorly-built website inflates ad costs even when the campaign itself is well-structured.
+
+Time of day and seasonality affect bids in real time. Tradies see higher CPCs during emergency hours (after 6pm, weekends). Retailers pay more during Black Friday and Christmas. Bid scheduling lets you spend less when competition spikes.
+
+Match type and bidding strategy can swing CPC by 3–5x for the same keyword. Broad match is cheaper per click but wastes budget on irrelevant searches. Exact match is more expensive per click but typically converts at 2–4x the rate. Smart Bidding (Google's automated strategies) usually reduces wasted spend by 15–30% once it has 90 days of conversion data.
+
+Average Cost Per Click in Australia by Industry (2026 Data)
+
+WordStream's 2025 Australian benchmarks plus current SEMrush keyword data give realistic CPC ranges across the industries we work with most often:
+
+- Legal services: $8–$50+ per click. "Personal injury lawyer Sydney" routinely $40+; "family lawyer Melbourne" $25–$35. Personal injury, immigration, and criminal defence are the most expensive verticals in the country.
+- Financial services: $7–$30 per click. Mortgage brokers, financial planners, and insurance brokers pay $10–$25 typically.
+- Trades and home services: $4–$12 per click. Plumbing $5–$10, electrical $4–$9, HVAC $6–$12. Emergency keywords like "emergency plumber Sydney" spike to $15+.
+- Healthcare: $5–$15 per click. Dentists, physiotherapists, chiropractors. Cosmetic dentistry and orthodontics push $20+.
+- Real estate: $3–$10 per click. Buyers' agents and property managers cost more than sales agents.
+- Hospitality and food: $0.80–$3 per click. Cafés, restaurants, takeaway. Some of the cheapest CPCs in Australia.
+- Beauty and personal care: $2–$8 per click. Hair salons, nail salons, beauty therapists.
+- E-commerce: $1–$4 per click on average; varies wildly by category. Fashion is cheap, supplements and electronics are expensive.
+
+Across all industries, WordStream's 2025 data puts the Australian average search CPC at $2.69 and display CPC at $0.63 — but those averages hide enormous variance. The relevant question isn't "what's the average CPC" but "what's the CPC for my specific keyword in my specific suburb."
+
+You can pull exact CPCs for your keywords using Google's Keyword Planner (free, inside Ads Manager) or SEMrush. We typically run a 30-minute keyword exploration with new clients before quoting any campaign — it's the only way to give an accurate budget recommendation.
+
+Monthly Budget Recommendations by Business Size
+
+The cheapest viable Google Ads campaign in Australia is around $300/month — below that, the algorithm doesn't get enough conversion data to optimise. Here's what we recommend by business stage:
+
+Solo tradie or new small business: $500–$1,000/month. One location, 3–5 keywords, tight geo-targeting (5–15km radius). Pair with Local Service Ads if eligible. Expect 50–200 clicks per month and 3–15 leads depending on conversion rate.
+
+Established small business: $1,000–$2,500/month. One or two locations, 8–20 keywords, Search + Performance Max. Add retargeting once monthly clicks exceed 200. Expect 100–500 clicks per month and 8–40 leads.
+
+Multi-location or competitive industry: $2,500–$5,000/month. Three-plus locations or operating in legal/finance/insurance. Dedicated landing pages per service, conversion-rate-optimised funnels, advanced audiences. Expect 200–1,000+ clicks per month.
+
+Professional services in Sydney/Melbourne metro: $5,000–$15,000+/month. The CPCs alone justify the spend. Dedicated account management, custom landing pages, A/B testing, full attribution tracking.
+
+For most of our Wollongong and Sydney clients, the right starting point is $800–$1,500/month. That's enough budget to test 2–3 ad groups, get statistically meaningful conversion data within 4–6 weeks, and start scaling what works. Below $500/month, you're usually better off investing in SEO instead — our [SEO cost in Australia guide](/blog/seo-cost-australia) explains the trade-off in detail.
+
+One important caveat: Google's algorithm needs 30–50 conversions per ad group per month to optimise effectively. If your CPC is $10 and you can only afford 30 clicks per ad group at 5% conversion, you're below the learning threshold. Either increase the budget, narrow the targeting, or accept that the campaign will be permanently in "learning" mode.
+
+Ad Spend vs Management Fees: What You're Actually Paying For
+
+Every Google Ads invoice in Australia contains two distinct line items: ad spend (paid to Google) and management fees (paid to your agency or freelancer). Understanding the split protects you from the most common scams.
+
+Ad spend is the auction money that goes directly to Google for clicks. This is your campaign budget. It should be paid via your own Google Ads account on your own credit card — not paid to the agency.
+
+Management fees are what you pay the human running the campaign. They cover keyword research, ad copywriting, conversion tracking setup, landing page recommendations, daily monitoring, A/B testing, monthly reporting, and strategic optimisation.
+
+Two common pricing models in Australia:
+
+Percentage-of-spend (15–25% of ad budget) is standard at most generalist agencies. A $2,000/month ad budget would mean $300–$500/month management. The upside is that fees scale with campaign size. The downside is that agencies are incentivised to recommend bigger budgets even when smaller would be better.
+
+Flat retainer ($400–$1,500/month) is more common at boutique agencies and freelancers. Same fee regardless of ad spend. Pros: aligned incentives. Cons: tiny budgets get expensive on a per-dollar-of-spend basis.
+
+For most Australian SMBs running $500–$2,500/month in ad spend, a flat retainer of $500–$900/month is the better deal. Above $5,000/month in spend, the percentage model usually wins. Always ask explicitly how the agency bills before signing — and insist that ad spend goes directly to your own Google Ads account.
+
+Google Ads Management Fees: Freelancer vs Agency vs DIY
+
+You have three options for who runs the campaign.
+
+DIY costs $0 in management fees but takes 10–30 hours to set up and 5–10 hours per month ongoing. Realistic only if you have prior Ads experience or you're running a tiny budget with simple targeting. Most DIY campaigns waste 30–60% of budget in the first 90 days because the operator hasn't learned what to negative-keyword, how to structure ad groups, or how to interpret Quality Score signals. The Australian small businesses we audit who run their own Ads typically pay 2–3x more per lead than they should.
+
+Freelancers charge $400–$1,000/month and are best for smaller budgets ($500–$2,000/month ad spend) and single-channel campaigns. Pros: cheaper, direct communication, often more flexible. Cons: limited bandwidth (most freelancers cap at 8–15 clients), variable quality, no backup if they go on holiday.
+
+Boutique agencies charge $600–$1,500/month and are best for most Australian SMBs with $1,000–$5,000/month ad budgets. Pros: senior-level expertise, integrated approach (often paired with SEO and web design), team continuity. Cons: more expensive than freelancers, less personal than working with one human.
+
+Large agencies charge $1,500–$5,000+/month and are best for enterprise budgets ($10,000+/month) or businesses needing complex multi-channel campaigns. Pros: deep specialisation, sophisticated tools and reporting. Cons: junior account managers often run small accounts, and the overall feel can be impersonal.
+
+For most of the tradies and small businesses we work with, a boutique agency or experienced freelancer at $600–$900/month is the sweet spot. [Our Google Ads management service](/services/google-ads) sits in this tier with flat-fee pricing.
+
+Hidden Costs Most Businesses Don't Budget For
+
+The visible costs (ad spend + management fees) are only about 70–80% of what a Google Ads campaign actually requires to perform. The remaining 20–30% goes to things most agencies don't include in their quote.
+
+Landing page improvements. Google Ads sends paid traffic to a specific page on your site. If that page converts at 1% instead of 5%, you're wasting 80% of your spend. Most campaigns need 1–3 dedicated landing pages built or rebuilt at $400–$1,500 per page. The [Volt Current Electrical case study](/portfolio/volt-current-electrical-wollongong) is a typical example — the landing page work delivered most of the conversion lift, not the ads themselves.
+
+Conversion tracking setup. Google Analytics 4, Google Tag Manager, conversion goals, phone-call tracking. Without these, you're flying blind. Setup costs $300–$1,500 once and $0/month thereafter, but roughly 30% of campaigns we audit don't have it configured properly.
+
+Call tracking. Tradies and service businesses get most of their leads via phone. Without dynamic call-tracking numbers (CallRail, WhatConverts, ServiceM8), you can't tell which keyword or ad drove which call. $30–$100/month.
+
+Ad creative production. Performance Max campaigns need images, video assets, and headlines. Stock images cost $50–$200/month from Adobe Stock or Canva Pro. Video production runs $200–$1,000+ per asset.
+
+Bid adjustments during peak seasons. Black Friday, Christmas, end of financial year — competitor advertisers spike budgets and your CPCs follow. Budget 15–25% headroom in Q4 if you're in retail or hospitality.
+
+Red Flags: Google Ads Packages That Are Too Cheap
+
+Australia is full of agencies advertising "Google Ads from $99/month." These are almost always traps. Here's what to watch for.
+
+"All-inclusive" packages under $500/month total. If the package promises ad management AND ad spend bundled into a single fee, the agency is either skimming most of the money as their fee or running the same templated campaign across dozens of clients. Both produce poor results.
+
+No access to your own Google Ads account. If the agency runs ads through their own master account and only sends you a monthly report, they own your campaign data. If you ever leave, you lose every keyword, ad copy variation, and conversion record. Always insist on having ads run from your own Google Ads account that you control.
+
+Guaranteed Page 1 rankings or guaranteed lead counts. No ethical agency guarantees specific outcomes — Google's auction is too dynamic. Guarantees are usually achieved by bidding on your own branded keywords (where you'd rank for free anyway) and counting any branded clicks as "leads."
+
+Long lock-in contracts of 12 months or more. Quality agencies earn your business month to month. A long no-exit contract suggests the agency expects you'll want to leave once you see actual performance.
+
+Vague reporting that says "we optimised your campaigns this month" without numbers. Real reporting includes keyword-level performance, ad-level CTR and conversion rate, landing page conversion rate, total spend vs leads, cost-per-lead and cost-per-acquisition, and a comparison to the previous month.
+
+"AI-powered" or "automated" Ads management at very low fees. Most of these tools are wrappers around Google's Smart Bidding — which is already free inside Google Ads. You're paying for marketing language, not extra optimisation.
+
+How to Calculate Your Google Ads ROI
+
+The single most important number in Google Ads is cost-per-acquisition (CPA) — what you pay to get one paying customer, not just one click.
+
+The formula is simple: CPA equals total cost (ad spend + management fees) divided by the number of customers acquired.
+
+For example, $1,500 ad spend plus $700 management equals $2,200 total. If those campaigns produced 10 paying customers, your CPA is $220.
+
+Whether $220 is good depends entirely on customer lifetime value (LTV) — how much each customer is worth to you over their relationship with your business. The standard rule is to aim for an LTV-to-CPA ratio of at least 3:1.
+
+For an electrician where the average job is $500 and most customers come back at least once, LTV is $750–$1,000. A $220 CPA is healthy.
+
+For a dentist where the average new patient generates $1,500–$3,000 in lifetime revenue, a $220 CPA is excellent.
+
+For a café where the average ticket is $15 and customers visit four times before churning, LTV is $60. A $220 CPA is catastrophic — you'd lose money on every customer.
+
+Track three numbers monthly: cost per click (CPC), conversion rate (clicks-to-enquiries), and close rate (enquiries-to-customers). Multiply them and you get cost-per-acquisition. The biggest mistake businesses make is optimising for cheaper clicks rather than cheaper customers — sometimes the most expensive keywords convert at five times the rate of cheap ones, making them dramatically profitable.
+
+If your CPA is too high, the fix is usually one of three things: improve the landing page, narrow the targeting, or accept that Google Ads isn't the right channel for your margins.
+
+Is Google Ads Worth It for an Australian Small Business?
+
+For most local service businesses with margins above 30% and lifetime customer value above $300, yes — Google Ads usually pays back. But "worth it" depends on three honest questions.
+
+How fast do you need leads? If you need new business this month, Google Ads is the fastest channel available. SEO will outperform Ads on cost-per-lead by month 12, but you need 6–9 months of investment first. The decision between channels depends on cash flow more than philosophy.
+
+Can you track conversions? If you can't tell which leads came from Ads and which came from organic search, you can't optimise the campaign or judge the ROI. Conversion tracking setup is non-negotiable before launching.
+
+Is your website good enough to convert? Google Ads sends qualified, high-intent traffic to your site. If your site loads slowly, looks dated, doesn't display a phone number prominently, or has confusing CTAs, you'll waste 50–80% of every dollar of ad spend. We've audited campaigns running $5,000/month where the bottleneck was the website, not the ads.
+
+For Australian SMBs that meet those three criteria, Google Ads is one of the highest-ROI marketing channels available. For those that don't, fix the website first or invest in SEO and [Google Business Profile optimisation](/blog/google-business-profile-optimisation) instead. We offer a [free website review](/free-website-review) to help work out which channel makes sense for your specific business.`,
+    author: 'Digital Edge Studio',
+    date: '2026-05-06',
+    lastUpdated: '2026-05-06',
+    category: 'Digital Marketing',
+    image: '/images/blog/google-ads-pic.webp',
+    readTime: 11,
+    keywords: ['google ads cost australia', 'google ads pricing', 'google ads management fees', 'cost per click australia', 'google ads budget', 'google ads ROI', 'google ads small business australia'],
+    metaDescription: 'Google Ads cost in Australia ranges from $300 to $5,000+/month. Here\'s what affects pricing, real CPC data by industry, and how to avoid wasted spend.',
+    faqs: [
+      {
+        question: 'How much do Google Ads cost per click in Australia?',
+        answer: 'Most industries pay $1.50–$8 per click. Legal services pay $15–$50; tradies $3–$12; hospitality $0.80–$3; ecommerce $1–$4. Quality Score and competition dictate the upper range. WordStream\'s 2025 data puts the Australian average search CPC at $2.69 across all industries.'
+      },
+      {
+        question: 'Is $500 a month enough for Google Ads?',
+        answer: '$500/month works for low-CPC categories (cafés, hospitality, basic local services) and can produce 80–150 clicks. For tradies it covers 50–100 clicks; for legal or finance it\'s barely 25–35. Tight management is essential at this budget — wasted spend hits harder when there\'s less of it to begin with.'
+      },
+      {
+        question: 'What\'s the average ROI from Google Ads in Australia?',
+        answer: 'Google reports a 2:1 average ROI ($2 revenue per $1 spent), but well-managed local-service campaigns regularly hit 4–8x ROAS. The variance depends on margins, conversion rate, and customer lifetime value. Track conversions from day one or you can\'t measure ROI at all.'
+      },
+      {
+        question: 'Do agencies charge a percentage of ad spend or a flat fee?',
+        answer: 'Both models exist in Australia. Percentage models charge 15–25% of ad spend. Flat retainers run $400–$1,500/month for SMBs. For budgets under $2,000/month, flat fees are usually cheaper. Always ask whether reporting and landing-page optimisation are included in either model.'
+      },
+      {
+        question: 'How long until Google Ads start working?',
+        answer: 'Google Ads serve impressions within hours of campaign approval. Useful conversion data takes 2–4 weeks. The optimisation curve flattens around week 6–8 once Google\'s algorithm has enough conversion signals. Pulling out before 90 days almost always wastes the learning-phase budget.'
+      },
+      {
+        question: 'What\'s the cheapest way to run Google Ads in Australia?',
+        answer: 'Performance Max with Smart Bidding plus tightly geo-targeted Search campaigns. Use exact-match negative-keyword lists religiously. Skip Display unless retargeting. Cap daily budgets and let Google\'s smart bidding optimise. Most savings come from killing irrelevant clicks, not from cheaper bids.'
+      }
+    ],
+    relatedSlugs: ['seo-cost-australia', 'google-ads-nowra-shoalhaven', 'google-business-profile-optimisation']
   }
 ];
