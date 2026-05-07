@@ -1,3 +1,5 @@
+import { RATINGS } from "@/data/siteConfig";
+
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -8,6 +10,8 @@ export default function LocalBusinessSchema() {
     "url": "https://digitaledgestudio.com",
     "telephone": "+61419807321",
     "email": "enquiries@digitaledgestudio.com",
+    "foundingDate": "2025-01-01",
+    "founder": { "@id": "https://digitaledgestudio.com/#aleksandar" },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Wollongong",
@@ -43,6 +47,21 @@ export default function LocalBusinessSchema() {
     "priceRange": "$$",
     "image": "https://digitaledgestudio.com/images/OG-image.jpg",
     "logo": "https://digitaledgestudio.com/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "telephone": "+61419807321",
+      "email": "enquiries@digitaledgestudio.com",
+      "areaServed": "AU",
+      "availableLanguage": "en-AU"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": RATINGS.value,
+      "reviewCount": RATINGS.count,
+      "bestRating": RATINGS.best,
+      "worstRating": RATINGS.worst
+    },
     "sameAs": [
       "https://www.linkedin.com/company/digitaledgestudio-agency",
       "https://www.facebook.com/digitaledgestudioau/",

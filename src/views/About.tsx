@@ -63,27 +63,9 @@ const About = () => {
     ]
   };
 
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://digitaledgestudio.com/#business",
-    "name": "Digital Edge Studio",
-    "description": "Web design and digital marketing agency for tradies and small businesses in Wollongong, Sydney & NSW",
-    "areaServed": ["Sydney", "Wollongong", "NSW"],
-    "url": "https://digitaledgestudio.com/about",
-    "foundingDate": "2025-01-01",
-    "founder": { "@id": "https://digitaledgestudio.com/#aleksandar" },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "email": "enquiries@digitaledgestudio.com"
-    }
-  };
-
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
 
       <Breadcrumb items={[
         { label: 'Home', path: '/' },

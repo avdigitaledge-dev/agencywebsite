@@ -29,10 +29,14 @@ export const metadata: Metadata = {
   },
   description:
     "Wollongong web design agency building fast, professional websites for tradies and small businesses. Reliable packages, local SEO, and more leads guaranteed.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     siteName: "Digital Edge Studio",
     locale: "en_AU",
     type: "website",
+    url: "https://digitaledgestudio.com",
     images: ["/images/OG-image.jpg"],
   },
   twitter: {
